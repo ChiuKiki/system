@@ -16,3 +16,17 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//操作者登陆
+Route::any('operatorLogin','PeopleController@checkModel');
+//操作者注册
+Route::any('register','PeopleController@insert_administrator_Model');
+
+
+//人员查询
+Route::any('query','PeopleController@readModel');
+//添加人员
+Route::any('insert','PeopleController@insertModel');
+//修改人员
+Route::any('update','PeopleController@updateModel');
+

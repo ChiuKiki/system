@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class PeopleMiddleware
+class CheckRootMiddleware
 {
     /**
      * Handle an incoming request.

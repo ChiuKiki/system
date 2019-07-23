@@ -24,6 +24,7 @@ class CreatePeopleTable extends Migration
             $table->string('school');
             $table->string('department');
             $table->string('position');
+            $table->string('password',200);
             $table->timestamps();
         });
     }
