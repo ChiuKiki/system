@@ -14,7 +14,7 @@ class PeopleController extends Controller
     public function checkModel(Request $request)
     {
         //测试登陆
-        //127.0.0.1/frame/system/public/api/operatorLogin?user=root&password=123456
+        //127.0.0.1/frame/system/public/api/operatorLogin?name=a&password=abc123
         $result = People::checkAccount($request);
 
         switch($result){
@@ -37,19 +37,6 @@ class PeopleController extends Controller
     }
 
 
-    public function insert_administrator_Model(Request $request)
-    {
-        //测试注册
-        // http://127.0.0.1/frame/system/public/api/register?name=kk&password=123
-        $_SESSION['flag'] = isset($_SESSION['flag']) ? $_SESSION['flag'] : "";
-
-        $result = People::insertAdministrator($request);
-        if ($result) {
-            return response(array('message'=>'注册成功'));
-        } else {
-            return response(array('message'=>'注册失败'),403);
-        }
-    }
 
 
     public function readModel(Request $request)
@@ -75,7 +62,7 @@ class PeopleController extends Controller
 
                 case "2":
                     //测试部门查询
-                    //http://127.0.0.1/frame/system/public/api/query?choice=2&queryName=部门1
+                    //http://127.0.0.1/frame/system/public/api/query?choice=2&queryName=技术部
                     $result = People::queryDepartment($queryName);
                     if ($result==null) {
                         return response(array('message' => '无此部门'), 403);
@@ -91,7 +78,7 @@ class PeopleController extends Controller
         } elseif ($personName!=""&&$choice=="") {
 
             //测试获取某人具体信息
-            //http://127.0.0.1/frame/system/public/api/query?personName=t
+            //http://127.0.0.1/frame/system/public/api/query?personName=a
             $_SESSION['flag'] = isset($_SESSION['flag']) ? $_SESSION['flag'] : "";
 
             if ($_SESSION['flag'] != 1) {
@@ -115,7 +102,7 @@ class PeopleController extends Controller
     public function updateModel(Request $request)
     {
         //测试修改
-        //http://127.0.0.1/frame/system/public/api/update?name=t&gender=女&grade=2018级&number=2018&tel=17800000000&email=84@qq.com&school=电信&department=部门1&position=学生&password=1111111
+        //http://127.0.0.1/frame/system/public/api/update?name=a&gender=女&grade=2018级&number=201830250000&tel=15800000000&email=123456@qq.com&school=电信&department=技术部&position=CEO&password=abc123
         $_SESSION['flag'] = isset($_SESSION['flag']) ? $_SESSION['flag'] : "";
 
         if ($_SESSION['flag'] != 1) {

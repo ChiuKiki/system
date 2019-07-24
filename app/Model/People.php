@@ -10,33 +10,27 @@ class People extends Model
 {
     //登陆，并判断身份
     public static function checkAccount($request){
-        $user = $request->get('user');
+        $name = $request->get('name');
         $password = $request->get('password');
-        $isAdministrator=DB::table('administrator')->where(['name'=>$user,'password'=>$password])->first();
-        $isPeople=DB::table('people')->where(['name'=>$user,'password'=>$password])->first();
 
-        if($isAdministrator){
-            return $result="administrator";
-        }
-        elseif($isPeople){
-            return $result="people";
-        }
-        else{
+        $isLogIn=People::where(['name'=>$name,'password'=>$password])->first();
+        $isAdministrator1=People::where(['name'=>$name,'password'=>$password,'position'=>'CEO'])->first();
+        $isAdministrator2=People::where(['name'=>$name,'password'=>$password,'position'=>'总监'])->first();
+        $isAdministrator3=People::where(['name'=>$name,'password'=>$password,'position'=>'部长'])->first();
+
+        //登陆
+        if($isLogIn) {
+            //判断身份
+            if($isAdministrator1||$isAdministrator2||$isAdministrator3){
+                return $result="administrator";
+            }else{
+                return $result="people";
+            }
+        }else{
             return $result="fail";
         }
     }
 
-
-    //管理员注册
-    public static function insertAdministrator($request){
-        $name = $request->get('name');
-        $password = $request->get('password');
-
-        $result = DB::table('administrator')->insert(
-            ['name' => $name, 'password' => $password]
-        );
-        return $result;
-    }
 
 
     //获取学院人员名单
