@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="92b7de52-cca8-4183-a39d-fb92954ac68c" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2019_07_23_082258_create_administrator_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/seeds/AdministratorTableSeeder.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/PeopleController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/PeopleController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Model/People.php" afterPath="$PROJECT_DIR$/app/Model/People.php" />
@@ -33,8 +31,8 @@
       <file leaf-file-name="api.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="20" column="23" lean-forward="false" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+            <state relative-caret-position="567">
+              <caret line="21" column="7" lean-forward="true" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -43,8 +41,8 @@
       <file leaf-file-name="PeopleController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PeopleController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="19" column="24" lean-forward="true" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+            <state relative-caret-position="216">
+              <caret line="104" column="10" lean-forward="true" selection-start-line="104" selection-start-column="10" selection-end-line="104" selection-end-column="202" />
               <folding>
                 <element signature="e#40#61#0#PHP" expanded="true" />
               </folding>
@@ -55,11 +53,27 @@
       <file leaf-file-name="People.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Model/People.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1026">
-              <caret line="41" column="26" lean-forward="true" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
+            <state relative-caret-position="189">
+              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding>
-                <element signature="e#29#68#0#PHP" expanded="true" />
+                <element signature="e#29#43#0#PHP" expanded="true" />
+                <element signature="e#134#983#0#PHP" expanded="false" />
+                <element signature="e#1006#1355#0#PHP" expanded="false" />
+                <element signature="e#1377#1739#0#PHP" expanded="false" />
+                <element signature="e#1768#2013#0#PHP" expanded="false" />
+                <element signature="e#2033#3408#0#PHP" expanded="false" />
+                <element signature="e#3426#4627#0#PHP" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Check.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Check.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2565">
+              <caret line="95" column="0" lean-forward="true" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -101,6 +115,7 @@
         <option value="$PROJECT_DIR$/database/migrations/2019_07_23_082321_create_people_table.php" />
         <option value="$PROJECT_DIR$/database/seeds/PeopleTableSeeder.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PeopleController.php" />
+        <option value="$PROJECT_DIR$/app/Check.php" />
         <option value="$PROJECT_DIR$/app/Model/People.php" />
       </list>
     </option>
@@ -342,56 +357,6 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="database" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="system" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="system" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="database" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="seeds" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="system" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="system" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="database" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="migrations" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="system" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="system" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="config" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -418,7 +383,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../SingUp/teams2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../loginScreen" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
   </component>
   <component name="RecentsManager">
@@ -542,12 +507,12 @@
       <workItem from="1563707727341" duration="2260000" />
       <workItem from="1563866276251" duration="3624000" />
       <workItem from="1563869954208" duration="10680000" />
-      <workItem from="1563945099396" duration="3898000" />
+      <workItem from="1563945099396" duration="19860000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="144946000" />
+    <option name="totallyTimeSpent" value="160908000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -562,7 +527,7 @@
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2194206" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.123390555" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31257078" sideWeight="0.3245708" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -596,21 +561,11 @@
           <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="11" />
+      <option name="time" value="13" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Model/People.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="22" column="40" lean-forward="true" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
-          <folding>
-            <element signature="e#29#68#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PeopleController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="567">
@@ -626,7 +581,13 @@
         <state relative-caret-position="2565">
           <caret line="96" column="5" lean-forward="true" selection-start-line="96" selection-start-column="5" selection-end-line="96" selection-end-column="5" />
           <folding>
-            <element signature="e#29#68#0#PHP" expanded="true" />
+            <element signature="e#29#43#0#PHP" expanded="true" />
+            <element signature="e#134#983#0#PHP" expanded="false" />
+            <element signature="e#1006#1355#0#PHP" expanded="false" />
+            <element signature="e#1377#1739#0#PHP" expanded="false" />
+            <element signature="e#1768#2013#0#PHP" expanded="false" />
+            <element signature="e#2033#3408#0#PHP" expanded="false" />
+            <element signature="e#3426#4627#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -824,14 +785,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="20" column="23" lean-forward="false" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_07_23_072544_create_testadministrator_table.php" />
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_07_23_072638_create_testpeople_table.php" />
     <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
@@ -886,20 +839,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="21" column="7" lean-forward="true" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Check.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2565">
+          <caret line="95" column="0" lean-forward="true" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Model/People.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1026">
-          <caret line="41" column="26" lean-forward="true" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
+        <state relative-caret-position="189">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
-            <element signature="e#29#68#0#PHP" expanded="true" />
+            <element signature="e#29#43#0#PHP" expanded="true" />
+            <element signature="e#134#983#0#PHP" expanded="false" />
+            <element signature="e#1006#1355#0#PHP" expanded="false" />
+            <element signature="e#1377#1739#0#PHP" expanded="false" />
+            <element signature="e#1768#2013#0#PHP" expanded="false" />
+            <element signature="e#2033#3408#0#PHP" expanded="false" />
+            <element signature="e#3426#4627#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PeopleController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="19" column="24" lean-forward="true" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+        <state relative-caret-position="216">
+          <caret line="104" column="10" lean-forward="true" selection-start-line="104" selection-start-column="10" selection-end-line="104" selection-end-column="202" />
           <folding>
             <element signature="e#40#61#0#PHP" expanded="true" />
           </folding>

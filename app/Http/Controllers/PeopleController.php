@@ -14,7 +14,7 @@ class PeopleController extends Controller
     public function checkModel(Request $request)
     {
         //测试登陆
-        //127.0.0.1/frame/system/public/api/operatorLogin?name=a&password=abc123
+        //127.0.0.1/frame/system/public/api/operatorLogin?name=b&password=abc000
         $result = People::checkAccount($request);
 
         switch($result){
@@ -102,7 +102,7 @@ class PeopleController extends Controller
     public function updateModel(Request $request)
     {
         //测试修改
-        //http://127.0.0.1/frame/system/public/api/update?name=a&gender=女&grade=2018级&number=201830250000&tel=15800000000&email=123456@qq.com&school=电信&department=技术部&position=CEO&password=abc123
+        //http://127.0.0.1/frame/system/public/api/update?name=赵绮琪&gender=女&grade=2018级&number=201830250000&tel=15800000000&email=123456@qq.com&school=电子与信息学院&department=技术部&position=CEO&password=abc123
         $_SESSION['flag'] = isset($_SESSION['flag']) ? $_SESSION['flag'] : "";
 
         if ($_SESSION['flag'] != 1) {
@@ -121,11 +121,11 @@ class PeopleController extends Controller
     public function insertModel(Request $request)
     {
         //测试添加
-        // http://127.0.0.1/frame/system/public/api/insert?name=kiki&gender=男&grade=2018级&number=2018&tel=13600000000&email=8400@qq.com&school=学院1&department=部门2&position=学生&password=asdfgdfg
+        //http://127.0.0.1/frame/system/public/api/insert?name=a&gender=女&grade=2018级&number=201830250000&tel=15800000000&email=123456@qq.com&school=电子与信息学院&department=技术部&position=CEO&password=abc123
         $_SESSION['flag'] = isset($_SESSION['flag']) ? $_SESSION['flag'] : "";
 
         if ($_SESSION['flag'] != 1) {
-            return response(array('message'=>'无权限'),401);
+            return response(array('message'=>'无权限'),403);
         } else {
             $result = People::insertPeople($request);
             if ($result) {

@@ -2,8 +2,8 @@
 
 namespace App\Model;
 
+use App\Check;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
 
 
 class People extends Model
@@ -82,14 +82,24 @@ class People extends Model
         $position = $request->get('position');
         $password = $request->get('password');
 
-        $row=People::where('name',$name)->first();
-        $rowId=isset($row->id)?($row->id):'';     //修改名字所在行的id
-        $result = People::where('id', $rowId)->update(
-            ['name'=>$name,'gender'=>$gender,'grade'=>$grade,'number'=>$number,
-                'tel'=>$tel, 'email'=>$email,'school'=>$school,
-                'department'=>$department,'position'=>$position,'password'=>$password]
-        );
-        return $result;
+
+        //不能改姓名！
+        $checkResult=Check::checkNumber($number)&&Check::checkGender($gender)&&Check::checkTel($tel)
+            &&Check::checkEmail($email)&&Check::checkSchool($school)&&Check::checkDepartment($department)
+            &&Check::checkPosition($position)&&Check::checkPassword($password);
+
+        if($checkResult) {
+            $row = People::where('name', $name)->first();
+            $rowId = isset($row->id) ? ($row->id) : '';     //修改名字所在行的id
+            $result = People::where('id', $rowId)->update(
+                ['name' => $name, 'gender' => $gender, 'grade' => $grade, 'number' => $number,
+                    'tel' => $tel, 'email' => $email, 'school' => $school,
+                    'department' => $department, 'position' => $position, 'password' => $password]
+            );
+            return $result;
+        }else{
+            return $result=0;
+        }
     }
 
 
@@ -106,12 +116,20 @@ class People extends Model
         $position = $request->get('position');
         $password = $request->get('password');
 
-        $result=People::insert(
-            ['name'=>$name,'gender'=>$gender,'grade'=>$grade,'number'=>$number,
-                'tel'=>$tel, 'email'=>$email,'school'=>$school,
-                'department'=>$department,'position'=>$position,'password'=>$password]
-        );
-        return $result;
+        $checkResult=Check::checkName($name)&&Check::checkGender($gender)&&Check::checkNumber($number)
+            &&Check::checkTel($tel)&&Check::checkEmail($email)&&Check::checkSchool($school)
+            &&Check::checkDepartment($department)&&Check::checkPosition($position)&&Check::checkPassword($password);
+
+        if($checkResult){
+            $result=People::insert(
+                ['name'=>$name,'gender'=>$gender,'grade'=>$grade,'number'=>$number,
+                    'tel'=>$tel, 'email'=>$email,'school'=>$school,
+                    'department'=>$department,'position'=>$position,'password'=>$password]
+            );
+            return $result;
+        }else{
+            return $result=0;
+        }
     }
 
 }
