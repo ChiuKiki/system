@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Session;
 
 class PeopleController extends Controller
 {
-    public function checkModel(Request $request)
+    public function loginModel(Request $request)
     {
         //测试登陆
         //127.0.0.1/frame/system/public/api/operatorLogin?name=b&password=abc000
@@ -35,6 +35,14 @@ class PeopleController extends Controller
     }
 
 
+    public function logoutModel(Request $request)
+    {
+        //测试注销
+        //127.0.0.1/frame/system/public/api/operatorLogout
+        Session::flush();
+        return response(array('message'=>'注销成功'));
+
+    }
 
 
     public function readModel(Request $request)
@@ -91,8 +99,6 @@ class PeopleController extends Controller
             return response('操作失败');
         }
     }
-
-
 
 
     public function updateModel(Request $request)

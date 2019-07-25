@@ -18,10 +18,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 //操作者登陆
-Route::any('operatorLogin','PeopleController@checkModel')->middleware('web');
-//操作者注册
-Route::any('register','PeopleController@insert_administrator_Model');
-
+Route::any('operatorLogin','PeopleController@loginModel')->middleware('web');
+//操作者注销
+Route::any('operatorLogout','PeopleController@logoutModel')->middleware('web');
 
 //人员查询
 Route::any('query','PeopleController@readModel')->middleware('web');
