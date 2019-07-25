@@ -144,4 +144,5 @@ class People extends Model
         return $result;
     }
 
+
 }

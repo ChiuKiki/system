@@ -9,10 +9,10 @@ use Illuminate\Support\Facades\Session;
 
 class PeopleController extends Controller
 {
+    //测试登陆
+    //127.0.0.1/frame/system/public/api/operatorLogin?name=b&password=abc000
     public function loginModel(Request $request)
     {
-        //测试登陆
-        //127.0.0.1/frame/system/public/api/operatorLogin?name=b&password=abc000
         $result = People::checkAccount($request);
 
         switch($result){
@@ -23,7 +23,7 @@ class PeopleController extends Controller
                 break;
 
             case "people":
-                Session::put('flag',0);
+                Session::put('flag',2);
                 return response(array(['message'=>'登陆成功','identity'=>'people']));
                 break;
 
@@ -35,17 +35,21 @@ class PeopleController extends Controller
     }
 
 
+    //测试注销
+    //127.0.0.1/frame/system/public/api/operatorLogout
     public function logoutModel(Request $request)
     {
-        //测试注销
-        //127.0.0.1/frame/system/public/api/operatorLogout
         Session::flush();
         return response(array('message'=>'注销成功'));
 
     }
 
 
-    public function readModel(Request $request)
+    //测试学院查询
+    //127.0.0.1/frame/system/public/api/query?choice=1&queryName=电信
+    //测试部门查询
+    //127.0.0.1/frame/system/public/api/query?choice=2&queryName=技术部
+    public function queryModel(Request $request)
     {
         $choice = $request->get('choice');
         $queryName = $request->get('queryName');
@@ -55,8 +59,6 @@ class PeopleController extends Controller
             switch ($choice) {
 
                 case "1":
-                    //测试学院查询
-                    //http://127.0.0.1/frame/system/public/api/query?choice=1&queryName=电信
                     $result = People::querySchool($queryName);
                     if ($result==null) {
                         return response(array('message' => '无此学院'), 403);
@@ -67,8 +69,6 @@ class PeopleController extends Controller
 
 
                 case "2":
-                    //测试部门查询
-                    //http://127.0.0.1/frame/system/public/api/query?choice=2&queryName=技术部
                     $result = People::queryDepartment($queryName);
                     if ($result==null) {
                         return response(array('message' => '无此部门'), 403);
@@ -101,10 +101,10 @@ class PeopleController extends Controller
     }
 
 
+    //测试修改
+    //127.0.0.1/frame/system/public/api/update?name=赵绮琪&gender=女&grade=2018级&number=201830250000&tel=15800000000&email=123456@qq.com&school=电子与信息学院&department=技术部&position=CEO&password=abc123
     public function updateModel(Request $request)
     {
-        //测试修改
-        //http://127.0.0.1/frame/system/public/api/update?name=赵绮琪&gender=女&grade=2018级&number=201830250000&tel=15800000000&email=123456@qq.com&school=电子与信息学院&department=技术部&position=CEO&password=abc123
         if (Session::get('flag') != 1) {
             return response(array('message'=>'无权限'),403);
         } else {
@@ -119,10 +119,10 @@ class PeopleController extends Controller
     }
 
 
+    //测试添加
+    //127.0.0.1/frame/system/public/api/insert?name=赵绮琪&gender=女&grade=2018级&number=201830250000&tel=15800000000&email=123456@qq.com&school=电子与信息学院&department=技术部&position=CEO&password=abc123
     public function insertModel(Request $request)
     {
-        //测试添加
-        //http://127.0.0.1/frame/system/public/api/insert?name=赵绮琪&gender=女&grade=2018级&number=201830250000&tel=15800000000&email=123456@qq.com&school=电子与信息学院&department=技术部&position=CEO&password=abc123
         if (Session::get('flag') != 1) {
             return response(array('message'=>'无权限'),403);
         } else {
@@ -136,10 +136,10 @@ class PeopleController extends Controller
     }
 
 
+    //测试删除
+    //127.0.0.1/frame/system/public/api/delete?name=赵绮琪
     public static function deleteModel(Request $request)
     {
-        //测试删除
-        //http://127.0.0.1/frame/system/public/api/delete?name=赵绮琪
         if (Session::get('flag') != 1) {
             return response(array('message'=>'无权限'),403);
         } else {
@@ -151,5 +151,6 @@ class PeopleController extends Controller
             }
         }
     }
+
 
 }

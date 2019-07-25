@@ -23,7 +23,7 @@ Route::any('operatorLogin','PeopleController@loginModel')->middleware('web');
 Route::any('operatorLogout','PeopleController@logoutModel')->middleware('web');
 
 //人员查询
-Route::any('query','PeopleController@readModel')->middleware('web');
+Route::any('query','PeopleController@queryModel')->middleware('web');
 //添加人员
 Route::any('insert','PeopleController@insertModel')->middleware('web');
 //修改人员
@@ -31,4 +31,5 @@ Route::any('update','PeopleController@updateModel')->middleware('web');
 //删除人员
 Route::any('delete','PeopleController@deleteModel')->middleware('web');
 
+Route::any('free','TimetableController@noClassModel')->middleware('web');
 
