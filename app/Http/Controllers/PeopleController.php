@@ -136,4 +136,20 @@ class PeopleController extends Controller
     }
 
 
+    public static function deleteModel(Request $request)
+    {
+        //测试删除
+        //http://127.0.0.1/frame/system/public/api/delete?name=赵绮琪
+        if (Session::get('flag') != 1) {
+            return response(array('message'=>'无权限'),403);
+        } else {
+            $result = People::deletePeople($request);
+            if ($result) {
+                return response(array('message'=>'删除成功'));
+            } else {
+                return response(array('message'=>'删除失败'),403);
+            }
+        }
+    }
+
 }

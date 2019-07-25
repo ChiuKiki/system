@@ -132,4 +132,16 @@ class People extends Model
         }
     }
 
+
+    //删除人员
+    public static function deletePeople($request){
+        $name = $request->get('name');
+        //根据姓名删除
+        $row = People::where('name', $name)->first();
+        $rowId = isset($row->id) ? ($row->id) : '';     //修改名字所在行的id
+
+        $result = People::where('id',$rowId)->delete();
+        return $result;
+    }
+
 }

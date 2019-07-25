@@ -28,5 +28,7 @@ Route::any('query','PeopleController@readModel')->middleware('web');
 Route::any('insert','PeopleController@insertModel')->middleware('web');
 //修改人员
 Route::any('update','PeopleController@updateModel')->middleware('web');
+//删除人员
+Route::any('delete','PeopleController@deleteModel')->middleware('web');
 
 

@@ -4,6 +4,7 @@
     <list default="true" id="92b7de52-cca8-4183-a39d-fb92954ac68c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/PeopleController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/PeopleController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Model/People.php" afterPath="$PROJECT_DIR$/app/Model/People.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/api.php" afterPath="$PROJECT_DIR$/routes/api.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,8 +32,8 @@
       <file leaf-file-name="api.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="22" column="65" lean-forward="false" selection-start-line="22" selection-start-column="65" selection-end-line="22" selection-end-column="65" />
+            <state relative-caret-position="520">
+              <caret line="27" column="35" lean-forward="false" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -41,15 +42,13 @@
       <file leaf-file-name="PeopleController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PeopleController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="354">
-              <caret line="37" column="49" lean-forward="false" selection-start-line="37" selection-start-column="49" selection-end-line="37" selection-end-column="49" />
+            <state relative-caret-position="540">
+              <caret line="149" column="46" lean-forward="false" selection-start-line="149" selection-start-column="46" selection-end-line="149" selection-end-column="46" />
               <folding>
                 <element signature="e#40#61#0#PHP" expanded="true" />
-                <element signature="e#181#912#0#PHP" expanded="false" />
                 <element signature="e#919#1128#0#PHP" expanded="false" />
                 <element signature="e#1135#3038#0#PHP" expanded="false" />
                 <element signature="e#3045#3685#0#PHP" expanded="false" />
-                <element signature="e#3692#4331#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -58,15 +57,17 @@
       <file leaf-file-name="People.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Model/People.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state relative-caret-position="918">
+              <caret line="136" column="0" lean-forward="false" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
               <folding>
                 <element signature="e#29#43#0#PHP" expanded="true" />
+                <element signature="e#134#983#0#PHP" expanded="false" />
                 <element signature="e#1006#1355#0#PHP" expanded="false" />
                 <element signature="e#1377#1739#0#PHP" expanded="false" />
                 <element signature="e#1768#2013#0#PHP" expanded="false" />
                 <element signature="e#2033#3408#0#PHP" expanded="false" />
                 <element signature="e#3426#4627#0#PHP" expanded="false" />
+                <element signature="e#4645#4957#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -108,8 +109,8 @@
         <option value="$PROJECT_DIR$/database/migrations/2019_07_23_082321_create_people_table.php" />
         <option value="$PROJECT_DIR$/database/seeds/PeopleTableSeeder.php" />
         <option value="$PROJECT_DIR$/app/Check.php" />
-        <option value="$PROJECT_DIR$/app/Model/People.php" />
         <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/app/Model/People.php" />
         <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PeopleController.php" />
       </list>
@@ -382,12 +383,12 @@
       <workItem from="1563707727341" duration="2260000" />
       <workItem from="1563866276251" duration="3624000" />
       <workItem from="1563869954208" duration="10680000" />
-      <workItem from="1563945099396" duration="28562000" />
+      <workItem from="1563945099396" duration="29882000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="169610000" />
+    <option name="totallyTimeSpent" value="170930000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -456,7 +457,7 @@
           <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="14" />
+      <option name="time" value="15" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -737,40 +738,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="27" column="35" lean-forward="false" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Model/People.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state relative-caret-position="918">
+          <caret line="136" column="0" lean-forward="false" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
           <folding>
             <element signature="e#29#43#0#PHP" expanded="true" />
+            <element signature="e#134#983#0#PHP" expanded="false" />
             <element signature="e#1006#1355#0#PHP" expanded="false" />
             <element signature="e#1377#1739#0#PHP" expanded="false" />
             <element signature="e#1768#2013#0#PHP" expanded="false" />
             <element signature="e#2033#3408#0#PHP" expanded="false" />
             <element signature="e#3426#4627#0#PHP" expanded="false" />
+            <element signature="e#4645#4957#0#PHP" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="22" column="65" lean-forward="false" selection-start-line="22" selection-start-column="65" selection-end-line="22" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PeopleController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="37" column="49" lean-forward="false" selection-start-line="37" selection-start-column="49" selection-end-line="37" selection-end-column="49" />
+        <state relative-caret-position="540">
+          <caret line="149" column="46" lean-forward="false" selection-start-line="149" selection-start-column="46" selection-end-line="149" selection-end-column="46" />
           <folding>
             <element signature="e#40#61#0#PHP" expanded="true" />
-            <element signature="e#181#912#0#PHP" expanded="false" />
             <element signature="e#919#1128#0#PHP" expanded="false" />
             <element signature="e#1135#3038#0#PHP" expanded="false" />
             <element signature="e#3045#3685#0#PHP" expanded="false" />
-            <element signature="e#3692#4331#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
