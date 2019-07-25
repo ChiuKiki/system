@@ -18,15 +18,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 //操作者登陆
-Route::any('operatorLogin','PeopleController@checkModel');
+Route::any('operatorLogin','PeopleController@checkModel')->middleware('web');
 //操作者注册
 Route::any('register','PeopleController@insert_administrator_Model');
 
 
 //人员查询
-Route::any('query','PeopleController@readModel');
+Route::any('query','PeopleController@readModel')->middleware('web');
 //添加人员
-Route::any('insert','PeopleController@insertModel');
+Route::any('insert','PeopleController@insertModel')->middleware('web');
 //修改人员
-Route::any('update','PeopleController@updateModel');
+Route::any('update','PeopleController@updateModel')->middleware('web');
+
 

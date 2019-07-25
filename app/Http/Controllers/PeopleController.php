@@ -4,13 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Model\People;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
-session_start();
 
 class PeopleController extends Controller
 {
-    public $flag;
-
     public function checkModel(Request $request)
     {
         //测试登陆
@@ -20,17 +18,17 @@ class PeopleController extends Controller
         switch($result){
 
             case "administrator":
-                $_SESSION['flag'] = 1;
+                Session::put('flag',1);
                 return response(array(['message'=>'登陆成功','identity'=>'administrator']));
                 break;
 
             case "people":
-                $_SESSION['flag'] = 0;
+                Session::put('flag',0);
                 return response(array(['message'=>'登陆成功','identity'=>'people']));
                 break;
 
             default:
-                $_SESSION['flag'] = 0;
+                Session::put('flag',0);
                 return response(array('message' => '用户名或密码错误'), 401);
 
         }
@@ -79,9 +77,7 @@ class PeopleController extends Controller
 
             //测试获取某人具体信息
             //http://127.0.0.1/frame/system/public/api/query?personName=a
-            $_SESSION['flag'] = isset($_SESSION['flag']) ? $_SESSION['flag'] : "";
-
-            if ($_SESSION['flag'] != 1) {
+            if (Session::get('flag') != 1) {
                 return response(array('message' => '无权限'), 403);
             } else {
                 $result = People::allInfo($personName);
@@ -103,9 +99,7 @@ class PeopleController extends Controller
     {
         //测试修改
         //http://127.0.0.1/frame/system/public/api/update?name=赵绮琪&gender=女&grade=2018级&number=201830250000&tel=15800000000&email=123456@qq.com&school=电子与信息学院&department=技术部&position=CEO&password=abc123
-        $_SESSION['flag'] = isset($_SESSION['flag']) ? $_SESSION['flag'] : "";
-
-        if ($_SESSION['flag'] != 1) {
+        if (Session::get('flag') != 1) {
             return response(array('message'=>'无权限'),403);
         } else {
             $result = People::updatePeople($request);
@@ -115,16 +109,15 @@ class PeopleController extends Controller
                 return response(array('message'=>'修改失败'),403);
             }
         }
+
     }
 
 
     public function insertModel(Request $request)
     {
         //测试添加
-        //http://127.0.0.1/frame/system/public/api/insert?name=a&gender=女&grade=2018级&number=201830250000&tel=15800000000&email=123456@qq.com&school=电子与信息学院&department=技术部&position=CEO&password=abc123
-        $_SESSION['flag'] = isset($_SESSION['flag']) ? $_SESSION['flag'] : "";
-
-        if ($_SESSION['flag'] != 1) {
+        //http://127.0.0.1/frame/system/public/api/insert?name=赵绮琪&gender=女&grade=2018级&number=201830250000&tel=15800000000&email=123456@qq.com&school=电子与信息学院&department=技术部&position=CEO&password=abc123
+        if (Session::get('flag') != 1) {
             return response(array('message'=>'无权限'),403);
         } else {
             $result = People::insertPeople($request);
