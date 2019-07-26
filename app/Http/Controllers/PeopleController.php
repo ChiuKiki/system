@@ -150,7 +150,7 @@ class PeopleController extends Controller
 
 
     //测试删除
-    //127.0.0.1/frame/system/public/api/delete?name=赵绮琪
+    //127.0.0.1/frame/system/public/api/delete?number=201830250000
     public static function deleteModel(Request $request)
     {
         if (Session::get('flag') != 1) {

@@ -99,18 +99,18 @@ class People extends Model
         $password = $request->get('password');
 
 
-        //不能改姓名！
-        $checkResult=Check::checkNumber($number)&&Check::checkGender($gender)&&Check::checkTel($tel)
+        //不能改学号！
+        $checkResult=Check::checkName($name)&&Check::checkGender($gender)&&Check::checkTel($tel)
             &&Check::checkEmail($email)&&Check::checkSchool($school)&&Check::checkDepartment($department)
             &&Check::checkPosition($position)&&Check::checkPassword($password);
 
         if($checkResult) {
-            $row = People::where('name', $name)->first();
-            $rowId = isset($row->id) ? ($row->id) : '';     //修改名字所在行的id
+            $row = People::where('number', $number)->first();
+            $rowId = isset($row->id) ? ($row->id) : '';     //修改学号所在行的id
             $result = People::where('id', $rowId)->update(
-                ['name' => $name, 'gender' => $gender, 'grade' => $grade, 'number' => $number,
-                    'tel' => $tel, 'email' => $email, 'school' => $school,
-                    'department' => $department, 'position' => $position, 'password' => $password]
+                ['name' => $name, 'gender' => $gender, 'grade' => $grade, 'tel' => $tel,
+                    'email' => $email, 'school' => $school, 'department' => $department,
+                    'position' => $position, 'password' => $password]
             );
             return $result;
         }else{
@@ -151,9 +151,9 @@ class People extends Model
 
     //删除人员
     public static function deletePeople($request){
-        $name = $request->get('name');
-        //根据姓名删除
-        $row = People::where('name', $name)->first();
+        $number = $request->get('number');
+        //根据学号删除
+        $row = People::where('number', $number)->first();
         $rowId = isset($row->id) ? ($row->id) : '';     //修改名字所在行的id
 
         $result = People::where('id',$rowId)->delete();
