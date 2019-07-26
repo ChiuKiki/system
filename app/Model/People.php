@@ -32,6 +32,22 @@ class People extends Model
     }
 
 
+    //找回密码
+    public static function findPassword($request){
+        $number = $request->get('number');
+        $tel = $request->get('tel');
+        $setPassword = $request->get('setPassword');
+        //通过手机号找回密码
+        $isCorrect =  People::where(['number'=>$number,'tel'=>$tel])->first();
+
+        if($isCorrect){
+            $result = People::where(['number'=>$number])->update(['password'=>$setPassword]);
+            return $result;
+        }else{
+            return $result=0;
+        }
+    }
+
 
     //获取学院人员名单
     public static function querySchool($queryName){

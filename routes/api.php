@@ -21,6 +21,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::any('operatorLogin','PeopleController@loginModel')->middleware('web');
 //操作者注销
 Route::any('operatorLogout','PeopleController@logoutModel')->middleware('web');
+//忘记密码
+Route::any('forgetPassword','PeopleController@forgetPasswordModel')->middleware('web');
 
 //人员查询
 Route::any('query','PeopleController@queryModel')->middleware('web');
@@ -30,6 +32,6 @@ Route::any('insert','PeopleController@insertModel')->middleware('web');
 Route::any('update','PeopleController@updateModel')->middleware('web');
 //删除人员
 Route::any('delete','PeopleController@deleteModel')->middleware('web');
-
+//没课表查询
 Route::any('free','TimetableController@noClassModel')->middleware('web');
 

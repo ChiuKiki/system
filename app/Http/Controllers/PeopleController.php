@@ -45,6 +45,19 @@ class PeopleController extends Controller
     }
 
 
+    //测试忘记密码
+    //127.0.0.1/frame/system/public/api/forgetPassword?number=201830250000&tel=13400000000&setPassword=123456
+    public static function forgetPasswordModel(Request $request)
+    {
+        $result = People::findPassword($request);
+        if ($result) {
+            return response(array('message'=>'找回密码成功'));
+        } else {
+            return response(array('message'=>'找回密码失败'),403);
+        }
+    }
+
+
     //测试学院查询
     //127.0.0.1/frame/system/public/api/query?choice=1&queryName=电信
     //测试部门查询
