@@ -143,12 +143,19 @@ class People extends Model
             Check::checkDepartment($department)&&Check::checkPosition($position)&&Check::checkPassword($password);
 
         if($checkResult){
-            $result=People::insert(
+            $firstResult=People::insert(
                 ['name'=>$name,/*'gender'=>$gender,'grade'=>$grade,*/'birthday'=>$birthday,'QQ'=>$QQ,
                     'number'=>$number, 'tel'=>$tel, 'email'=>$email,'school'=>$school,
                     'department'=>$department,'position'=>$position,'password'=>$password]
             );
-            return $result;
+            $secondResult=Timetable::insert(
+                ['name'=>$name,'number'=>$number]
+            );
+            if($firstResult&&$secondResult){
+                return $result=1;
+            }else{
+                return $result=0;
+            }
         }else{
             return $result=0;
         }

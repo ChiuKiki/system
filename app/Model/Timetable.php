@@ -93,7 +93,8 @@ class Timetable extends Model
 
     //查询没课人员
     public static function freeTime($time){
-        $matchInfo = Timetable::where($time, '无')->get('name');
+        //默认为0，没课为1
+        $matchInfo = Timetable::where($time, 1)->get('name');
         //前端需要形如{name:["1","2","3"]}的结果
         $arr = array();
         foreach ($matchInfo as $nameList){
