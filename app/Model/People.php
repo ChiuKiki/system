@@ -80,7 +80,7 @@ class People extends Model
     //获取某人具体信息（除了id）
     public static function allInfo($personName){
         $result=People::where('name',$personName)
-            ->select('name','gender','grade','number','tel','email','school','department','position','password')->get();
+            ->select('name',/*'gender','grade',*/'birthday','QQ','number','tel','email','school','department','position')->get();
         return $result;
     }
 
@@ -88,8 +88,10 @@ class People extends Model
     //修改人员信息
     public static function updatePeople($request){
         $name = $request->get('name');
-        $gender = $request->get('gender');
-        $grade = $request->get('grade');
+        //$gender = $request->get('gender');
+        //$grade = $request->get('grade');
+        $birthday = $request->get('birthday');
+        $QQ = $request->get('QQ');
         $number = $request->get('number');
         $tel = $request->get('tel');
         $email = $request->get('email');
@@ -100,16 +102,17 @@ class People extends Model
 
 
         //不能改学号！
-        $checkResult=Check::checkName($name)&&Check::checkGender($gender)&&Check::checkTel($tel)
-            &&Check::checkEmail($email)&&Check::checkSchool($school)&&Check::checkDepartment($department)
-            &&Check::checkPosition($position)&&Check::checkPassword($password);
+        $checkResult=Check::checkName($name)&&/*Check::checkGender($gender)&&*/
+            Check::checkQQ($QQ)&& Check::checkTel($tel)&&Check::checkBirthday($birthday)&&
+            Check::checkEmail($email)&& Check::checkSchool($school) &&Check::checkDepartment($department)&&
+            Check::checkPosition($position)&&Check::checkPassword($password);
 
         if($checkResult) {
             $row = People::where('number', $number)->first();
             $rowId = isset($row->id) ? ($row->id) : '';     //修改学号所在行的id
             $result = People::where('id', $rowId)->update(
-                ['name' => $name, 'gender' => $gender, 'grade' => $grade, 'tel' => $tel,
-                    'email' => $email, 'school' => $school, 'department' => $department,
+                ['name' => $name, /*'gender' => $gender, 'grade' => $grade,*/'birthday'=>$birthday,'QQ'=>$QQ,
+                    'tel' => $tel, 'email' => $email, 'school' => $school, 'department' => $department,
                     'position' => $position, 'password' => $password]
             );
             return $result;
@@ -122,8 +125,10 @@ class People extends Model
     //添加人员
     public static function insertPeople($request){
         $name = $request->get('name');
-        $gender = $request->get('gender');
-        $grade = $request->get('grade');
+        //$gender = $request->get('gender');
+        //$grade = $request->get('grade');
+        $birthday = $request->get('birthday');
+        $QQ = $request->get('QQ');
         $number = $request->get('number');
         $tel = $request->get('tel');
         $email = $request->get('email');
@@ -132,14 +137,15 @@ class People extends Model
         $position = $request->get('position');
         $password = $request->get('password');
 
-        $checkResult=Check::checkName($name)&&Check::checkGender($gender)&&Check::checkNumber($number)
-            &&Check::checkTel($tel)&&Check::checkEmail($email)&&Check::checkSchool($school)
-            &&Check::checkDepartment($department)&&Check::checkPosition($position)&&Check::checkPassword($password);
+        $checkResult=Check::checkName($name)&&/*Check::checkGender($gender)&&*/
+            Check::checkNumber($number) &&Check::checkQQ($QQ)&&Check::checkBirthday($birthday)&&
+            Check::checkTel($tel)&&Check::checkEmail($email)&&Check::checkSchool($school) &&
+            Check::checkDepartment($department)&&Check::checkPosition($position)&&Check::checkPassword($password);
 
         if($checkResult){
             $result=People::insert(
-                ['name'=>$name,'gender'=>$gender,'grade'=>$grade,'number'=>$number,
-                    'tel'=>$tel, 'email'=>$email,'school'=>$school,
+                ['name'=>$name,/*'gender'=>$gender,'grade'=>$grade,*/'birthday'=>$birthday,'QQ'=>$QQ,
+                    'number'=>$number, 'tel'=>$tel, 'email'=>$email,'school'=>$school,
                     'department'=>$department,'position'=>$position,'password'=>$password]
             );
             return $result;

@@ -115,7 +115,7 @@ class PeopleController extends Controller
 
 
     //测试修改
-    //127.0.0.1/frame/system/public/api/update?name=赵绮琪&gender=女&grade=2018级&number=201830250000&tel=15800000000&email=123456@qq.com&school=电子与信息学院&department=技术部&position=CEO&password=abc123
+    //127.0.0.1/frame/system/public/api/update?name=赵绮琪&birthday=10.17&QQ=1169849916&number=201830250000&tel=15800000000&email=123456@qq.com&school=电子与信息学院&department=技术部&position=CEO&password=abc123
     public function updateModel(Request $request)
     {
         if (Session::get('flag') != 1) {
@@ -133,7 +133,7 @@ class PeopleController extends Controller
 
 
     //测试添加
-    //127.0.0.1/frame/system/public/api/insert?name=赵绮琪&gender=女&grade=2018级&number=201830250000&tel=15800000000&email=123456@qq.com&school=电子与信息学院&department=技术部&position=CEO&password=abc123
+    //127.0.0.1/frame/system/public/api/insert?name=赵绮琪&birthday=10.17&QQ=1169849916&number=201830250000&tel=15800000000&email=123456@qq.com&school=电子与信息学院&department=技术部&position=CEO&password=abc123
     public function insertModel(Request $request)
     {
         if (Session::get('flag') != 1) {

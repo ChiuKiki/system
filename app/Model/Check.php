@@ -19,6 +19,30 @@ class Check extends Model
     }
 
 
+//  检查生日：
+//    1-2位数.1-2位数
+    public static function checkBirthday($birthday){
+        $pattern='/^[0-9]{1,2}+.[0-9]{1,2}$/';
+        if(preg_match($pattern,$birthday)){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+
+//  检查QQ：
+//    5-11位数
+    public static function checkQQ($QQ){
+        $pattern='/^\d{5,11}$/';
+        if(preg_match($pattern,$QQ)){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    /*
 //  检查姓别：男或女
     public static function checkGender($gender){
         $pattern='/^[\x{7537}|\x{5973}]{1}$/u';
@@ -28,6 +52,7 @@ class Check extends Model
             return false;
         }
     }
+    */
 
 
 //  检查学号：
