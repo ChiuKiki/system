@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class People extends Model
 {
-    //登陆，并判断身份
+    //登陆，并判断身份——登录
     public static function checkAccount($request){
         $name = $request->get('name');
         $password = $request->get('password');
@@ -76,11 +76,73 @@ class People extends Model
     }
 
 
+    //初始时获取姓名、部门、职位信息并按部门、职位顺序显示——百步梯通讯录
+    public static function queryInitial($request){
 
-    //获取某人具体信息（除了id）
+        /*
+        //获取姓名、部门、职位信息
+        $nameInfo = People::where('name', $query)->select('name','department','position')->get();
+        $departmentInfo = People::where('department', $query)->select('name','department','position')->get();
+        $positionInfo = People::where('position', $query)->select('name','department','position')->get();
+*/
+
+
+    }
+
+
+    //获取姓名、部门、职位信息——百步梯通讯录
+    public static function queryInfo($request){
+        $query = $request->get('query');
+        //判断输入的是姓名、部门、还是职位
+        $isName = People::where('name', $query)->first();
+        $isDepartment = People::where('department', $query)->first();
+        $isPosition = People::where('position', $query)->first();
+        //获取姓名、部门、职位信息
+        $nameInfo = People::where('name', $query)->select('name','department','position')->get();
+        $departmentInfo = People::where('department', $query)->select('name','department','position')->get();
+        $positionInfo = People::where('position', $query)->select('name','department','position')->get();
+
+
+        if($isName){
+            return $nameInfo;
+
+        }elseif ($isDepartment){
+            return $departmentInfo;
+
+        }elseif ($isPosition){
+            return $positionInfo;
+
+        }else{
+            return 0;
+        }
+
+    }
+
+
+    //根据姓名、部门获取所有信息——百步梯通讯录（修改状态）
+    public static function queryInfoAdmin($request){
+        $query = $request->get('query');
+        //判断输入的是姓名还是部门
+        $isName = People::where('name', $query)->first();
+        $isDepartment = People::where('department', $query)->first();
+        //获取所有信息
+        $nameInfo = People::where('name', $query)->select('name','department','birthday','tel','QQ','email','number','school','position','password')->get();
+        $departmentInfo = People::where('department', $query)->select('name','department','birthday','tel','QQ','email','number','school','position','password')->get();
+
+        if($isName){
+            return $nameInfo;
+        }elseif ($isDepartment){
+            return $departmentInfo;
+        }else{
+            return 0;
+        }
+    }
+
+
+    //获取某人所有信息
     public static function allInfo($personName){
         $result=People::where('name',$personName)
-            ->select('name',/*'gender','grade',*/'birthday','QQ','number','tel','email','school','department','position')->get();
+            ->select('name','birthday', 'QQ','number','tel','email','school','department','position')->get();
         return $result;
     }
 
@@ -122,31 +184,21 @@ class People extends Model
     }
 
 
-    //添加人员
+    //添加人员——注册
     public static function insertPeople($request){
         $name = $request->get('name');
-        //$gender = $request->get('gender');
-        //$grade = $request->get('grade');
-        $birthday = $request->get('birthday');
-        $QQ = $request->get('QQ');
         $number = $request->get('number');
         $tel = $request->get('tel');
-        $email = $request->get('email');
-        $school = $request->get('school');
         $department = $request->get('department');
-        $position = $request->get('position');
         $password = $request->get('password');
 
-        $checkResult=Check::checkName($name)&&/*Check::checkGender($gender)&&*/
-            Check::checkNumber($number) &&Check::checkQQ($QQ)&&Check::checkBirthday($birthday)&&
-            Check::checkTel($tel)&&Check::checkEmail($email)&&Check::checkSchool($school) &&
-            Check::checkDepartment($department)&&Check::checkPosition($position)&&Check::checkPassword($password);
+        $checkResult=Check::checkName($name)&& Check::checkNumber($number)&& Check::checkTel($tel)
+            && Check::checkDepartment($department)&&Check::checkPassword($password);
 
         if($checkResult){
             $firstResult=People::insert(
-                ['name'=>$name,/*'gender'=>$gender,'grade'=>$grade,*/'birthday'=>$birthday,'QQ'=>$QQ,
-                    'number'=>$number, 'tel'=>$tel, 'email'=>$email,'school'=>$school,
-                    'department'=>$department,'position'=>$position,'password'=>$password]
+                ['name'=>$name, 'number'=>$number, 'tel'=>$tel,
+                    'department'=>$department,'password'=>$password]
             );
             $secondResult=Timetable::insert(
                 ['name'=>$name,'number'=>$number]
@@ -162,15 +214,26 @@ class People extends Model
     }
 
 
-    //删除人员
-    public static function deletePeople($request){
-        $number = $request->get('number');
-        //根据学号删除
-        $row = People::where('number', $number)->first();
-        $rowId = isset($row->id) ? ($row->id) : '';     //修改名字所在行的id
-
-        $result = People::where('id',$rowId)->delete();
+    //学号是否已存在
+    public static function isNumberExist($number){
+        $result = People::where(['number'=>$number])->first();
         return $result;
+    }
+
+
+    //删除人员——百步梯通讯录（修改状态）
+    public static function deletePeople($request){
+
+        //根据学号删除
+        $arr = $request->get('number');
+        $len = sizeof($arr);
+        $result = 0;
+        for($i = 0; $i < $len ; $i++){
+            $number = $arr[$i];
+            $result = People::where('number', $number)->delete();
+        }
+        return $result;
+
     }
 
 
