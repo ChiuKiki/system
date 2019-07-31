@@ -158,7 +158,9 @@ class People extends Model
         $result = 0;
         for($i = 0; $i < $len ; $i++){
             $number = $arr[$i];
-            $result = People::where('number', $number)->delete();
+            $result1 = People::where('number', $number)->delete();
+            $result2 = Timetable::where('number', $number)->delete();
+            $result = $result1&$result2;
         }
         return $result;
     }
