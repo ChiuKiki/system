@@ -69,6 +69,7 @@ class CreateTimetablesTable extends Migration
             $table->string('Friday8');
             $table->string('Friday9');
 
+            $table->timestamps();
         });
     }
 

@@ -35,13 +35,31 @@ class PeopleController extends Controller
     }
 
 
-    //测试注销
-    //127.0.0.1/frame/system/public/api/operatorLogout
-    public function logoutModel(Request $request)
+    //测试添加——注册
+    //127.0.0.1/frame/system/public/api/insert?name=测试&number=201830250000&tel=15800000000&department=技术部&password=abc123&confirmPassword=abc123
+    public function insertModel(Request $request)
     {
-        Session::flush();
-        return response(array('message'=>'注销成功'));
+        $password = $request->get('password');
+        $confirmPassword = $request->get('confirmPassword');
+        $number = $request->get('number');
+        $isNumberExist = People::isNumberExist($number);
 
+        //检查数据库中是否有该学号
+        if(!$isNumberExist) {
+            //检查密码是否一致
+            if($password == $confirmPassword) {
+                $result = People::insertPeople($request);
+                if ($result) {
+                    return response(array('message' => '注册成功'));
+                } else {
+                    return response(array('message' => '注册失败'), 403);
+                }
+            }else{
+                return response(array('message' => '密码不一致'), 403);
+            }
+        }else{
+            return response(array('message' => '该学号已被注册'), 403);
+        }
     }
 
 
@@ -58,7 +76,17 @@ class PeopleController extends Controller
     }
 
 
-    //测试搜索框查询——百步梯通讯录
+    //测试注销
+    //127.0.0.1/frame/system/public/api/operatorLogout
+    public function logoutModel(Request $request)
+    {
+        Session::flush();
+        return response(array('message'=>'注销成功'));
+
+    }
+
+
+    //测试首页——百步梯通讯录
     //127.0.0.1/frame/system/public/api/queryInitial
     public function queryInitialModel(Request $request){
         //要登陆
@@ -69,7 +97,7 @@ class PeopleController extends Controller
             if ($result) {
                 return response($result);
             } else {
-                return response(array('message' => '查不到'), 403);
+                return response(array('message' => '无法显示'), 403);
             }
         }
     }
@@ -109,6 +137,41 @@ class PeopleController extends Controller
     }
 
 
+    //测试批量删除——百步梯通讯录（修改状态）
+    //127.0.0.1/frame/system/public/api/delete?number[]=201830259999&number[]=201830258888&number[]=201830257777
+    public static function deleteModel(Request $request)
+    {
+        if (Session::get('flag') != 1) {
+            return response(array('message'=>'无权限'),403);
+        } else {
+            $result = People::deletePeople($request);
+            if ($result) {
+                return response(array('message'=>'删除成功'));
+            } else {
+                return response(array('message'=>'删除失败'),403);
+            }
+        }
+    }
+
+
+    //测试修改——百步梯通讯录（修改状态）
+    //127.0.0.1/frame/system/public/api/update?name=测试&birthday=10.17&QQ=1169849916&number=201830990000&tel=15800000000&email=123456@qq.com&school=电子与信息学院&department=技术部&position=干事
+    public function updateModel(Request $request)
+    {
+        if (Session::get('flag') != 1) {
+            return response(array('message'=>'无权限'),403);
+        } else {
+            $result = People::updatePeople($request);
+            if ($result) {
+                return response(array('message'=>'修改成功'));
+            } else {
+                return response(array('message'=>'修改失败'),403);
+            }
+        }
+
+    }
+
+/*
     //测试学院查询
     //127.0.0.1/frame/system/public/api/query?choice=1&queryName=电信
     //测试部门查询
@@ -163,69 +226,7 @@ class PeopleController extends Controller
             return response('操作失败');
         }
     }
-
-
-    //测试修改
-    //127.0.0.1/frame/system/public/api/update?name=赵绮琪&birthday=10.17&QQ=1169849916&number=201830250000&tel=15800000000&email=123456@qq.com&school=电子与信息学院&department=技术部&position=CEO&password=abc123
-    public function updateModel(Request $request)
-    {
-        if (Session::get('flag') != 1) {
-            return response(array('message'=>'无权限'),403);
-        } else {
-            $result = People::updatePeople($request);
-            if ($result) {
-                return response(array('message'=>'修改成功'));
-            } else {
-                return response(array('message'=>'修改失败'),403);
-            }
-        }
-
-    }
-
-
-    //测试添加——注册
-    //127.0.0.1/frame/system/public/api/insert?name=测试&number=201830250000&tel=15800000000&department=技术部&password=abc123&confirmPassword=abc123
-    public function insertModel(Request $request)
-    {
-        $password = $request->get('password');
-        $confirmPassword = $request->get('confirmPassword');
-        $number = $request->get('number');
-        $isNumberExist = People::isNumberExist($number);
-
-        //检查数据库中是否有该学号
-        if(!$isNumberExist) {
-            //检查密码是否一致
-            if($password == $confirmPassword) {
-                $result = People::insertPeople($request);
-                if ($result) {
-                    return response(array('message' => '注册成功'));
-                } else {
-                    return response(array('message' => '注册失败'), 403);
-                }
-            }else{
-                return response(array('message' => '密码不一致'), 403);
-            }
-        }else{
-            return response(array('message' => '该学号已被注册'), 403);
-        }
-    }
-
-
-    //测试删除————百步梯通讯录（修改状态）
-    //127.0.0.1/frame/system/public/api/delete?number[]=201830259999&number[]=201830258888&number[]=201830257777
-    public static function deleteModel(Request $request)
-    {
-        if (Session::get('flag') != 1) {
-            return response(array('message'=>'无权限'),403);
-        } else {
-            $result = People::deletePeople($request);
-            if ($result) {
-                return response(array('message'=>'删除成功'));
-            } else {
-                return response(array('message'=>'删除失败'),403);
-            }
-        }
-    }
+*/
 
 
 }

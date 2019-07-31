@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Timetable extends Model
 {
+    public $timestamps = false;
+
     //确定查询没课时间
     public static function checkTime($request){
         $day = $request->get('day');
