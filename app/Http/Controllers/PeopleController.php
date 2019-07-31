@@ -14,7 +14,7 @@ class PeopleController extends Controller
     public function loginModel(Request $request)
     {
         $result = People::checkAccount($request);
-        //0:未登录     1:已登录且为管理员   2:已登录
+        //0:未登录     1:已登录且为管理员   2:已登录且为普通人员
         switch($result){
 
             case "administrator":
@@ -90,7 +90,7 @@ class PeopleController extends Controller
     //127.0.0.1/frame/system/public/api/queryInitial
     public function queryInitialModel(Request $request){
         //要登陆
-        if (Session::get('flag') != 2) {
+        if (Session::get('flag') == 0) {
             return response(array('message'=>'无权限'),403);
         } else {
             $result = People::queryInitial($request);
@@ -107,7 +107,7 @@ class PeopleController extends Controller
     //127.0.0.1/frame/system/public/api/queryInfo?query=技术部
     public function queryInfoModel(Request $request){
         //要登陆
-        if (Session::get('flag') != 2) {
+        if (Session::get('flag') == 0) {
             return response(array('message'=>'无权限'),403);
         } else {
             $result = People::queryInfo($request);
@@ -176,11 +176,15 @@ class PeopleController extends Controller
     //127.0.0.1/frame/system/public/api/query?queryName=测试
     public function queryModel(Request $request)
     {
-        $result = People::allInfo($request);
-        if ($result) {
-            return response($result);
+        if (Session::get('flag') == 0) {
+            return response(array('message'=>'无权限'),403);
         } else {
-            return response(array('message' => '查不到'), 403);
+            $result = People::allInfo($request);
+            if ($result) {
+                return response($result);
+            } else {
+                return response(array('message' => '查不到'), 403);
+            }
         }
     }
 
@@ -192,7 +196,7 @@ class PeopleController extends Controller
         $number = $request->get('number');
 
         //要登陆
-        if (Session::get('flag') != 2) {
+        if (Session::get('flag') == 0) {
             return response(array('message'=>'无权限'),403);
         }else{
             //只能改自己的信息

@@ -26,6 +26,8 @@ Route::any('forgetPassword','PeopleController@forgetPasswordModel')->middleware(
 //操作者注销
 Route::any('operatorLogout','PeopleController@logoutModel')->middleware('web');
 
+//显示所有人员——百步梯通讯录
+Route::any('queryInitial','PeopleController@queryInitialModel')->middleware('web');
 //搜索框查询——百步梯通讯录
 Route::any('queryInfo','PeopleController@queryInfoModel')->middleware('web');
 //搜索框查询——百步梯通讯录（修改状态）
