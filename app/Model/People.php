@@ -4,6 +4,7 @@ namespace App\Model;
 
 use App\Check;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Session;
 
 
 class People extends Model
@@ -21,6 +22,8 @@ class People extends Model
 
         //登陆
         if($isLogIn) {
+            //设置session
+            Session::put('number',$number);
             //判断身份
             if($isAdministrator1||$isAdministrator2){
                 return $result="administrator";
@@ -81,20 +84,6 @@ class People extends Model
 
 
     /*
-    //获取学院人员名单
-    public static function querySchool($queryName){
-        $matchInfo = People::where('school', $queryName)->get('name');
-        //前端需要形如{name:["1","2","3"]}的结果
-        $arr = array();
-        foreach ($matchInfo as $nameList){
-            array_push($arr,$nameList->name);
-        }
-        $result=array('name'=>$arr);
-        return $result;
-
-    }
-
-
     //获取部门人员名单
     public static function queryDepartment($queryName){
         $matchInfo = People::where('department', $queryName)->get('name');
@@ -189,7 +178,7 @@ class People extends Model
 
 
     //修改人员信息——百步梯通讯录（修改状态）
-    public static function updatePeople($request){
+    public static function updateAdmin($request){
         $name = $request->get('name');
         $birthday = $request->get('birthday');
         $QQ = $request->get('QQ');
@@ -230,11 +219,55 @@ class People extends Model
     }
 
 
-    //获取某人所有信息
-    public static function allInfo($personName){
-        $result=People::where('name',$personName)
-            ->select('name','birthday', 'QQ','number','tel','email','school','department','position')->get();
+    //点击某人姓名获取其所有信息——详细信息
+    public static function allInfo($request){
+        $queryName = $request->get('queryName');
+        $result=People::where('name',$queryName)
+            ->select('name','birthday', 'QQ','number','tel','email','school','department','position','message')->get();
         return $result;
+    }
+
+
+    //修改自己信息——基础信息
+    public static function updatePeople($request){
+        $name = $request->get('name');
+        $birthday = $request->get('birthday');
+        $QQ = $request->get('QQ');
+        $tel = $request->get('tel');
+        $email = $request->get('email');
+        $school = $request->get('school');
+        $department = $request->get('department');
+        $position = $request->get('position');
+        $message = $request->get('message');
+
+
+        //不改密码、学号；改'message''
+        $checkResult=Check::checkName($name)&& Check::checkQQ($QQ) && Check::checkTel($tel)
+            &&Check::checkBirthday($birthday)&& Check::checkEmail($email) && Check::checkSchool($school)
+            &&Check::checkDepartment($department)&& Check::checkPosition($position);
+        /*
+                if($checkResult) {
+                    $row = People::where('number', $number)->first();
+                    $rowId = isset($row->id) ? ($row->id) : '';     //修改学号所在行的id
+                    $result = People::where('id', $rowId)->update(
+                        ['name' => $name, 'birthday' => $birthday, 'QQ' => $QQ, 'number' => $number,
+                            'tel' => $tel, 'email' => $email, 'school' => $school, 'department' => $department,
+                            'position' => $position]
+                    );
+                    return $result;
+                }else{
+                    return $result=0;
+                }*/
+        if($checkResult) {
+            $result = People::where('number', Session::get('number'))->update(
+                ['name' => $name, 'birthday' => $birthday, 'QQ' => $QQ, 'tel' => $tel,
+                    'email' => $email, 'school' => $school, 'department' => $department,
+                    'position' => $position, 'message' => $message]
+            );
+            return $result;
+        }else{
+            return $result=0;
+        }
     }
 
 

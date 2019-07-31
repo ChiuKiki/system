@@ -156,12 +156,12 @@ class PeopleController extends Controller
 
     //测试修改——百步梯通讯录（修改状态）
     //127.0.0.1/frame/system/public/api/update?name=测试&birthday=10.17&QQ=1169849916&number=201830990000&tel=15800000000&email=123456@qq.com&school=电子与信息学院&department=技术部&position=干事
-    public function updateModel(Request $request)
+    public function updateAdminModel(Request $request)
     {
         if (Session::get('flag') != 1) {
             return response(array('message'=>'无权限'),403);
         } else {
-            $result = People::updatePeople($request);
+            $result = People::updateAdmin($request);
             if ($result) {
                 return response(array('message'=>'修改成功'));
             } else {
@@ -171,62 +171,44 @@ class PeopleController extends Controller
 
     }
 
-/*
-    //测试学院查询
-    //127.0.0.1/frame/system/public/api/query?choice=1&queryName=电信
-    //测试部门查询
-    //127.0.0.1/frame/system/public/api/query?choice=2&queryName=技术部
+
+    //测试通讯录点击某人名字查询其信息——详细信息
+    //127.0.0.1/frame/system/public/api/query?queryName=测试
     public function queryModel(Request $request)
     {
-        $choice = $request->get('choice');
-        $queryName = $request->get('queryName');
-        $personName = $request->get('personName');
-
-        if ($choice!=""&&$personName=="") {
-            switch ($choice) {
-
-                case "1":
-                    $result = People::querySchool($queryName);
-                    if ($result==null) {
-                        return response(array('message' => '无此学院'), 403);
-                    } else {
-                        return response($result);
-                    }
-                    break;
-
-
-                case "2":
-                    $result = People::queryDepartment($queryName);
-                    if ($result==null) {
-                        return response(array('message' => '无此部门'), 403);
-                    } else {
-                        return response($result);
-                    }
-                    break;
-
-                default:
-                    return response(array('message' => '查什么？？？？'), 403);
-            }
-
-        } elseif ($personName!=""&&$choice=="") {
-
-            //测试获取某人具体信息
-            //http://127.0.0.1/frame/system/public/api/query?personName=a
-            if (Session::get('flag') != 1) {
-                return response(array('message' => '无权限'), 403);
-            } else {
-                $result = People::allInfo($personName);
-                if ($result) {
-                    return response($result);
-                } else {
-                    return response(array('message' => '查无此人'), 403);
-                }
-            }
-        }else{
-            return response('操作失败');
+        $result = People::allInfo($request);
+        if ($result) {
+            return response($result);
+        } else {
+            return response(array('message' => '查不到'), 403);
         }
     }
-*/
 
+
+    //测试修改自己的信息——基础信息
+    //127.0.0.1/frame/system/public/api/updatePeople?name=测试&birthday=10.17&QQ=1169849916&number=201830990000&tel=15800000000&email=123456@qq.com&school=电子与信息学院&department=技术部&position=干事&message=test
+    public function updatePeopleModel(Request $request)
+    {
+        $number = $request->get('number');
+
+        //要登陆
+        if (Session::get('flag') != 2) {
+            return response(array('message'=>'无权限'),403);
+        }else{
+            //只能改自己的信息
+            if(Session::get('number') == $number){
+                $result = People::updatePeople($request);
+                if ($result) {
+                    return response(array('message'=>'修改成功'));
+                } else {
+                    return response(array('message'=>'修改失败'),403);
+                }
+
+            }else{
+                return response(array('message'=>'无权限'),403);
+            }
+        }
+
+    }
 
 }
