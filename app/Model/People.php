@@ -10,18 +10,17 @@ class People extends Model
 {
     //登陆，并判断身份——登录
     public static function checkAccount($request){
-        $name = $request->get('name');
+        $number = $request->get('number');
         $password = $request->get('password');
 
-        $isLogIn=People::where(['name'=>$name,'password'=>$password])->first();
-        $isAdministrator1=People::where(['name'=>$name,'password'=>$password,'position'=>'CEO'])->first();
-        $isAdministrator2=People::where(['name'=>$name,'password'=>$password,'position'=>'总监'])->first();
-        $isAdministrator3=People::where(['name'=>$name,'password'=>$password,'position'=>'部长'])->first();
+        $isLogIn=People::where(['number'=>$number,'password'=>$password])->first();
+        $isAdministrator1=People::where(['number'=>$number,'password'=>$password,'position'=>'部长'])->first();
+        $isAdministrator2=People::where(['number'=>$number,'password'=>$password,'position'=>'副部长'])->first();
 
         //登陆
         if($isLogIn) {
             //判断身份
-            if($isAdministrator1||$isAdministrator2||$isAdministrator3){
+            if($isAdministrator1||$isAdministrator2){
                 return $result="administrator";
             }else{
                 return $result="people";

@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Session;
 class PeopleController extends Controller
 {
     //测试登陆——登录
-    //127.0.0.1/frame/system/public/api/operatorLogin?name=b&password=abc000
+    //127.0.0.1/frame/system/public/api/operatorLogin?number=201862880000&password=abc000
     public function loginModel(Request $request)
     {
         $result = People::checkAccount($request);
@@ -65,7 +65,7 @@ class PeopleController extends Controller
         if (Session::get('flag') != 2) {
             return response(array('message'=>'无权限'),403);
         } else {
-            $result = People::queryIitial($request);
+            $result = People::queryInitial($request);
             if ($result) {
                 return response($result);
             } else {

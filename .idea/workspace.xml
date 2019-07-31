@@ -5,10 +5,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/PeopleController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/PeopleController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Model/People.php" afterPath="$PROJECT_DIR$/app/Model/People.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/database.php" afterPath="$PROJECT_DIR$/config/database.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2019_07_23_082321_create_people_table.php" afterPath="$PROJECT_DIR$/database/migrations/2019_07_23_082321_create_people_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2019_07_25_123015_create_timetables_table.php" afterPath="$PROJECT_DIR$/database/migrations/2019_07_25_123015_create_timetables_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/api.php" afterPath="$PROJECT_DIR$/routes/api.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/seeds/PeopleTableSeeder.php" afterPath="$PROJECT_DIR$/database/seeds/PeopleTableSeeder.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -42,45 +39,44 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PeopleController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PeopleController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PeopleController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="65" column="57" lean-forward="true" selection-start-line="65" selection-start-column="57" selection-end-line="65" selection-end-column="57" />
+            <state relative-caret-position="297">
+              <caret line="11" column="14" lean-forward="true" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
               <folding>
                 <element signature="e#40#61#0#PHP" expanded="true" />
-                <element signature="e#273#946#0#PHP" expanded="false" />
-                <element signature="e#1019#1154#0#PHP" expanded="false" />
-                <element signature="e#1284#1574#0#PHP" expanded="false" />
-                <element signature="e#2165#2580#0#PHP" expanded="false" />
-                <element signature="e#2680#3108#0#PHP" expanded="false" />
-                <element signature="e#3278#4941#0#PHP" expanded="false" />
-                <element signature="e#5159#5581#0#PHP" expanded="false" />
-                <element signature="e#5748#6595#0#PHP" expanded="false" />
-                <element signature="e#6742#7170#0#PHP" expanded="false" />
+                <element signature="e#1032#1167#0#PHP" expanded="false" />
+                <element signature="e#1297#1587#0#PHP" expanded="false" />
+                <element signature="e#2179#2594#0#PHP" expanded="false" />
+                <element signature="e#2694#3122#0#PHP" expanded="false" />
+                <element signature="e#3292#4955#0#PHP" expanded="false" />
+                <element signature="e#5173#5595#0#PHP" expanded="false" />
+                <element signature="e#5762#6609#0#PHP" expanded="false" />
+                <element signature="e#6756#7184#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="People.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="People.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Model/People.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
-              <caret line="82" column="22" lean-forward="true" selection-start-line="82" selection-start-column="22" selection-end-line="82" selection-end-column="22" />
+            <state relative-caret-position="385">
+              <caret line="214" column="0" lean-forward="true" selection-start-line="214" selection-start-column="0" selection-end-line="214" selection-end-column="0" />
               <folding>
                 <element signature="e#29#43#0#PHP" expanded="true" />
-                <element signature="e#138#987#0#PHP" expanded="false" />
-                <element signature="e#1005#1491#0#PHP" expanded="false" />
-                <element signature="e#1513#1862#0#PHP" expanded="false" />
-                <element signature="e#1884#2246#0#PHP" expanded="false" />
-                <element signature="e#2734#3620#0#PHP" expanded="false" />
-                <element signature="e#3661#4418#0#PHP" expanded="false" />
-                <element signature="e#4440#4674#0#PHP" expanded="false" />
-                <element signature="e#4694#6244#0#PHP" expanded="false" />
-                <element signature="e#6266#7247#0#PHP" expanded="false" />
-                <element signature="e#7268#7407#0#PHP" expanded="false" />
-                <element signature="e#7439#7771#0#PHP" expanded="false" />
+                <element signature="e#138#878#0#PHP" expanded="false" />
+                <element signature="e#896#1382#0#PHP" expanded="false" />
+                <element signature="e#1404#1753#0#PHP" expanded="false" />
+                <element signature="e#1775#2137#0#PHP" expanded="false" />
+                <element signature="e#2625#3511#0#PHP" expanded="false" />
+                <element signature="e#3552#4309#0#PHP" expanded="false" />
+                <element signature="e#4331#4565#0#PHP" expanded="false" />
+                <element signature="e#4585#6135#0#PHP" expanded="false" />
+                <element signature="e#6157#7138#0#PHP" expanded="false" />
+                <element signature="e#7159#7298#0#PHP" expanded="false" />
+                <element signature="e#7330#7662#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -123,7 +119,6 @@
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/app/Timetable.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/TimetableController.php" />
-        <option value="$PROJECT_DIR$/database/seeds/PeopleTableSeeder.php" />
         <option value="$PROJECT_DIR$/app/Model/Check.php" />
         <option value="$PROJECT_DIR$/database/seeds/TimetableTableSeeder.php" />
         <option value="$PROJECT_DIR$/app/Model/Timetable.php" />
@@ -133,6 +128,7 @@
         <option value="$PROJECT_DIR$/database/migrations/2019_07_23_082321_create_people_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PeopleController.php" />
         <option value="$PROJECT_DIR$/app/Model/People.php" />
+        <option value="$PROJECT_DIR$/database/seeds/PeopleTableSeeder.php" />
       </list>
     </option>
   </component>
@@ -480,12 +476,12 @@
       <workItem from="1564223081012" duration="232000" />
       <workItem from="1564247638264" duration="2040000" />
       <workItem from="1564311512393" duration="6038000" />
-      <workItem from="1564474479248" duration="13439000" />
+      <workItem from="1564474479248" duration="14228000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="204070000" />
+    <option name="totallyTimeSpent" value="204859000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -744,14 +740,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/PeopleTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="10" column="19" lean-forward="true" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Model/Check.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
@@ -818,42 +806,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Model/People.php">
+    <entry file="file://$PROJECT_DIR$/database/seeds/PeopleTableSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="82" column="22" lean-forward="true" selection-start-line="82" selection-start-column="22" selection-end-line="82" selection-end-column="22" />
-          <folding>
-            <element signature="e#29#43#0#PHP" expanded="true" />
-            <element signature="e#138#987#0#PHP" expanded="false" />
-            <element signature="e#1005#1491#0#PHP" expanded="false" />
-            <element signature="e#1513#1862#0#PHP" expanded="false" />
-            <element signature="e#1884#2246#0#PHP" expanded="false" />
-            <element signature="e#2734#3620#0#PHP" expanded="false" />
-            <element signature="e#3661#4418#0#PHP" expanded="false" />
-            <element signature="e#4440#4674#0#PHP" expanded="false" />
-            <element signature="e#4694#6244#0#PHP" expanded="false" />
-            <element signature="e#6266#7247#0#PHP" expanded="false" />
-            <element signature="e#7268#7407#0#PHP" expanded="false" />
-            <element signature="e#7439#7771#0#PHP" expanded="false" />
-          </folding>
+        <state relative-caret-position="486">
+          <caret line="19" column="96" lean-forward="true" selection-start-line="19" selection-start-column="96" selection-end-line="19" selection-end-column="96" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PeopleController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="65" column="57" lean-forward="true" selection-start-line="65" selection-start-column="57" selection-end-line="65" selection-end-column="57" />
+        <state relative-caret-position="297">
+          <caret line="11" column="14" lean-forward="true" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
           <folding>
             <element signature="e#40#61#0#PHP" expanded="true" />
-            <element signature="e#273#946#0#PHP" expanded="false" />
-            <element signature="e#1019#1154#0#PHP" expanded="false" />
-            <element signature="e#1284#1574#0#PHP" expanded="false" />
-            <element signature="e#2165#2580#0#PHP" expanded="false" />
-            <element signature="e#2680#3108#0#PHP" expanded="false" />
-            <element signature="e#3278#4941#0#PHP" expanded="false" />
-            <element signature="e#5159#5581#0#PHP" expanded="false" />
-            <element signature="e#5748#6595#0#PHP" expanded="false" />
-            <element signature="e#6742#7170#0#PHP" expanded="false" />
+            <element signature="e#1032#1167#0#PHP" expanded="false" />
+            <element signature="e#1297#1587#0#PHP" expanded="false" />
+            <element signature="e#2179#2594#0#PHP" expanded="false" />
+            <element signature="e#2694#3122#0#PHP" expanded="false" />
+            <element signature="e#3292#4955#0#PHP" expanded="false" />
+            <element signature="e#5173#5595#0#PHP" expanded="false" />
+            <element signature="e#5762#6609#0#PHP" expanded="false" />
+            <element signature="e#6756#7184#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Model/People.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="214" column="0" lean-forward="true" selection-start-line="214" selection-start-column="0" selection-end-line="214" selection-end-column="0" />
+          <folding>
+            <element signature="e#29#43#0#PHP" expanded="true" />
+            <element signature="e#138#878#0#PHP" expanded="false" />
+            <element signature="e#896#1382#0#PHP" expanded="false" />
+            <element signature="e#1404#1753#0#PHP" expanded="false" />
+            <element signature="e#1775#2137#0#PHP" expanded="false" />
+            <element signature="e#2625#3511#0#PHP" expanded="false" />
+            <element signature="e#3552#4309#0#PHP" expanded="false" />
+            <element signature="e#4331#4565#0#PHP" expanded="false" />
+            <element signature="e#4585#6135#0#PHP" expanded="false" />
+            <element signature="e#6157#7138#0#PHP" expanded="false" />
+            <element signature="e#7159#7298#0#PHP" expanded="false" />
+            <element signature="e#7330#7662#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
