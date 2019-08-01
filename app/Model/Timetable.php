@@ -3,6 +3,7 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Timetable extends Model
 {
@@ -18,51 +19,51 @@ class Timetable extends Model
 
             case "1":
                 switch($class){
-                    case "12":$result="Monday12";break;
-                    case "34":$result="Monday34";break;
+                    case "1-2":$result="Monday12";break;
+                    case "3-4":$result="Monday34";break;
                     case "noon":$result="MondayNoon";break;
-                    case "56":$result="Monday56";break;
-                    case "78":$result="Monday78";break;
+                    case "5-6":$result="Monday56";break;
+                    case "7-8":$result="Monday78";break;
                 }
                 break;
 
             case "2":
                 switch($class){
-                    case "12":$result="Tuesday12";break;
-                    case "34":$result="Tuesday34";break;
+                    case "1-2":$result="Tuesday12";break;
+                    case "3-4":$result="Tuesday34";break;
                     case "noon":$result="TuesdayNoon";break;
-                    case "56":$result="Tuesday56";break;
-                    case "78":$result="Tuesday78";break;
+                    case "5-6":$result="Tuesday56";break;
+                    case "7-8":$result="Tuesday78";break;
                 }
                 break;
 
             case "3":
                 switch($class){
-                    case "12":$result="Wednesday12";break;
-                    case "34":$result="Wednesday34";break;
+                    case "1-2":$result="Wednesday12";break;
+                    case "3-4":$result="Wednesday34";break;
                     case "noon":$result="WednesdayNoon";break;
-                    case "56":$result="Wednesday56";break;
-                    case "78":$result="Wednesday78";break;
+                    case "5-6":$result="Wednesday56";break;
+                    case "7-8":$result="Wednesday78";break;
                 }
                 break;
 
             case "4":
                 switch($class){
-                    case "12":$result="Thursday12";break;
-                    case "34":$result="Thursday34";break;
+                    case "1-2":$result="Thursday12";break;
+                    case "3-4":$result="Thursday34";break;
                     case "noon":$result="ThursdayNoon";break;
-                    case "56":$result="Thursday56";break;
-                    case "78":$result="Thursday78";break;
+                    case "5-6":$result="Thursday56";break;
+                    case "7-8":$result="Thursday78";break;
                 }
                 break;
 
             case "5":
                 switch($class){
-                    case "12":$result="Friday12";break;
-                    case "34":$result="Friday34";break;
+                    case "1-2":$result="Friday12";break;
+                    case "3-4":$result="Friday34";break;
                     case "noon":$result="FridayNoon";break;
-                    case "56":$result="Friday56";break;
-                    case "78":$result="Friday78";break;
+                    case "5-6":$result="Friday56";break;
+                    case "7-8":$result="Friday78";break;
                 }
                 break;
 
@@ -74,9 +75,24 @@ class Timetable extends Model
 
 
     //查询没课人员
-    public static function freeTime($time){
-        //默认为null，没课为1
-        $matchInfo = Timetable::where($time, 1)->get('name');
+    public static function freeTime($time,$request){
+
+        $weekNum = $request->get('weekNum');
+        $department = $request->get('department');
+
+        //选择第几周
+        switch($weekNum){
+            //默认为null，没课为1
+            case "1":
+                $matchInfo = DB::table('timetable1')->where($time, 1)->where('department',$department)->get('name');
+                break;
+            case "2":
+                $matchInfo = DB::table('timetable2')->where($time, 1)->where('department',$department)->get('name');
+                break;
+            default:
+                return $matchInfo = 0;
+        }
+
         //前端需要形如{name:["1","2","3"]}的结果
         $arr = array();
         foreach ($matchInfo as $nameList){

@@ -49,14 +49,18 @@ class People extends Model
             && Check::checkDepartment($department)&&Check::checkPassword($password);
 
         if($checkResult){
-            $firstResult=People::insert(
+            $result0=People::insert(
                 ['name'=>$name, 'number'=>$number, 'tel'=>$tel,
                     'department'=>$department,'password'=>$password]
             );
-            $secondResult=Timetable::insert(
-                ['name'=>$name,'number'=>$number]
+            $result1=DB::table('timetable1')->insert(
+                ['name'=>$name,'number'=>$number,'department'=>$department]
             );
-            if($firstResult&&$secondResult){
+            $result2=DB::table('timetable2')->insert(
+                ['name'=>$name,'number'=>$number,'department'=>$department]
+            );
+
+            if($result0&&$result1&&$result2){
                 return $result=1;
             }else{
                 return $result=0;

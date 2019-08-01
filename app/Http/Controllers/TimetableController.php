@@ -9,14 +9,14 @@ use Illuminate\Support\Facades\Session;
 class TimetableController extends Controller
 {
     //测试没课查询
-    //127.0.0.1/frame/system/public/api/free?day=1&class=12
+    //http://127.0.0.1/frame/system/public/api/free?weekNum=2&day=3&class=1-2&department=技术部
     public static function noClassModel(Request $request)
     {
         $time = Timetable::checkTime($request);
 
         if (Session::get('flag')) {
 
-            $result = Timetable::freeTime($time);
+            $result = Timetable::freeTime($time,$request);
             if ($result) {
                 return response($result);
             } else {
