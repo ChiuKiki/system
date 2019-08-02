@@ -141,13 +141,27 @@ class People extends Model
         $isName = People::where('name', $query)->first();
         $isDepartment = People::where('department', $query)->first();
         //获取所有信息
-        $nameInfo = People::where('name', $query)->select('name','department','birthday','tel','QQ','email','number','school','position','password')->get();
-        $departmentInfo = People::where('department', $query)->select('name','department','birthday','tel','QQ','email','number','school','position','password')->get();
+        $nameInfo = People::where('name', $query)->select('name','department','birthday','tel','QQ','email','number','school','position')->get();
+        $departmentInfo = People::where('department', $query)->select('name','department','birthday','tel','QQ','email','number','school','position')->get();
 
         if($isName){
             return $nameInfo;
         }elseif ($isDepartment){
             return $departmentInfo;
+        }else{
+            return 0;
+        }
+    }
+
+
+    //搜索框：根据姓名、部门获取所有信息——百步梯通讯录（修改状态）
+    public static function queryAdmin($request){
+        $queryNumber = $request->get('queryNumber');
+        //获取所有信息
+        $matchInfo = People::where('number', $queryNumber)->select('name','department','birthday','tel','QQ','email','number','school','position')->get();
+
+        if($matchInfo){
+            return $matchInfo;
         }else{
             return 0;
         }
@@ -204,12 +218,20 @@ class People extends Model
     public static function allInfo($request){
         $queryName = $request->get('queryName');
         $result=People::where('name',$queryName)
-            ->select('name','birthday', 'QQ','number','tel','email','school','department','position','message')->get();
+            ->select('name','school','department','position','birthday','tel', 'QQ','email','number','message')->get();
+        return $result;
+    }
+
+    //获取自己信息——个人信息
+    public static function allInfoNumber($request){
+        $queryNumber = $request->get('queryNumber');
+        $result=People::where('number',$queryNumber)
+            ->select('name','school','department','position','birthday','tel', 'QQ','email','number','message')->get();
         return $result;
     }
 
 
-    //修改自己信息——基础信息
+    //修改自己信息——个人信息
     public static function updatePeople($request){
         $name = $request->get('name');
         $birthday = $request->get('birthday');

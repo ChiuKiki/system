@@ -26,20 +26,31 @@ Route::any('forgetPassword','PeopleController@forgetPasswordModel')->middleware(
 //操作者注销
 Route::any('operatorLogout','PeopleController@logoutModel')->middleware('web');
 
+
 //显示所有人员——百步梯通讯录
 Route::any('queryInitial','PeopleController@queryInitialModel')->middleware('web');
 //搜索框查询——百步梯通讯录
 Route::any('queryInfo','PeopleController@queryInfoModel')->middleware('web');
 //搜索框查询——百步梯通讯录（修改状态）
 Route::any('queryInfoAdmin','PeopleController@queryInfoAdminModel')->middleware('web');
+//管理员获取他人信息——百步梯通讯录（修改状态）
+Route::any('queryAdmin','PeopleController@queryAdminModel')->middleware('web');
 //批量删除人员——百步梯通讯录（修改状态）
 Route::any('delete','PeopleController@deleteModel')->middleware('web');
 //修改人员——百步梯通讯录（修改状态）
 Route::any('update','PeopleController@updateAdminModel')->middleware('web');
+
+
 //点击某人名字查询其信息——详细信息
 Route::any('query','PeopleController@queryModel')->middleware('web');
-//修改人员——百步梯通讯录（修改状态）
+//获取自己信息——个人信息
+Route::any('queryNumber','PeopleController@queryNumberModel')->middleware('web');
+//自己修改自己信息——个人信息
 Route::any('updatePeople','PeopleController@updatePeopleModel')->middleware('web');
+
+
 //没课表查询
 Route::any('free','TimetableController@noClassModel')->middleware('web');
+//没课表录入
+Route::any('insertFree','TimetableController@insertNoClassModel')->middleware('web');
 

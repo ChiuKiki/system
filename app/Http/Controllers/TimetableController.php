@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Session;
 class TimetableController extends Controller
 {
     //测试没课查询
-    //http://127.0.0.1/frame/system/public/api/free?weekNum=2&day=3&class=1-2&department=技术部
+    //http://127.0.0.1/frame/system/public/api/free?weekNum=0&day=3&class=1-2&department=技术部
     public static function noClassModel(Request $request)
     {
         $time = Timetable::checkTime($request);
@@ -21,6 +21,27 @@ class TimetableController extends Controller
                 return response($result);
             } else {
                 return response(array('message' => '查询失败'), 403);
+            }
+
+        } else {
+            return response(array('message' => '无权限'), 403);
+        }
+    }
+
+
+    //测试没课录入
+    //http://127.0.0.1/frame/system/public/api/insertFree?weekNum=0&day=1&class=1-2
+    public static function insertNoClassModel(Request $request)
+    {
+        $time = Timetable::checkTime($request);
+
+        if (Session::get('flag')) {
+
+            $result = Timetable::insertFreeTime($time,$request);
+            if ($result) {
+                return response(array('message' => '录入成功'));
+            } else {
+                return response(array('message' => '录入失败'), 403);
             }
 
         } else {

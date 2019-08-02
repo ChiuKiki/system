@@ -4,6 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class Timetable extends Model
 {
@@ -80,14 +81,22 @@ class Timetable extends Model
         $weekNum = $request->get('weekNum');
         $department = $request->get('department');
 
-        //选择第几周
+        //选择单双周：单周为-1，双周为0
         switch($weekNum){
             //默认为null，没课为1
-            case "1":
-                $matchInfo = DB::table('timetable1')->where($time, 1)->where('department',$department)->get('name');
+            case "-1":
+                if($department) {
+                    $matchInfo = DB::table('timetableOdd')->where($time, 1)->where('department', $department)->get('name');
+                }else{
+                    $matchInfo = DB::table('timetableOdd')->where($time, 1)->get('name');
+                }
                 break;
-            case "2":
-                $matchInfo = DB::table('timetable2')->where($time, 1)->where('department',$department)->get('name');
+            case "0":
+                if($department) {
+                    $matchInfo = DB::table('timetableEven')->where($time, 1)->where('department', $department)->get('name');
+                }else{
+                    $matchInfo = DB::table('timetableEven')->where($time, 1)->get('name');
+                }
                 break;
             default:
                 return $matchInfo = 0;
@@ -100,7 +109,30 @@ class Timetable extends Model
         }
         $result=array('name'=>$arr);
         return $result;
+
     }
 
+
+
+    //没课表录入
+    public static function insertFreeTime($time,$request){
+
+        $weekNum = $request->get('weekNum');
+        //选择单双周：单周为-1，双周为0
+        switch($weekNum){
+            //默认为null，没课为1
+            case "-1":
+                $result = DB::table('timetableOdd')->where('number', Session::get('number'))->update([$time => '1']);
+                break;
+            case "0":
+                $result = DB::table('timetableEven')->where('number', Session::get('number'))->update([$time => '1']);
+                break;
+            default:
+                return $result = 0;
+        }
+
+        return $result;
+
+    }
 
 }

@@ -35,7 +35,7 @@ class PeopleController extends Controller
     }
 
 
-    //测试添加——注册
+    //测试注册——注册
     //127.0.0.1/frame/system/public/api/insert?name=测试&number=201830250000&tel=15800000000&department=技术部&password=abc123&confirmPassword=abc123
     public function insertModel(Request $request)
     {
@@ -86,7 +86,7 @@ class PeopleController extends Controller
     }
 
 
-    //测试首页——百步梯通讯录
+    //测试首页显示信息——百步梯通讯录
     //127.0.0.1/frame/system/public/api/queryInitial
     public function queryInitialModel(Request $request){
         //要登陆
@@ -137,6 +137,23 @@ class PeopleController extends Controller
     }
 
 
+    //测试管理员获取他人信息——百步梯通讯录（修改状态）
+    //127.0.0.1/frame/system/public/api/queryAdmin?queryNumber=201830255555
+    public function queryAdminModel(Request $request){
+        //要管理员权限
+        if (Session::get('flag') != 1) {
+            return response(array('message'=>'无权限'),403);
+        } else {
+            $result = People::queryAdmin($request);
+            if ($result) {
+                return response($result);
+            } else {
+                return response(array('message' => '查不到'), 403);
+            }
+        }
+    }
+
+
     //测试批量删除——百步梯通讯录（修改状态）
     //127.0.0.1/frame/system/public/api/delete?number[]=201830259999&number[]=201830258888&number[]=201830257777
     public static function deleteModel(Request $request)
@@ -154,7 +171,7 @@ class PeopleController extends Controller
     }
 
 
-    //测试修改——百步梯通讯录（修改状态）
+    //测试管理员修改他人信息接口——百步梯通讯录（修改状态）
     //127.0.0.1/frame/system/public/api/update?name=测试&birthday=10.17&QQ=1169849916&number=201830990000&tel=15800000000&email=123456@qq.com&school=电子与信息学院&department=技术部&position=干事
     public function updateAdminModel(Request $request)
     {
@@ -173,7 +190,7 @@ class PeopleController extends Controller
 
 
     //测试通讯录点击某人名字查询其信息——详细信息
-    //127.0.0.1/frame/system/public/api/query?queryName=测试
+    //127.0.0.1/frame/system/public/api/query?queryName=a
     public function queryModel(Request $request)
     {
         if (Session::get('flag') == 0) {
@@ -189,7 +206,32 @@ class PeopleController extends Controller
     }
 
 
-    //测试修改自己的信息——基础信息
+    //测试获取自己信息——个人信息
+    //127.0.0.1/frame/system/public/api/queryNumber?queryNumber=201830250000
+    public function queryNumberModel(Request $request)
+    {
+        $number = $request->get('queryNumber');
+
+        //要登陆
+        if (Session::get('flag') == 0) {
+            return response(array('message'=>'无权限'),403);
+        }else {
+            //只能获取自己信息
+            if (Session::get('number') != $number) {
+                return response(array('message' => '无权限'), 403);
+            } else {
+                $result = People::allInfoNumber($request);
+                if ($result) {
+                    return response($result);
+                } else {
+                    return response(array('message' => '查不到'), 403);
+                }
+            }
+        }
+    }
+
+
+    //测试自己修改自己信息——个人信息
     //127.0.0.1/frame/system/public/api/updatePeople?name=测试&birthday=10.17&QQ=1169849916&number=201830990000&tel=15800000000&email=123456@qq.com&school=电子与信息学院&department=技术部&position=干事&message=test
     public function updatePeopleModel(Request $request)
     {
@@ -200,16 +242,15 @@ class PeopleController extends Controller
             return response(array('message'=>'无权限'),403);
         }else{
             //只能改自己的信息
-            if(Session::get('number') == $number){
+            if(Session::get('number') != $number){
+                return response(array('message'=>'无权限'),403);
+            }else{
                 $result = People::updatePeople($request);
                 if ($result) {
                     return response(array('message'=>'修改成功'));
                 } else {
                     return response(array('message'=>'修改失败'),403);
                 }
-
-            }else{
-                return response(array('message'=>'无权限'),403);
             }
         }
 
