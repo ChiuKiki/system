@@ -117,12 +117,18 @@ class People extends Model
         //获取姓名、部门、职位信息
         $nameInfo = People::where('name', $query)
             ->select('name','department','position')
+            ->orderBy(DB::raw('convert(`department` using gbk)'))
+            ->orderBy(DB::raw('convert(`position` using gbk)'))
             ->get();
         $departmentInfo = People::where('department', $query)
             ->select('name','department','position')
+            ->orderBy(DB::raw('convert(`department` using gbk)'))
+            ->orderBy(DB::raw('convert(`position` using gbk)'))
             ->get();
         $positionInfo = People::where('position', $query)
             ->select('name','department','position')
+            ->orderBy(DB::raw('convert(`department` using gbk)'))
+            ->orderBy(DB::raw('convert(`position` using gbk)'))
             ->get();
 
         if($isName){
@@ -150,9 +156,13 @@ class People extends Model
         //获取所有信息
         $nameInfo = People::where('name', $query)
             ->select('name','department','birthday','tel','QQ','email','number','school','position')
+            ->orderBy(DB::raw('convert(`department` using gbk)'))
+            ->orderBy(DB::raw('convert(`position` using gbk)'))
             ->get();
         $departmentInfo = People::where('department', $query)
             ->select('name','department','birthday','tel','QQ','email','number','school','position')
+            ->orderBy(DB::raw('convert(`department` using gbk)'))
+            ->orderBy(DB::raw('convert(`position` using gbk)'))
             ->get();
 
         if($isName){
@@ -184,18 +194,18 @@ class People extends Model
     //批量删除人员——百步梯通讯录（修改状态）
     public static function deletePeople($request){
         //根据学号删除
-        $arr = $request->get('number');
+        $arr = $request->get('name');
         $len = sizeof($arr);
         $result = 0;
         for($i = 0; $i < $len ; $i++){
-            $number = $arr[$i];
-            $result1 = People::where('number', $number)
+            $name = $arr[$i];
+            $result1 = People::where('name', $name)
                 ->delete();
             $result2 = DB::table('timetableOdd')
-                ->where('number', $number)
+                ->where('name', $name)
                 ->delete();
             $result3 = DB::table('timetableEven')
-                ->where('number', $number)
+                ->where('name', $name)
                 ->delete();
             $result = $result1&$result2&$result3;
         }

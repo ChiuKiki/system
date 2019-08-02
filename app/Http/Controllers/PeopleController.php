@@ -36,7 +36,7 @@ class PeopleController extends Controller
 
 
     //测试注册——注册
-    //127.0.0.1/frame/system/public/api/insert?name=测试&number=201830250000&tel=15800000000&department=技术部&password=abc123&confirmPassword=abc123
+    //127.0.0.1/frame/system/public/api/insert?name=测试&number=201830255555&tel=15800000000&department=技术部&password=abc123&confirmPassword=abc123
     public function insertModel(Request $request)
     {
         $password = $request->get('password');
@@ -155,7 +155,7 @@ class PeopleController extends Controller
 
 
     //测试批量删除——百步梯通讯录（修改状态）
-    //127.0.0.1/frame/system/public/api/delete?number[]=201830259999&number[]=201830258888&number[]=201830257777
+    //127.0.0.1/frame/system/public/api/delete?name[]=d&name[]=e&name[]=f
     public static function deleteModel(Request $request)
     {
         if (Session::get('flag') != 1) {
