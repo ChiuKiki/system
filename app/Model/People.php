@@ -53,10 +53,10 @@ class People extends Model
                 ['name'=>$name, 'number'=>$number, 'tel'=>$tel,
                     'department'=>$department,'password'=>$password]
             );
-            $result1=DB::table('timetable1')->insert(
+            $result1=DB::table('timetableOdd')->insert(
                 ['name'=>$name,'number'=>$number,'department'=>$department]
             );
-            $result2=DB::table('timetable2')->insert(
+            $result2=DB::table('timetableEven')->insert(
                 ['name'=>$name,'number'=>$number,'department'=>$department]
             );
 
@@ -87,7 +87,8 @@ class People extends Model
         $isCorrect =  People::where(['number'=>$number,'tel'=>$tel])->first();
 
         if($isCorrect){
-            $result = People::where(['number'=>$number])->update(['password'=>$setPassword]);
+            $result = People::where(['number'=>$number])
+                ->update(['password'=>$setPassword]);
             return $result;
         }else{
             return $result=0;
@@ -114,9 +115,15 @@ class People extends Model
         $isDepartment = People::where('department', $query)->first();
         $isPosition = People::where('position', $query)->first();
         //获取姓名、部门、职位信息
-        $nameInfo = People::where('name', $query)->select('name','department','position')->get();
-        $departmentInfo = People::where('department', $query)->select('name','department','position')->get();
-        $positionInfo = People::where('position', $query)->select('name','department','position')->get();
+        $nameInfo = People::where('name', $query)
+            ->select('name','department','position')
+            ->get();
+        $departmentInfo = People::where('department', $query)
+            ->select('name','department','position')
+            ->get();
+        $positionInfo = People::where('position', $query)
+            ->select('name','department','position')
+            ->get();
 
         if($isName){
             return $nameInfo;
@@ -141,8 +148,12 @@ class People extends Model
         $isName = People::where('name', $query)->first();
         $isDepartment = People::where('department', $query)->first();
         //获取所有信息
-        $nameInfo = People::where('name', $query)->select('name','department','birthday','tel','QQ','email','number','school','position')->get();
-        $departmentInfo = People::where('department', $query)->select('name','department','birthday','tel','QQ','email','number','school','position')->get();
+        $nameInfo = People::where('name', $query)
+            ->select('name','department','birthday','tel','QQ','email','number','school','position')
+            ->get();
+        $departmentInfo = People::where('department', $query)
+            ->select('name','department','birthday','tel','QQ','email','number','school','position')
+            ->get();
 
         if($isName){
             return $nameInfo;
@@ -158,7 +169,9 @@ class People extends Model
     public static function queryAdmin($request){
         $queryNumber = $request->get('queryNumber');
         //获取所有信息
-        $matchInfo = People::where('number', $queryNumber)->select('name','department','birthday','tel','QQ','email','number','school','position')->get();
+        $matchInfo = People::where('number', $queryNumber)
+            ->select('name','department','birthday','tel','QQ','email','number','school','position')
+            ->get();
 
         if($matchInfo){
             return $matchInfo;
@@ -176,9 +189,15 @@ class People extends Model
         $result = 0;
         for($i = 0; $i < $len ; $i++){
             $number = $arr[$i];
-            $result1 = People::where('number', $number)->delete();
-            $result2 = Timetable::where('number', $number)->delete();
-            $result = $result1&$result2;
+            $result1 = People::where('number', $number)
+                ->delete();
+            $result2 = DB::table('timetableOdd')
+                ->where('number', $number)
+                ->delete();
+            $result3 = DB::table('timetableEven')
+                ->where('number', $number)
+                ->delete();
+            $result = $result1&$result2&$result3;
         }
         return $result;
     }
@@ -222,11 +241,13 @@ class People extends Model
         return $result;
     }
 
+
     //获取自己信息——个人信息
     public static function allInfoNumber($request){
         $queryNumber = $request->get('queryNumber');
         $result=People::where('number',$queryNumber)
-            ->select('name','school','department','position','birthday','tel', 'QQ','email','number','message')->get();
+            ->select('name','school','department','position','birthday','tel', 'QQ','email','number','message')
+            ->get();
         return $result;
     }
 

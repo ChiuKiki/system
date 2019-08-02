@@ -10,7 +10,7 @@ class Timetable extends Model
 {
     public $timestamps = false;
 
-    //确定查询没课时间
+    //确定没课时间
     public static function checkTime($request){
         $day = $request->get('day');
         $class = $request->get('class');
@@ -75,6 +75,33 @@ class Timetable extends Model
     }
 
 
+    //确定没课时间数组
+    public static function checkTimeArr($request){
+        $day = $request->get('day');
+        $class = $request->get('class');
+        $dayLen = sizeof($day);
+        $classLen = sizeof($class);
+        $arr = array();
+
+        if($dayLen == $classLen) {
+
+            for ($i = 0; $i < $dayLen; $i++) {
+                //修改request参数
+                $request->merge(['day'=>$day[$i],'class'=>$class[$i]]);
+                $time = self::checkTime($request);
+                //写入result数组
+                array_push($arr,$time);
+            }
+            $result = $arr;
+
+        }else{
+            return $result = 0;
+        }
+
+        return $result;
+    }
+
+
     //查询没课人员
     public static function freeTime($time,$request){
 
@@ -86,16 +113,26 @@ class Timetable extends Model
             //默认为null，没课为1
             case "-1":
                 if($department) {
-                    $matchInfo = DB::table('timetableOdd')->where($time, 1)->where('department', $department)->get('name');
+                    $matchInfo = DB::table('timetableOdd')
+                        ->where($time, 1)
+                        ->where('department', $department)
+                        ->get('name');
                 }else{
-                    $matchInfo = DB::table('timetableOdd')->where($time, 1)->get('name');
+                    $matchInfo = DB::table('timetableOdd')
+                        ->where($time, 1)
+                        ->get('name');
                 }
                 break;
             case "0":
                 if($department) {
-                    $matchInfo = DB::table('timetableEven')->where($time, 1)->where('department', $department)->get('name');
+                    $matchInfo = DB::table('timetableEven')
+                        ->where($time, 1)
+                        ->where('department', $department)
+                        ->get('name');
                 }else{
-                    $matchInfo = DB::table('timetableEven')->where($time, 1)->get('name');
+                    $matchInfo = DB::table('timetableEven')
+                        ->where($time, 1)
+                        ->get('name');
                 }
                 break;
             default:
@@ -107,11 +144,10 @@ class Timetable extends Model
         foreach ($matchInfo as $nameList){
             array_push($arr,$nameList->name);
         }
-        $result=array('name'=>$arr);
+        $result = array('name'=>$arr);
         return $result;
 
     }
-
 
 
     //没课表录入
@@ -122,17 +158,30 @@ class Timetable extends Model
         switch($weekNum){
             //默认为null，没课为1
             case "-1":
-                $result = DB::table('timetableOdd')->where('number', Session::get('number'))->update([$time => '1']);
+                $len = sizeof($time);
+                $result = 0;
+                for($i = 0; $i < $len ; $i++){
+                    $result = DB::table('timetableOdd')
+                        ->where('number', Session::get('number'))
+                        ->update([$time[$i] => '1']);
+                }
+                return $result;
                 break;
+
             case "0":
-                $result = DB::table('timetableEven')->where('number', Session::get('number'))->update([$time => '1']);
+                $len = sizeof($time);
+                $result = 0;
+                for($i = 0; $i < $len ; $i++){
+                    $result = DB::table('timetableEven')
+                        ->where('number', Session::get('number'))
+                        ->update([$time[$i] => '1']);
+                }
+                return $result;
                 break;
+
             default:
                 return $result = 0;
         }
-
-        return $result;
-
     }
 
 }

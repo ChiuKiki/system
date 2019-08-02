@@ -29,11 +29,13 @@ class TimetableController extends Controller
     }
 
 
+
     //测试没课录入
-    //http://127.0.0.1/frame/system/public/api/insertFree?weekNum=0&day=1&class=1-2
+    //http://127.0.0.1/frame/system/public/api/insertFree?weekNum=0&day[]=5&class[]=1-2&day[]=4&class[]=3-4
     public static function insertNoClassModel(Request $request)
     {
-        $time = Timetable::checkTime($request);
+        //确定没课时间数组
+        $time = Timetable::checkTimeArr($request);
 
         if (Session::get('flag')) {
 
@@ -47,5 +49,6 @@ class TimetableController extends Controller
         } else {
             return response(array('message' => '无权限'), 403);
         }
+
     }
 }
