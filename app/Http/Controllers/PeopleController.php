@@ -155,7 +155,7 @@ class PeopleController extends Controller
 
 
     //测试批量删除——百步梯通讯录（修改状态）
-    //127.0.0.1/frame/system/public/api/delete?name[]=d&name[]=e&name[]=f
+    //127.0.0.1/frame/system/public/api/delete?number[]=201830660000&number[]=201830770000&number[]=201830880000
     public static function deleteModel(Request $request)
     {
         if (Session::get('flag') != 1) {
@@ -172,7 +172,7 @@ class PeopleController extends Controller
 
 
     //测试管理员修改他人信息接口——百步梯通讯录（修改状态）
-    //127.0.0.1/frame/system/public/api/update?name=测试&birthday=10.17&QQ=1169849916&number=201830990000&tel=15800000000&email=123456@qq.com&school=电子与信息学院&department=技术部&position=干事
+    //127.0.0.1/frame/system/public/api/update?name=测试&birthday=10.17&QQ=1169849916&number=201830990000&tel=15800000000&email=123456@qq.com&school=电子与信息学院&department=技术部&position=干事&message=test
     public function updateAdminModel(Request $request)
     {
         if (Session::get('flag') != 1) {
@@ -190,7 +190,7 @@ class PeopleController extends Controller
 
 
     //测试通讯录点击某人名字查询其信息——详细信息
-    //127.0.0.1/frame/system/public/api/query?queryName=a
+    //127.0.0.1/frame/system/public/api/query?queryName=b
     public function queryModel(Request $request)
     {
         if (Session::get('flag') == 0) {

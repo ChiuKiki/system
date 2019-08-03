@@ -194,18 +194,18 @@ class People extends Model
     //批量删除人员——百步梯通讯录（修改状态）
     public static function deletePeople($request){
         //根据学号删除
-        $arr = $request->get('name');
+        $arr = $request->get('number');
         $len = sizeof($arr);
         $result = 0;
         for($i = 0; $i < $len ; $i++){
-            $name = $arr[$i];
-            $result1 = People::where('name', $name)
+            $number = $arr[$i];
+            $result1 = People::where('number', $number)
                 ->delete();
             $result2 = DB::table('timetableOdd')
-                ->where('name', $name)
+                ->where('number', $number)
                 ->delete();
             $result3 = DB::table('timetableEven')
-                ->where('name', $name)
+                ->where('number', $number)
                 ->delete();
             $result = $result1&$result2&$result3;
         }
@@ -224,17 +224,19 @@ class People extends Model
         $school = $request->get('school');
         $department = $request->get('department');
         $position = $request->get('position');
+        $message = $request->get('message');
 
         //不改密码
         $checkResult=Check::checkName($name)&&Check::checkNumber($number)&& Check::checkQQ($QQ)
             && Check::checkTel($tel)&&Check::checkBirthday($birthday)&& Check::checkEmail($email)
             && Check::checkSchool($school) &&Check::checkDepartment($department)&& Check::checkPosition($position);
 
+        //根据学号修改
         if($checkResult) {
             $result = People::where('number', $number)->update(
                 ['name' => $name, 'birthday' => $birthday, 'QQ' => $QQ, 'number' => $number,
                     'tel' => $tel, 'email' => $email, 'school' => $school, 'department' => $department,
-                    'position' => $position]
+                    'position' => $position,'message' => $message]
             );
             return $result;
         }else{
