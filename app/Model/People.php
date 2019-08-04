@@ -107,7 +107,7 @@ class People extends Model
     }
 
 
-    //搜索框：根据姓名、部门、职位获取信息——百步梯通讯录
+    //搜索框1：根据姓名、部门、职位获取信息——百步梯通讯录
     public static function queryInfo($request){
         $query = $request->get('query');
         //判断输入的是姓名、部门、还是职位
@@ -147,7 +147,7 @@ class People extends Model
     }
 
 
-    //搜索框：根据姓名、部门获取所有信息——百步梯通讯录（修改状态）
+    //搜索框2：根据姓名、部门获取所有信息——百步梯通讯录（修改状态）
     public static function queryInfoAdmin($request){
         $query = $request->get('query');
         //判断输入的是姓名还是部门
@@ -175,12 +175,12 @@ class People extends Model
     }
 
 
-    //搜索框：根据姓名、部门获取所有信息——百步梯通讯录（修改状态）
+    //管理员点击“修改”时，根据学号获取所有信息——百步梯通讯录（修改状态）
     public static function queryAdmin($request){
         $queryNumber = $request->get('queryNumber');
         //获取所有信息
         $matchInfo = People::where('number', $queryNumber)
-            ->select('name','department','birthday','tel','QQ','email','number','school','position')
+            ->select('name','school','department','position','birthday','tel','QQ','email','number')
             ->get();
 
         if($matchInfo){
@@ -213,7 +213,7 @@ class People extends Model
     }
 
 
-    //修改人员信息——百步梯通讯录（修改状态）
+    //管理员修改人员信息——百步梯通讯录（修改状态）
     public static function updateAdmin($request){
         $name = $request->get('name');
         $birthday = $request->get('birthday');
@@ -238,33 +238,20 @@ class People extends Model
                     'tel' => $tel, 'email' => $email, 'school' => $school, 'department' => $department,
                     'position' => $position,'message' => $message]
             );
+            $resultOdd = DB::table('timetableOdd')
+                ->where('number',$number)
+                ->update(['name'=>$name,'department'=>$department]);
+            $resultEven = DB::table('timetableEven')
+                ->where('number',$number)
+                ->update(['name'=>$name,'department'=>$department]);
             return $result;
         }else{
-            return $result=0;
+            return 0;
         }
     }
 
 
-    //点击某人姓名获取其所有信息——详细信息
-    public static function allInfo($request){
-        $queryName = $request->get('queryName');
-        $result=People::where('name',$queryName)
-            ->select('name','school','department','position','birthday','tel', 'QQ','email','number','message')->get();
-        return $result;
-    }
-
-
-    //获取自己信息——个人信息
-    public static function allInfoNumber($request){
-        $queryNumber = $request->get('queryNumber');
-        $result=People::where('number',$queryNumber)
-            ->select('name','school','department','position','birthday','tel', 'QQ','email','number','message')
-            ->get();
-        return $result;
-    }
-
-
-    //修改自己信息——个人信息
+    //普通人员修改自己信息——个人信息
     public static function updatePeople($request){
         $name = $request->get('name');
         $birthday = $request->get('birthday');
@@ -287,10 +274,35 @@ class People extends Model
                     'email' => $email, 'school' => $school, 'department' => $department,
                     'position' => $position, 'message' => $message]
             );
+            $resultOdd = DB::table('timetableOdd')
+                ->where('number',Session::get('number'))
+                ->update(['name'=>$name,'department'=>$department]);
+            $resultEven = DB::table('timetableEven')
+                ->where('number',Session::get('number'))
+                ->update(['name'=>$name,'department'=>$department]);
             return $result;
         }else{
-            return $result=0;
+            return 0;
         }
+    }
+
+
+    //点击某人姓名获取其所有信息——详细信息
+    public static function allInfo($request){
+        $queryName = $request->get('queryName');
+        $result=People::where('name',$queryName)
+            ->select('name','school','department','position','birthday','tel', 'QQ','email','number','message')->get();
+        return $result;
+    }
+
+
+    //获取自己信息——个人信息
+    public static function allInfoNumber($request){
+        $queryNumber = $request->get('queryNumber');
+        $result=People::where('number',$queryNumber)
+            ->select('name','school','department','position','birthday','tel', 'QQ','email','number','message')
+            ->get();
+        return $result;
     }
 
 

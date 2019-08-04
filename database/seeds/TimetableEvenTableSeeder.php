@@ -13,21 +13,21 @@ class TimetableEvenTableSeeder extends Seeder
     public function run()
     {
         DB::table('timetableEven')->insert([
-            ['name'=>'a','number'=>201830250000,'department'=>'技术部',
+            ['name'=>'测试一','number'=>201830250000,'department'=>'技术部',
                 'Wednesday12'=>'1','Wednesday34'=>'1'
             ],
-            ['name'=>'b','number'=>201862880000,'department'=>'技术部',
+            ['name'=>'测试二','number'=>201862880000,'department'=>'技术部',
                 'Wednesday12'=>'1','Wednesday34'=>'1'
             ],
-            ['name'=>'c','number'=>201854680000,'department'=>'视频部',
+            ['name'=>'测试三','number'=>201854680000,'department'=>'视频部',
                 'Wednesday12'=>'1','Wednesday34'=>'1'
             ],
-            ['name'=>'d','number'=>201830660000,'department'=>'技术部',
+            ['name'=>'测试四','number'=>201830660000,'department'=>'技术部',
                 'Wednesday12'=>'1','Wednesday34'=>'1'
             ],
-            ['name'=>'e','number'=>201830770000,'department'=>'视频部',
+            ['name'=>'测试五','number'=>201830770000,'department'=>'视频部',
                 'Wednesday12'=>'1','Wednesday34'=>'1'
-            ],['name'=>'f','number'=>201830880000,'department'=>'视频部',
+            ],['name'=>'测试六','number'=>201830880000,'department'=>'视频部',
                 'Wednesday12'=>'1','Wednesday34'=>'1'
             ]
         ]);

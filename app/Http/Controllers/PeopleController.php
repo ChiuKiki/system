@@ -171,24 +171,6 @@ class PeopleController extends Controller
     }
 
 
-    //测试管理员修改他人信息接口——百步梯通讯录（修改状态）
-    //127.0.0.1/frame/system/public/api/update?name=测试&birthday=10.17&QQ=1169849916&number=201830990000&tel=15800000000&email=123456@qq.com&school=电子与信息学院&department=技术部&position=干事&message=test
-    public function updateAdminModel(Request $request)
-    {
-        if (Session::get('flag') != 1) {
-            return response(array('message'=>'无权限'),403);
-        } else {
-            $result = People::updateAdmin($request);
-            if ($result) {
-                return response(array('message'=>'修改成功'));
-            } else {
-                return response(array('message'=>'修改失败'),403);
-            }
-        }
-
-    }
-
-
     //测试通讯录点击某人名字查询其信息——详细信息
     //127.0.0.1/frame/system/public/api/query?queryName=b
     public function queryModel(Request $request)
@@ -231,27 +213,38 @@ class PeopleController extends Controller
     }
 
 
-    //测试自己修改自己信息——个人信息
+    //测试修改信息——个人信息&百步梯通讯录（修改状态）
     //127.0.0.1/frame/system/public/api/updatePeople?name=测试&birthday=10.17&QQ=1169849916&number=201830990000&tel=15800000000&email=123456@qq.com&school=电子与信息学院&department=技术部&position=干事&message=test
     public function updatePeopleModel(Request $request)
     {
         $number = $request->get('number');
 
-        //要登陆
-        if (Session::get('flag') == 0) {
-            return response(array('message'=>'无权限'),403);
-        }else{
-            //只能改自己的信息
-            if(Session::get('number') != $number){
+        switch (Session::get('flag')){
+            //未登录
+            case "0":
                 return response(array('message'=>'无权限'),403);
-            }else{
-                $result = People::updatePeople($request);
-                if ($result) {
-                    return response(array('message'=>'修改成功'));
-                } else {
-                    return response(array('message'=>'修改失败'),403);
+                break;
+            //管理员
+            case "1":
+                $result = People::updateAdmin($request);
+                break;
+            //普通人员
+            case "2":
+                //只能改自己的信息
+                if(Session::get('number') != $number){
+                    return response(array('message'=>'无权限'),403);
+                }else{
+                    $result = People::updatePeople($request);
                 }
-            }
+                break;
+            default :
+                $result = 0;
+        }
+
+        if ($result) {
+            return response(array('message'=>'修改成功'));
+        } else {
+            return response(array('message'=>'修改失败'),403);
         }
 
     }
