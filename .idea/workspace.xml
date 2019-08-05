@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="92b7de52-cca8-4183-a39d-fb92954ac68c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Kernel.php" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/PeopleController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/PeopleController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Middleware/CrossMiddleware.php" afterPath="$PROJECT_DIR$/app/Http/Middleware/CrossMiddleware.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/api.php" afterPath="$PROJECT_DIR$/routes/api.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,18 +32,18 @@
       <file leaf-file-name="api.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1134">
-              <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+            <state relative-caret-position="1060">
+              <caret line="50" column="0" lean-forward="true" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PeopleController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PeopleController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PeopleController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="105" column="6" lean-forward="true" selection-start-line="105" selection-start-column="6" selection-end-line="105" selection-end-column="55" />
+            <state relative-caret-position="367">
+              <caret line="107" column="46" lean-forward="true" selection-start-line="107" selection-start-column="46" selection-end-line="107" selection-end-column="46" />
               <folding>
                 <element signature="e#40#61#0#PHP" expanded="true" />
                 <element signature="e#281#960#0#PHP" expanded="false" />
@@ -49,23 +51,13 @@
                 <element signature="e#2096#2386#0#PHP" expanded="false" />
                 <element signature="e#2455#2590#0#PHP" expanded="false" />
                 <element signature="e#2669#3091#0#PHP" expanded="false" />
-                <element signature="e#3689#4117#0#PHP" expanded="false" />
-                <element signature="e#4228#4648#0#PHP" expanded="false" />
-                <element signature="e#4791#5219#0#PHP" expanded="false" />
-                <element signature="e#5309#5709#0#PHP" expanded="false" />
-                <element signature="e#5810#6484#0#PHP" expanded="false" />
-                <element signature="e#6720#7653#0#PHP" expanded="false" />
+                <element signature="e#3758#4186#0#PHP" expanded="false" />
+                <element signature="e#4297#4717#0#PHP" expanded="false" />
+                <element signature="e#4860#5288#0#PHP" expanded="false" />
+                <element signature="e#5378#5778#0#PHP" expanded="false" />
+                <element signature="e#5879#6553#0#PHP" expanded="false" />
+                <element signature="e#6789#7722#0#PHP" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Kernel.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Kernel.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="447">
-              <caret line="36" column="56" lean-forward="true" selection-start-line="36" selection-start-column="56" selection-end-line="36" selection-end-column="56" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -73,8 +65,8 @@
       <file leaf-file-name="CrossMiddleware.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Middleware/CrossMiddleware.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="21" column="53" lean-forward="true" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
+            <state relative-caret-position="378">
+              <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -181,16 +173,16 @@
         <option value="$PROJECT_DIR$/database/seeds/Timetable2TableSeeder.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_08_02_062500_create_timetable_odd_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_08_02_062531_create_timetable_even_table.php" />
-        <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/database/seeds/TimetableEvenTableSeeder.php" />
         <option value="$PROJECT_DIR$/database/seeds/TimetableOddTableSeeder.php" />
         <option value="$PROJECT_DIR$/database/seeds/PeopleTableSeeder.php" />
         <option value="$PROJECT_DIR$/app/Model/Timetable.php" />
         <option value="$PROJECT_DIR$/app/Model/People.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/TimetableController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/PeopleController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Middleware/CrossMiddleware.php" />
         <option value="$PROJECT_DIR$/app/Http/Kernel.php" />
+        <option value="$PROJECT_DIR$/app/Http/Middleware/CrossMiddleware.php" />
+        <option value="$PROJECT_DIR$/routes/api.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/PeopleController.php" />
       </list>
     </option>
   </component>
@@ -486,12 +478,12 @@
       <workItem from="1564844242378" duration="4046000" />
       <workItem from="1564848345861" duration="3633000" />
       <workItem from="1564900959049" duration="17510000" />
-      <workItem from="1565008853114" duration="7927000" />
+      <workItem from="1565008853114" duration="8626000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="288668000" />
+    <option name="totallyTimeSpent" value="289367000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -738,14 +730,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/database/seeds/Timetable1TableSeeder.php" />
     <entry file="file://$PROJECT_DIR$/database/seeds/Timetable2TableSeeder.php" />
-    <entry file="file://$PROJECT_DIR$/routes/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1134">
-          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_02_062500_create_timetable_odd_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
@@ -835,18 +819,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1060">
+          <caret line="50" column="0" lean-forward="true" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Kernel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="447">
+          <caret line="39" column="10" lean-forward="true" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Middleware/CrossMiddleware.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="21" column="53" lean-forward="true" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
+        <state relative-caret-position="378">
+          <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PeopleController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="105" column="6" lean-forward="true" selection-start-line="105" selection-start-column="6" selection-end-line="105" selection-end-column="55" />
+        <state relative-caret-position="367">
+          <caret line="107" column="46" lean-forward="true" selection-start-line="107" selection-start-column="46" selection-end-line="107" selection-end-column="46" />
           <folding>
             <element signature="e#40#61#0#PHP" expanded="true" />
             <element signature="e#281#960#0#PHP" expanded="false" />
@@ -854,21 +854,13 @@
             <element signature="e#2096#2386#0#PHP" expanded="false" />
             <element signature="e#2455#2590#0#PHP" expanded="false" />
             <element signature="e#2669#3091#0#PHP" expanded="false" />
-            <element signature="e#3689#4117#0#PHP" expanded="false" />
-            <element signature="e#4228#4648#0#PHP" expanded="false" />
-            <element signature="e#4791#5219#0#PHP" expanded="false" />
-            <element signature="e#5309#5709#0#PHP" expanded="false" />
-            <element signature="e#5810#6484#0#PHP" expanded="false" />
-            <element signature="e#6720#7653#0#PHP" expanded="false" />
+            <element signature="e#3758#4186#0#PHP" expanded="false" />
+            <element signature="e#4297#4717#0#PHP" expanded="false" />
+            <element signature="e#4860#5288#0#PHP" expanded="false" />
+            <element signature="e#5378#5778#0#PHP" expanded="false" />
+            <element signature="e#5879#6553#0#PHP" expanded="false" />
+            <element signature="e#6789#7722#0#PHP" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Kernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="36" column="56" lean-forward="true" selection-start-line="36" selection-start-column="56" selection-end-line="36" selection-end-column="56" />
-          <folding />
         </state>
       </provider>
     </entry>

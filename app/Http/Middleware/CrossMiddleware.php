@@ -18,8 +18,7 @@ class CrossMiddleware
     return $next($request)
         ->header('Access-Control-Allow-Credentials', 'true')
         ->header('Access-Control-Allow-Methods', 'OPTIONS, GET, POST, PUT, UPDATE, PATCH, DELETE')
-        //->header('Access-Control-Allow-Headers', 'Content-Type, X-Session-Id, Cookie, multipart/form-data, application/json')
-        ->header('Access-Control-Allow-Headers', '*')
+        ->header('Access-Control-Allow-Headers', 'Content-Type, X-Session-Id, Cookie, multipart/form-data, application/json')
         ->header('Access-Control-Allow-Credentials', 'true')
         ->header('Access-Control-Allow-Origin', '*');
 }

@@ -18,39 +18,39 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 //操作者登陆——登录
-Route::any('operatorLogin','PeopleController@loginModel')->middleware('web');
+Route::any('operatorLogin','PeopleController@loginModel');
 //添加人员——注册
-Route::any('insert','PeopleController@insertModel')->middleware('web');
+Route::any('insert','PeopleController@insertModel');
 //忘记密码
-Route::any('forgetPassword','PeopleController@forgetPasswordModel')->middleware('web');
+Route::any('forgetPassword','PeopleController@forgetPasswordModel');
 //操作者注销
-Route::any('operatorLogout','PeopleController@logoutModel')->middleware('web');
+Route::any('operatorLogout','PeopleController@logoutModel');
 
 
 //显示所有人员——百步梯通讯录
-Route::any('queryInitial','PeopleController@queryInitialModel')->middleware('web');
-//搜索框查询——百步梯通讯录
-Route::any('queryInfo','PeopleController@queryInfoModel')->middleware('web');
-//搜索框查询——百步梯通讯录（修改状态）
-Route::any('queryInfoAdmin','PeopleController@queryInfoAdminModel')->middleware('web');
+Route::any('queryInitial','PeopleController@queryInitialModel');
+//搜索框查询1——百步梯通讯录
+Route::any('queryInfo','PeopleController@queryInfoModel');
+//搜索框查询2——百步梯通讯录（修改状态）
+Route::any('queryInfoAdmin','PeopleController@queryInfoAdminModel');
 //管理员获取他人信息——百步梯通讯录（修改状态）
-Route::any('queryAdmin','PeopleController@queryAdminModel')->middleware('web');
+Route::any('queryAdmin','PeopleController@queryAdminModel');
 //批量删除人员——百步梯通讯录（修改状态）
-Route::any('delete','PeopleController@deleteModel')->middleware('web');
+Route::any('delete','PeopleController@deleteModel');
 //修改人员——百步梯通讯录（修改状态）
-Route::any('update','PeopleController@updateAdminModel')->middleware('web');
+Route::any('update','PeopleController@updateAdminModel');
 
 
 //点击某人名字查询其信息——详细信息
-Route::any('query','PeopleController@queryModel')->middleware('web');
+Route::any('query','PeopleController@queryModel');
 //获取自己信息——个人信息
-Route::any('queryNumber','PeopleController@queryNumberModel')->middleware('web');
+Route::any('queryNumber','PeopleController@queryNumberModel');
 //自己修改自己信息——个人信息
-Route::any('updatePeople','PeopleController@updatePeopleModel')->middleware('web');
+Route::any('updatePeople','PeopleController@updatePeopleModel');
 
 
 //没课表查询
-Route::any('free','TimetableController@noClassModel')->middleware('web');
+Route::any('free','TimetableController@noClassModel');
 //没课表录入
-Route::any('insertFree','TimetableController@insertNoClassModel')->middleware('web');
+Route::any('insertFree','TimetableController@insertNoClassModel');
 
