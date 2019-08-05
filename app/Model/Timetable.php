@@ -75,47 +75,15 @@ class Timetable extends Model
     }
 
 
-    //确定没课时间数组（arr[][]）
+    //确定没课时间数组（arr[课号][星期几]）
     public static function checkTimeArr($request){
         $arr = $request->get('arr');
-        /*
-        $arr[0][0] = 0;
-        $arr[0][1] = 0;
-        $arr[0][2] = 0;
-        $arr[0][3] = 0;
-        $arr[0][4] = 0;
-
-        $arr[1][0] = 0;
-        $arr[1][1] = 0;
-        $arr[1][2] = 0;
-        $arr[1][3] = 0;
-        $arr[1][4] = 0;
-
-        $arr[2][0] = 0;
-        $arr[2][1] = 0;
-        $arr[2][2] = 0;
-        $arr[2][3] = 0;
-        $arr[2][4] = 0;
-
-        $arr[3][0] = 0;
-        $arr[3][1] = 0;
-        $arr[3][2] = 0;
-        $arr[3][3] = 0;
-        $arr[3][4] = 0;
-
-        $arr[4][0] = 0;
-        $arr[4][1] = 0;
-        $arr[4][2] = 0;
-        $arr[4][3] = 0;
-        $arr[4][4] = 1;
-        */
-
         $tempArr = array();
 
         for($i = 0; $i < 5; $i++){
             for ($j = 0; $j < 5; $j++) {
                 //没课为1，有课为0
-                if($arr[$i][$j]) {
+                if($arr[$j][$i]) {
                     //class格式变换 0 => 1-2
                     switch ($j){
                         case "0":
@@ -241,7 +209,7 @@ class Timetable extends Model
                         ->where('number', Session::get('number'))
                         ->update([$time[$i] => '1']);
                 }
-                return $resetOdd&$resetEven&$resultOdd&$resultEven;
+                return $resultOdd&$resultEven;
                 break;
 
             case "-1":
@@ -254,7 +222,7 @@ class Timetable extends Model
                         ->where('number', Session::get('number'))
                         ->update([$time[$i] => '1']);
                 }
-                return $resetOdd&$result;
+                return $result;
                 break;
 
             case "0":
@@ -267,7 +235,7 @@ class Timetable extends Model
                         ->where('number', Session::get('number'))
                         ->update([$time[$i] => '1']);
                 }
-                return $resetEven&$result;
+                return $result;
                 break;
 
             default:

@@ -103,7 +103,7 @@ class PeopleController extends Controller
     }
 
 
-    //测试搜索框查询——百步梯通讯录
+    //测试搜索框查询1——百步梯通讯录
     //127.0.0.1/frame/system/public/api/queryInfo?query=技术部
     public function queryInfoModel(Request $request){
         //要登陆
@@ -120,7 +120,7 @@ class PeopleController extends Controller
     }
 
 
-    //测试搜索框查询——百步梯通讯录（修改状态）
+    //测试搜索框查询2——百步梯通讯录（修改状态）
     //127.0.0.1/frame/system/public/api/queryInfoAdmin?query=技术部
     public function queryInfoAdminModel(Request $request){
         //要管理员权限

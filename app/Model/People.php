@@ -180,7 +180,7 @@ class People extends Model
         $queryNumber = $request->get('queryNumber');
         //获取所有信息
         $matchInfo = People::where('number', $queryNumber)
-            ->select('name','school','department','position','birthday','tel','QQ','email','number')
+            ->select('name','department','position','tel','QQ','email','school','number','birthday')
             ->get();
 
         if($matchInfo){

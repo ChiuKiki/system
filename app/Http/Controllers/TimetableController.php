@@ -36,7 +36,6 @@ class TimetableController extends Controller
         //确定没课时间数组
         $time = Timetable::checkTimeArr($request);
 
-
         if (Session::get('flag')) {
 
             $result = Timetable::insertFreeTime($time,$request);
@@ -49,6 +48,7 @@ class TimetableController extends Controller
         } else {
             return response(array('message' => '无权限'), 403);
         }
+
 
     }
 
