@@ -6,11 +6,10 @@ use App\Model\People;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
-
 class PeopleController extends Controller
 {
     //测试登陆——登录
-    //127.0.0.1/frame/system/public/api/operatorLogin?number=201862880000&password=abc000
+    //http://system.chiukiki.cn/api/operatorLogin?number=201862880000&password=abc000
     public function loginModel(Request $request)
     {
         $result = People::checkAccount($request);
@@ -36,7 +35,7 @@ class PeopleController extends Controller
 
 
     //测试注册——注册
-    //127.0.0.1/frame/system/public/api/insert?name=测试&number=201830255555&tel=15800000000&department=技术部&password=abc123&confirmPassword=abc123
+    //http://system.chiukiki.cn/api/insert?name=测试&number=201830255555&tel=15800000000&department=技术部&password=abc123&confirmPassword=abc123
     public function insertModel(Request $request)
     {
         $password = $request->get('password');
@@ -64,7 +63,7 @@ class PeopleController extends Controller
 
 
     //测试忘记密码
-    //127.0.0.1/frame/system/public/api/forgetPassword?number=201830250000&tel=13400000000&setPassword=123456
+    //http://system.chiukiki.cn/api/forgetPassword?number=201830250000&tel=13400000000&setPassword=123456
     public static function forgetPasswordModel(Request $request)
     {
         $result = People::findPassword($request);
@@ -77,7 +76,7 @@ class PeopleController extends Controller
 
 
     //测试注销
-    //127.0.0.1/frame/system/public/api/operatorLogout
+    //http://system.chiukiki.cn/api/operatorLogout
     public function logoutModel(Request $request)
     {
         Session::flush();
@@ -87,7 +86,7 @@ class PeopleController extends Controller
 
 
     //测试首页显示信息——百步梯通讯录
-    //127.0.0.1/frame/system/public/api/queryInitial
+    //http://system.chiukiki.cn/api/queryInitial
     public function queryInitialModel(Request $request){
         //要登陆
         if (Session::get('flag') == 0) {
@@ -104,7 +103,7 @@ class PeopleController extends Controller
 
 
     //测试搜索框查询1——百步梯通讯录
-    //127.0.0.1/frame/system/public/api/queryInfo?query=技术部
+    //http://system.chiukiki.cn/api/queryInfo?query=技术部
     public function queryInfoModel(Request $request){
         //要登陆
         if (Session::get('flag') == 0) {
@@ -121,7 +120,7 @@ class PeopleController extends Controller
 
 
     //测试搜索框查询2——百步梯通讯录（修改状态）
-    //127.0.0.1/frame/system/public/api/queryInfoAdmin?query=技术部
+    //http://system.chiukiki.cn/api/queryInfoAdmin?query=技术部
     public function queryInfoAdminModel(Request $request){
         //要管理员权限
         if (Session::get('flag') != 1) {
@@ -138,7 +137,7 @@ class PeopleController extends Controller
 
 
     //测试管理员获取他人信息——百步梯通讯录（修改状态）
-    //127.0.0.1/frame/system/public/api/queryAdmin?queryNumber=201830255555
+    //http://system.chiukiki.cn/api/queryAdmin?queryNumber=201830255555
     public function queryAdminModel(Request $request){
         //要管理员权限
         if (Session::get('flag') != 1) {
@@ -155,7 +154,7 @@ class PeopleController extends Controller
 
 
     //测试批量删除——百步梯通讯录（修改状态）
-    //127.0.0.1/frame/system/public/api/delete?number[]=201830660000&number[]=201830770000&number[]=201830880000
+    //http://system.chiukiki.cn/api/delete?number[]=201830660000&number[]=201830770000&number[]=201830880000
     public static function deleteModel(Request $request)
     {
         if (Session::get('flag') != 1) {
@@ -172,7 +171,7 @@ class PeopleController extends Controller
 
 
     //测试通讯录点击某人名字查询其信息——详细信息
-    //127.0.0.1/frame/system/public/api/query?queryName=b
+    //http://system.chiukiki.cn/api/query?queryName=b
     public function queryModel(Request $request)
     {
         if (Session::get('flag') == 0) {
@@ -189,7 +188,7 @@ class PeopleController extends Controller
 
 
     //测试获取自己信息——个人信息
-    //127.0.0.1/frame/system/public/api/queryNumber?queryNumber=201830250000
+    //http://system.chiukiki.cn/api/queryNumber?queryNumber=201830250000
     public function queryNumberModel(Request $request)
     {
         $number = $request->get('queryNumber');
@@ -214,7 +213,7 @@ class PeopleController extends Controller
 
 
     //测试修改信息——个人信息&百步梯通讯录（修改状态）
-    //127.0.0.1/frame/system/public/api/updatePeople?name=测试&birthday=10.17&QQ=1169849916&number=201830990000&tel=15800000000&email=123456@qq.com&school=电子与信息学院&department=技术部&position=干事&message=test
+    //http://system.chiukiki.cn/api/updatePeople?name=测试&birthday=10.17&QQ=1169849916&number=201830990000&tel=15800000000&email=123456@qq.com&school=电子与信息学院&department=技术部&position=干事&message=test
     public function updatePeopleModel(Request $request)
     {
         $number = $request->get('number');

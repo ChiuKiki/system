@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Session;
 class TimetableController extends Controller
 {
     //测试没课查询
-    //http://127.0.0.1/frame/system/public/api/free?weekNum=0&day=3&class=1-2&department=技术部
+    //http://system.chiukiki.cn/api/free?weekNum=0&day=3&class=1-2&department=技术部
     public static function noClassModel(Request $request)
     {
         $time = Timetable::checkTime($request);
