@@ -15,16 +15,12 @@ class Cors
      */
     public function handle($request, Closure $next)
     {
-        $origin = $request->server('HTTP_ORIGIN') ? $request->server('HTTP_ORIGIN') : '';
-        $allow_origin = ['http://localhost:8080'];
+        return $next($request)
+            ->header('Access-Control-Allow-Origin', '*')
+            ->header('Access-Control-Allow-Credentials', 'true')
+            ->header('Access-Control-Allow-Methods', 'OPTIONS, GET, POST, PUT, UPDATE, PATCH, DELETE')
+            ->header('Access-Control-Allow-Headers', 'Content-Type, X-Session-Id, Cookie, multipart/form-data, application/json')
+            ->header('Access-Control-Allow-Credentials', 'true');
 
-        if (in_array($origin, $allow_origin)) {
-            header('Access-Control-Allow-Origin: '.$origin);
-            header("Access-Control-Allow-Credentials: true");
-            header("Access-Control-Allow-Methods: *");
-            header("Access-Control-Allow-Headers: X-Requested-With,Content-Type,Access-Token");
-            header("Access-Control-Expose-Headers: *");
-        }
-        return $next($request);
     }
 }
