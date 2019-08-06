@@ -108,8 +108,7 @@ class PeopleController extends Controller
     //测试搜索框查询1——百步梯通讯录
     //http://system.chiukiki.cn/api/queryInfo?query=技术部
     public function queryInfoModel(Request $request){
-        return response(Session::get('flag'));
-        /*
+
         //要登陆
         if (Session::get('flag') == 0) {
             return response(array('message'=>'无权限'),403);
@@ -121,7 +120,7 @@ class PeopleController extends Controller
                 return response(array('message' => '查不到'), 403);
             }
         }
-        */
+
     }
 
 
