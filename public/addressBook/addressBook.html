@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>通讯录</title>
+    <link rel="stylesheet" href="css/addressBookMobile.css"/>
+    <script src="js/changeCss.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/addressBook.js"></script>
+    <script src="../loginScreen/js/test.js"></script>
+  </head>
+</html>
+<body>
+  <div id="titleBox"><!--两个标题-->
+    <h1 id="title">人员管理系统</h1>
+    <h2 id="addressBookTitle">百步梯通讯录</h2>
+  </div>
+  <div id="picture"><!--手机端不显示-->
+    <img id="userPicture" src="img/title.jpg" alt="头像"/>
+  </div> 
+  <div id="addressBookSearchBox"><!--搜索框-->
+    <input type="text" id="addressBook" placeholder="姓名/部门/职位"/>
+    <img src="img/addressBookSearch.png" id="addressBookSearchImg"/>
+  </div> 
+  <div id="container"><!--搜索内容展开的div-->
+    <table id="addressBookTable">
+      <tr>
+        <th>姓名</th>
+        <th>部门</th>
+        <th>职位</th>
+      </tr>
+    </table>
+  </div>
+  <div id="menu"><!--底部菜单-->
+    <div id="addressMenu" class="mainMenu">
+      <img id="addressImg"  src="img/messgeMenu.png" /> 
+      <p id="addressText">通讯录</p>
+    </div>
+    <div id="spareMenu" class="mainMenu">
+      <img id="spareMenuImg" src="img/spareMenu.png"/>
+      <p id="spareMenuText">没课表</p>
+    </div>
+    <div id="presonMessageMenu" class="mainMenu">
+      <img id="personMessageImg" src="img/personMessage.png"/>
+      <p id="personMessageText">个人信息</p>
+    </div>
+    <div id="administratorMenu" class="mainMenu">
+      <img id="administratorImg" src="img/administrator.png"/>
+      <p id="administratorText">管理员</p>
+    </div>
+  </div>
+</body>

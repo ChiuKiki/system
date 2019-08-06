@@ -1,0 +1,164 @@
+#spareBox {
+	height: 12vh;
+	text-align: center;
+	background-color: rgb(48, 150, 7);
+	color: whitesmoke;
+	margin: 0;
+}/*标题框的样式*/
+#spareTitle {
+	font-size: 3vh;
+	margin: 0;
+	font-weight: inherit;
+}
+#title {
+	font-size: 6vh;
+	padding: 0;
+	margin: 0;
+}
+#spareControl {
+	width: 85vw;
+	height: 20vh;
+	margin: 0 auto;
+}
+.spareControlPart {
+	width: 40vw;
+	height: 5vh;
+	margin-top: 2vh;
+	font-size: 3vw;
+	float: left;
+}
+input {
+	font-size: 3vh;
+	text-align: center;
+	width: 28vw;
+	height: 4vh;
+	border: 2px solid rgb(48, 150, 7);
+}
+select {
+	font-size: 3vh;
+	text-align: center;
+	width: 28vw;
+	height: 4vh;
+	border: 2px solid rgb(48, 150, 7);
+}
+#spareSearch {
+	width: 35vw;
+	height: 10vw;
+	float: right;
+}
+#spareSearchImg {
+	width: 8vw;
+	height: 8vw;
+	float: left;
+}
+#spareSearchText {
+	height: 6vw;
+	font-size: 6vw;
+	color: rgb(48, 150, 7);
+	position: relative;
+	top: -4vw;
+	left: 2vw;
+}
+#personMenu {
+	font-size: 4vh;
+	padding: 0;
+	margin: 0;
+}
+/*主要内容部分*/
+#container {
+	width: 95vw;
+	height: 40vh;
+	margin: 0 auto;
+	overflow: auto;
+	border-top: 3px solid rgb(48, 150, 7);
+	padding-top: 4vh;
+}
+#container::-webkit-scrollbar {
+ width:4vw;
+ height:50vh;
+ background:whitesmoke;
+ margin-left:0;
+}
+#container::-webkit-scrollbar-thumb {
+ width:2vw;
+ background-color:rgb(48, 150, 7);
+}
+#addressBookTable {
+	border: 1px solid black;
+	font-size: 3vh;
+	border-collapse: collapse;
+	margin: 0 auto;
+}
+tr {
+	max-width: 75vw;
+	max-height: 4vh;
+	margin: 0;
+	border: 1px solid black;
+}
+th {
+	width: 25vw;
+	height: 4vh;
+	border: 1px solid black;
+}
+td {
+	width: 25vw;
+	height: 4vh;
+	border: 1px solid black;
+	padding: 0;
+}
+/*底部菜单的样式*/
+#menu {
+	position: fixed;
+	bottom: 0;
+	width: 100vw;
+	height: 15vh;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
+.mainMenu {
+	width: 25vw;
+	height: 10vh;
+	float: left;
+	text-align: center;
+	margin-top: 2vh;
+}
+.mainMenu img {
+	width: 12vw;
+	height: 8vh;
+	margin: 0;
+}
+.mainMenu p {
+	font-size: 3vh;
+	font-weight: bolder;
+	color: gray;
+	margin: 0;
+}
+#spareMenu p{
+	color:rgb(48, 150, 7);
+}addressMenu
+/*选择框样式*/
+.week, .weekDay, .class, .department {
+	display: inline-block;
+	padding: 0;
+	outline: 0;
+}
+.wx-input {
+	width: 36vw;
+	height: 3vh;
+	position: relative;
+	padding-left: 2vw;
+	border-radius: 0;
+	border: 3px solid rgb(48, 150, 7);
+	text-align: left;
+	font-size: 2.5vh;
+}
+input::-ms-clear {
+display:none;
+}
+.dataBox {
+	border: 1px solid rgb(48, 150, 7);
+}
+.dataList {
+	width: 30vw;
+	margin: 0;
+}

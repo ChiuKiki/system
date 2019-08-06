@@ -1,0 +1,76 @@
+body {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+#registerTitle {
+	background-color: rgb(48, 150, 7);
+	color: white;
+	width: 100vw;
+	padding-top: 3vh;
+	padding-bottom: 3vh;
+	margin-top: 0;
+	font-size: 80px;
+	text-align: center;
+}
+#registerBox {
+	width: 45vw;
+	margin: 0 auto;
+}
+.registerPart {
+	width: 65vw;
+	margin: 0 auto;
+	margin-top: 7vw;
+}
+img {
+	width: 8vw;
+	height: 7vw;
+	margin-right: 5vw;
+}
+input {
+	width: 40vw;
+	height: 5vw;
+	font-size: 4vw;
+	border: 1px solid rgb(48, 150, 7);
+	outline: none;
+	background-color: rgba(0,0,0,0);
+}
+#selectBox {
+	margin-left: 0;
+	display: block;
+	float: right;
+}
+#department {
+	width: 40vw;
+	height: 5vw;
+	font-size: 4vw;
+	background-color: white;
+}
+#registerSubmitBox {
+	width: 30vw;
+	height: 8vw;
+	margin: 0 auto;
+	margin-top: 3vh;
+}
+#registerSubmit {
+	width: 30vw;
+	height: 8vw;
+	outline: none;
+	font-family: "微软雅黑";
+	font-size: 5vw;
+	word-spacing: 5vw;
+	background-color: rgb(48, 150, 7);
+	color: white;
+	border: 1px solid rgb(48, 150, 7);
+	cursor: pointer;
+	border-radius: 1vw;
+	margin: 0 auto;
+}
+#registerSubmit:hover {
+	background-color: lrgb(212, 140, 31);
+	border: 1px solid black;
+}/*提交框的整体样式*/
+#registerHint {
+	color: red;
+	text-align: center;
+}

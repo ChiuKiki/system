@@ -1,0 +1,71 @@
+<!--主页面-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>index.html</title>
+    <link rel="stylesheet" href="loginScreen/css/index.css"/>
+    <script src="loginScreen/js/jquery.js"></script>
+    <script src="loginScreen/js/changeCss.js"></script>
+    <script src="loginScreen/js/test.js"></script>
+  </head>
+  <body>
+    <div id="backgroundBox"><!--添加背景图样-->
+      <img id="imageTitle" src="loginScreen/img/indexTitle.png"/>
+    </div>
+    <div id="registerContainer"><!--用户输入框-->
+
+      <h1 id="headTitle">人员管理系统</h1>
+
+      <form id="register" action="http://127.0.0.1/frame/search/search.html" method="post" onsubmit="return false"> 
+
+        <div id="user">
+
+          <label for="registerName" >用户名:&nbsp;</label>
+          <input type="text" id="registerName" name="user" placeholder="请输入用户名" onblur="isUserCorrect()" value="201862880000"/>
+         
+        </div>
+        <div id="password">
+
+          <label for="registerPassword" >密&nbsp;&nbsp;&nbsp;码:&nbsp;</label>
+          <input type="password" id="registerPassword" name="password" placeholder="请输入密码" onblur="isPasswordCorrect()" autocomplete="current-password" value="abc000"/>
+          
+        </div>
+        <p id="findbackPassword">找回密码</p>
+        <div id="submit">
+           
+          <input type="submit" id="registerSubmit" onclick="isUserCorrect();isPasswordCorrect();" value="登录"/>
+          <input type="button" id="registerMessage" value="注册"/>
+          <br/>
+          <p id="registerHint" ></p><!--提示文字-->
+
+        </div>
+      </form>
+    </div>
+    <div id="blackBox">
+
+    </div>
+    <div id="amendBox">
+      <p>找回密码</p>
+      <h3 id="close">关闭</h3>
+      
+      <div id="messageBox"><!--弹出框-->
+        <div id="studentNum" class="fromPart">
+          <label for="userStudentNum">学号:</label>
+          <input type="text" id="userStudentNum" class="data" name="userStudentNum" placeholder="学号"/><br/>
+        </div>
+        <div id="telephone" class="fromPart">
+          <label for="userTelephone">电话:</label>
+          <input type="text" id="userTelephone" class="data" name="userTelephone" placeholder="电话"/><br/>
+        </div>
+        <div id="setPassword" class="fromPart">
+          <label for="setPassword" >密码:</label>
+          <input type="password" id="setPassword" name="password" placeholder="请输入密码" onblur="isPasswordCorrect()"/>
+        </div>
+        <button type="button" id="reserve">提交</button>
+        <button type="button" id="closes">关闭</button>
+      </div>
+    </div>
+  </body>
+</html>

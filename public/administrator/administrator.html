@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>管理员</title>
+    <link rel="stylesheet" href="css/administratorMobile.css"/>
+    <script src="js/changeCss.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/administrator.js"></script>
+  </head>
+</html>
+<body>
+  <div id="titleBox"><!--标题框-->
+    <h1 id="title">百步梯通讯录(修改状态)</h1>
+  </div>
+  <div id="picture"><!--手机端不显示-->
+    <img id="userPicture" src="img/title.jpg" alt="头像"/>
+  </div> 
+  <div id="addressBookSearchBox"><!--搜索框-->
+    <input type="text" id="addressBook" placeholder="姓名/部门"/>
+    <img src="img/addressBookSearch.png" id="addressBookSearchImg"/>
+  </div> 
+  <div id="deleteBox"><!--删除框-->
+    <img src="img/delete.png" id="deleteImg"/>
+    <p id="deleteText">删除</p>
+  </div>
+  <div id="container"><!--信息框-->
+    <table id="administratorTable">
+      <tr>
+        <th><input type="checkbox" id="allSelect" class="selectPart" value="true" />全选</th>
+        <th>姓名</th>
+        <th>部门</th>
+        <th>职位</th>
+        <th>电话</th>
+        <th>QQ</th>
+        <th>邮箱</th>
+        <th>学院</th>
+        <th>学号</th>
+        <th>生日</th>
+        <th>操作</th>
+      </tr>
+      <tr>
+        <td><input type="checkbox" class="selectPart" value=true/>选中</td>
+        <td></td>
+        <td></td>
+        <td>1</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="operate"><a class="operateChange">修改</a> <a class="operateDelete">删除</a></td>
+        
+      </tr>
+    </table>
+  </div>
+  <div id="blackBox">
+
+  </div>
+  <div id="amendBox">
+    <p>人员信息管理</p>
+    <h3 id="close">关闭</h3>
+    
+    <div id="messageBox"><!--弹出框-->
+      <div id="name" class="fromPart"><!--分别用div包裹以调整位置-->
+        <label for="userName">姓名:</label>
+        <input type="text" id="userName" class="data" name="userName" placeholder="姓名" value="赵容"/>
+      </div>
+      <div id="department" class="fromPart">
+        <label for="userDepartment">部门:</label>
+        <input type="text" id="userDepartment" class="data" name="userDepartment" placeholder="部门"/><br/>
+      </div>
+      <div id="work" class="fromPart">
+        <label for="userWork">职位:</label>
+        <input type="text" id="userWork" class="data" name="userWork" placeholder="需填写"/><br/>
+      </div>
+      <div id="telephone" class="fromPart">
+        <label for="userTelephone">电话:</label>
+        <input type="text" id="userTelephone" class="data" name="userTelephone" placeholder="电话"/><br/>
+      </div>
+      <div id="QQ" class="fromPart">
+        <label for="userQQ">QQ :</label>
+        <input type="text" id="userQQ" class="data" name="userQQ" placeholder="QQ"/><br/>
+      </div>
+      <div id="email" class="fromPart">
+        <label for="userEmail">邮箱:</label>
+        <input type="text" id="userEmail" class="data" name="userEmail" placeholder="邮箱"/><br/>
+      </div>
+      <div id="academy" class="fromPart">
+        <label for="userAcademy">学院:</label>
+        <input type="text" id="userAcademy" class="data" name="userAcademy" placeholder="学院"/><br/>
+      </div> 
+      <div id="studentNum" class="fromPart">
+        <label for="userStudentNum">学号:</label>
+        <input type="text" id="userStudentNum" class="data" name="userStudentNum" placeholder="学号"/><br/>
+      </div>
+      <div id="birthday" class="fromPart">
+        <label for="userBirthday">生日:</label>
+        <input type="number" id="userBirthday" class="data" name="userBirthday" placeholder="格式:12.18"/>
+      </div>
+      <button type="button" id="reserve">保存</button>
+      <button type="button" id="closes">关闭</button>
+    </div>
+  </div>
+  <div id="menu"><!--底部菜单-->
+    <div id="addressMenu" class="mainMenu">
+      <img id="addressImg"  src="img/messgeMenu.png" /> 
+      <p id="addressText">通讯录</p>
+    </div>
+    <div id="spareMenu" class="mainMenu">
+      <img id="spareMenuImg" src="img/spareMenu.png"/>
+      <p id="spareMenuText">没课表</p>
+    </div>
+    <div id="presonMessageMenu" class="mainMenu">
+      <img id="personMessageImg" src="img/personMessage.png"/>
+      <p id="personMessageText">个人信息</p>
+    </div>
+    <div id="administratorMenu" class="mainMenu">
+      <img id="administratorImg" src="img/administrator.png"/>
+      <p id="administratorText">管理员</p>
+    </div>
+  </div>
+</body>

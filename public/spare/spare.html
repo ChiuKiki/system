@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>没课表查询</title>
+    <link rel="stylesheet" href="css/spareMobile.css"/>
+    <script src="js/jquery.js"></script>
+    <script src="js/changeCss.js"></script>
+    <script src="js/plumen.js"></script>
+    <script src="js/spare.js"></script>
+    <script>
+      $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
+    </script>
+  </head>
+<body>
+  <div id="spareBox">
+    <h1 id="title">人员管理系统</h1>
+    <h2 id="spareTitle">没课表</h2>
+  </div>
+  <div id="spareControl"><!--输入搜索框-->
+    <div id="weekBox" class="spareControlPart">
+      <div class="input-Selector week">
+        <input type="text" class="wx-input" placeholder="请输入周数">
+      </div>
+    </div>
+    <div id="departmentBox" class="spareControlPart">
+      <div class="input-Selector weekDay" >
+        <input type="text" class="wx-input" placeholder="请选择星期" readonly>
+      </div>
+    </div>
+    <div id="dayBox" class="spareControlPart">
+      <div class="class input-Selector">
+        <input type="text" class="wx-input" placeholder="请选择节数" readonly>
+      </div>
+    </div>
+    <div id="departmentBox" class="spareControlPart">
+      <div class="department input-Selector">
+        <input type="text" class="wx-input" placeholder="可输入部门" > 
+      </div>
+    </div>
+    <div id="spareSearch">
+      <img id="spareSearchImg"src="img/right.png"/>
+      <p id="spareSearchText">开始搜索</p>
+    </div>
+    <p id="personMenu">人员名单</p>
+  </div>
+  
+  <div id="container"><!--结果展示框-->
+    <table id="addressBookTable">
+      <tr>
+        <td>技术部</td>
+        <td>赵容</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+  <div id="menu"><!--底部菜单框-->
+    <div id="addressMenu" class="mainMenu">
+      <img id="addressImg"  src="img/messgeMenu.png" /> 
+      <p id="addressText">通讯录</p>
+    </div>
+    <div id="spareMenu" class="mainMenu">
+      <img id="spareMenuImg" src="img/spareMenu.png"/>
+      <p id="spareMenuText">没课表</p>
+    </div>
+    <div id="presonMessageMenu" class="mainMenu">
+      <img id="personMessageImg" src="img/personMessage.png"/>
+      <p id="personMessageText">个人信息</p>
+    </div>
+    <div id="administratorMenu" class="mainMenu">
+      <img id="administratorImg" src="img/administrator.png"/>
+      <p id="administratorText">管理员</p>
+    </div>
+  </div>
+</body>
+</html>
