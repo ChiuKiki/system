@@ -13,7 +13,7 @@ $(function(){/*载入时获得人员的数据*/
         $("#addressBookTable").empty();
         $("#addressBookTable").append("<tr> <th>姓名</th> <th>部门</th> <th>职位</th> </tr>");
 	  for(var i=0;i<data.length;i++){
-	      $("#addressBookTable").append("<tr><td></td><td></td><td></td><td><td></td></tr>");
+	      $("#addressBookTable").append("<tr><td></td><td></td><td></td></tr>");
           var k=0;
 		  for(var j in data[i]){
 
