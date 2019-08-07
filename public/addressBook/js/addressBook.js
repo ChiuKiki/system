@@ -3,7 +3,34 @@
   var r = window.location.search.substr(1).match(reg); //匹配目标参数
   if (r != null) return unescape(r[2]); return null; //返回参数值
 }
-$(function(){/*载入时获得人员的数据*/
+$(function(){
+    $.get("http://system.chiukiki.cn/api/queryInitial",
+        function(data,xhrFields){
+
+            $("#addressBookTable").empty();
+            $("#addressBookTable").append("<tr> <th>姓名</th> <th>部门</th> <th>职位</th> </tr>");
+            for(var i=0;i<data.length;i++){
+                $("#addressBookTable").append("<tr><td></td><td></td><td></td></tr>");
+                var k=0;
+                for(var j in data[i]){
+
+                    $("tr").eq(i+1).children().eq(k).text(data[i][j]);
+                    k++;
+                }
+            }
+            xhrFields:{withCredentials:true};
+            $("td").on("click",function(){
+
+
+                if(!($(this).parent().children().eq(0).text()==""||$(this).parent().children().eq(0).text()==null)){
+
+                    alert($(this).parent().children().eq(0).text());
+                    location="../message/message.html?way=addressBook"+"&queryName="+encodeURI(encodeURI($(this).parent().children().eq(0).text()));
+                }
+            })
+        })
+})
+$(function(){/*点击时获得人员的数据*/
   $("#addressBookSearchImg").click(function(){
     $.get("http://system.chiukiki.cn/api/queryInfo",{
 	  query:$("#addressBook").val()
