@@ -40,7 +40,7 @@ $(function(){//用于登录时跳转,前端向后端请求得到"登录成功"�
           }
           if(data[0].message=="登陆成功"){
               $("#registerHint").text("");
-              location="addressBook/addressBook.html?queryNumber="+$('#registerName')[0].value+"&dataUsed="+dataUsed;
+              location="../addressBook/addressBook.html?queryNumber="+$('#registerName')[0].value+"&dataUsed="+dataUsed;
               name=$('#registerName')[0].value;
  
           }else{
@@ -58,6 +58,30 @@ $(function(){//点击注册跳转到注册页面
     location="../register/register.html";
   })
 })
+$(function(){//点击保存时保存数据
+  $("#reserve").click(function(){
+    $.get("http://system.chiukiki.cn/api/updatePeople",/*点击完成按钮提交信息*/
+			{
+				name:$("#userName").val(),
+				school:$("#userAcademy").val(),
+				department:$("#userDepartment").val(),
+				position:$("#userWork").val(),
+				birthday:$("#userBirthday").val(),
+				tel:$("#userTelephone").val(),
+				QQ:$("#userQQ").val(),
+				email:$("#userEmail").val(),
+				number:$("#userStudentNum").val(),
+				message:$("#userTextarea").val()
+			},
+			  function(data,xhrFields){
+          xhrFields:{withCredentials:true};
+					if(data.message=="修改成功"){
+					console.log("修改成功!");
+					}
+				});
+  })
+});
+
 $(function(){//点击开始找回密码框
   $("#findbackPassword").click(function(){
     $("#amendBox").toggle();

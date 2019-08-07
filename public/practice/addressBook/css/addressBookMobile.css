@@ -1,0 +1,121 @@
+body {
+	background-color: white;
+}
+/*标题部分*/
+#titleBox {
+	height: 12vh;
+	text-align: center;
+	background-color: rgb(48, 150, 7);
+	color: white;
+}/*标题框的样式*/
+#addressBookTitle {
+	font-size: 3vh;
+	margin: 0;
+	font-weight: inherit;
+}
+#title {
+	font-size: 6vh;
+	padding: 0;
+	margin: 0;
+}
+#picture {
+	display: none;
+}/*在手机端隐藏*/
+#addressBookSearchBox {
+	width: 80vw;
+	height: 8vh;
+	margin: 2vh;
+	margin-left: 10vw;
+}
+#addressBook {
+	font-size: 3vh;
+	text-align: center;
+	width: 60vw;
+	height: 4vh;
+	border: 2px solid rgb(48, 150, 7);
+	float: left;
+	margin-top: 3vh;
+}
+#addressBookSearchImg {
+	width: 12vw;
+	height: 6vh;
+	margin-left: 3vw;
+	margin-top: 2vh;
+}
+/*主要内容部分*/
+#container {
+	width: 95vw;
+	height: 50vh;
+	margin: 0 auto;
+	overflow: auto;
+}
+#container::-webkit-scrollbar {
+ width:4vw;
+ height:50vh;
+ background:whitesmoke;
+ margin-left:0;
+}
+#container::-webkit-scrollbar-thumb {
+ width:2vw;
+ background-color:rgb(48, 150, 7);
+}
+#addressBookTable {
+	border: 1px solid black;
+	font-size: 3vh;
+	border-collapse: collapse;
+	margin: 0 auto;
+	margin-top: 4vh;
+}
+tr {
+	max-width: 75vw;
+	max-height: 4vh;
+	margin: 0;
+	border: 1px solid black;
+}
+th {
+	width: 25vw;
+	height: 4vh;
+	border: 1px solid black;
+}
+td {
+	width: 25vw;
+	height: 4vh;
+	border: 1px solid black;
+	padding: 0;
+}
+/*底部菜单的样式*/
+#menu {
+	position: fixed;
+	bottom: 0;
+	width: 100vw;
+	height: 15vh;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
+.mainMenu {
+	width: 25vw;
+	height: 10vh;
+	float: left;
+	text-align: center;
+	margin-top: 2vh;
+}
+.mainMenu img {
+	width: 8vh;
+	height: 8vh;
+	margin: 0;
+}
+.mainMenu p {
+	font-size: 3vh;
+	font-weight: bolder;
+	color: gray;
+	margin: 0;
+}
+#addressMenu p{
+	color:rgb(48, 150, 7);
+}
+#hint {
+	font-size: 2vw;
+	color: red;
+	text-align: center;
+	display: none;
+}

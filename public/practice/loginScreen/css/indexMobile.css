@@ -1,0 +1,205 @@
+/*手机端的样式*/
+body {
+	background-image: url("../img/indexBackground.png");
+	background-size: 100% 45vh;
+	background-repeat: no-repeat;
+	background-color: white;
+	overflow: hidden;
+}/*设置背景的样式*//*rgb(98, 189, 42)*/
+#imageTitle {
+	width: 50vw;
+	height: 40vh;
+	text-align: center;
+}
+#backgroundBox {
+	width: 50vw;
+	height: 40vh;
+	margin: 0 auto;
+}
+#registerContainer {
+	margin-top: 5vh;
+}
+#headTitle {
+	font-size: 8vw;
+	color: rgb(48, 150, 7);
+	font-weight: 900;
+	font-family: "宋体";
+	text-align: center;
+}/*设置标题的样式*/
+#titlePicture {
+	width: 20vw;
+	height: 20vw;
+	margin-top: 8vw;
+}/*设置用户头像的样式*/
+#register {
+	margin: 0 auto;
+	width: 70vw;
+	height: 40vh;
+	font-family: "微软雅黑";
+	font-size: 4vw;
+	background-color: white;
+	color: black;
+	text-align: center;
+}/*设置表单主题的格式*/
+#user {
+	width: 65vw;
+	margin: 0 auto;
+	margin-top: 8vw;
+}/*用户输入框的样式*/
+#password {
+	width: 65vw;
+	margin: 0 auto;
+	margin-top: 4vw;
+}/*密码输入框的样式*/
+input[type="text"] {
+	width: 45vw;
+	height: 4vh;
+	border: 1px solid rgb(48, 150, 7);
+	font-size: 4vw;
+}/*设置输入框的格式*/
+input[type="password"] {
+	width: 45vw;
+	height: 4vh;
+	border: 1px solid rgb(48, 150, 7);
+	font-size: 4vw;
+}/*设置输入框的格式*/
+#findbackPassword {
+	font-size: 3vw;
+	cursor: pointer;
+}
+#registerSubmit {
+	width: 20vw;
+	height: 5vh;
+	outline: none;
+	font-family: "微软雅黑";
+	font-size: 5vw;
+	word-spacing: 20px;
+	background-color: rgb(48, 150, 7);
+	color: white;
+	border: 1px solid rgb(48, 150, 7);
+	cursor: pointer;
+}
+#registerSubmit:hover {
+	background-color: rgb(131, 194, 106);
+	border: 1px solid rgb(131, 194, 106);
+}/*提交框的整体样式*/
+#registerMessage {
+	width: 20vw;
+	height: 5vh;
+	outline: none;
+	font-family: "微软雅黑";
+	font-size: 5vw;
+	word-spacing: 20px;
+	background-color: rgb(48, 150, 7);
+	color: white;
+	border: 1px solid rgb(48, 150, 7);
+	cursor: pointer;
+	margin-left: 50px;
+}
+#registerMessage:hover {
+	background-color: rgb(131, 194, 106);
+	border: 1px solid rgb(131, 194, 106);
+}
+#registerHint {
+	margin: 0;
+	display: inline-block;
+	font-size: 2vh;
+	color: red;
+}/*提示文字的样式*/
+#blackBox{
+	width:100vw;
+	height:100vh;
+	background-color:rgba(0,0,0,0.5);
+	z-index: 2;
+	position:absolute;
+	top:0;
+	left:0;
+	display:none;
+}
+#amendBox{
+	width:80vw;
+	height:50vh;
+	position:absolute;
+	top:50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	-o-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	background-color:rgb(11, 153, 219);
+	z-index:3;
+	display:none;
+}
+#amendBox p{
+	font-size:35px;
+	font-weight:bold;
+	margin-top:2vh;
+	margin-left:2vw;
+	color:white;
+	display:inline-block;
+}
+#close{
+	font-size:4vmin;
+	float:right;
+	margin-top:2vh;
+	margin-right:3vw;
+	color:white;
+}
+#messageBox{
+	width:70vw;
+	height:40vh;
+	background-color:white;
+	margin:0 auto;
+}
+.fromPart {
+	width: 70vw;
+	height: 5vh;
+	padding: 3vh 4vw 0 4vw;
+	font-size: 3vw;
+}
+.fromPart label{
+	font-size:3vh;
+}
+.fromPart input {
+	font-size: 3vh;
+	text-align: center;
+	width: 50vw;
+	height: 4vh;
+	border: 2px solid gray;
+}
+#reserve{
+	width: 20vw;
+	height: 5vh;
+	outline: none;
+	font-family: "微软雅黑";
+	font-size: 5vw;
+	word-spacing: 20px;
+	background-color: rgb(11, 153, 219);
+	color: white;
+	border: 1px solid rgb(11, 153, 219);
+	cursor: pointer;
+	margin-top:5vh;
+	margin-left:10vw;
+}
+#reserve:hover {
+	background-color: rgb(84, 165, 202);
+	border: 1px solid rgb(84, 165, 202);
+}
+#closes{
+	width: 20vw;
+	height: 5vh;
+	outline: none;
+	font-family: "微软雅黑";
+	font-size: 5vw;
+	word-spacing: 20px;
+	background-color: rgb(11, 153, 219);
+	color: white;
+	border: 1px solid rgb(11, 153, 219);
+	cursor: pointer;
+	margin-top:5vh;
+	margin-left:10vw;
+}
+#closes:hover {
+	background-color: rgb(84, 165, 202);
+	border: 1px solid rgb(84, 165, 202);
+}

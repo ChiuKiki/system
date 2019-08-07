@@ -1,5 +1,4 @@
-//用于切换电脑端和手机端的css
-var browser={//判断是否为手机端;
+var browser={
     versions:function(){
         var u = navigator.userAgent, app = navigator.appVersion;
         
@@ -28,14 +27,13 @@ var browser={//判断是否为手机端;
     }(), 
     language:(navigator.browserLanguage || navigator.language).toLowerCase()  
 }   
-
-
-if(browser.versions.mobile || browser.versions.ios || browser.versions.android || browser.versions.iPhone || browser.versions.iPad){    cssChange(); //如果是则改变css; 
+   
+if(browser.versions.mobile || browser.versions.ios || browser.versions.android || browser.versions.iPhone || browser.versions.iPad){    cssChange();  
 }  
  
 function cssChange(){
     var link = document.getElementsByTagName('link')[0];
    
-    link.setAttribute('href','loginScreen/css/indexMobile.css');
+    link.setAttribute('href','css/spareMobile.css');
     
 }

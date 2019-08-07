@@ -10,6 +10,7 @@ $(function(){/*载入时获得人员的数据*/
 	},
 	function(data,xhrFields){
   
+      console.log(data[0]["name"]);
 	  for(var i=0;i<data.length;i++){
       var k=0;
 		  for(var j in data[i]){

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>注册</title>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="css/register.css"/>
+    <script src="js/jquery.js"></script>
+    <script src="js/changeCss.js"></script>
+    <script src="js/register.js"></script>
+  </head>
+  <body>
+    <h1 id="registerTitle">信息注册</h1>
+    <div id="registerBox"><!--信息填入框-->
+      <div id="studentNumBox" class="registerPart">
+        <img src="img/studentNum.png"/>
+        <input id="studentNum" type="text" placeholder="请输入学号"/><br/>
+      </div>
+      <div id="nameBox" class="registerPart">
+        <img src="img/name.png" />
+        <input id="name" type="text" placeholder="请输入姓名"/><br/>
+      </div>
+      <div id="phoneBox" class="registerPart">
+        <img src="img/phone.png"/>
+        <input id="phone" type="text" placeholder="请输入电话"/><br/>
+      </div>
+      <div id="passwordBox" class="registerPart">
+        <img src="img/password.png"/>
+        <input id="password" type="password" placeholder="请输入密码"/><br/>
+      </div>
+      <div id="passwordSureBox" class="registerPart">
+        <img src="img/password.png"/>
+        <input id="passwordSure" type="password" placeholder="请再次输入密码"/><br/>
+      </div>
+      <div id="departmentBox" class="registerPart">
+        <img src="img/department.png"/>
+        <input id="department" type="text" placeholder="请输入部门"/>
+    </div>
+    <br/>
+    <p id="registerHint"></p><!--提示信息-->
+    <div id="registerSubmitBox">
+      <button id="registerSubmit" type="button">注册</button>
+    </div>
+  </body>
+</html>

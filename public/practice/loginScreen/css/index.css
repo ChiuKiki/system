@@ -1,0 +1,169 @@
+/*电脑端的样式*/
+body{
+  margin:0px;
+  background: url(img/background.jpg);
+  
+}/*设置背景的样式*/
+
+#headTitle{
+
+  margin-top:10px;
+  font-size:40px;
+  color:rgb(48, 150, 7);
+  text-align:center;
+
+}/*设置标题的样式*/
+
+#titlePicture{
+
+  width:100px;
+  height:100px;
+  margin-top:10px;
+  
+}/*设置用户头像的样式*/
+
+#register{
+
+  font-family: "微软雅黑";
+  font-size: 15px;
+  background-color:rgba(255,255,255,0.5);
+  color:rgb(48, 150, 7);
+  text-align:center;
+
+}/*设置表单主题的格式*/
+
+#user{
+
+  width:260px;
+  margin:0 auto;
+  margin-top:10%;
+
+}/*用户输入框的样式*/
+
+#password{
+
+  width:260px;
+  margin:0 auto;
+  margin-top:4%;
+
+}/*密码输入框的样式*/
+
+input[type="text"]{
+
+  width:200px;
+  height:30px;
+  border:1px solid rgb(48, 150, 7);
+
+}/*设置输入框的格式*/
+
+#registerName:hover{
+
+  border:1px solid rgb(113, 185, 85);
+  
+}
+
+input[type="password"]{
+
+  width:200px;
+  height:30px;
+  border:1px solid rgb(48, 150, 7);
+
+}/*设置输入框的格式*/
+
+#registerPassword:hover{
+
+  border:1px solid rgb(113, 185, 85);
+
+}
+#findbackPassword{
+
+  font-size:10px;
+  cursor: pointer;
+  
+}
+#submit{
+
+  width:260px;
+  margin:0 auto;
+  margin-top:5%;
+  text-align:left;
+
+}
+#registerSubmit{
+
+  width:100px;
+  height:36px;
+  outline:none;
+  font-family: "微软雅黑";
+  font-size: 20px;
+  word-spacing: 20px;
+  background-color:rgb(48, 150, 7);
+  color:white;
+  border: 1px solid rgb(48, 150, 7);
+  cursor: pointer;
+
+}
+#registerSubmit:hover{
+
+  background-color:rgb(131, 194, 106);
+  border: 1px solid rgb(131, 194, 106);
+}/*提交框的整体样式*/
+
+#registerMessage{
+  width:100px;
+  height:36px;
+  outline:none;
+  font-family: "微软雅黑";
+  font-size: 20px;
+  word-spacing: 20px;
+  background-color:rgb(48, 150, 7);
+  color:white;
+  border: 1px solid rgb(48, 150, 7);
+  cursor: pointer;
+  margin-left:50px;
+}
+#registerMessage:hover{
+  background-color:rgb(131, 194, 106);
+  border: 1px solid rgb(131, 194, 106);
+}
+#registerHint{
+
+  margin:0;
+  display: inline-block;
+  font-size:10px;
+  color:red;
+
+}/*提示文字的样式*/
+@media screen and (min-width:660px){
+  #headTitle{
+
+    text-align:center;
+    
+  }
+  #register{
+    position: absolute;
+    right:200px;
+    top:30%;
+    width: 310px;
+    height:310px;
+  }
+}
+@media screen and (max-width:660px){
+  #headTitle{
+
+    position: absolute;
+    left:100px;
+    top:10px;
+    overflow: hidden;
+
+  }
+  #register{
+
+    position: absolute;
+    left:100px;
+    top:30%;
+    width: 310px;
+    height:310px;
+
+  }
+}

@@ -36,6 +36,6 @@ if(browser.versions.mobile || browser.versions.ios || browser.versions.android |
 function cssChange(){
     var link = document.getElementsByTagName('link')[0];
    
-    link.setAttribute('href','loginScreen/css/indexMobile.css');
+    link.setAttribute('href','css/indexMobile.css');
     
 }
