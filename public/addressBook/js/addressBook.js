@@ -28,6 +28,7 @@ $(function(){/*载入时获得人员的数据*/
 $(function(){//为表格的每一行添加点击事件
   $("td").click(function(){
 
+
     if(!($(this).parent().children().eq(0).text()==""||$(this).parent().children().eq(0).text()==null)){
 
       alert($(this).parent().children().eq(0).text());
