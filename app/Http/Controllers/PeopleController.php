@@ -66,7 +66,7 @@ class PeopleController extends Controller
 
 
     //测试忘记密码
-    //http://system.chiukiki.cn/api/forgetPassword?number=201830250000&tel=13400000000&setPassword=123456
+    //http://system.chiukiki.cn/api/forgetPassword?number=201830660000&tel=13200000000&setPassword=111111
     public static function forgetPasswordModel(Request $request)
     {
         $result = People::findPassword($request);
