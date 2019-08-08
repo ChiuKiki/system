@@ -19,6 +19,7 @@ $(function(){//加载信息
 		$(".fromPart").css({"margin-top":"3vh"});
 		$("#containerLeft").css({"height":"18vh"});
 		$("#containerRight").css({"height":"43vh"});
+		$("#callback").toggle();
 
 		$(function(){/*载入时获得人员的数据*/
 			console.log(decodeURI(decodeURI(getUrlParam("queryName"))));
@@ -119,7 +120,7 @@ $(function(){//点击修改,完成按钮根据值的不同来触发事件
 			$("#spareEnter").toggle();
 			$("#menu").toggle();/*修改细节*/
 
-			$.get("http://system.chiukiki.cn/api/updatePeople",/*点击完成按钮提交信息*/
+			$.get("http://127.0.0.1/frame/system/public/api/updatePeople",/*点击完成按钮提交信息*/
 			{
 				name:$("#userName").val(),
 				school:$("#userAcademy").val(),
