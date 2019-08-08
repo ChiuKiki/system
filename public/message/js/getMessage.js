@@ -77,7 +77,7 @@ $(function(){//加载信息
             },
             function(data,xhrFields){
 							xhrFields:{withCredentials:true};
-              inputValue=new Array();
+                $("#callback").toggle();
                 var j=0;
                 for(var i in data[0]){
                   if(i!="message"){
@@ -99,11 +99,11 @@ $(function(){//禁用修改
 $(function(){//点击修改,完成按钮根据值的不同来触发事件
 	$("#spareButton").click(function(){
 		if($("#alterText").text()=="修改"){/*返回之后再请求后端,获得个人信息*/
-
+        
 			$("#alterImg").attr("src","img/right.png");
 			$("#alterText").text("完成");
 			$("input").prop("readonly",false);
-			$("input").css("border","2px solid rgb(48, 150, 7)");
+			$("input").css("border","1px solid rgb(48, 150, 7)");
 			$("#hint").toggle();
 			$("#spareEnter").toggle();
 			$("#menu").toggle();/*修改细节*/

@@ -63,7 +63,7 @@ body {
 }
 /*主要内容部分*/
 #container {
-	width: 95vw;
+	width: 99vw;
 	height: 50vh;
 	margin: 0 auto;
 }
@@ -165,4 +165,5 @@ textarea::placeholder {
 	top: 2vh;
 	width: 10vw;
 	height: 5vh;
+	display: none;
 }

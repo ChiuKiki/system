@@ -1,11 +1,14 @@
-#spareBox {
+body {
+	background-color: white;
+}
+/*标题部分*/
+#titleBox {
 	height: 12vh;
 	text-align: center;
 	background-color: rgb(48, 150, 7);
-	color: whitesmoke;
-	margin: 0;
+	color: white;
 }/*标题框的样式*/
-#spareTitle {
+#addressBookTitle {
 	font-size: 3vh;
 	margin: 0;
 	font-weight: inherit;
@@ -15,63 +18,36 @@
 	padding: 0;
 	margin: 0;
 }
-#spareControl {
-	width: 85vw;
-	height: 20vh;
-	margin: 0 auto;
+#picture {
+	display: none;
+}/*在手机端隐藏*/
+#addressBookSearchBox {
+	width: 80vw;
+	height: 8vh;
+	margin: 2vh;
+	margin-left: 10vw;
 }
-.spareControlPart {
-	width: 40vw;
-	height: 5vh;
+#addressBook {
+	font-size: 3vh;
+	text-align: center;
+	width: 60vw;
+	height: 4vh;
+	border: 2px solid rgb(48, 150, 7);
+	float: left;
+	margin-top: 3vh;
+}
+#addressBookSearchImg {
+	width: 12vw;
+	height: 6vh;
+	margin-left: 3vw;
 	margin-top: 2vh;
-	font-size: 3vw;
-	float: left;
-}
-input {
-	font-size: 3vh;
-	text-align: center;
-	width: 28vw;
-	height: 4vh;
-	border: 2px solid rgb(48, 150, 7);
-}
-select {
-	font-size: 3vh;
-	text-align: center;
-	width: 28vw;
-	height: 4vh;
-	border: 2px solid rgb(48, 150, 7);
-}
-#spareSearch {
-	width: 35vw;
-	height: 10vw;
-	float: right;
-}
-#spareSearchImg {
-	width: 8vw;
-	height: 8vw;
-	float: left;
-}
-#spareSearchText {
-	height: 6vw;
-	font-size: 6vw;
-	color: rgb(48, 150, 7);
-	position: relative;
-	top: -4vw;
-	left: 2vw;
-}
-#personMenu {
-	font-size: 4vh;
-	padding: 0;
-	margin: 0;
 }
 /*主要内容部分*/
 #container {
 	width: 95vw;
-	height: 40vh;
+	height: 50vh;
 	margin: 0 auto;
 	overflow: auto;
-	border-top: 3px solid rgb(48, 150, 7);
-	padding-top: 4vh;
 }
 #container::-webkit-scrollbar {
  width:4vw;
@@ -88,6 +64,7 @@ select {
 	font-size: 3vh;
 	border-collapse: collapse;
 	margin: 0 auto;
+	margin-top: 4vh;
 }
 tr {
 	max-width: 75vw;
@@ -133,32 +110,12 @@ td {
 	color: gray;
 	margin: 0;
 }
-#spareMenu p{
+#addressMenu p{
 	color:rgb(48, 150, 7);
-}addressMenu
-/*选择框样式*/
-.week, .weekDay, .class, .department {
-	display: inline-block;
-	padding: 0;
-	outline: 0;
 }
-.wx-input {
-	width: 37vw;
-	height: 3vh;
-	position: relative;
-	padding-left: 2vw;
-	border-radius: 0;
-	border: 3px solid rgb(48, 150, 7);
-	text-align: left;
-	font-size: 2.5vh;
-}
-input::-ms-clear {
-display:none;
-}
-.dataBox {
-	border: 1px solid rgb(48, 150, 7);
-}
-.dataList {
-	width: 30vw;
-	margin: 0;
+#hint {
+	font-size: 2vw;
+	color: red;
+	text-align: center;
+	display: none;
 }

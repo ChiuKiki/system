@@ -28,7 +28,7 @@
 						background:"#fff",
 						display:"inline-block",
 						position:"absolute",
-						right:"1vw",
+						right:"2vw",
 						top:"0.5vh",
 						zIndex:2
 					})
@@ -43,7 +43,7 @@
 					    borderColor:"#6c6c6c transparent transparent",
 						cursor: "pointer",
 						position: "absolute",
-						right: "0.5vw",
+						right: "1vw",
 						top: "1vh",
 						borderRadius: '0',
 						display:"block",
