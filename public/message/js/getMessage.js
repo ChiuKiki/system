@@ -50,26 +50,6 @@ $(function(){//加载信息
 		});
 				
 	}
-	else if(getUrlParam("way")=="administrator"){//若通过管理员进入
-
-        $.get("http://system.chiukiki.cn/api/queryAdmin",{
-                queryNumber:getUrlParam("queryNumber")
-            },
-            function(data,xhrFields){
-							xhrFields:{withCredentials:true};
-                inputValue=new Array();
-                var j=0;
-                for(var i in data[0]){
-                    if(i!="message"){
-                        $("input").eq(j).attr({ value: data[0][i] });console.log(data[0][i]);
-                    }
-                    else{
-                        $("#userTextarea").text(data[0][i]);
-                    }
-                    j++;
-                }
-            });
-	}
 	else{//从底部菜单进入个人信息的情况
 
     $(function(){/*载入时获得人员的数据*/console.log(getUrlParam("queryNumber"))
@@ -120,7 +100,7 @@ $(function(){//点击修改,完成按钮根据值的不同来触发事件
 			$("#spareEnter").toggle();
 			$("#menu").toggle();/*修改细节*/
 
-			$.get("http://127.0.0.1/frame/system/public/api/updatePeople",/*点击完成按钮提交信息*/
+			$.get("http://system.chiukiki.cn/api/updatePeople",/*点击完成按钮提交信息*/
 			{
 				name:$("#userName").val(),
 				school:$("#userAcademy").val(),
@@ -198,12 +178,9 @@ $(function(){//底部菜单的逻辑即返回键的逻辑
 		})
 	}
 	$("#callback").click(function(){
-		if(getUrlParam("way")=="addressBook"){
-			location="../addressBook/addressBook.html?queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
-		}
-		if(getUrlParam("way")=="administrator"){
-      location="../administrator/administrator.html?queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
-		}
+
+		location="../addressBook/addressBook.html?queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
+
 	})
 	$("#spareEnter").click(function(){
 		location="../spareScanf/spareScanf.html?queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");

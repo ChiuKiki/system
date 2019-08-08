@@ -55,7 +55,7 @@ $(function(){/*点击时获得人员的数据*/
             if(!($(this).parent().children().eq(0).text()==""||$(this).parent().children().eq(0).text()==null)){
 
                 alert($(this).parent().children().eq(0).text());
-                location="../message/message.html?way=addressBook"+"&queryName="+encodeURI(encodeURI($(this).parent().children().eq(0).text()))+"&queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
+                location="../message/message.html?way=addressBook"+"&queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed")+"&queryName="+encodeURI(encodeURI($(this).parent().children().eq(0).text()));
             }
         })
 	})	
