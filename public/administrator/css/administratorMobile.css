@@ -3,14 +3,14 @@ body {
 }
 /*标题部分*/
 #titleBox {
-	height: 12vh;
+	height: 14vh;
 	text-align: center;
 	background-color: rgb(48, 150, 7);
 	color: white;
 }/*标题框的样式*/
 #title {
 	font-size: 4vh;
-	padding-top: 3vh;
+	padding-top: 4vh;
 	margin: 0;
 }
 #picture {
@@ -66,7 +66,7 @@ body {
 #administratorTable {
 	width: 275vw;
 	border: 1px solid black;
-	font-size: 3vh;
+	font-size: 3vw;
 	border-collapse: collapse;
 	margin: 0 auto;
 	margin-top: 4vh;
@@ -91,7 +91,7 @@ td {
 	text-align: center;
 }
 .selectPart {
-	width: 25vw;
+	width: 5vw;
 	height: 3vh;
 	float: left;
 }

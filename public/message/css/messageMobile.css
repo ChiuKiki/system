@@ -3,7 +3,7 @@ body {
 }
 /*标题部分*/
 #titleBox {
-	height: 12vh;
+	height: 14vh;
 	text-align: center;
 	background-color: rgb(48, 150, 7);
 	color: white;
@@ -108,7 +108,7 @@ input {
 }
 textarea {
 	width: 90vw;
-	height: 10vh;
+	height: 8vh;
 	padding: 2vw;
 	border: 2px solid rgb(48, 150, 7);
 	font-size: 30px;
