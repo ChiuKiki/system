@@ -119,7 +119,7 @@ $(function(){//点击修改,完成按钮根据值的不同来触发事件
 			$("#spareEnter").toggle();
 			$("#menu").toggle();/*修改细节*/
 
-			$.get("http://127.0.0.1/frame/system/public/api/updatePeople",/*点击完成按钮提交信息*/
+			$.get("http://system.chiukiki.cn/api/updatePeople",/*点击完成按钮提交信息*/
 			{
 				name:$("#userName").val(),
 				school:$("#userAcademy").val(),
