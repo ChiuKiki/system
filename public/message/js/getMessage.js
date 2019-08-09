@@ -172,14 +172,14 @@ $(function(){//底部菜单的逻辑即返回键的逻辑
   $("#presonMessageMenu").click(function(){
     location="../message/message.html?queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
   })
-	if(getUrlParam("dataUsed")==1){
+	if(getUrlParam("dataUsed")==1){//是管理员进入管理员页
 		$("#administratorMenu").click(function(){
 			location="../administrator/administrator.html?queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
 		})
 	}
-	$("#callback").click(function(){
+	$("#callback").click(function(){//返回到上一页
 
-		location="../addressBook/addressBook.html?queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
+	history.go(-1);
 
 	})
 	$("#spareEnter").click(function(){
