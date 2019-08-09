@@ -93,7 +93,9 @@ $(function(){//点击保存时保存数据
 					if(data.message=="修改成功"){
 					console.log("修改成功!");
 					}
-				});
+        });
+      $("#amendBox").toggle();
+      $("#blackBox").toggle();  
   })
 });
 $(function(){//点击关闭个人信息窗口
