@@ -1,12 +1,21 @@
-﻿$(function(){
-  $("input textarea").focus(function(){
-    $("#menu").attr("display","none");
-  });
-  $("input textarea").blur(function(){
-    $("#menu").toggle("display","block");
-  })
-})
-        
+﻿var isfocus=false;
+var originalHeight=document.documentElement.clientHeight || document.body.clientHeight;
+window.onresize=function(){
+    var  resizeHeight=document.documentElement.clientHeight || document.body.clientHeight;
+    //软键盘弹起与隐藏  都会引起窗口的高度发生变化
+    if(resizeHeight*1<originalHeight*1&&isfocus==true){ //resizeHeight<originalHeight证明窗口被挤压了
+    $('#menu').css('display','none');
+    }else{
+        $('#menu').css('display','block'); 
+    }
+} 
+$("input").focus(function(){
+    isfocus=true;
+     
+});
+$("input").blur(function(){
+    isfocus=false;
+})    
 function getUrlParam(names) {//从URL中获取参数
   var reg = new RegExp("(^|&)" + names + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
   var r = window.location.search.substr(1).match(reg); //匹配目标参数
