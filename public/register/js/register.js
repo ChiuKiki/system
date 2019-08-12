@@ -1,6 +1,14 @@
+
 var detection=new Boolean;
 detection=true;
-
+$(function(){
+  $("input textarea").focus(function(){
+    $("#menu").attr("display","none");
+  });
+  $("input textarea").blur(function(){
+    $("#menu").toggle("display","block");
+  })
+})
 $(function(){//检测数据格式是否正确
   tests=new Array("/^[0-9]{12}$/",
                   "/^[\u2E80-\u9FFF]{2,5}$/",

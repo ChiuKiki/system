@@ -1,4 +1,13 @@
+$(function(){
+  $("input textarea").focus(function(){
+    $("#menu").attr("display","none");
+  });
+  $("input textarea").blur(function(){
+    $("#menu").toggle("display","block");
+  })
+})
 var dataUsed;
+
 function isUserCorrect(){//检测输入用户名的正确性
   var txt=document.getElementById("registerName").value;
   if(txt==null||txt==""){

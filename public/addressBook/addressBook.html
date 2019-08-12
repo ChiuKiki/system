@@ -8,6 +8,12 @@
     <script src="js/jquery.js"></script>
     <script src="js/addressBook.js"></script>
     <script src="../loginScreen/js/test.js"></script>
+    <script>
+      let Height = $('body').height();
+      $(window).resize(function() {
+      $('body').height(Height);
+      });
+    </script>
   </head>
 </html>
 <body>

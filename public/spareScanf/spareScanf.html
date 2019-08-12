@@ -12,6 +12,12 @@
     <script>
       $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
     </script>
+    <script>
+        let Height = $('body').height();
+        $(window).resize(function() {
+        $('body').height(Height);
+        });
+    </script>
   </head>
 <body>
   <div id="spareScanfBox">

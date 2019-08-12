@@ -1,5 +1,11 @@
-var spareTime = new Array();
-var person;
+$(function(){
+  $("input textarea").focus(function(){
+    $("#menu").attr("display","none");
+  });
+  $("input textarea").blur(function(){
+    $("#menu").toggle("display","block");
+  })
+})
 function getUrlParam(names) {//获取URL中的参数
     var reg = new RegExp("(^|&)" + names + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
     var r = window.location.search.substr(1).match(reg); //匹配目标参数

@@ -1,21 +1,23 @@
 body {
 	background-color: white;
+	overflow:scroll;
 }
 /*标题部分*/
 #titleBox {
-	height: 14vh;
+	height: 20vw;
 	text-align: center;
 	background-color: rgb(48, 150, 7);
 	color: white;
-	margin: 0;
+	letter-spacing: 1vw;
 }/*标题框的样式*/
 #messageTitle {
-	font-size: 3vh;
+	font-size: 5vw;
 	margin: 0;
 	font-weight: inherit;
+	letter-spacing: 2vw;
 }
 #title {
-	font-size: 6vh;
+	font-size: 8vw;
 	padding: 0;
 	margin: 0;
 }
@@ -25,23 +27,28 @@ body {
 /*没课表录入的入口*/
 #spareBox {
 	width: 100%;
-	height: 150px;
+	height: 17vw;
+	padding-top:3vw;
+	padding-bottom:3vw;
 	border-bottom: 4px solid rgb(48, 150, 7);
 }
+
 #spareEnter {
+	margin-top:2vw;
 	cursor: pointer;
 	display: block;
 }
 #spareImg {
-	width: 150px;
-	height: 150px;
+	width: 15vw;
+	height: 15vw;
 	float: left;
 }
 #spareText {
-	font-size: 60px;
+	font-size: 5vw;
 	color: rgb(48, 150, 7);
 	float: left;
 	margin-right: 10vw;
+	margin-top:5vw;
 	font-weight: bolder;
 }
 #spareButton {
@@ -51,42 +58,45 @@ body {
 	margin-right: 6vw;
 }
 #alterImg {
-	margin-top: 50px;
-	width: 100px;
-	height: 100px;
+	margin-top: 4vw;
+	width: 10vw;
+	height: 10vw;
 	float: left;
 }
 #alterText {
-	font-size: 60px;
+	font-size: 5vw;
 	color: rgb(48, 150, 7);
 	float: left;
+	margin-top:7vw;
 }
 /*主要内容部分*/
 #container {
-	width: 99vw;
-	height: 50vh;
+	width: 95vw;
+	height: 100vw;
 	margin: 0 auto;
+	overflow: auto;
+	padding-top:3vw;
 }
 #containerLeft {
 	width: 95vw;
-	height: 12vh;
+	height: 18vw;
 	display: inline-block;
 	margin: 0 auto;
 }
 #containerRight {
 	width: 95vw;
-	height: 28vh;
+	height: 45vw;
 	display: inline-block;
 	margin: 0 auto;
 }
 label {
-	font-size: 55px;
+	font-size: 4vw;
 }
 .fromPart {
 	width: 42vw;
-	height: 5vh;
+	height: 5vw;
 	margin-left: 2vw;
-	margin-bottom: 1vh;
+	margin-bottom: 4vw;
 	font-size: 3vw;
 }
 #containerLeft .fromPart {
@@ -96,10 +106,10 @@ label {
 	width: 84vw;
 }
 input {
-	font-size: 3vh;
+	font-size: 4vw;
 	text-align: center;
 	width: 28vw;
-	height: 4vh;
+	height: 5vw;
 	border: 2px solid rgb(48, 150, 7);
 	border: none;
 }
@@ -108,19 +118,19 @@ input {
 }
 textarea {
 	width: 90vw;
-	height: 8vh;
+	height: 20vw;
 	padding: 2vw;
 	border: 2px solid rgb(48, 150, 7);
-	font-size: 30px;
+	font-size: 5vw;
 	color: rgb(48, 150, 7);
 	font-family: "微软雅黑";
-	margin-top: 1vh;
+	margin-top: 1vw;
 }
 textarea:hover {
 	border: 2px solid rgb(48, 150, 7);
 }
 textarea::placeholder {
- font-size:30px;
+ font-size:5vw;
  color:rgb(48, 150, 7);
 }
 /*底部菜单的样式*/
@@ -128,24 +138,23 @@ textarea::placeholder {
 	position: fixed;
 	bottom: 0;
 	width: 100vw;
-	height: 15vh;
+	height: 20vw;
 	border-top: 1px solid black;
-	border-bottom: 1px solid black;
 }
 .mainMenu {
 	width: 25vw;
-	height: 10vh;
+	height: 25vw;
 	float: left;
 	text-align: center;
-	margin-top: 2vh;
+	margin-top: 2vw;
 }
 .mainMenu img {
-	width: 8vh;
-	height: 8vh;
+	width: 10vw;
+	height:10vw;
 	margin: 0;
 }
 .mainMenu p {
-	font-size: 3vh;
+	font-size: 4vw;
 	font-weight: bolder;
 	color: gray;
 	margin: 0;
@@ -162,8 +171,8 @@ textarea::placeholder {
 #callback {
 	position: absolute;
 	left: 0;
-	top: 2vh;
+	top: 2vw;
 	width: 10vw;
-	height: 5vh;
+	height:10vw;
 	display: none;
 }

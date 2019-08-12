@@ -1,3 +1,11 @@
+$(function(){
+  $("input textarea").focus(function(){
+    $("#menu").attr("display","none");
+  });
+  $("input textarea").blur(function(){
+    $("#menu").toggle("display","block");
+  })
+})
 function getUrlParam(names) {//获取URL中的参数
     var reg = new RegExp("(^|&)" + names + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
     var r = window.location.search.substr(1).match(reg); //匹配目标参数
@@ -12,7 +20,7 @@ $(function(){/*载入时获得人员的数据并添加修改,删除的逻辑*/
       xhrFields:{withCredentials:true};
       $("#administratorTable").empty();
       console.log(data[0][0]);
-      $("#administratorTable").append('<tr> <th><input type="checkbox" id="allSelect" class="selectPart" value=true/>全选</th>' 
+      $("#administratorTable").append('<tr> <th><input type="checkbox" id="allSelect" class="selectPart" value=true/><p>全选</p></th>' 
                                           +"<th>姓名</th>"
                                           +"<th>部门</th>"
                                           +"<th>职位</th>"
@@ -24,7 +32,7 @@ $(function(){/*载入时获得人员的数据并添加修改,删除的逻辑*/
                                           +"<th>生日</th>"
                                           +'<th>操作</th></tr>');
       for(var i in data){
-        $("#administratorTable").append('<tr> <td><input type="checkbox" class="selectPart" value=true/>选中</td> <td>'
+        $("#administratorTable").append('<tr> <td><input type="checkbox" class="selectPart" value=true/><p>选中</p></td> <td>'
                                         +data[i].name+'</td> <td>'
                                         +data[i].department+'</td> <td>'
                                         +data[i].position+'</td> <td>'
