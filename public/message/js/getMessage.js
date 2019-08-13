@@ -1,21 +1,20 @@
-﻿var isfocus=false;
-var originalHeight=document.documentElement.clientHeight || document.body.clientHeight;
-window.onresize=function(){
-    var  resizeHeight=document.documentElement.clientHeight || document.body.clientHeight;
-    //软键盘弹起与隐藏  都会引起窗口的高度发生变化
-    if(resizeHeight*1<originalHeight*1&&isfocus==true){ //resizeHeight<originalHeight证明窗口被挤压了
-    $('#menu').css('display','none');
-    }else{
-        $('#menu').css('display','block'); 
+﻿var winHeight = $(window).height();  //当手机软键盘弹出时将底部菜单,藏在软键盘后面,软键盘关闭不变
+$(window).resize(function () {
+    var thisHeight = $(this).height();
+    if ( winHeight - thisHeight > 140 ) {
+        //键盘弹出
+        $('#menu').css('position','static');
+    } else {
+        //键盘收起
+        $('#menu').css({'position':'fixed','bottom':'0'});
+        
     }
-} 
-$("input").focus(function(){
-    isfocus=true;
-     
-});
-$("input").blur(function(){
-    isfocus=false;
-})   
+})
+$(function(){//当非管理员时隐藏管理员按钮
+  if(getUrlParam("dataUsed")==0){
+    $("#administratorMenu").hide();
+  }
+}) 
 function getUrlParam(names) {//从URL中获取参数
 	var reg = new RegExp("(^|&)" + names + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
 	var r = window.location.search.substr(1).match(reg); //匹配目标参数
@@ -30,13 +29,13 @@ $(function(){//加载信息
 			$("label").eq(i-1).append("<img src='img/project"+i+".png' style='width:10vw;height:10vw;float:left;'/>");
 			
 		}
-		$("#spareBox").toggle();
-		$("#menu").toggle();
+		$("#spareBox").hide();
+		$("#menu").hide();
 		$("#container").css({"border-top":"3px solid rgb(48, 150, 7)","margin-top":"5vh"});
 		$(".fromPart").css({"margin-top":"3vh"});
 		$("#containerLeft").css({"height":"18vh"});
 		$("#containerRight").css({"height":"43vh"});
-		$("#callback").toggle();
+		$("#callback").show();
 
 		$(function(){/*载入时获得人员的数据*/
 			console.log(decodeURI(decodeURI(getUrlParam("queryName"))));
@@ -75,7 +74,7 @@ $(function(){//加载信息
             },
             function(data,xhrFields){
 							xhrFields:{withCredentials:true};
-                $("#callback").toggle();
+                $("#callback").hide();
                 var j=0;
                 for(var i in data[0]){
                   if(i!="message"){
@@ -99,12 +98,12 @@ $(function(){//点击修改,完成按钮根据值的不同来触发事件
 		if($("#alterText").text()=="修改"){/*返回之后再请求后端,获得个人信息*/
         
 			$("#alterImg").attr("src","img/right.png");
-			$("#alterText").text("完成");
+			$("#alterText").text("保存");
 			$("input").prop("readonly",false);
 			$("input").css("border","1px solid rgb(48, 150, 7)");
-			$("#hint").toggle();
-			$("#spareEnter").toggle();
-			$("#menu").toggle();/*修改细节*/
+			$("#hint").show();
+			$("#spareEnter").hide();
+			$("#menu").hide();/*修改细节*/
 
 		}
 		else{//点击完成时个人信息发生的事件
@@ -113,9 +112,9 @@ $(function(){//点击修改,完成按钮根据值的不同来触发事件
 			$("#alterText").text("修改");
 			$("input").prop("readonly",true);
 			$("input").css("border","none");
-			$("#hint").toggle();
-			$("#spareEnter").toggle();
-			$("#menu").toggle();/*修改细节*/
+			$("#hint").hide();                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+			$("#spareEnter").show();
+			$("#menu").show();/*修改细节*/
 
 			$.get("http://system.chiukiki.cn/api/updatePeople",/*点击完成按钮提交信息*/
 			{
@@ -133,7 +132,7 @@ $(function(){//点击修改,完成按钮根据值的不同来触发事件
 			  function(data,xhrFields){
 					xhrFields:{withCredentials:true};
 					if(data.message=="修改成功"){
-					console.log("修改成功!");
+					  alert("修改成功!");
 					}
 				});
 				

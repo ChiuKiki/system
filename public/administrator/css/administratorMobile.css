@@ -93,7 +93,7 @@ td {
 }
 .selectPart {
 	width: 5vw;
-	height: 3vh;
+	height: 5vw;
 	font-size:6vw;
 	float: left;
 	margin-top:2vw;
@@ -188,6 +188,7 @@ td {
 	width: 100vw;
 	height: 20vw;
 	border-top: 1px solid black;
+	background-color:white;
 }
 .mainMenu {
 	width: 25vw;

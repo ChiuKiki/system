@@ -1,23 +1,4 @@
-var spareTime = new Array();
-var person;
-var isfocus=false;
-var originalHeight=document.documentElement.clientHeight || document.body.clientHeight;
-window.onresize=function(){
-    var  resizeHeight=document.documentElement.clientHeight || document.body.clientHeight;
-    //软键盘弹起与隐藏  都会引起窗口的高度发生变化
-    if(resizeHeight*1<originalHeight*1&&isfocus==true){ //resizeHeight<originalHeight证明窗口被挤压了
-    $('#menu').css('display','none');
-    }else{
-        $('#menu').css('display','block'); 
-    }
-} 
-$("input").focus(function(){
-    isfocus=true;
-     
-});
-$("input").blur(function(){
-    isfocus=false;
-})   
+ 
 function getUrlParam(names) {//获取URL中的参数
     var reg = new RegExp("(^|&)" + names + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
     var r = window.location.search.substr(1).match(reg); //匹配目标参数
@@ -87,23 +68,3 @@ $(function(){//点击按钮保存
     }
   })
 })
-$(function(){//底部菜单点击事件
-    $("#addressMenu").click(function(){
-        location="../addressBook/addressBook.html?queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
-    })
-    $("#spareMenu").click(function(){
-        location="../spare/spare.html?queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
-    })
-    $("#presonMessageMenu").click(function(){
-        location="../message/message.html?queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
-    })
-    if(getUrlParam("dataUsed")==1){
-      $("#administratorMenu").click(function(){
-        location="../administrator/administrator.html?queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
-      })
-    }
-    $("#callback").click(function(){
-        location="../addressBook/addressBook.html?queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
-    })
-})
-

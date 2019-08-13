@@ -30,8 +30,8 @@
       <file leaf-file-name="administrator.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/administrator/js/administrator.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="648">
-              <caret line="24" column="56" lean-forward="false" selection-start-line="14" selection-start-column="39" selection-end-line="24" selection-end-column="56" />
+            <state relative-caret-position="918">
+              <caret line="34" column="56" lean-forward="false" selection-start-line="24" selection-start-column="39" selection-end-line="34" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -57,35 +57,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="messageMobile.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="messageMobile.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/message/css/messageMobile.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="27">
               <caret line="110" column="13" lean-forward="false" selection-start-line="110" selection-start-column="13" selection-end-line="110" selection-end-column="13" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PeopleController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PeopleController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="11" column="32" lean-forward="false" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="85" />
-              <folding>
-                <element signature="e#40#61#0#PHP" expanded="true" />
-                <element signature="e#281#1059#0#PHP" expanded="false" />
-                <element signature="e#1222#2069#0#PHP" expanded="false" />
-                <element signature="e#2554#2689#0#PHP" expanded="false" />
-                <element signature="e#2768#3190#0#PHP" expanded="false" />
-                <element signature="e#3276#3693#0#PHP" expanded="false" />
-                <element signature="e#3790#4218#0#PHP" expanded="false" />
-                <element signature="e#4329#4749#0#PHP" expanded="false" />
-                <element signature="e#4892#5320#0#PHP" expanded="false" />
-                <element signature="e#5410#5810#0#PHP" expanded="false" />
-                <element signature="e#5911#6585#0#PHP" expanded="false" />
-                <element signature="e#6821#7754#0#PHP" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -242,6 +219,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -404,8 +383,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -549,12 +526,13 @@
       <workItem from="1564900959049" duration="17510000" />
       <workItem from="1565008853114" duration="29972000" />
       <workItem from="1565198414791" duration="13118000" />
-      <workItem from="1565610963272" duration="101000" />
+      <workItem from="1565610963272" duration="222000" />
+      <workItem from="1565615535524" duration="105000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="323932000" />
+    <option name="totallyTimeSpent" value="324158000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -566,10 +544,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="0" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19527897" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19796138" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31257078" sideWeight="0.3245708" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -886,14 +864,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/administrator/js/administrator.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="24" column="56" lean-forward="false" selection-start-line="14" selection-start-column="39" selection-end-line="24" selection-end-column="56" />
+        <state relative-caret-position="918">
+          <caret line="34" column="56" lean-forward="false" selection-start-line="24" selection-start-column="39" selection-end-line="34" selection-end-column="56" />
           <folding />
         </state>
       </provider>
@@ -954,22 +931,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/message/css/messageMobile.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="110" column="13" lean-forward="false" selection-start-line="110" selection-start-column="13" selection-end-line="110" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PeopleController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="11" column="32" lean-forward="false" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="85" />
+        <state relative-caret-position="421">
+          <caret line="91" column="48" lean-forward="true" selection-start-line="91" selection-start-column="48" selection-end-line="91" selection-end-column="48" />
           <folding>
             <element signature="e#40#61#0#PHP" expanded="true" />
             <element signature="e#281#1059#0#PHP" expanded="false" />
             <element signature="e#1222#2069#0#PHP" expanded="false" />
+            <element signature="e#2195#2485#0#PHP" expanded="false" />
             <element signature="e#2554#2689#0#PHP" expanded="false" />
             <element signature="e#2768#3190#0#PHP" expanded="false" />
             <element signature="e#3276#3693#0#PHP" expanded="false" />
@@ -980,6 +950,14 @@
             <element signature="e#5911#6585#0#PHP" expanded="false" />
             <element signature="e#6821#7754#0#PHP" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/message/css/messageMobile.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="110" column="13" lean-forward="false" selection-start-line="110" selection-start-column="13" selection-end-line="110" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
