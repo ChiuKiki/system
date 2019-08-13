@@ -100,6 +100,7 @@ $(function(){//点击修改,完成按钮根据值的不同来触发事件
 			$("#alterImg").attr("src","img/right.png");
 			$("#alterText").text("保存");
 			$("input").prop("readonly",false);
+			$("#userStudentNum").prop("readonly",true);
 			$("input").css("border","1px solid rgb(48, 150, 7)");
 			$("#hint").show();
 			$("#spareEnter").hide();
@@ -107,35 +108,82 @@ $(function(){//点击修改,完成按钮根据值的不同来触发事件
 
 		}
 		else{//点击完成时个人信息发生的事件
-
-			$("#alterImg").attr("src","img/alter.png");
-			$("#alterText").text("修改");
-			$("input").prop("readonly",true);
-			$("input").css("border","none");
-			$("#hint").hide();                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
-			$("#spareEnter").show();
-			$("#menu").show();/*修改细节*/
-
-			$.get("http://system.chiukiki.cn/api/updatePeople",/*点击完成按钮提交信息*/
-			{
-				name:$("#userName").val(),
-				school:$("#userAcademy").val(),
-				department:$("#userDepartment").val(),
-				position:$("#userWork").val(),
-				birthday:$("#userBirthday").val(),
-				tel:$("#userTelephone").val(),
-				QQ:$("#userQQ").val(),
-				email:$("#userEmail").val(),
-				number:$("#userStudentNum").val(),
-				message:$("#userTextarea").val()
-			},
-			  function(data,xhrFields){
-					xhrFields:{withCredentials:true};
-					if(data.message=="修改成功"){
-					  alert("修改成功!");
+			var detections=true;
+			tests=new Array("/^[\u2E80-\u9FFF]{2,5}$/",
+								"/^[\u2E80-\u9FFF]+$/",
+								"/^[\u2E80-\u9FFF]+$/",
+								"/^[\u2E80-\u9FFF]+$/",
+								"/^(?:1[0-2]|[1-9]).(?:[1-9]|([1-2][0-9])?|3[0-1])$/",
+								"/^1(3|4|5|7|8|9)[0-9]{9}$/",
+								"/^[1-9][0-9]{4,9}$/gim",
+								"/^([a-z0-9_\.-]+)@([0-9a-z\.-]+)\.([a-z]{2,6})$/",
+								"/^([0-9]{12}$/",
+								);
+			information=new Array("姓名","学院","部门","职位","生日","电话","QQ","邮箱","学号");
+			hint=new Array("姓名必须为2位到5位的汉字",
+										 "学院必须为两位以上的汉字",
+			               "部门必须为两位以上的汉字",
+			               "职位必须为两位以上的汉字",
+										 "生日必须是12.18这种格式",
+										 "电话必须为12位电话号码",
+										 "QQ必须正确",
+										 "邮箱必须符合要求",
+			               "学号必须为12位的数字"
+                )
+			for(var i=0;i<tests.length;i++){//依次检测数据是否正确
+				var j=$("input").eq(i).attr("placeholder");console.log("j="+j);
+				var text=j[j.length-2]+j[j.length-1];console.log(text);
+				if(($("input").eq(i).val()==null||$("input").eq(i).val()=="")){console.log($("input").eq(i).val());
+					$("#hint").text(text+"不能为空!");
+					detections=false;
+					break;
 					}
-				});
+				else{
+					if(text==information[i]){  
+					  var reg=eval(tests[i]);
+					  console.log(i);
+					  if( reg.test($("input").eq(i).val()) ){
+						  $("#hint").text("");
+					  }
+					  else{
+							$("#hint").text(text+"格式错误!"+hint[i]);
+							detections=false;
+							break;
+						}
+					}
+				}
+			}
+
+			if(detections==true){//如果数据没问题则发送请求
+
+				$("#alterImg").attr("src","img/alter.png");
+			  $("#alterText").text("修改");
+			  $("input").prop("readonly",true);
+			  $("input").css("border","none");
+			  $("#hint").hide();                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+			  $("#spareEnter").show();
+				$("#menu").show();/*修改细节*/
 				
+        $.get("http://system.chiukiki.cn/api/updatePeople",/*点击完成按钮提交信息*/
+			      {
+				       name:$("#userName").val(),
+				       school:$("#userAcademy").val(),
+				       department:$("#userDepartment").val(),
+				       position:$("#userWork").val(),
+				       birthday:$("#userBirthday").val(),
+				       tel:$("#userTelephone").val(),
+				       QQ:$("#userQQ").val(),
+				       email:$("#userEmail").val(),
+				       number:$("#userStudentNum").val(),
+				       message:$("#userTextarea").val()
+			      },
+			      function(data,xhrFields){
+					    xhrFields:{withCredentials:true};
+					    if(data.message=="修改成功"){
+					      alert("修改成功!");
+					    }
+				    });
+			}			
 		}
 	})
 })
@@ -152,7 +200,17 @@ $(function(){//检测数据是否符合格式
 								"/^([a-z0-9_\.-]+)@([0-9a-z\.-]+)\.([a-z]{2,6})$/",
 								"/^([0-9]{12}$/",
 								);
-  information=new Array("姓名","学院","部门","职位","生日","电话","QQ","邮箱","学号");
+	information=new Array("姓名","学院","部门","职位","生日","电话","QQ","邮箱","学号");
+	hint=new Array("姓名必须为2位到5位的汉字",
+										 "学院必须为两位以上的汉字",
+			               "部门必须为两位以上的汉字",
+			               "职位必须为两位以上的汉字",
+										 "生日必须是12-18这种格式",
+										 "电话必须为12位电话号码",
+										 "QQ必须正确",
+										 "邮箱必须符合要求",
+			               "学号必须为12位的数字"
+                )
   $(".data").blur(function(){
 		if($("input").attr("readonly")!="readonly"){
 	    var j=$(this).val();
@@ -173,7 +231,7 @@ $(function(){//检测数据是否符合格式
 		  	$("#hint").text("");
 	    }
 	    else{
-		  	$("#hint").text(name+"格式错误!");
+		  	$("#hint").text(name+"格式错误!"+hint[i]);
 			}
 		}	
 	});

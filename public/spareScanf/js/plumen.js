@@ -28,8 +28,8 @@
 						background:"#fff",
 						display:"inline-block",
 						position:"absolute",
-						right:"1vw",
-						top:"0.5vh",
+						right:"2vw",
+						top:"1vw",
 						zIndex:2
 					})
 					$(_this).css({position:"relative",width:w + "px"}),
@@ -38,13 +38,13 @@
 						display: "inline-block",
 						width:"0",
 					    height:"0",
-					    borderWidth:"2vw 1.5vh 0",
+					    borderWidth:"2vw 3vw 0",
 					    borderStyle:"solid",
 					    borderColor:"#6c6c6c transparent transparent",
 						cursor: "pointer",
 						position: "absolute",
-						right: "0.5vw",
-						top: "1vh",
+						right: "1vw",
+						top: "2vw",
 						borderRadius: '0',
 						display:"block",
 						zIndex:3
@@ -114,10 +114,10 @@
 						}
 						$(_this).find(".dataList").append(html);
 						$(_this).find(".dataList li").css({
-							padding:"1vh 0 0 1vh",
+							padding:"2vw 0 0 2vw",
 							border:"0",
 							listStyleType:"none",
-							fontSize:"40px"
+							fontSize:"5vw"
 						});
 						$(_this).find(".dataList li").hover(function(){
 							$(this).css({
