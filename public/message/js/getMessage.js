@@ -32,10 +32,11 @@ $(function(){//加载信息
 		}
 		$("#spareBox").hide();
 		$("#menu").hide();
-		$("#container").css({"border-top":"3px solid rgb(48, 150, 7)","margin-top":"5vh"});
-		$(".fromPart").css({"margin-top":"3vh"});
-		$("#containerLeft").css({"height":"18vh"});
-		$("#containerRight").css({"height":"43vh"});
+		$("#container").css({"border-top":"3px solid rgb(48, 150, 7)","margin-top":"5vw","height":"120vw"});
+		$(".fromPart").css({"margin-top":"3vw","height":"10vw"});
+		$("#containerLeft").css({"height":"35vw"});
+		$("#containerRight").css({"height":"86vw"});
+		$(".data").css({"margin-top":"3vw"})
 		$("#callback").show();
 
 		$(function(){/*载入时获得人员的数据*/
@@ -101,7 +102,7 @@ $(function(){//点击修改,完成按钮根据值的不同来触发事件
 			$("#alterImg").attr("src","img/right.png");
 			$("#alterText").text("保存");
 			$("input").prop("readonly",false);
-			//$("#userStudentNum").prop("readonly",true);
+			$("#userStudentNum").prop("readonly",true);
 			$("input").css("border","1px solid rgb(48, 150, 7)");
 			$("#hint").show();
 			$("#spareEnter").hide();

@@ -36,7 +36,20 @@
         <th>学院</th>
         <th>学号</th>
         <th>生日</th>
-        <th>操作</th></tr>
+        <th>操作</th>
+      </tr>
+      <tr> <td><input type="checkbox" class="selectPart" value=true/><p>选中</p></td> 
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="operate"><a class="operateChange">修改</a> <a class="operateDelete">删除</a></td>
+      </td>
     </table>
   </div>
   <div id="blackBox">
@@ -77,7 +90,7 @@
       </div> 
       <div id="studentNum" class="fromPart">
         <label for="userStudentNum">学号:</label>
-        <input type="text" id="userStudentNum" class="data" name="userStudentNum" placeholder="学号"/><br/>
+        <input type="text" id="userStudentNum" class="data" name="userStudentNum" placeholder="学号" readonly/><br/>
       </div>
       <div id="birthday" class="fromPart">
         <label for="userBirthday">生日:</label>
