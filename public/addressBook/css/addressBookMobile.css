@@ -73,13 +73,13 @@ tr {
 	background-color:whitesmoke;	
 }
 tr:hover{
-	background-color:rgb(165, 250, 132);
+	background-color:rgb(223,242,216);
 }
 th {
 	width: 25vw;
 	height: 6vw;
 	border: 1px solid black;
-	background-color:rgb(117, 223, 76);
+	background-color:rgb(223,242,216);
 	font-weight:inherit;
 }
 td {

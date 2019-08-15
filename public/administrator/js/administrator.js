@@ -18,7 +18,7 @@ function getUrlParam(names) {//获取URL中的参数
 }
 $(function(){/*载入时获得人员的数据并添加修改,删除的逻辑*/
 	$("#addressBookSearchImg").click(function(){
-    reserveStatics=$("addressBook").val();
+    reserveStatics=$("#addressBook").val();
 		$.get("http://system.chiukiki.cn/api/queryInfoAdmin",{
 		  query:$("#addressBook").val()
 	  },
