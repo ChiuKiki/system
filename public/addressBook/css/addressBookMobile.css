@@ -26,18 +26,24 @@ body {
 }/*在手机端隐藏*/
 #addressBookSearchBox {
 	width: 80vw;
-	height: 10vw;
+	height: 14vw;
 	margin: 2vw;
 	margin-left: 10vw;
 }
 #addressBook {
+	outline:none;
 	font-size: 4vw;
 	text-align: center;
 	width: 60vw;
 	height: 6vw;
-	border: 2px solid rgb(48, 150, 7);
+	border: 2px solid gray;
 	float: left;
-	margin-top: 5vw;
+	margin-top: 5.5vw;
+	border-radius:6vw;
+}
+#addressBook:hover {
+	border: 2px solid rgb(48, 150, 7);
+
 }
 #addressBookSearchImg {
 	width: 12vw;
@@ -64,17 +70,24 @@ tr {
 	max-height: 6vw;
 	margin: 0;
 	border: 1px solid black;
+	background-color:whitesmoke;	
+}
+tr:hover{
+	background-color:rgb(165, 250, 132);
 }
 th {
 	width: 25vw;
 	height: 6vw;
 	border: 1px solid black;
+	background-color:rgb(117, 223, 76);
+	font-weight:inherit;
 }
 td {
 	width: 25vw;
 	height: 6vw;
 	border: 1px solid black;
 	padding: 0;
+	text-align: center;
 }
 /*底部菜单的样式*/
 #menu {

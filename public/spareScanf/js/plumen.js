@@ -29,7 +29,7 @@
 						display:"inline-block",
 						position:"absolute",
 						right:"2vw",
-						top:"1vw",
+						top:"0.6vw",
 						zIndex:2
 					})
 					$(_this).css({position:"relative",width:w + "px"}),

@@ -81,6 +81,7 @@ $(function(){//先检验数据是否符合格式,符合再发送请求
              console.log(i);
              if( reg.test($("input").eq(i).val()) ){
                $("#registerHint").text("");
+               detections=true;
              }
              else{
                $("#registerHint").text(text+"格式错误!"+hint[i]);

@@ -117,6 +117,7 @@ input {
 	width: 60vw;
 }
 textarea {
+	outline:none;
 	width: 90vw;
 	height: 20vw;
 	padding: 2vw;
@@ -125,6 +126,7 @@ textarea {
 	color: rgb(48, 150, 7);
 	font-family: "微软雅黑";
 	margin-top: 1vw;
+	border-radius:4vw;
 }
 textarea:hover {
 	border: 2px solid rgb(48, 150, 7);

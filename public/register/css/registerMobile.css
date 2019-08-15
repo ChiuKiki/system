@@ -12,38 +12,41 @@ body {
 	text-align: center;
 }
 #registerBox {
-	width: 45vw;
+	width: 80vw;
 	margin: 0 auto;
 }
 .registerPart {
-	width: 65vw;
+	width: 57vw;
+	height:10vw;
 	margin: 0 auto;
 	margin-top: 7vw;
 }
 img {
-	width: 8vw;
-	height: 7vw;
+	width: 10vw;
+	height: 10vw;
 	margin-right: 5vw;
 }
 input {
 	width: 40vw;
 	height: 5vw;
-	font-size: 4vw;
-	border: 1px solid rgb(48, 150, 7);
+	font-size: 3vw;
+	border: 1px solid gray;
 	outline: none;
 	background-color: rgba(0,0,0,0);
+	border-radius:4vw;
+	text-align:center;
+	margin-top:4vw;
+	float:right;
+}
+input:hover{
+	border: 1px solid rgb(48, 150, 7);
 }
 #selectBox {
 	margin-left: 0;
 	display: block;
 	float: right;
 }
-#department {
-	width: 40vw;
-	height: 5vw;
-	font-size: 4vw;
-	background-color: white;
-}
+
 #registerSubmitBox {
 	width: 30vw;
 	height: 8vw;
@@ -51,6 +54,10 @@ input {
 	margin-top: 3vh;
 }
 #registerSubmit {
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-user-select: none;
+  -moz-user-focus: none;
+  -moz-user-select: none;
 	width: 30vw;
 	height: 8vw;
 	outline: none;
@@ -61,11 +68,11 @@ input {
 	color: white;
 	border: 1px solid rgb(48, 150, 7);
 	cursor: pointer;
-	border-radius: 1vw;
+	border-radius: 6vw;
 	margin: 0 auto;
 }
 #registerSubmit:hover {
-	background-color: lrgb(212, 140, 31);
+	background-color: rgb(56, 190, 79);
 	border: 1px solid black;
 }/*提交框的整体样式*/
 #registerHint {

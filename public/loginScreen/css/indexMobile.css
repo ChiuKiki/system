@@ -53,49 +53,64 @@ body {
 	margin-top: 4vw;
 }/*密码输入框的样式*/
 input[type="text"] {
+	outline:none;
 	width: 45vw;
 	height: 5vw;
-	border: 1px solid rgb(48, 150, 7);
-	font-size: 4vw;
+	border: 1px solid gray;
+	font-size: 3vw;
+	border-radius:4vw;
+	text-align:center;
 }/*设置输入框的格式*/
+input[type="text"]:hover {
+	border: 1px solid rgb(48, 150, 7);
+}
 input[type="password"] {
+	outline:none;
 	width: 45vw;
 	height: 5vw;
-	border: 1px solid rgb(48, 150, 7);
-	font-size: 4vw;
+	border: 1px solid gray;
+	font-size: 3vw;
+	border-radius:4vw;
+	text-align:center;
 }/*设置输入框的格式*/
+input[type="password"]:hover {
+	border: 1px solid rgb(48, 150, 7);
+
+}
 #findbackPassword {
 	font-size: 3vw;
 	cursor: pointer;
 }
 #registerSubmit {
-	width: 20vw;
+	width: 25vw;
 	height: 7vw;
 	outline: none;
 	font-family: "微软雅黑";
-	font-size: 5vw;
+	font-size: 4vw;
 	word-spacing: 20px;
 	background-color: rgb(48, 150, 7);
 	color: white;
 	border: 1px solid rgb(48, 150, 7);
 	cursor: pointer;
+	border-radius:4vw;
 }
 #registerSubmit:hover {
 	background-color: rgb(131, 194, 106);
 	border: 1px solid rgb(131, 194, 106);
 }/*提交框的整体样式*/
 #registerMessage {
-	width: 20vw;
+	width: 25vw;
 	height: 7vw;
 	outline: none;
 	font-family: "微软雅黑";
-	font-size: 5vw;
+	font-size: 4vw;
 	word-spacing: 20px;
 	background-color: rgb(48, 150, 7);
 	color: white;
 	border: 1px solid rgb(48, 150, 7);
 	cursor: pointer;
-	margin-left: 50px;
+	margin-left: 6vw;
+	border-radius: 4vw;
 }
 #registerMessage:hover {
 	background-color: rgb(131, 194, 106);
@@ -119,7 +134,7 @@ input[type="password"] {
 }
 #amendBox{
 	width:80vw;
-	height:80vw;
+	height:70vw;
 	position:absolute;
 	top:50%;
 	left: 50%;
@@ -129,27 +144,29 @@ input[type="password"] {
 	-webkit-transform: translate(-50%,-50%);
 	background-color:rgb(11, 153, 219);
 	z-index:2;
+	border-radius:10vw;
 	display:none;
 }
 #amendBox p{
-	font-size:35px;
+	font-size:4vw;
 	font-weight:bold;
-	margin-top:2vw;
-	margin-left:2vw;
+	margin-top:5vw;
+	margin-left:8vw;
 	color:white;
 	display:inline-block;
 }
 #close{
 	font-size:4vmin;
 	float:right;
-	margin-top:2vh;
-	margin-right:3vw;
+	margin-top:5vw;
+	margin-right:8vw;
 	color:white;
 }
 #messageBox{
 	width:70vw;
 	height:50vw;
 	background-color:white;
+	border-radius:2vw;
 	margin:0 auto;
 }
 .fromPart {
@@ -157,23 +174,30 @@ input[type="password"] {
 	height: 5vw;
 	padding: 5vw 4vw 0 4vw;
 	font-size: 3vw;
+	border-radius:3vw;
 }
 .fromPart label{
 	font-size:4vw;
 }
 .fromPart input {
+	outline:none;
 	font-size: 4vw;
 	text-align: center;
 	width: 50vw;
 	height: 5vw;
-	border: 2px solid gray;
+	border: 1px solid gray;
+	border-radius:4vw;
+}
+.fromPart input:hover {
+	border:1px solid rgb(11, 153, 219);
+
 }
 #reserve{
 	width: 20vw;
 	height: 7vw;
 	outline: none;
 	font-family: "微软雅黑";
-	font-size: 5vw;
+	font-size: 4vw;
 	word-spacing: 20px;
 	background-color: rgb(11, 153, 219);
 	color: white;
@@ -181,6 +205,7 @@ input[type="password"] {
 	cursor: pointer;
 	margin-top:7vw;
 	margin-left:10vw;
+	border-radius:4vw;
 }
 #reserve:hover {
 	background-color: rgb(84, 165, 202);
@@ -191,7 +216,7 @@ input[type="password"] {
 	height: 7vw;
 	outline: none;
 	font-family: "微软雅黑";
-	font-size: 5vw;
+	font-size: 4vw;
 	word-spacing: 20px;
 	background-color: rgb(11, 153, 219);
 	color: white;
@@ -199,6 +224,8 @@ input[type="password"] {
 	cursor: pointer;
 	margin-top:7vw;
 	margin-left:10vw;
+	border-radius:4vw;
+
 }
 #closes:hover {
 	background-color: rgb(84, 165, 202);
