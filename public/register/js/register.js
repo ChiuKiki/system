@@ -106,7 +106,7 @@ $(function(){//先检验数据是否符合格式,符合再发送请求
                 confirmPassword:$("#passwordSure").val()
       },function(data,xhrFields){
         xhrFields:{withCredentials:true};
-        location="../loginScreen/index.html";
+        location="../index.html";
 
       })
     }

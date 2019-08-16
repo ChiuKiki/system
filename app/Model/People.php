@@ -116,22 +116,32 @@ class People extends Model
     //搜索框1：根据姓名、部门、职位获取信息——百步梯通讯录
     public static function queryInfo($request){
         $query = $request->get('query');
+        /*
         //判断输入的是姓名、部门、还是职位
         $isName = People::where('name', $query)->first();
         $isDepartment = People::where('department', $query)->first();
         $isPosition = People::where('position', $query)->first();
+        */
+
         //获取姓名、部门、职位信息
-        $nameInfo = People::where('name', $query)
+        $nameInfo = People::where('name', 'like', '%'.$query.'%')
+            ->orWhere('department', 'like', '%'.$query.'%')
+            ->orWhere('position', 'like', '%'.$query.'%')
+        //$nameInfo = People::where('name', $query)
             ->select('name','department','position')
             ->orderBy(DB::raw('convert(`department` using gbk)'))
             ->orderBy(DB::raw('convert(`position` using gbk)'))
             ->get();
-        $departmentInfo = People::where('department', $query)
+        return $nameInfo;
+        /*
+        $departmentInfo = People::where('department', 'like', '%'.$query.'%')
+        //$departmentInfo = People::where('department', $query)
             ->select('name','department','position')
             ->orderBy(DB::raw('convert(`department` using gbk)'))
             ->orderBy(DB::raw('convert(`position` using gbk)'))
             ->get();
-        $positionInfo = People::where('position', $query)
+        $positionInfo = People::where('position', 'like', '%'.$query.'%')
+        //$positionInfo = People::where('position', $query)
             ->select('name','department','position')
             ->orderBy(DB::raw('convert(`department` using gbk)'))
             ->orderBy(DB::raw('convert(`position` using gbk)'))
@@ -149,7 +159,7 @@ class People extends Model
         }else{
             return 0;
         }
-
+*/
     }
 
 
