@@ -125,7 +125,6 @@ class Timetable extends Model
     public static function freeTime($time,$request){
         $weekNum = $request->get('weekNum');
         $department = $request->get('department');
-
         //根据周数选择数据表
         $table = self::checkTable($weekNum);
 

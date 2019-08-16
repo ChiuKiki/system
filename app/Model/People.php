@@ -44,72 +44,29 @@ class People extends Model
         $tel = $request->get('tel');
         $department = $request->get('department');
         $password = $request->get('password');
+        $result1 = 0;
 
         $checkResult=Check::checkName($name)&& Check::checkNumber($number)&& Check::checkTel($tel)
             && Check::checkDepartment($department)&&Check::checkPassword($password);
 
+        $table = ['timetable1','timetable2','timetable3','timetable4','timetable5','timetable6','timetable7',
+            'timetable8','timetable9','timetable10','timetable11','timetable12','timetable13','timetable14',
+            'timetable15','timetable16','timetable17','timetable18'];
+
         if($checkResult){
+            //在people表中插入
             $result0=People::insert(
                 ['name'=>$name, 'number'=>$number, 'tel'=>$tel,
                     'department'=>$department,'password'=>$password]
             );
-            $result1=DB::table('timetable1')->insert(
-                ['name'=>$name,'number'=>$number,'department'=>$department]
-            );
-            $result2=DB::table('timetable2')->insert(
-                ['name'=>$name,'number'=>$number,'department'=>$department]
-            );
-            $result3=DB::table('timetable3')->insert(
-                ['name'=>$name,'number'=>$number,'department'=>$department]
-            );
-            $result4=DB::table('timetable4')->insert(
-                ['name'=>$name,'number'=>$number,'department'=>$department]
-            );
-            $result5=DB::table('timetable5')->insert(
-                ['name'=>$name,'number'=>$number,'department'=>$department]
-            );
-            $result6=DB::table('timetable6')->insert(
-                ['name'=>$name,'number'=>$number,'department'=>$department]
-            );
-            $result7=DB::table('timetable7')->insert(
-                ['name'=>$name,'number'=>$number,'department'=>$department]
-            );
-            $result8=DB::table('timetable8')->insert(
-                ['name'=>$name,'number'=>$number,'department'=>$department]
-            );
-            $result9=DB::table('timetable9')->insert(
-                ['name'=>$name,'number'=>$number,'department'=>$department]
-            );
-            $result10=DB::table('timetable10')->insert(
-                ['name'=>$name,'number'=>$number,'department'=>$department]
-            );
-            $result11=DB::table('timetable11')->insert(
-                ['name'=>$name,'number'=>$number,'department'=>$department]
-            );
-            $result12=DB::table('timetable12')->insert(
-                ['name'=>$name,'number'=>$number,'department'=>$department]
-            );
-            $result13=DB::table('timetable13')->insert(
-                ['name'=>$name,'number'=>$number,'department'=>$department]
-            );
-            $result14=DB::table('timetable14')->insert(
-                ['name'=>$name,'number'=>$number,'department'=>$department]
-            );
-            $result15=DB::table('timetable15')->insert(
-                ['name'=>$name,'number'=>$number,'department'=>$department]
-            );
-            $result16=DB::table('timetable16')->insert(
-                ['name'=>$name,'number'=>$number,'department'=>$department]
-            );
-            $result17=DB::table('timetable17')->insert(
-                ['name'=>$name,'number'=>$number,'department'=>$department]
-            );
-            $result18=DB::table('timetable18')->insert(
-                ['name'=>$name,'number'=>$number,'department'=>$department]
-            );
+            //在timetable表中插入
+            for($i = 0; $i < 18; $i++){
+                $result1=DB::table($table[$i])->insert(
+                    ['name'=>$name,'number'=>$number,'department'=>$department]
+                );
+            }
 
-            if($result0&&$result1&&$result2&&$result3&&$result4&&$result5&&$result6&&$result7&&$result8&&$result9&&$result10
-                &&$result11&&$result12&&$result13&&$result14&&$result15&&$result16&&$result17&&$result18){
+            if($result0&&$result1){
                 return $result=1;
             }else{
                 return $result=0;
@@ -245,69 +202,25 @@ class People extends Model
         //根据学号删除
         $arr = $request->get('number');
         $len = sizeof($arr);
-        $result = 0;
+        $result0 = 0;
+        $result1 = 0;
+        $table = ['timetable1','timetable2','timetable3','timetable4','timetable5','timetable6','timetable7',
+            'timetable8','timetable9','timetable10','timetable11','timetable12','timetable13','timetable14',
+            'timetable15','timetable16','timetable17','timetable18'];
+
         for($i = 0; $i < $len ; $i++){
             $number = $arr[$i];
+            //在people表中删除
             $result0 = People::where('number', $number)
                 ->delete();
-            $result1 = DB::table('timetable1')
-                ->where('number', $number)
-                ->delete();
-            $result2 = DB::table('timetable2')
-                ->where('number', $number)
-                ->delete();
-            $result3 = DB::table('timetable3')
-                ->where('number', $number)
-                ->delete();
-            $result4 = DB::table('timetable4')
-                ->where('number', $number)
-                ->delete();
-            $result5 = DB::table('timetable5')
-                ->where('number', $number)
-                ->delete();
-            $result6 = DB::table('timetable6')
-                ->where('number', $number)
-                ->delete();
-            $result7 = DB::table('timetable7')
-                ->where('number', $number)
-                ->delete();
-            $result8 = DB::table('timetable8')
-                ->where('number', $number)
-                ->delete();
-            $result9 = DB::table('timetable9')
-                ->where('number', $number)
-                ->delete();
-            $result10 = DB::table('timetable10')
-                ->where('number', $number)
-                ->delete();
-            $result11 = DB::table('timetable11')
-                ->where('number', $number)
-                ->delete();
-            $result12 = DB::table('timetable12')
-                ->where('number', $number)
-                ->delete();
-            $result13 = DB::table('timetable13')
-                ->where('number', $number)
-                ->delete();
-            $result14 = DB::table('timetable14')
-                ->where('number', $number)
-                ->delete();
-            $result15 = DB::table('timetable15')
-                ->where('number', $number)
-                ->delete();
-            $result16 = DB::table('timetable16')
-                ->where('number', $number)
-                ->delete();
-            $result17 = DB::table('timetable17')
-                ->where('number', $number)
-                ->delete();
-            $result18 = DB::table('timetable18')
-                ->where('number', $number)
-                ->delete();
-            $result = $result0&$result1&$result2&$result3&$result4&$result5&$result6&$result7&$result8&$result9&$result10
-                &$result11&$result12&$result13&$result14&$result15&$result16&$result17&$result18;
+            //在timetable表中删除
+            for($j = 0; $j < 18; $j++){
+                $result1 = DB::table($table[$j])
+                    ->where('number', $number)
+                    ->delete();
+            }
         }
-        return $result;
+        return $result0&$result1;
     }
 
 
@@ -329,67 +242,24 @@ class People extends Model
             && Check::checkTel($tel)&&Check::checkBirthday($birthday)&& Check::checkEmail($email)
             && Check::checkSchool($school) &&Check::checkDepartment($department)&& Check::checkPosition($position);
 
+        $table = ['timetable1','timetable2','timetable3','timetable4','timetable5','timetable6','timetable7',
+            'timetable8','timetable9','timetable10','timetable11','timetable12','timetable13','timetable14',
+            'timetable15','timetable16','timetable17','timetable18'];
+
         //根据学号修改
         if($checkResult) {
+            //在people表中修改
             $result = People::where('number', $number)->update(
                 ['name' => $name, 'birthday' => $birthday, 'QQ' => $QQ, 'number' => $number,
                     'tel' => $tel, 'email' => $email, 'school' => $school, 'department' => $department,
                     'position' => $position,'message' => $message]
             );
-            $result1 = DB::table('timetable1')
-                ->where('number',$number)
-                ->update(['name'=>$name,'department'=>$department]);
-            $result2 = DB::table('timetable2')
-                ->where('number',$number)
-                ->update(['name'=>$name,'department'=>$department]);
-            $result3 = DB::table('timetable3')
-                ->where('number',$number)
-                ->update(['name'=>$name,'department'=>$department]);
-            $result4 = DB::table('timetable4')
-                ->where('number',$number)
-                ->update(['name'=>$name,'department'=>$department]);
-            $result5 = DB::table('timetable5')
-                ->where('number',$number)
-                ->update(['name'=>$name,'department'=>$department]);
-            $result6 = DB::table('timetable6')
-                ->where('number',$number)
-                ->update(['name'=>$name,'department'=>$department]);
-            $result7 = DB::table('timetable7')
-                ->where('number',$number)
-                ->update(['name'=>$name,'department'=>$department]);
-            $result8 = DB::table('timetable8')
-                ->where('number',$number)
-                ->update(['name'=>$name,'department'=>$department]);
-            $result9 = DB::table('timetable9')
-                ->where('number',$number)
-                ->update(['name'=>$name,'department'=>$department]);
-            $result10 = DB::table('timetable10')
-                ->where('number',$number)
-                ->update(['name'=>$name,'department'=>$department]);
-            $result11 = DB::table('timetable11')
-                ->where('number',$number)
-                ->update(['name'=>$name,'department'=>$department]);
-            $result12 = DB::table('timetable12')
-                ->where('number',$number)
-                ->update(['name'=>$name,'department'=>$department]);
-            $result13 = DB::table('timetable13')
-                ->where('number',$number)
-                ->update(['name'=>$name,'department'=>$department]);
-            $result14 = DB::table('timetable14')
-                ->where('number',$number)
-                ->update(['name'=>$name,'department'=>$department]);
-            $result15 = DB::table('timetable15')
-                ->where('number',$number)
-                ->update(['name'=>$name,'department'=>$department]);
-            $result16 = DB::table('timetable16')
-                ->where('number',$number)
-                ->update(['name'=>$name,'department'=>$department]);
-            $result17 = DB::table('timetable17')
-                ->where('number',$number)
-                ->update(['name'=>$name,'department'=>$department]);
-            $result18 = DB::table('timetable18')
-                ->where('number',$number)
-                ->update(['name'=>$name,'department'=>$department]);
+            //在timetable表中修改
+            for($i = 0; $i < 18; $i++){
+                $result1 = DB::table($table[$i])
+                    ->where('number',$number)
+                    ->update(['name'=>$name,'department'=>$department]);
+            }
             return $result;
         }else{
             return 0;
@@ -414,66 +284,23 @@ class People extends Model
             &&Check::checkBirthday($birthday)&& Check::checkEmail($email) && Check::checkSchool($school)
             &&Check::checkDepartment($department)&& Check::checkPosition($position);
 
+        $table = ['timetable1','timetable2','timetable3','timetable4','timetable5','timetable6','timetable7',
+            'timetable8','timetable9','timetable10','timetable11','timetable12','timetable13','timetable14',
+            'timetable15','timetable16','timetable17','timetable18'];
+
         if($checkResult) {
+            //在people表中修改
             $result = People::where('number', Session::get('number'))->update(
                 ['name' => $name, 'birthday' => $birthday, 'QQ' => $QQ, 'tel' => $tel,
                     'email' => $email, 'school' => $school, 'department' => $department,
                     'position' => $position, 'message' => $message]
             );
-            $result1 = DB::table('timetable1')
-                ->where('number',Session::get('number'))
-                ->update(['name'=>$name,'department'=>$department]);
-            $result2 = DB::table('timetable2')
-                ->where('number',Session::get('number'))
-                ->update(['name'=>$name,'department'=>$department]);
-            $result3 = DB::table('timetable3')
-                ->where('number',Session::get('number'))
-                ->update(['name'=>$name,'department'=>$department]);
-            $result4 = DB::table('timetable4')
-                ->where('number',Session::get('number'))
-                ->update(['name'=>$name,'department'=>$department]);
-            $result5 = DB::table('timetable5')
-                ->where('number',Session::get('number'))
-                ->update(['name'=>$name,'department'=>$department]);
-            $result6 = DB::table('timetable6')
-                ->where('number',Session::get('number'))
-                ->update(['name'=>$name,'department'=>$department]);
-            $result7 = DB::table('timetable7')
-                ->where('number',Session::get('number'))
-                ->update(['name'=>$name,'department'=>$department]);
-            $result8 = DB::table('timetable8')
-                ->where('number',Session::get('number'))
-                ->update(['name'=>$name,'department'=>$department]);
-            $result9 = DB::table('timetable9')
-                ->where('number',Session::get('number'))
-                ->update(['name'=>$name,'department'=>$department]);
-            $result10 = DB::table('timetable10')
-                ->where('number',Session::get('number'))
-                ->update(['name'=>$name,'department'=>$department]);
-            $result11 = DB::table('timetable11')
-                ->where('number',Session::get('number'))
-                ->update(['name'=>$name,'department'=>$department]);
-            $result12 = DB::table('timetable12')
-                ->where('number',Session::get('number'))
-                ->update(['name'=>$name,'department'=>$department]);
-            $result13 = DB::table('timetable13')
-                ->where('number',Session::get('number'))
-                ->update(['name'=>$name,'department'=>$department]);
-            $result14 = DB::table('timetable14')
-                ->where('number',Session::get('number'))
-                ->update(['name'=>$name,'department'=>$department]);
-            $result15 = DB::table('timetable15')
-                ->where('number',Session::get('number'))
-                ->update(['name'=>$name,'department'=>$department]);
-            $result16 = DB::table('timetable16')
-                ->where('number',Session::get('number'))
-                ->update(['name'=>$name,'department'=>$department]);
-            $result17 = DB::table('timetable17')
-                ->where('number',Session::get('number'))
-                ->update(['name'=>$name,'department'=>$department]);
-            $result18 = DB::table('timetable18')
-                ->where('number',Session::get('number'))
-                ->update(['name'=>$name,'department'=>$department]);
+            //在timetable表中修改
+            for($i = 0; $i < 18; $i++){
+                $result1 = DB::table($table[$i])
+                    ->where('number',Session::get('number'))
+                    ->update(['name'=>$name,'department'=>$department]);
+            }
             return $result;
         }else{
             return 0;
@@ -498,6 +325,4 @@ class People extends Model
             ->get();
         return $result;
     }
-
-
 }
