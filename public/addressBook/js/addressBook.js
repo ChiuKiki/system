@@ -23,7 +23,6 @@ function getUrlParam(names) {//从URL中获取参数
 $(function(){//载入时输出所有人员
     $.get("http://system.chiukiki.cn/api/queryInitial",
         function(data,xhrFields){
-
             $("#addressBookTable").empty();
             $("#addressBookTable").append("<tr> <th>姓名</th> <th>部门</th> <th>职位</th> </tr>");
             for(var i=0;i<data.length;i++){
@@ -48,7 +47,8 @@ $(function(){/*点击时获得人员的数据*/
     if($("#addressBook").val()==null||$("#addressBook").val()==""){
       $.get("http://system.chiukiki.cn/api/queryInitial",
         function(data,xhrFields){
-          alert("获取成功");
+          $("body").append("<div style='position:absolute; top:90vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
+          window.setTimeout(function(){$("#alert").remove();},1000);
           $("#addressBookTable").empty();
           $("#addressBookTable").append("<tr> <th>姓名</th> <th>部门</th> <th>职位</th> </tr>");
           for(var i=0;i<data.length;i++){
@@ -72,7 +72,8 @@ $(function(){/*点击时获得人员的数据*/
 	            query:$("#addressBook").val()
 	          },
 	          function(data,xhrFields){
-              alert("获取成功");
+              $("body").append("<div style='position:absolute; top:90vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
+              window.setTimeout(function(){$("#alert").remove();},1000);
               $("#addressBookTable").empty();
               $("#addressBookTable").append("<tr> <th>姓名</th> <th>部门</th> <th>职位</th> </tr>");
 	            for(var i=0;i<data.length;i++){

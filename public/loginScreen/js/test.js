@@ -44,22 +44,21 @@ $(function(){//用于登录时跳转,前端向后端请求得到"登录成功"�
       },function(data,xhrFields){
         xhrFields:{withCredentials:true};
         $("#registerHint").text("");
-        alert(data[0].message);
-          if(data[0].identity="administrator"){
-            dataUsed=1;
-          }
-          else{
-            dataUsed=0;
-          }
-          if(data[0].message=="登陆成功"){
-              $("#registerHint").text("");
-              location="addressBook/addressBook.html?queryNumber="+$('#registerName')[0].value+"&dataUsed="+dataUsed;
-              name=$('#registerName')[0].value;
- 
-          }else{
-             $("#registerHint").text("用户名和密码错误!");
-             alert("登录失败!");
-          }
+        $("body").append("<div style='position:absolute; top:90vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data[0].message+"</div>");
+        window.setTimeout(function(){$("#alert").remove();},1000);
+        if(data[0].identity="administrator"){
+          dataUsed=1;
+        }
+        else{
+          dataUsed=0;
+        }
+        if(data[0].message=="登陆成功"){
+          $("#registerHint").text("");
+          location="addressBook/addressBook.html?queryNumber="+$('#registerName')[0].value+"&dataUsed="+dataUsed;
+          name=$('#registerName')[0].value;
+        }else{
+          $("#registerHint").text("用户名和密码错误!");
+        }
       });
       
   });

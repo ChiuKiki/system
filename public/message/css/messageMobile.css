@@ -65,7 +65,6 @@ body {
 	float: right;
 	margin-top:1vw;
 	margin-right: 6vw;
-	background-color:whitesmoke;
 	border-radius:1vw;
 }
 #alterImg {
@@ -89,6 +88,9 @@ body {
 	margin: 0 auto;
 	overflow: auto;
 	padding-top:3vw;
+	background-color:white;
+	border-bottom:3px solid rgb(155, 223, 128);
+
 }
 #containerLeft {
 	width: 95vw;
@@ -184,9 +186,9 @@ textarea::placeholder {
 }
 #callback {
 	position: absolute;
-	left: 0;
+	left: 2vw;
 	top: 2vw;
 	width: 10vw;
-	height:10vw;
+	height:8vw;
 	display: none;
 }

@@ -91,6 +91,8 @@ $(function(){//点击按钮保存
             weekNum:data
       },function(data,xhrFields){
         xhrFields:{withCredentials:true};
+        $("body").append("<div style='position:absolute; top:90vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
+        window.setTimeout(function(){$("#alert").remove();},1000);
         if(data.message=="录入成功"){
           if(!confirm("是否继续")){
             location="../addressBook/addressBook.html?queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");

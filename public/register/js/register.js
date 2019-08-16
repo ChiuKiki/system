@@ -106,6 +106,8 @@ $(function(){//先检验数据是否符合格式,符合再发送请求
                 confirmPassword:$("#passwordSure").val()
       },function(data,xhrFields){
         xhrFields:{withCredentials:true};
+        $("body").append("<div style='position:absolute; top:90vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
+        window.setTimeout(function(){$("#alert").remove();},1000);
         location="../index.html";
 
       })
