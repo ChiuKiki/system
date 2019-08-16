@@ -75,13 +75,8 @@ class Timetable extends Model
     }
 
 
-    //查询没课人员
-    public static function freeTime($time,$request){
-        $weekNum = $request->get('weekNum');
-        $department = $request->get('department');
-        $table = NULL;
-
-        //根据周数选择数据表
+    //根据周数选择数据表
+    public static function checkTable($weekNum){
         switch($weekNum){
             case "1":
                 $table = 'timetable1';break;
@@ -120,8 +115,19 @@ class Timetable extends Model
             case "18":
                 $table = 'timetable18';break;
             default:
-                return $matchInfo = 0;
+                return $table = NULL;
         }
+        return $table;
+    }
+
+
+    //查询没课人员
+    public static function freeTime($time,$request){
+        $weekNum = $request->get('weekNum');
+        $department = $request->get('department');
+
+        //根据周数选择数据表
+        $table = self::checkTable($weekNum);
 
         //判断是否选择“部门”
         //查询没课人员
@@ -185,32 +191,14 @@ class Timetable extends Model
 
 
     //根据周数确定数据表数组
-    public static function checkTable($request){
+    public static function checkTableArr($request){
         $weekNum = $request->get('weekNum');
         $tempArr = array();
         $len = sizeof($weekNum);
 
         for($i = 0; $i < $len ; $i++){
-
-            switch ($weekNum[$i]){
-                case "1":
-                    $table = 'timetable1';
-                    break;
-                case "2":
-                    $table = 'timetable2';
-                    break;
-                case "3":
-                    $table = 'timetable3';
-                    break;
-                case "4":
-                    $table = 'timetable4';
-                    break;
-                case "5":
-                    $table = 'timetable5';
-                    break;
-                default :
-                    $table = NULL;
-            }
+            //根据周数选择数据表
+            $table = self::checkTable($weekNum[$i]);
             //写入数组
             array_push($tempArr, $table);
         }

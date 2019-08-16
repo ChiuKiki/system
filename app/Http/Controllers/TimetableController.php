@@ -36,7 +36,7 @@ class TimetableController extends Controller
         //确定没课时间数组
         $time = Timetable::checkTimeArr($request);
         //确定数据表数组
-        $table = Timetable::checkTable($request);
+        $table = Timetable::checkTableArr($request);
 
         if (Session::get('flag')) {
 
