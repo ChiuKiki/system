@@ -84,20 +84,41 @@ class Timetable extends Model
         //根据周数选择数据表
         switch($weekNum){
             case "1":
-                $table = 'timetable1';
-                break;
+                $table = 'timetable1';break;
             case "2":
-                $table = 'timetable2';
-                break;
+                $table = 'timetable2';break;
             case "3":
-                $table = 'timetable3';
-                break;
+                $table = 'timetable3';break;
             case "4":
-                $table = 'timetable4';
-                break;
+                $table = 'timetable4';break;
             case "5":
-                $table = 'timetable5';
-                break;
+                $table = 'timetable5';break;
+            case "6":
+                $table = 'timetable6';break;
+            case "7":
+                $table = 'timetable7';break;
+            case "8":
+                $table = 'timetable8';break;
+            case "9":
+                $table = 'timetable9';break;
+            case "10":
+                $table = 'timetable10';break;
+            case "11":
+                $table = 'timetable11';break;
+            case "12":
+                $table = 'timetable12';break;
+            case "13":
+                $table = 'timetable13';break;
+            case "14":
+                $table = 'timetable14';break;
+            case "15":
+                $table = 'timetable15';break;
+            case "16":
+                $table = 'timetable16';break;
+            case "17":
+                $table = 'timetable17';break;
+            case "18":
+                $table = 'timetable18';break;
             default:
                 return $matchInfo = 0;
         }

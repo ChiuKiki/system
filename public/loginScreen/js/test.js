@@ -66,7 +66,7 @@ $(function(){//用于登录时跳转,前端向后端请求得到"登录成功"�
 });
 $(function(){//点击注册跳转到注册页面
   $("#registerMessage").click(function(){
-    location="../register/register.html";
+    location="register/register.html";
   })
 })
 $(function(){//点击开始找回密码框

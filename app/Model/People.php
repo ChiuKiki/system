@@ -68,8 +68,48 @@ class People extends Model
             $result5=DB::table('timetable5')->insert(
                 ['name'=>$name,'number'=>$number,'department'=>$department]
             );
+            $result6=DB::table('timetable6')->insert(
+                ['name'=>$name,'number'=>$number,'department'=>$department]
+            );
+            $result7=DB::table('timetable7')->insert(
+                ['name'=>$name,'number'=>$number,'department'=>$department]
+            );
+            $result8=DB::table('timetable8')->insert(
+                ['name'=>$name,'number'=>$number,'department'=>$department]
+            );
+            $result9=DB::table('timetable9')->insert(
+                ['name'=>$name,'number'=>$number,'department'=>$department]
+            );
+            $result10=DB::table('timetable10')->insert(
+                ['name'=>$name,'number'=>$number,'department'=>$department]
+            );
+            $result11=DB::table('timetable11')->insert(
+                ['name'=>$name,'number'=>$number,'department'=>$department]
+            );
+            $result12=DB::table('timetable12')->insert(
+                ['name'=>$name,'number'=>$number,'department'=>$department]
+            );
+            $result13=DB::table('timetable13')->insert(
+                ['name'=>$name,'number'=>$number,'department'=>$department]
+            );
+            $result14=DB::table('timetable14')->insert(
+                ['name'=>$name,'number'=>$number,'department'=>$department]
+            );
+            $result15=DB::table('timetable15')->insert(
+                ['name'=>$name,'number'=>$number,'department'=>$department]
+            );
+            $result16=DB::table('timetable16')->insert(
+                ['name'=>$name,'number'=>$number,'department'=>$department]
+            );
+            $result17=DB::table('timetable17')->insert(
+                ['name'=>$name,'number'=>$number,'department'=>$department]
+            );
+            $result18=DB::table('timetable18')->insert(
+                ['name'=>$name,'number'=>$number,'department'=>$department]
+            );
 
-            if($result0&&$result1&&$result2&&$result3&&$result4&&$result5){
+            if($result0&&$result1&&$result2&&$result3&&$result4&&$result5&&$result6&&$result7&&$result8&&$result9&&$result10
+                &&$result11&&$result12&&$result13&&$result14&&$result15&&$result16&&$result17&&$result18){
                 return $result=1;
             }else{
                 return $result=0;
@@ -225,7 +265,47 @@ class People extends Model
             $result5 = DB::table('timetable5')
                 ->where('number', $number)
                 ->delete();
-            $result = $result0&$result1&$result2&$result3&$result4&$result5;
+            $result6 = DB::table('timetable6')
+                ->where('number', $number)
+                ->delete();
+            $result7 = DB::table('timetable7')
+                ->where('number', $number)
+                ->delete();
+            $result8 = DB::table('timetable8')
+                ->where('number', $number)
+                ->delete();
+            $result9 = DB::table('timetable9')
+                ->where('number', $number)
+                ->delete();
+            $result10 = DB::table('timetable10')
+                ->where('number', $number)
+                ->delete();
+            $result11 = DB::table('timetable11')
+                ->where('number', $number)
+                ->delete();
+            $result12 = DB::table('timetable12')
+                ->where('number', $number)
+                ->delete();
+            $result13 = DB::table('timetable13')
+                ->where('number', $number)
+                ->delete();
+            $result14 = DB::table('timetable14')
+                ->where('number', $number)
+                ->delete();
+            $result15 = DB::table('timetable15')
+                ->where('number', $number)
+                ->delete();
+            $result16 = DB::table('timetable16')
+                ->where('number', $number)
+                ->delete();
+            $result17 = DB::table('timetable17')
+                ->where('number', $number)
+                ->delete();
+            $result18 = DB::table('timetable18')
+                ->where('number', $number)
+                ->delete();
+            $result = $result0&$result1&$result2&$result3&$result4&$result5&$result6&$result7&$result8&$result9&$result10
+                &$result11&$result12&$result13&$result14&$result15&$result16&$result17&$result18;
         }
         return $result;
     }
@@ -271,6 +351,45 @@ class People extends Model
             $result5 = DB::table('timetable5')
                 ->where('number',$number)
                 ->update(['name'=>$name,'department'=>$department]);
+            $result6 = DB::table('timetable6')
+                ->where('number',$number)
+                ->update(['name'=>$name,'department'=>$department]);
+            $result7 = DB::table('timetable7')
+                ->where('number',$number)
+                ->update(['name'=>$name,'department'=>$department]);
+            $result8 = DB::table('timetable8')
+                ->where('number',$number)
+                ->update(['name'=>$name,'department'=>$department]);
+            $result9 = DB::table('timetable9')
+                ->where('number',$number)
+                ->update(['name'=>$name,'department'=>$department]);
+            $result10 = DB::table('timetable10')
+                ->where('number',$number)
+                ->update(['name'=>$name,'department'=>$department]);
+            $result11 = DB::table('timetable11')
+                ->where('number',$number)
+                ->update(['name'=>$name,'department'=>$department]);
+            $result12 = DB::table('timetable12')
+                ->where('number',$number)
+                ->update(['name'=>$name,'department'=>$department]);
+            $result13 = DB::table('timetable13')
+                ->where('number',$number)
+                ->update(['name'=>$name,'department'=>$department]);
+            $result14 = DB::table('timetable14')
+                ->where('number',$number)
+                ->update(['name'=>$name,'department'=>$department]);
+            $result15 = DB::table('timetable15')
+                ->where('number',$number)
+                ->update(['name'=>$name,'department'=>$department]);
+            $result16 = DB::table('timetable16')
+                ->where('number',$number)
+                ->update(['name'=>$name,'department'=>$department]);
+            $result17 = DB::table('timetable17')
+                ->where('number',$number)
+                ->update(['name'=>$name,'department'=>$department]);
+            $result18 = DB::table('timetable18')
+                ->where('number',$number)
+                ->update(['name'=>$name,'department'=>$department]);
             return $result;
         }else{
             return 0;
@@ -314,6 +433,45 @@ class People extends Model
                 ->where('number',Session::get('number'))
                 ->update(['name'=>$name,'department'=>$department]);
             $result5 = DB::table('timetable5')
+                ->where('number',Session::get('number'))
+                ->update(['name'=>$name,'department'=>$department]);
+            $result6 = DB::table('timetable6')
+                ->where('number',Session::get('number'))
+                ->update(['name'=>$name,'department'=>$department]);
+            $result7 = DB::table('timetable7')
+                ->where('number',Session::get('number'))
+                ->update(['name'=>$name,'department'=>$department]);
+            $result8 = DB::table('timetable8')
+                ->where('number',Session::get('number'))
+                ->update(['name'=>$name,'department'=>$department]);
+            $result9 = DB::table('timetable9')
+                ->where('number',Session::get('number'))
+                ->update(['name'=>$name,'department'=>$department]);
+            $result10 = DB::table('timetable10')
+                ->where('number',Session::get('number'))
+                ->update(['name'=>$name,'department'=>$department]);
+            $result11 = DB::table('timetable11')
+                ->where('number',Session::get('number'))
+                ->update(['name'=>$name,'department'=>$department]);
+            $result12 = DB::table('timetable12')
+                ->where('number',Session::get('number'))
+                ->update(['name'=>$name,'department'=>$department]);
+            $result13 = DB::table('timetable13')
+                ->where('number',Session::get('number'))
+                ->update(['name'=>$name,'department'=>$department]);
+            $result14 = DB::table('timetable14')
+                ->where('number',Session::get('number'))
+                ->update(['name'=>$name,'department'=>$department]);
+            $result15 = DB::table('timetable15')
+                ->where('number',Session::get('number'))
+                ->update(['name'=>$name,'department'=>$department]);
+            $result16 = DB::table('timetable16')
+                ->where('number',Session::get('number'))
+                ->update(['name'=>$name,'department'=>$department]);
+            $result17 = DB::table('timetable17')
+                ->where('number',Session::get('number'))
+                ->update(['name'=>$name,'department'=>$department]);
+            $result18 = DB::table('timetable18')
                 ->where('number',Session::get('number'))
                 ->update(['name'=>$name,'department'=>$department]);
             return $result;
