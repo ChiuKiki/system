@@ -75,6 +75,58 @@ class Timetable extends Model
     }
 
 
+    //查询没课人员
+    public static function freeTime($time,$request){
+        $weekNum = $request->get('weekNum');
+        $department = $request->get('department');
+        $table = NULL;
+
+        //根据周数选择数据表
+        switch($weekNum){
+            case "1":
+                $table = 'timetable1';
+                break;
+            case "2":
+                $table = 'timetable2';
+                break;
+            case "3":
+                $table = 'timetable3';
+                break;
+            case "4":
+                $table = 'timetable4';
+                break;
+            case "5":
+                $table = 'timetable5';
+                break;
+            default:
+                return $matchInfo = 0;
+        }
+
+        //判断是否选择“部门”
+        //查询没课人员
+        //默认（有课）为null，没课为1
+        if($department) {
+            $matchInfo = DB::table($table)
+                ->where($time, 1)
+                ->where('department', $department)
+                ->get('name');
+        }else{
+            $matchInfo = DB::table($table)
+                ->where($time, 1)
+                ->get('name');
+        }
+
+        //前端需要形如{name:["1","2","3"]}的结果
+        $arr = array();
+        foreach ($matchInfo as $nameList){
+            array_push($arr,$nameList->name);
+        }
+        $result = array('name'=>$arr);
+        return $result;
+
+    }
+
+
     //确定没课时间数组（arr[课号][星期几]）
     public static function checkTimeArr($request){
         $arr = $request->get('arr');
@@ -102,7 +154,7 @@ class Timetable extends Model
                     //修改request参数
                     $request->merge(['day' => $i+1, 'class' => $class]);
                     $time = self::checkTime($request);
-                    //写入result数组
+                    //写入数组
                     array_push($tempArr, $time);
                 }
             }
@@ -110,152 +162,75 @@ class Timetable extends Model
         return $tempArr;
     }
 
-/*
-    //确定没课时间数组（day[],class[]）
-    //http://127.0.0.1/frame/system/public/api/insertFree?weekNum=0&day[]=5&class[]=1-2&day[]=4&class[]=3-4
-    public static function checkTimeArr($request){
-        $day = $request->get('day');
-        $class = $request->get('class');
-        $dayLen = sizeof($day);
-        $classLen = sizeof($class);
-        $arr = array();
 
-        if($dayLen == $classLen) {
-
-            for ($i = 0; $i < $dayLen; $i++) {
-                //修改request参数
-                $request->merge(['day'=>$day[$i],'class'=>$class[$i]]);
-                $time = self::checkTime($request);
-                //写入result数组
-                array_push($arr,$time);
-            }
-            $result = $arr;
-
-        }else{
-            return $result = 0;
-        }
-
-        return $result;
-    }
-*/
-
-    //查询没课人员
-    public static function freeTime($time,$request){
-
+    //根据周数确定数据表数组
+    public static function checkTable($request){
         $weekNum = $request->get('weekNum');
-        $department = $request->get('department');
+        $tempArr = array();
+        $len = sizeof($weekNum);
 
-        //选择单双周：单周为-1，双周为0
-        switch($weekNum){
-            //默认为null，没课为1
-            case "-1":
-                if($department) {
-                    $matchInfo = DB::table('timetableOdd')
-                        ->where($time, 1)
-                        ->where('department', $department)
-                        ->get('name');
-                }else{
-                    $matchInfo = DB::table('timetableOdd')
-                        ->where($time, 1)
-                        ->get('name');
-                }
-                break;
-            case "0":
-                if($department) {
-                    $matchInfo = DB::table('timetableEven')
-                        ->where($time, 1)
-                        ->where('department', $department)
-                        ->get('name');
-                }else{
-                    $matchInfo = DB::table('timetableEven')
-                        ->where($time, 1)
-                        ->get('name');
-                }
-                break;
-            default:
-                return $matchInfo = 0;
+        for($i = 0; $i < $len ; $i++){
+
+            switch ($weekNum[$i]){
+                case "1":
+                    $table = 'timetable1';
+                    break;
+                case "2":
+                    $table = 'timetable2';
+                    break;
+                case "3":
+                    $table = 'timetable3';
+                    break;
+                case "4":
+                    $table = 'timetable4';
+                    break;
+                case "5":
+                    $table = 'timetable5';
+                    break;
+                default :
+                    $table = NULL;
+            }
+            //写入数组
+            array_push($tempArr, $table);
         }
-
-        //前端需要形如{name:["1","2","3"]}的结果
-        $arr = array();
-        foreach ($matchInfo as $nameList){
-            array_push($arr,$nameList->name);
-        }
-        $result = array('name'=>$arr);
-        return $result;
-
+        return $tempArr;
     }
 
 
     //没课表录入
-    public static function insertFreeTime($time,$request){
-        $weekNum = $request->get('weekNum');
-        //选择单双周：单周为-1，双周为0，单双周为-2
-        switch($weekNum){
-            //默认为null，没课为1
-            case"-2":
-                $len = sizeof($time);
-                $resultOdd = 0;
-                $resultEven = 0;
-                //先清空已有的信息
-                $resetOdd = self::resetFreeTime('timetableOdd');
-                $resetEven = self::resetFreeTime('timetableEven');
+    public static function insertFreeTime($time,$table){
+        $timeLen = sizeof($time);
+        $tableLen = sizeof($table);
+        $result = 0;
+        //先清空已有的信息
+        $reset = self::resetFreeTime($table);
 
-                for($i = 0; $i < $len ; $i++){
-                    $resultOdd = DB::table('timetableOdd')
-                        ->where('number', Session::get('number'))
-                        ->update([$time[$i] => '1']);
-                    $resultEven = DB::table('timetableEven')
-                        ->where('number', Session::get('number'))
-                        ->update([$time[$i] => '1']);
-                }
-                return $resultOdd&$resultEven;
-                break;
-
-            case "-1":
-                $len = sizeof($time);
-                $result = 0;
-                //先清空已有的信息
-                $resetOdd = self::resetFreeTime('timetableOdd');
-                for($i = 0; $i < $len ; $i++){
-                    $result = DB::table('timetableOdd')
-                        ->where('number', Session::get('number'))
-                        ->update([$time[$i] => '1']);
-                }
-                return $result;
-                break;
-
-            case "0":
-                $len = sizeof($time);
-                $result = 0;
-                //先清空已有的信息
-                $resetEven = self::resetFreeTime('timetableEven');
-                for($i = 0; $i < $len ; $i++){
-                    $result = DB::table('timetableEven')
-                        ->where('number', Session::get('number'))
-                        ->update([$time[$i] => '1']);
-                }
-                return $result;
-                break;
-
-            default:
-                return $result = 0;
+        for($i = 0; $i < $tableLen ; $i++) {
+            for ($j = 0; $j < $timeLen; $j++) {
+                $result = DB::table($table[$i])
+                    ->where('number', Session::get('number'))
+                    ->update([$time[$j] => '1']);
+            }
         }
+        return $result;
     }
 
 
     //重置某用户没课表的内容
     public static function resetFreeTime($table){
-        $result = DB::table($table)
-            ->where('number', Session::get('number'))
-            ->update(['Monday12' => NULL,'Monday34' => NULL,'MondayNoon' => NULL,'Monday56' => NULL,'Monday78' => NULL,
-                'Tuesday12' => NULL,'Tuesday34' => NULL,'TuesdayNoon' => NULL,'Tuesday56' => NULL,'Tuesday78' => NULL,
-                'Wednesday12' => NULL,'Wednesday34' => NULL,'WednesdayNoon' => NULL,'Wednesday56' => NULL,'Wednesday78' => NULL,
-                'Thursday12' => NULL,'Thursday34' => NULL,'ThursdayNoon' => NULL,'Thursday56' => NULL,'Thursday78' => NULL,
-                'Friday12' => NULL,'Friday34' => NULL,'FridayNoon' => NULL,'Friday56' => NULL,'Friday78' => NULL,
-            ]);
+        $len = sizeof($table);
+        $result = 0;
+
+        for($i = 0; $i < $len ; $i++) {
+            $result = DB::table($table[$i])
+                ->where('number', Session::get('number'))
+                ->update(['Monday12' => NULL, 'Monday34' => NULL, 'MondayNoon' => NULL, 'Monday56' => NULL, 'Monday78' => NULL,
+                    'Tuesday12' => NULL, 'Tuesday34' => NULL, 'TuesdayNoon' => NULL, 'Tuesday56' => NULL, 'Tuesday78' => NULL,
+                    'Wednesday12' => NULL, 'Wednesday34' => NULL, 'WednesdayNoon' => NULL, 'Wednesday56' => NULL, 'Wednesday78' => NULL,
+                    'Thursday12' => NULL, 'Thursday34' => NULL, 'ThursdayNoon' => NULL, 'Thursday56' => NULL, 'Thursday78' => NULL,
+                    'Friday12' => NULL, 'Friday34' => NULL, 'FridayNoon' => NULL, 'Friday56' => NULL, 'Friday78' => NULL,
+                ]);
+        }
         return $result;
     }
-
-
 }

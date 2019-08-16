@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTimetableOddTable extends Migration
+class CreateTimetable5Table extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTimetableOddTable extends Migration
      */
     public function up()
     {
-        Schema::create('timetableOdd', function (Blueprint $table) {
+        Schema::create('timetable5', function (Blueprint $table) {
             $table->bigIncrements('id');
 
             $table->string('name');
@@ -62,6 +62,6 @@ class CreateTimetableOddTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('timetableOdd');
+        Schema::dropIfExists('timetable5');
     }
 }

@@ -2,6 +2,9 @@
 <html>
   <head>
     <meta charset="UTF-8"/>
+    <meta http-equiv="Pragma" content="no-cache">  
+    <meta http-equiv="Cache-Control" content="no-cache">  
+    <meta http-equiv="Expires" content="Sat, 01 Dec 2001 00:00:00 GMT">  
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>没课表录入</title>
     <link rel="stylesheet" href="css/spareScanfMobile.css"/>
@@ -21,7 +24,6 @@
   </head>
 <body>
   <div id="spareScanfBox">
-    <h1 id="title">人员管理系统</h1>
     <h2 id="spareScanfTitle">没课表录入</h2>
   </div>
   <div id="spareScanfControl"><!--输入搜索框-->
@@ -30,13 +32,76 @@
       <p id="spareScanfSearchText">保存</p>
     </div>
     <div id="weekDiv">
-      <p id="weekLabel">周数</p>
+      <p id="weekLabel">周数:</p>
       <div id="weekBox" class="spareScanfControlPart">
         <div class="input-Selector week">
-          <input type="text" class="wx-input" id="week" placeholder="一周输入数字"/>
+          <input type="text" class="wx-input" id="week" placeholder="单双所有周请选择"/>
         </div>
       </div>
     </div>  
+  </div>
+  <div id="SelfWeekSelectButton">自由选择周数</div>
+  <div id="SelfWeekSelect">
+    <img src="img/left.png"/ id="left">
+    <div id="selfWeekSelectBox">
+      <div id="SelfWeekSelectCheckbox">
+        <div class="SelfWeekSelectCheckboxPart">
+          <input type="checkbox" id="1" name="weekCheckBox"><label for="1">第一周</label>
+        </div>
+        <div class="SelfWeekSelectCheckboxPart">
+          <input type="checkbox" id="2" name="weekCheckBox"><label for="2">第二周</label>
+        </div>  
+        <div class="SelfWeekSelectCheckboxPart">
+          <input type="checkbox" id="3" name="weekCheckBox"><label for="3">第三周</label>
+        </div>  
+        <div class="SelfWeekSelectCheckboxPart">
+          <input type="checkbox" id="10" name="weekCheckBox"><label for="10">第十周</label>
+        </div>    
+        <div class="SelfWeekSelectCheckboxPart">
+          <input type="checkbox" id="11" name="weekCheckBox"><label for="11">第十一周</label>
+        </div>    
+        <div class="SelfWeekSelectCheckboxPart">
+          <input type="checkbox" id="12" name="weekCheckBox"><label for="12">第十二周</label>
+        </div>  
+        <div class="SelfWeekSelectCheckboxPart">
+          <input type="checkbox" id="4" name="weekCheckBox"><label for="4">第四周</label>
+        </div>    
+        <div class="SelfWeekSelectCheckboxPart">
+          <input type="checkbox" id="5" name="weekCheckBox"><label for="5">第五周</label>
+        </div>  
+        <div class="SelfWeekSelectCheckboxPart">
+          <input type="checkbox" id="6" name="weekCheckBox"><label for="6">第六周</label>
+        </div>  
+        <div class="SelfWeekSelectCheckboxPart">
+          <input type="checkbox" id="13" name="weekCheckBox"><label for="13">第十三周</label>
+        </div>  
+        <div class="SelfWeekSelectCheckboxPart">
+          <input type="checkbox" id="14" name="weekCheckBox"><label for="14">第十四周</label>  
+        </div>            
+        <div class="SelfWeekSelectCheckboxPart">
+          <input type="checkbox" id="15" name="weekCheckBox"><label for="15">第十五周</label>
+        </div>   
+        <div class="SelfWeekSelectCheckboxPart">
+          <input type="checkbox" id="7" name="weekCheckBox"><label for="7">第七周</label>  
+        </div>   
+        <div class="SelfWeekSelectCheckboxPart">
+          <input type="checkbox" id="8" name="weekCheckBox"><label for="8">第八周</label>
+        </div>   
+        <div class="SelfWeekSelectCheckboxPart">
+          <input type="checkbox" id="9" name="weekCheckBox"><label for="9">第九周</label> 
+        </div>   
+        <div class="SelfWeekSelectCheckboxPart">
+          <input type="checkbox" id="16" name="weekCheckBox"><label for="16">第十六周</label>  
+        </div>   
+        <div class="SelfWeekSelectCheckboxPart">
+          <input type="checkbox" id="17" name="weekCheckBox"><label for="17">第十七周</label>  
+        </div>   
+        <div class="SelfWeekSelectCheckboxPart">
+          <input type="checkbox" id="18" name="weekCheckBox"><label for="18">第十八周</label>  
+        </div>   
+      </div>
+    </div>
+    <img src="img/rights.png" id="right"/>
   </div>
   <p id="spareScanfHint"></p>
   <div id="container"><!--结果展示框-->
@@ -92,24 +157,6 @@
       </tr>
     </table>
   </div>
-  <p id="help">注意事项:输入周数时,一周需直接输入数字,单双周根据下拉菜单选择,课表中绿色为有空,红色为没空,若需调整只需点击对应的方框然后保存</p>
-  <div id="menu"><!--底部菜单框-->
-    <div id="addressMenu" class="mainMenu">
-      <img id="addressImg"  src="img/messgeMenu.png" /> 
-      <p id="addressText">通讯录</p>
-    </div>
-    <div id="spareMenu" class="mainMenu">
-      <img id="spareMenuImg" src="img/spareMenu.png"/>
-      <p id="spareMenuText">没课表</p>
-    </div>
-    <div id="presonMessageMenu" class="mainMenu">
-      <img id="personMessageImg" src="img/personMessage.png"/>
-      <p id="personMessageText">个人信息</p>
-    </div>
-    <div id="administratorMenu" class="mainMenu">
-      <img id="administratorImg" src="img/administrator.png"/>
-      <p id="administratorText">管理员</p>
-    </div>
-  </div>
+  <p id="help">注意事项:输入周数时,一周需直接输入数字,单双周根据下拉菜单选择,课表中黄色为有空,绿色为没空,若需调整只需点击对应的方框然后保存</p>
 </body>
 </html>

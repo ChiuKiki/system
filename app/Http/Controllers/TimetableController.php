@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Session;
 class TimetableController extends Controller
 {
     //测试没课查询
-    //http://system.chiukiki.cn/api/free?weekNum=0&day=3&class=1-2&department=技术部
+    //http://system.chiukiki.cn/api/free?weekNum=1&day=3&class=1-2&department=技术部
     public static function noClassModel(Request $request)
     {
         $time = Timetable::checkTime($request);
@@ -30,15 +30,31 @@ class TimetableController extends Controller
 
 
     //测试没课录入
-    //weekNum=0/-1/-2&arr[][]
+    //http://system.chiukiki.cn/api/insertFree?weekNum[]=1&weekNum[]=2&weekNum[]=5&arr[][]=1&arr[][]=1
     public static function insertNoClassModel(Request $request)
     {
+        /*
+        $arr[0][0] = 1;
+        $arr[0][1] = 1;
+
+        $weekNum[0] = 1;
+        $weekNum[1] = 2;
+        $weekNum[2] = 5;
+        */
+
+        $time = Timetable::checkTimeArr($request);
+        //$table = Timetable::checkTable($request);
+
+        return $time;
+        /*
         //确定没课时间数组
         $time = Timetable::checkTimeArr($request);
+        //确定数据表数组
+    //    $table = Timetable::checkTable($request);
 
         if (Session::get('flag')) {
 
-            $result = Timetable::insertFreeTime($time,$request);
+            $result = Timetable::insertFreeTime($time,$table);
             if ($result) {
                 return response(array('message' => '录入成功'));
             } else {
@@ -48,9 +64,6 @@ class TimetableController extends Controller
         } else {
             return response(array('message' => '无权限'), 403);
         }
-
-
+*/
     }
-
-
 }

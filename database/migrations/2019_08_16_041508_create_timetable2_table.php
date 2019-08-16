@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTimetableEvenTable extends Migration
+class CreateTimetable2Table extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTimetableEvenTable extends Migration
      */
     public function up()
     {
-        Schema::create('timetableEven', function (Blueprint $table) {
+        Schema::create('timetable2', function (Blueprint $table) {
             $table->bigIncrements('id');
 
             $table->string('name');
@@ -62,6 +62,6 @@ class CreateTimetableEvenTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('timetableEven');
+        Schema::dropIfExists('timetable2');
     }
 }

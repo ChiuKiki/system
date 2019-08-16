@@ -2,6 +2,9 @@
 <html>
   <head>
     <meta charset="UTF-8"/>
+    <meta http-equiv="Pragma" content="no-cache">  
+    <meta http-equiv="Cache-Control" content="no-cache">  
+    <meta http-equiv="Expires" content="Sat, 01 Dec 2001 00:00:00 GMT">  
     <title>message</title>
     <link rel="stylesheet" href="css/messageMobile.css"/>
     <script src="js/changeCss.js"></script>
@@ -12,7 +15,6 @@
 <body>
   <img id="callback" src="img/callback.png"/><!--返回键-->
   <div id="titleBox"><!--标题框-->
-    <h1 id="title">人员管理系统</h1>
     <h2 id="messageTitle">个人信息</h2>
   </div>
   <div id="picture"><!--手机端不显示-->
@@ -32,46 +34,46 @@
       <div id="containerLeft">
         <div id="name" class="fromPart"><!--分别用div包裹以调整位置-->
           <label for="userName">姓名:</label>
-          <input type="text" id="userName" class="data" name="userName" placeholder="姓名" value="赵容"/>
+          <input type="text" id="userName" class="data" name="userName" placeholder="" value="赵容"/>
         </div>
         <div id="academy" class="fromPart">
           <label for="userAcademy">学院:</label>
-          <input type="text" id="userAcademy" class="data" name="userAcademy" placeholder="学院"/><br/>
+          <input type="text" id="userAcademy" class="data" name="userAcademy" placeholder=""/><br/>
         </div> 
         <div id="department" class="fromPart">
           <label for="userDepartment">部门:</label>
-          <input type="text" id="userDepartment" class="data" name="userDepartment" placeholder="部门"/><br/>
+          <input type="text" id="userDepartment" class="data" name="userDepartment" placeholder=""/><br/>
         </div>
          <div id="work" class="fromPart">
           <label for="userWork">职位:</label>
-          <input type="text" id="userWork" class="data" name="userWork" placeholder="职位"/><br/>
+          <input type="text" id="userWork" class="data" name="userWork" placeholder=""/><br/>
         </div>
       </div>
       <div id="containerRight">
         <div id="birthday" class="fromPart">
           <label for="userBirthday">生日:</label>
-          <input type="number" id="userBirthday" class="data" name="userBirthday" placeholder="格式:12.18 生日"/>
+          <input type="number" id="userBirthday" class="data" name="userBirthday" placeholder=""/>
         </div>
         <div id="telephone" class="fromPart">
           <label for="userTelephone">电话:</label>
-          <input type="text" id="userTelephone" class="data" name="userTelephone" placeholder="电话"/><br/>
+          <input type="text" id="userTelephone" class="data" name="userTelephone" placeholder=""/><br/>
         </div>
         <div id="QQ" class="fromPart">
           <label for="userQQ">QQ :</label>
-          <input type="text" id="userQQ" class="data" name="userQQ" placeholder="QQ"/><br/>
+          <input type="text" id="userQQ" class="data" name="userQQ" placeholder=""/><br/>
         </div>
         <div id="email" class="fromPart">
           <label for="userEmail">邮箱:</label>
-          <input type="text" id="userEmail" class="data" name="userEmail" placeholder="邮箱"/><br/>
+          <input type="text" id="userEmail" class="data" name="userEmail" placeholder=""/><br/>
         </div>
         <div id="studentNum" class="fromPart">
           <label for="userStudentNum">学号:</label>
-          <input type="text" id="userStudentNum" class="data" name="userStudentNum" placeholder="学号"/><br/>
+          <input type="text" id="userStudentNum" class="data" name="userStudentNum" placeholder=""/><br/>
         </div>
       </div>
       <p id="hint"></p>
-      <label for="userTextarea">个性签名</label>
-      <textarea id="userTextarea"placeholder="说点什么吧!"></textarea>
+      <label for="userTextarea">个性签名:</label>
+      <textarea id="userTextarea"placeholder=""></textarea>
     </from>
   </div>
   <div id="menu"><!--底部菜单-->

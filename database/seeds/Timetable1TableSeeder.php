@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class TimetableOddTableSeeder extends Seeder
+class Timetable1TableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,7 +12,7 @@ class TimetableOddTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('timetableOdd')->insert([
+        DB::table('timetable1')->insert([
             ['name'=>'测试一','number'=>201830250000,'department'=>'技术部',
                 'Tuesday12'=>'1','Tuesday34'=>'1'
             ],

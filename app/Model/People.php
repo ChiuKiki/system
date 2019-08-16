@@ -53,14 +53,23 @@ class People extends Model
                 ['name'=>$name, 'number'=>$number, 'tel'=>$tel,
                     'department'=>$department,'password'=>$password]
             );
-            $result1=DB::table('timetableOdd')->insert(
+            $result1=DB::table('timetable1')->insert(
                 ['name'=>$name,'number'=>$number,'department'=>$department]
             );
-            $result2=DB::table('timetableEven')->insert(
+            $result2=DB::table('timetable2')->insert(
+                ['name'=>$name,'number'=>$number,'department'=>$department]
+            );
+            $result3=DB::table('timetable3')->insert(
+                ['name'=>$name,'number'=>$number,'department'=>$department]
+            );
+            $result4=DB::table('timetable4')->insert(
+                ['name'=>$name,'number'=>$number,'department'=>$department]
+            );
+            $result5=DB::table('timetable5')->insert(
                 ['name'=>$name,'number'=>$number,'department'=>$department]
             );
 
-            if($result0&&$result1&&$result2){
+            if($result0&&$result1&&$result2&&$result3&&$result4&&$result5){
                 return $result=1;
             }else{
                 return $result=0;
@@ -199,15 +208,24 @@ class People extends Model
         $result = 0;
         for($i = 0; $i < $len ; $i++){
             $number = $arr[$i];
-            $result1 = People::where('number', $number)
+            $result0 = People::where('number', $number)
                 ->delete();
-            $result2 = DB::table('timetableOdd')
+            $result1 = DB::table('timetable1')
                 ->where('number', $number)
                 ->delete();
-            $result3 = DB::table('timetableEven')
+            $result2 = DB::table('timetable2')
                 ->where('number', $number)
                 ->delete();
-            $result = $result1&$result2&$result3;
+            $result3 = DB::table('timetable3')
+                ->where('number', $number)
+                ->delete();
+            $result4 = DB::table('timetable4')
+                ->where('number', $number)
+                ->delete();
+            $result5 = DB::table('timetable5')
+                ->where('number', $number)
+                ->delete();
+            $result = $result0&$result1&$result2&$result3&$result4&$result5;
         }
         return $result;
     }
@@ -238,10 +256,19 @@ class People extends Model
                     'tel' => $tel, 'email' => $email, 'school' => $school, 'department' => $department,
                     'position' => $position,'message' => $message]
             );
-            $resultOdd = DB::table('timetableOdd')
+            $result1 = DB::table('timetable1')
                 ->where('number',$number)
                 ->update(['name'=>$name,'department'=>$department]);
-            $resultEven = DB::table('timetableEven')
+            $result2 = DB::table('timetable2')
+                ->where('number',$number)
+                ->update(['name'=>$name,'department'=>$department]);
+            $result3 = DB::table('timetable3')
+                ->where('number',$number)
+                ->update(['name'=>$name,'department'=>$department]);
+            $result4 = DB::table('timetable4')
+                ->where('number',$number)
+                ->update(['name'=>$name,'department'=>$department]);
+            $result5 = DB::table('timetable5')
                 ->where('number',$number)
                 ->update(['name'=>$name,'department'=>$department]);
             return $result;
@@ -274,10 +301,19 @@ class People extends Model
                     'email' => $email, 'school' => $school, 'department' => $department,
                     'position' => $position, 'message' => $message]
             );
-            $resultOdd = DB::table('timetableOdd')
+            $result1 = DB::table('timetable1')
                 ->where('number',Session::get('number'))
                 ->update(['name'=>$name,'department'=>$department]);
-            $resultEven = DB::table('timetableEven')
+            $result2 = DB::table('timetable2')
+                ->where('number',Session::get('number'))
+                ->update(['name'=>$name,'department'=>$department]);
+            $result3 = DB::table('timetable3')
+                ->where('number',Session::get('number'))
+                ->update(['name'=>$name,'department'=>$department]);
+            $result4 = DB::table('timetable4')
+                ->where('number',Session::get('number'))
+                ->update(['name'=>$name,'department'=>$department]);
+            $result5 = DB::table('timetable5')
                 ->where('number',Session::get('number'))
                 ->update(['name'=>$name,'department'=>$department]);
             return $result;

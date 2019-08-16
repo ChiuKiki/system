@@ -23,13 +23,14 @@
 
 					$(_this).append("<span class='wxSelect_bottom'></span>")
 					$(_this).find(".wxSelect_bottom").css({
-						width:"4vw",
-						height:"80%",
-						background:"#fff",
+						width:"8vw",
+						height:"6vw",
+						background:"rgb(155, 223, 128)",
 						display:"inline-block",
 						position:"absolute",
-						right:"2vw",
-						top:"0.6vw",
+						right:"0vw",
+						top:"0vw",
+						borderRadius:" 0 3vw 3vw 0 ",
 						zIndex:2
 					})
 					$(_this).css({position:"relative",width:w + "px"}),
@@ -38,12 +39,12 @@
 						display: "inline-block",
 						width:"0",
 					    height:"0",
-					    borderWidth:"2vw 3vw 0",
+					    borderWidth:"1.4vw 2.4vw 0",
 					    borderStyle:"solid",
-					    borderColor:"#6c6c6c transparent transparent",
+					    borderColor:"white transparent transparent",
 						cursor: "pointer",
 						position: "absolute",
-						right: "1vw",
+						right: "2vw",
 						top: "2vw",
 						borderRadius: '0',
 						display:"block",
@@ -61,7 +62,7 @@
 						position:'absolute',
 						zIndex:'999'
 					});
-					$(_this).find(".wxSelect_label").on("click",function(event) {
+					$(_this).find(".wxSelect_label,.wxSelect_bottom").on("click",function(event) {
 					$(_this).find(".dataBox").slideToggle(100);
 					});
 					function input(e){
@@ -117,7 +118,7 @@
 							padding:"2vw 0 0 2vw",
 							border:"0",
 							listStyleType:"none",
-							fontSize:"5vw"
+							fontSize:"3vw"
 						});
 						$(_this).find(".dataList li").hover(function(){
 							$(this).css({

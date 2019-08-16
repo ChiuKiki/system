@@ -4,22 +4,20 @@ body {
 }
 /*标题部分*/
 #spareScanfBox {
-	height: 20vw;
+	width:100vw;
+	height: 10vw;
 	text-align: center;
-	background-color: rgb(48, 150, 7);
+	background-color: rgb(155, 223, 128);
 	color: white;
 	letter-spacing: 1vw;
+	border-radius:2vw 2vw 0 0 ;
 }/*标题框的样式*/
 #spareScanfTitle {
-	font-size: 5vw;
+	font-size: 4vw;
 	margin: 0;
 	font-weight: inherit;
 	letter-spacing: 2vw;
-}
-#title {
-	font-size: 8vw;
-	padding: 0;
-	margin: 0;
+	padding-top:2vw;
 }
 /*输入框的样式*/
 #spareScanfControl {
@@ -27,7 +25,7 @@ body {
 	height: 10vw;
 	margin: 0 auto;
 	margin-top:8vw;
-	margin-bottom:8vw;
+	margin-bottom:2vw;
 }
 .spareScanfControlPart {
 	width: 40vw;
@@ -38,49 +36,108 @@ body {
 #weekDiv{
 	width:50vw;
 	height:10vw;
-	float:left;
+	float:right;
 }
 #weekLabel{
-	font-size:5vw;
-	margin-top:0;
-	margin-right:1vw;
+	font-size:3vw;
+	margin-top:1.6vw;
+	margin-right:4vw;
 	float:left;
 }
 input {
-	font-size: 3vw;
+	outline:none;
+	font-size: 2.5vw;
 	width: 28vw;
-	height: 5vw;
-	border: 2px solid rgb(48, 150, 7);
+	height: 5.2vw;
+	border: 2px solid rgb(155, 223, 128);
+	border-radius:2vw;
 }
 select {
 	font-size: 4vw;
 	text-align: center;
 	width: 28vw;
 	height: 5vw;
-	border: 2px solid rgb(48, 150, 7);
+	border: 2px solid rgb(155, 223, 128);
 }
 #spareScanfSearch {
-	width: 35vw;
-	height: 10vw;
+	width: 20vw;
+	height: 7vw;
 	float:left;
+	background-color:whitesmoke;
+	border-radius:1vw;
 }
 #spareScanfSearchImg {
-	width: 8vw;
-	height: 8vw;
+	width: 5vw;
+	height: 5vw;
 	float: left;
+	margin-top:1vw;
+	margin-left:3vw;
 }
 #spareScanfSearchText {
-	height: 6vw;
-	font-size: 6vw;
+	font-size: 3vw;
 	color: rgb(48, 150, 7);
-	margin-top:0;
-	margin-left:2vw;
-	font-weight:bolder;
+	margin-top:2vw;
+	margin-left:11vw;
 }
 #spareScanfHint{
-	font-size:4vw;
+	font-size:2vw;
 	color:red;
 	margin:0;
+}
+/*自由选择菜单*/
+#SelfWeekSelect{
+	width:95.2vw;
+	height:20vw;
+	margin: 0 auto;
+	display:none;
+}
+#SelfWeekSelect img{
+	width:5vw;
+	height:20vw;
+}
+#left{
+	float:left;
+	margin-left:3vw;
+	margin-right:2vw;
+}
+#right{
+	float:right;
+	margin-right:2.3vw;
+}
+#SelfWeekSelectButton{
+	width:75.2vw;
+	height:5vw;
+	font-size:3vw;
+	text-align:center;
+	background-color:rgb(155, 223, 128);
+	margin-top:1vw;
+	margin:0 auto;
+}
+#selfWeekSelectBox{
+	width:75.1vw;
+	height:16vw;
+	margin: 0 auto;
+	overflow:hidden;
+	float:left;
+}
+#SelfWeekSelectCheckbox{
+	width:150vw;
+	height:16vw;
+}
+.SelfWeekSelectCheckboxPart{
+	width:25vw;
+	height:5vw;
+	float:left;
+}
+input[type="checkbox"]{
+	width:3vw;
+	height:3vw;
+	margin-top:1vw;
+	margin-left:2vw;
+}
+#SelfWeekSelectCheckbox label{
+	font-size:3vw;
+	margin-left:3vw;
 }
 /*主要内容部分*/
 #container {
@@ -109,12 +166,13 @@ th {
 	width: 25vw;
 	height: 10vw;
 	border: 1px solid black;
+	background-color: rgb(115, 182, 94);
 }
 td {
 	width: 25vw;
 	height: 10vw;
 	border: 1px solid black;
-	background-color:rgb(48, 150, 7);
+	background-color:rgb(155, 223, 128);
 	padding: 0;
 }
 #help{

@@ -103,16 +103,38 @@ $(function(){//点击修改,完成按钮根据值的不同来触发事件
 			$("#alterImg").attr("src","img/right.png");
 			$("#alterText").text("保存");
 			$("input").prop("readonly",false);
-	    $("textarea").prop("readonly",false);
+			$("textarea").prop("readonly",false);
+			$("textarea").css("border","1px solid rgb(48, 150, 7)");
 			$("#userStudentNum").prop("readonly",true);
-			$("input").css("border","1px solid rgb(48, 150, 7)");
+			$("#containerLeft").css("height","22vw");
+			$("#containerRight").css("height","60vw");
+			$(".fromPart").css({"margin-top":"6vw","margin-bottom":"0"});
+			$("input").css({"border":"1px solid rgb(48, 150, 7)"});
+			var placeholders=new Array("姓名","学院","部门","职位","生日格式为12.18","电话为12位手机号码","QQ","邮箱","学号","说点什么吧");
+			for(var i=0;i<10;i++){
+				if(i!=9){
+					$("input").eq(i).attr("placeholder",placeholders[i]);
+				}
+				else{
+					$("textarea").attr("placeholder",placeholders[9]);
+				}
+			}
+
+			$("#container").css("height","120vw");
 			$("#hint").show();
 			$("#spareEnter").hide();
 			$("#menu").hide();/*修改细节*/
-
+      
 		}
 		else{//点击完成时个人信息发生的事件
-			
+			for(var i=0;i<10;i++){
+				if(i!=9){
+					$("input").eq(i).attr("placeholder","");
+				}
+				else{
+					$("textarea").attr("placeholder","");
+				}
+			}
 			tests=new Array("/^[\u2E80-\u9FFF]{2,5}$/",
 								"/^[\u2E80-\u9FFF]+$/",
 								"/^[\u2E80-\u9FFF]+$/",
