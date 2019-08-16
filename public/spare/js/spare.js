@@ -22,7 +22,7 @@ function getUrlParam(names) {//获取URL中的参数
 }
 $(function(){//为选择框输入数据
   $(".week").wxSelect({
-    data:[{"name":"单周","value":-1},{"name":"双周","value":0},{"name":"所有周","value":"-2"}]
+    data:[{"name":"单周","value":-1},{"name":"双周","value":0}]
   });
  
   $(".weekDay").wxSelect({
@@ -35,53 +35,24 @@ $(function(){//为选择框输入数据
     data:[{"name":"技术部","value":"技术部"}]
   })
 });
-$(function(){//创建下拉菜单
-  $("#SelfWeekSelectButton").click(function(){
-    $("#SelfWeekSelect").toggle(500);
-  })
-})
-$(function(){//通过input的值来操作自由选择周数
-  $(".dataList li").click(function(){
-    for(var i=1;i<=18;i++){
-      $("#"+i+"").prop("checked","");
-    }
-    if($(this).text()=="单周"){
-      for(var i=1;i<18;i=i+2){
-        $("#"+i+"").prop("checked","true");
-      } 
-    }
-    else if($(this).text()=="双周"){
-      for(var i=2;i<=18;i=i+2){
-        $("#"+i+"").prop("checked","true");
-      } 
-    }
-    else if($(this).text()=="所有周"){
-      for(var i=1;i<=18;i++){
-        $("#"+i+"").prop("checked","true");
-      }
-    }
-    else{
-      ;
-    }
-  })
-  
-})
+
 $(function(){//点击搜索按钮开始搜索
   $("#spareSearch").click(function(){
-
-    console.log($(".week input").attr("data-value"));
+    var data;
+    if($(".week input").val()=="单周"){
+      data=-1;
+    }
+    else if($(".week input").val()=="双周"){
+      data=0;
+    }
+    else{
+      data=$(".week input").val();
+    }
+    console.log(data);
     console.log($(".weekDay input").attr("data-value"));
     console.log($(".class input").attr("data-value"));
     console.log($(".department input").attr("data-value"));
-    var data=new Array;
-    $("#spareScanfHint").text("");
-    $("input[type='checkbox']:checked").each(function(){
-      data.push($(this).attr("id"));
-    })
-    function sortNum(a,b){
-      return a - b;
-    }
-    data=data.sort(sortNum);
+    
     $.get("http://system.chiukiki.cn/api/free",{
       weekNum:data,
       day:$(".weekDay input").attr("data-value"),

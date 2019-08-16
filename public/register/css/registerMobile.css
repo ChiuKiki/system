@@ -1,15 +1,21 @@
 body {
 	overflow: hidden;
 }
-#registerTitle {
-	background-color: rgb(48, 150, 7);
-	color: white;
-	width: 100vw;
-	padding-top: 3vh;
-	padding-bottom: 3vh;
-	margin-top: 0;
-	font-size: 80px;
+#register{
+	width:100vw;
+	height: 10vw;
 	text-align: center;
+	background-color: rgb(155, 223, 128);
+	color: white;
+	letter-spacing: 1vw;
+	border-radius:2vw 2vw 0 0 ;
+}
+#registerTitle {
+	font-size: 4vw;
+	margin: 0;
+	font-weight: inherit;
+	letter-spacing: 2vw;
+	padding-top:2vw;
 }
 #registerBox {
 	width: 80vw;
@@ -64,15 +70,15 @@ input:hover{
 	font-family: "微软雅黑";
 	font-size: 5vw;
 	word-spacing: 5vw;
-	background-color: rgb(48, 150, 7);
+	background-color: rgb(155, 223, 128);
 	color: white;
-	border: 1px solid rgb(48, 150, 7);
+	border: 1px solid rgb(56, 190, 79);
 	cursor: pointer;
 	border-radius: 6vw;
 	margin: 0 auto;
 }
 #registerSubmit:hover {
-	background-color: rgb(56, 190, 79);
+	background-color: rgb(155, 223, 128);
 	border: 1px solid black;
 }/*提交框的整体样式*/
 #registerHint {
