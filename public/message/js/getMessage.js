@@ -45,7 +45,7 @@ $(function(){//加载信息
         queryName:decodeURI(decodeURI(getUrlParam("queryName")))
       },
       function(data,xhrFields){
-        xhrFields:{withCredentials:true};
+				xhrFields:{withCredentials:true};
         var j=0;
         for(var i in data[0]){
 
@@ -64,7 +64,10 @@ $(function(){//加载信息
 					
 				}
 				
-      });
+      },error(function(){
+				$("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
+				window.setTimeout(function(){$("#alert").remove();},2000);
+			}));
 		});
 				
 	}
@@ -87,7 +90,10 @@ $(function(){//加载信息
                   }
                   j++;
                 }
-            });
+            },error(function(){
+							$("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
+              window.setTimeout(function(){$("#alert").remove();},2000);
+						}));
     });
 	}
 	
@@ -206,9 +212,12 @@ $(function(){//点击修改,完成按钮根据值的不同来触发事件
 			      },
 			      function(data,xhrFields){
 							xhrFields:{withCredentials:true};
-							$("body").append("<div style='position:absolute; top:90vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
-              window.setTimeout(function(){$("#alert").remove();},1000);
-				    });
+							$("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
+              window.setTimeout(function(){$("#alert").remove();},2000);
+				    },error(function(){
+							$("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
+              window.setTimeout(function(){$("#alert").remove();},2000);
+						}));
 			}			
 		}
 	})

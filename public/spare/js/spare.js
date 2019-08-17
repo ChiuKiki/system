@@ -60,8 +60,8 @@ $(function(){//点击搜索按钮开始搜索
       department:$(".department input").attr("data-value")
     },function(data,xhrFields){
       xhrFields:{withCredentials:true};
-      $("body").append("<div style='position:absolute; top:90vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
-      window.setTimeout(function(){$("#alert").remove();},1000);
+      $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
+      window.setTimeout(function(){$("#alert").remove();},2000);
       console.log(data.name[0]);
       $("#addressBookTable").empty();
       if(data.message!="查询失败"){
@@ -79,7 +79,10 @@ $(function(){//点击搜索按钮开始搜索
           }
         }
       }
-    })
+    },error(function(){
+      $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
+      window.setTimeout(function(){$("#alert").remove();},2000);
+    }));
   })
 })
 $(function(){//底部菜单点击事件
