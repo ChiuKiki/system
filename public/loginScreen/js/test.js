@@ -38,11 +38,13 @@ function isPasswordCorrect(){/*检验密码的有效性*/
 }
 $(function(){//用于登录时跳转,前端向后端请求得到"登录成功"时,跳转页面
   $("#registerSubmit").on("click",function(){
-      $.get("http://system.chiukiki.cn/api/operatorLogin",{
+    $.ajax({
+      url:"http://system.chiukiki.cn/api/operatorLogin",
+      data:{
         number: $('#registerName')[0].value,
         password: $('#registerPassword')[0].value
-      },function(data,xhrFields){
-        xhrFields:{withCredentials:true};
+      },
+      success:function(data){
         $("#registerHint").text("");
         $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data[0].message+"</div>");
         window.setTimeout(function(){$("#alert").remove();},2000);
@@ -59,10 +61,12 @@ $(function(){//用于登录时跳转,前端向后端请求得到"登录成功"�
         }else{
           $("#registerHint").text("用户名和密码错误!");
         }
-      },error(function(){
-				$("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data[0].message+"</div>");
-				window.setTimeout(function(){$("#alert").remove();},2000);
-			}));
+      },
+      error:function(data){
+        $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data[0].message+"</div>");
+        window.setTimeout(function(){$("#alert").remove();},2000);
+      }
+    })
   });
 });
 $(function(){//点击注册跳转到注册页面
@@ -78,20 +82,22 @@ $(function(){//点击开始找回密码框
 })
 $(function(){//点击保存时保存数据
   $("#reserve").click(function(){
-    $.get("http://system.chiukiki.cn/api/forgetPassword",/*点击完成按钮提交信息*/
-			{
+    $.ajax({
+      url:"http://system.chiukiki.cn/api/forgetPassword",
+      data:{
         number:$("#userStudentNum").val(),
 				tel:$("#userTelephone").val(),
 				setPassword:$("#setPassword").val()
-			},
-			function(data,xhrFields){
-        xhrFields:{withCredentials:true};
+      },
+      success:function(data){
         $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data[0].message+"</div>");
         window.setTimeout(function(){$("#alert").remove();},2000);
-			},error(function(){
+      },
+      error:function(data){
         $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data[0].message+"</div>");
         window.setTimeout(function(){$("#alert").remove();},2000);
-      }));
+			}
+    })
   })
 });
 $(function(){//点击关闭个人信息窗口

@@ -52,37 +52,40 @@ $(function(){//点击搜索按钮开始搜索
     console.log($(".weekDay input").attr("data-value"));
     console.log($(".class input").attr("data-value"));
     console.log($(".department input").attr("data-value"));
-    
-    $.get("http://system.chiukiki.cn/api/free",{
-      weekNum:data,
-      day:$(".weekDay input").attr("data-value"),
-      class:$(".class input").attr("data-value"),
-      department:$(".department input").attr("data-value")
-    },function(data,xhrFields){
-      xhrFields:{withCredentials:true};
-      $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
-      window.setTimeout(function(){$("#alert").remove();},2000);
-      console.log(data.name[0]);
-      $("#addressBookTable").empty();
-      if(data.message!="查询失败"){
-
-        var departmentTitle=$(".department input").attr("data-value");
-        $("#addressBookTable").append("<tr> <td>"+departmentTitle+"</td> <td>"+data.name[0]+"</td> <td>"+data.name[1]+"</td> </tr>");
-        for(var j=2;j<data.name.length;j=j+2){
-          if(j==data.name.length-1){
-            $("#addressBookTable").append("<tr> <td></td> <td>"+data.name[j]+"</td> <td></td> </tr>");
-
-          }
-          else{
-            $("#addressBookTable").append("<tr> <td></td> <td>"+data.name[j]+"</td> <td>"+data.name[j+1]+"</td> </tr>");
-
+    $.ajax({
+      url:"http://system.chiukiki.cn/api/free",
+      data:{
+        weekNum:data,
+        day:$(".weekDay input").attr("data-value"),
+        class:$(".class input").attr("data-value"),
+        department:$(".department input").attr("data-value")
+      },
+      success:function(data){
+        $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
+        window.setTimeout(function(){$("#alert").remove();},2000);
+        console.log(data.name[0]);
+        $("#addressBookTable").empty();
+        if(data.message!="查询失败"){
+  
+          var departmentTitle=$(".department input").attr("data-value");
+          $("#addressBookTable").append("<tr> <td>"+departmentTitle+"</td> <td>"+data.name[0]+"</td> <td>"+data.name[1]+"</td> </tr>");
+          for(var j=2;j<data.name.length;j=j+2){
+            if(j==data.name.length-1){
+              $("#addressBookTable").append("<tr> <td></td> <td>"+data.name[j]+"</td> <td></td> </tr>");
+  
+            }
+            else{
+              $("#addressBookTable").append("<tr> <td></td> <td>"+data.name[j]+"</td> <td>"+data.name[j+1]+"</td> </tr>");
+  
+            }
           }
         }
+      },
+      error:function(){
+        $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
+        window.setTimeout(function(){$("#alert").remove();},2000);
       }
-    },error(function(){
-      $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
-      window.setTimeout(function(){$("#alert").remove();},2000);
-    }));
+    })
   })
 })
 $(function(){//底部菜单点击事件

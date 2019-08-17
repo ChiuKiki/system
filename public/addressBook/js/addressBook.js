@@ -21,35 +21,45 @@ function getUrlParam(names) {//从URL中获取参数
   if (r != null) return unescape(r[2]); return null; //返回参数值
 }
 $(function(){//载入时输出所有人员
-    $.get("http://system.chiukiki.cn/api/queryInitial",
-        function(data,xhrFields){
-            $("#addressBookTable").empty();
-            $("#addressBookTable").append("<tr> <th>姓名</th> <th>部门</th> <th>职位</th> </tr>");
-            for(var i=0;i<data.length;i++){
-                $("#addressBookTable").append("<tr><td></td><td></td><td></td></tr>");
-                var k=0;
-                for(var j in data[i]){
+  $.ajax({
+    url:"http://system.chiukiki.cn/api/queryInitial",
+    data:{
 
-                    $("tr").eq(i+1).children().eq(k).text(data[i][j]);
-                    k++;
-                }
-            }
-            xhrFields:{withCredentials:true};
-            $("td").on("click",function(){
-                if(!($(this).parent().children().eq(0).text()==""||$(this).parent().children().eq(0).text()==null)){
-                    location="../message/message.html?way=addressBook"+"&queryName="+encodeURI(encodeURI($(this).parent().children().eq(0).text()))+"&queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
-                }
-            })
-        },error(function(){
-          $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
-          window.setTimeout(function(){$("#alert").remove();},2000);
-        }));
+    },
+    success:function(data,xhrFields){
+      $("#addressBookTable").empty();
+      $("#addressBookTable").append("<tr> <th>姓名</th> <th>部门</th> <th>职位</th> </tr>");
+      for(var i=0;i<data.length;i++){
+          $("#addressBookTable").append("<tr><td></td><td></td><td></td></tr>");
+          var k=0;
+          for(var j in data[i]){
+
+              $("tr").eq(i+1).children().eq(k).text(data[i][j]);
+              k++;
+          }
+      }
+      xhrFields:{withCredentials:true};
+      $("td").on("click",function(){
+          if(!($(this).parent().children().eq(0).text()==""||$(this).parent().children().eq(0).text()==null)){
+              location="../message/message.html?way=addressBook"+"&queryName="+encodeURI(encodeURI($(this).parent().children().eq(0).text()))+"&queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
+          }
+      })
+  },
+  error:function(data){
+    $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
+    window.setTimeout(function(){$("#alert").remove();},2000);
+  }
+  })
 })
 $(function(){/*点击时获得人员的数据*/
   $("#addressBookSearchImg").click(function(){
     if($("#addressBook").val()==null||$("#addressBook").val()==""){
-      $.get("http://system.chiukiki.cn/api/queryInitial",
-        function(data,xhrFields){
+      $.ajax({
+        url:"http://system.chiukiki.cn/api/queryInitial",
+        data:{
+
+        },
+        success:function(data){
           $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
           $("#addressBookTable").empty();
@@ -62,44 +72,48 @@ $(function(){/*点击时获得人员的数据*/
               k++;
             }
           }
-          xhrFields:{withCredentials:true};
           $("td").on("click",function(){
             if(!($(this).parent().children().eq(0).text()==""||$(this).parent().children().eq(0).text()==null)){
               location="../message/message.html?way=addressBook"+"&queryName="+encodeURI(encodeURI($(this).parent().children().eq(0).text()))+"&queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
             }
           })
-        },error(function(){
+        },
+        error:function(data){
           $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
-        }));
+        }
+      })
     }
     else{
-       $.get("http://system.chiukiki.cn/api/queryInfo",{
-	            query:$("#addressBook").val()
-	          },
-	          function(data,xhrFields){
-              $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
-              window.setTimeout(function(){$("#alert").remove();},2000);
-              $("#addressBookTable").empty();
-              $("#addressBookTable").append("<tr> <th>姓名</th> <th>部门</th> <th>职位</th> </tr>");
-	            for(var i=0;i<data.length;i++){
-	              $("#addressBookTable").append("<tr><td></td><td></td><td></td></tr>");
-                var k=0;
-		            for(var j in data[i]){
-		              $("tr").eq(i+1).children().eq(k).text(data[i][j]);
-		              k++;
-		            }
-              }
-              xhrFields:{withCredentials:true};
-              $("td").on("click",function(){
-                if(!($(this).parent().children().eq(0).text()==""||$(this).parent().children().eq(0).text()==null)){
-                  location="../message/message.html?way=addressBook"+"&queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed")+"&queryName="+encodeURI(encodeURI($(this).parent().children().eq(0).text()));
-                }
-              })
-	          },error(function(){
-              $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
-              window.setTimeout(function(){$("#alert").remove();},2000);
-            }));	
+      $.ajax({
+        url:"http://system.chiukiki.cn/api/queryInfo",
+        data:{
+          query:$("#addressBook").val()
+        },
+        success:function(data){
+          $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
+          window.setTimeout(function(){$("#alert").remove();},2000);
+          $("#addressBookTable").empty();
+          $("#addressBookTable").append("<tr> <th>姓名</th> <th>部门</th> <th>职位</th> </tr>");
+          for(var i=0;i<data.length;i++){
+            $("#addressBookTable").append("<tr><td></td><td></td><td></td></tr>");
+            var k=0;
+            for(var j in data[i]){
+              $("tr").eq(i+1).children().eq(k).text(data[i][j]);
+              k++;
+            }
+          }
+          $("td").on("click",function(){
+            if(!($(this).parent().children().eq(0).text()==""||$(this).parent().children().eq(0).text()==null)){
+              location="../message/message.html?way=addressBook"+"&queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed")+"&queryName="+encodeURI(encodeURI($(this).parent().children().eq(0).text()));
+            }
+          })
+        },
+        error:function(data){
+          $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
+          window.setTimeout(function(){$("#alert").remove();},2000);
+        }
+      })
     }
   });
 });

@@ -41,62 +41,60 @@ $(function(){//加载信息
 
 		$(function(){/*载入时获得人员的数据*/
 			console.log(decodeURI(decodeURI(getUrlParam("queryName"))));
-      $.get("http://system.chiukiki.cn/api/query",{
-        queryName:decodeURI(decodeURI(getUrlParam("queryName")))
-      },
-      function(data,xhrFields){
-				xhrFields:{withCredentials:true};
-        var j=0;
-        for(var i in data[0]){
-
-          if(i!="message"){
-
-						$("input").eq(j).attr({ value: data[0][i] });
-						console.log(data[0][i]);
-						
-          }
-          else{
-
-						$("#userTextarea").text(data[0][i]);
-						
-          }
-					j++;
-					
-				}
-				
-      },error(function(){
-				$("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
+			$.ajax({
+				url:"http://system.chiukiki.cn/api/query",
+				data:{
+          queryName:decodeURI(decodeURI(getUrlParam("queryName")))
+				},
+				success:function(data){
+					var j=0;
+					for(var i in data[0]){
+						if(i!="message"){	
+							$("input").eq(j).attr({ value: data[0][i] });
+							console.log(data[0][i]);							
+						}
+						else{	
+							$("#userTextarea").text(data[0][i]);							
+						}
+						j++;						
+					}					
+				},
+				error:function(data){
+					$("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
 				window.setTimeout(function(){$("#alert").remove();},2000);
-			}));
-		});
-				
+				}
+			})
+		});			
 	}
 	else{//从底部菜单进入个人信息的情况
 
-    $(function(){/*载入时获得人员的数据*/console.log(getUrlParam("queryNumber"))
-      $.get("http://system.chiukiki.cn/api/queryNumber",{
-            queryNumber:getUrlParam("queryNumber")
-            },
-            function(data,xhrFields){
-							xhrFields:{withCredentials:true};
-                $("#callback").hide();
-                var j=0;
-                for(var i in data[0]){
-                  if(i!="message"){
-                    $("input").eq(j).attr({ value: data[0][i] });console.log(data[0][i]);
-                  }
-                  else{
-                    $("#userTextarea").text(data[0][i]);
-                  }
-                  j++;
-                }
-            },error(function(){
-							$("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
-              window.setTimeout(function(){$("#alert").remove();},2000);
-						}));
+		$(function(){/*载入时获得人员的数据*/
+			console.log(getUrlParam("queryNumber"))
+			$.ajax({
+				url:"http://system.chiukiki.cn/api/queryNumber",
+				data:{
+          queryNumber:getUrlParam("queryNumber")
+				},
+				success:function(data){
+					$("#callback").hide();
+					var j=0;
+					for(var i in data[0]){
+						if(i!="message"){
+							$("input").eq(j).attr({ value: data[0][i] });console.log(data[0][i]);
+						}
+						else{
+							$("#userTextarea").text(data[0][i]);
+						}
+						j++;
+					}
+			  },
+			  error:function(data){
+				  $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
+				  window.setTimeout(function(){$("#alert").remove();},2000);
+			  }
+		  })
     });
 	}
-	
 })
 $(function(){//禁用修改
 	$("input").prop("readonly",true);
@@ -196,28 +194,29 @@ $(function(){//点击修改,完成按钮根据值的不同来触发事件
 			  $("#hint").hide();                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
 			  $("#spareEnter").show();
 				$("#menu").show();/*修改细节*/
-				
-        $.get("http://system.chiukiki.cn/api/updatePeople",/*点击完成按钮提交信息*/
-			      {
-				       name:$("#userName").val(),
-				       school:$("#userAcademy").val(),
-				       department:$("#userDepartment").val(),
-				       position:$("#userWork").val(),
-				       birthday:$("#userBirthday").val(),
-				       tel:$("#userTelephone").val(),
-				       QQ:$("#userQQ").val(),
-				       email:$("#userEmail").val(),
-				       number:$("#userStudentNum").val(),
-				       message:$("#userTextarea").val()
-			      },
-			      function(data,xhrFields){
-							xhrFields:{withCredentials:true};
-							$("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
-              window.setTimeout(function(){$("#alert").remove();},2000);
-				    },error(function(){
-							$("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
-              window.setTimeout(function(){$("#alert").remove();},2000);
-						}));
+				$.ajax({
+					url:"http://system.chiukiki.cn/api/updatePeople",
+					data:{
+						name:$("#userName").val(),
+						school:$("#userAcademy").val(),
+						department:$("#userDepartment").val(),
+						position:$("#userWork").val(),
+						birthday:$("#userBirthday").val(),
+						tel:$("#userTelephone").val(),
+						QQ:$("#userQQ").val(),
+						email:$("#userEmail").val(),
+						number:$("#userStudentNum").val(),
+						message:$("#userTextarea").val()
+				 },
+					success:function(data){
+						$("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
+						window.setTimeout(function(){$("#alert").remove();},2000);
+					},
+					error:function(data){
+            $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
+            window.setTimeout(function(){$("#alert").remove();},2000);
+					}
+				})
 			}			
 		}
 	})
