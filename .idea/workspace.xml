@@ -3,8 +3,25 @@
   <component name="ChangeListManager">
     <list default="true" id="92b7de52-cca8-4183-a39d-fb92954ac68c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/PeopleController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/PeopleController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Model/People.php" afterPath="$PROJECT_DIR$/app/Model/People.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Model/Timetable.php" afterPath="$PROJECT_DIR$/app/Model/Timetable.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2019_08_16_041446_create_timetable1_table.php" afterPath="$PROJECT_DIR$/database/migrations/2019_08_16_041446_create_timetable1_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2019_08_16_041508_create_timetable2_table.php" afterPath="$PROJECT_DIR$/database/migrations/2019_08_16_041508_create_timetable2_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2019_08_16_041533_create_timetable3_table.php" afterPath="$PROJECT_DIR$/database/migrations/2019_08_16_041533_create_timetable3_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2019_08_16_041605_create_timetable4_table.php" afterPath="$PROJECT_DIR$/database/migrations/2019_08_16_041605_create_timetable4_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2019_08_16_041620_create_timetable5_table.php" afterPath="$PROJECT_DIR$/database/migrations/2019_08_16_041620_create_timetable5_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2019_08_16_092149_create_timetable6_table.php" afterPath="$PROJECT_DIR$/database/migrations/2019_08_16_092149_create_timetable6_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2019_08_16_092204_create_timetable7_table.php" afterPath="$PROJECT_DIR$/database/migrations/2019_08_16_092204_create_timetable7_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2019_08_16_092219_create_timetable8_table.php" afterPath="$PROJECT_DIR$/database/migrations/2019_08_16_092219_create_timetable8_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2019_08_16_092232_create_timetable9_table.php" afterPath="$PROJECT_DIR$/database/migrations/2019_08_16_092232_create_timetable9_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2019_08_16_092245_create_timetable10_table.php" afterPath="$PROJECT_DIR$/database/migrations/2019_08_16_092245_create_timetable10_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2019_08_16_092259_create_timetable11_table.php" afterPath="$PROJECT_DIR$/database/migrations/2019_08_16_092259_create_timetable11_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2019_08_16_092313_create_timetable12_table.php" afterPath="$PROJECT_DIR$/database/migrations/2019_08_16_092313_create_timetable12_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2019_08_16_092326_create_timetable13_table.php" afterPath="$PROJECT_DIR$/database/migrations/2019_08_16_092326_create_timetable13_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2019_08_16_092339_create_timetable14_table.php" afterPath="$PROJECT_DIR$/database/migrations/2019_08_16_092339_create_timetable14_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2019_08_16_092352_create_timetable15_table.php" afterPath="$PROJECT_DIR$/database/migrations/2019_08_16_092352_create_timetable15_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2019_08_16_092406_create_timetable16_table.php" afterPath="$PROJECT_DIR$/database/migrations/2019_08_16_092406_create_timetable16_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2019_08_16_092420_create_timetable17_table.php" afterPath="$PROJECT_DIR$/database/migrations/2019_08_16_092420_create_timetable17_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2019_08_16_092437_create_timetable18_table.php" afterPath="$PROJECT_DIR$/database/migrations/2019_08_16_092437_create_timetable18_table.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -38,7 +55,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PeopleController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PeopleController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PeopleController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="313">
@@ -88,28 +105,26 @@
       <file leaf-file-name="TimetableController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/TimetableController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="19" column="26" lean-forward="true" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
-              <folding>
-                <element signature="e#873#1465#0#PHP" expanded="false" />
-              </folding>
+            <state relative-caret-position="845">
+              <caret line="36" column="37" lean-forward="true" selection-start-line="36" selection-start-column="37" selection-end-line="36" selection-end-column="37" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Timetable.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Timetable.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Model/Timetable.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="78" column="48" lean-forward="false" selection-start-line="78" selection-start-column="48" selection-end-line="78" selection-end-column="48" />
+            <state relative-caret-position="459">
+              <caret line="122" column="0" lean-forward="true" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
               <folding>
-                <element signature="e#227#2438#0#PHP" expanded="false" />
-                <element signature="e#2461#3853#0#PHP" expanded="false" />
-                <element signature="e#3873#4700#0#PHP" expanded="false" />
-                <element signature="e#4736#5890#0#PHP" expanded="false" />
-                <element signature="e#5915#6287#0#PHP" expanded="false" />
-                <element signature="e#6306#6822#0#PHP" expanded="false" />
-                <element signature="e#6847#7793#0#PHP" expanded="false" />
+                <element signature="e#227#2433#0#PHP" expanded="false" />
+                <element signature="e#2456#3848#0#PHP" expanded="false" />
+                <element signature="e#3868#4695#0#PHP" expanded="false" />
+                <element signature="e#4731#5885#0#PHP" expanded="false" />
+                <element signature="e#5910#6282#0#PHP" expanded="false" />
+                <element signature="e#6301#6817#0#PHP" expanded="false" />
+                <element signature="e#6842#7783#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -144,29 +159,11 @@
         <option value="$PROJECT_DIR$/public/spare/css/spareMobile.css" />
         <option value="$PROJECT_DIR$/public/spareScanf/css/spareScanfMobile.css" />
         <option value="$PROJECT_DIR$/public/message/css/messageMobile.css" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_08_16_041446_create_timetable1_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_08_16_041508_create_timetable2_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_08_16_041533_create_timetable3_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_08_16_041605_create_timetable4_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_08_16_041620_create_timetable5_table.php" />
         <option value="$PROJECT_DIR$/database/seeds/Timetable2TableSeeder.php" />
         <option value="$PROJECT_DIR$/database/seeds/Timetable4TableSeeder.php" />
         <option value="$PROJECT_DIR$/database/seeds/Timetable3TableSeeder.php" />
         <option value="$PROJECT_DIR$/database/seeds/Timetable5TableSeeder.php" />
         <option value="$PROJECT_DIR$/database/seeds/Timetable1TableSeeder.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_08_16_092149_create_timetable6_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_08_16_092204_create_timetable7_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_08_16_092219_create_timetable8_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_08_16_092232_create_timetable9_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_08_16_092245_create_timetable10_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_08_16_092259_create_timetable11_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_08_16_092313_create_timetable12_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_08_16_092326_create_timetable13_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_08_16_092339_create_timetable14_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_08_16_092352_create_timetable15_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_08_16_092406_create_timetable16_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_08_16_092420_create_timetable17_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_08_16_092437_create_timetable18_table.php" />
         <option value="$PROJECT_DIR$/database/seeds/Timetable6TableSeeder.php" />
         <option value="$PROJECT_DIR$/database/seeds/Timetable7TableSeeder.php" />
         <option value="$PROJECT_DIR$/database/seeds/Timetable8TableSeeder.php" />
@@ -181,9 +178,27 @@
         <option value="$PROJECT_DIR$/database/seeds/Timetable17TableSeeder.php" />
         <option value="$PROJECT_DIR$/database/seeds/Timetable18TableSeeder.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/TimetableController.php" />
-        <option value="$PROJECT_DIR$/app/Model/Timetable.php" />
         <option value="$PROJECT_DIR$/app/Model/People.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PeopleController.php" />
+        <option value="$PROJECT_DIR$/app/Model/Timetable.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_08_16_041446_create_timetable1_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_08_16_041508_create_timetable2_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_08_16_041533_create_timetable3_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_08_16_041605_create_timetable4_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_08_16_041620_create_timetable5_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_08_16_092149_create_timetable6_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_08_16_092204_create_timetable7_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_08_16_092219_create_timetable8_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_08_16_092232_create_timetable9_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_08_16_092245_create_timetable10_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_08_16_092259_create_timetable11_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_08_16_092313_create_timetable12_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_08_16_092326_create_timetable13_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_08_16_092339_create_timetable14_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_08_16_092352_create_timetable15_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_08_16_092406_create_timetable16_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_08_16_092420_create_timetable17_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_08_16_092437_create_timetable18_table.php" />
       </list>
     </option>
   </component>
@@ -424,12 +439,12 @@
       <workItem from="1565928527829" duration="5982000" />
       <workItem from="1565938740887" duration="388000" />
       <workItem from="1565939810901" duration="269000" />
-      <workItem from="1565940892689" duration="20695000" />
+      <workItem from="1565940892689" duration="21840000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="351492000" />
+    <option name="totallyTimeSpent" value="352637000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -551,27 +566,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_02_062531_create_timetable_even_table.php" />
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_16_041508_create_timetable2_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="763">
-          <caret line="51" column="39" lean-forward="false" selection-start-line="51" selection-start-column="39" selection-end-line="51" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_16_041533_create_timetable3_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="763">
-          <caret line="51" column="39" lean-forward="false" selection-start-line="51" selection-start-column="39" selection-end-line="51" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_16_041605_create_timetable4_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="763">
-          <caret line="51" column="39" lean-forward="false" selection-start-line="51" selection-start-column="39" selection-end-line="51" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/seeds/TimetableEvenTableSeeder.php" />
     <entry file="file://$PROJECT_DIR$/database/seeds/Timetable4TableSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -581,13 +575,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/database/seeds/TimetableOddTableSeeder.php" />
-    <entry file="file://$PROJECT_DIR$/database/seeds/Timetable2TableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="8" column="30" lean-forward="true" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/seeds/Timetable3TableSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="277">
@@ -602,137 +589,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_16_041446_create_timetable1_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="29" column="40" lean-forward="true" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/database.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
           <caret line="58" column="29" lean-forward="false" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_16_041620_create_timetable5_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="38" column="42" lean-forward="false" selection-start-line="18" selection-start-column="12" selection-end-line="51" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_16_092149_create_timetable6_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="51" column="39" lean-forward="false" selection-start-line="51" selection-start-column="39" selection-end-line="51" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_16_092204_create_timetable7_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="763">
-          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_16_092219_create_timetable8_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="763">
-          <caret line="52" column="12" lean-forward="false" selection-start-line="52" selection-start-column="12" selection-end-line="52" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_16_092232_create_timetable9_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="763">
-          <caret line="52" column="12" lean-forward="false" selection-start-line="52" selection-start-column="12" selection-end-line="52" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_16_092245_create_timetable10_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1350">
-          <caret line="52" column="12" lean-forward="false" selection-start-line="52" selection-start-column="12" selection-end-line="52" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_16_092259_create_timetable11_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="763">
-          <caret line="52" column="12" lean-forward="false" selection-start-line="52" selection-start-column="12" selection-end-line="52" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_16_092313_create_timetable12_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="763">
-          <caret line="52" column="12" lean-forward="false" selection-start-line="52" selection-start-column="12" selection-end-line="52" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_16_092326_create_timetable13_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="763">
-          <caret line="52" column="12" lean-forward="false" selection-start-line="52" selection-start-column="12" selection-end-line="52" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_16_092339_create_timetable14_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="763">
-          <caret line="52" column="12" lean-forward="false" selection-start-line="52" selection-start-column="12" selection-end-line="52" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_16_092352_create_timetable15_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="763">
-          <caret line="52" column="12" lean-forward="false" selection-start-line="52" selection-start-column="12" selection-end-line="52" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_16_092406_create_timetable16_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="763">
-          <caret line="52" column="12" lean-forward="false" selection-start-line="52" selection-start-column="12" selection-end-line="52" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_16_092420_create_timetable17_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="763">
-          <caret line="52" column="12" lean-forward="false" selection-start-line="52" selection-start-column="12" selection-end-line="52" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_16_092437_create_timetable18_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="17" column="12" lean-forward="false" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/Timetable1TableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="9" column="6" lean-forward="true" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -875,32 +735,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Model/Timetable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="78" column="48" lean-forward="false" selection-start-line="78" selection-start-column="48" selection-end-line="78" selection-end-column="48" />
-          <folding>
-            <element signature="e#227#2438#0#PHP" expanded="false" />
-            <element signature="e#2461#3853#0#PHP" expanded="false" />
-            <element signature="e#3873#4700#0#PHP" expanded="false" />
-            <element signature="e#4736#5890#0#PHP" expanded="false" />
-            <element signature="e#5915#6287#0#PHP" expanded="false" />
-            <element signature="e#6306#6822#0#PHP" expanded="false" />
-            <element signature="e#6847#7793#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/TimetableController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="19" column="26" lean-forward="true" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
-          <folding>
-            <element signature="e#873#1465#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Model/People.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -940,6 +774,190 @@
             <element signature="e#5311#5711#0#PHP" expanded="false" />
             <element signature="e#5812#6486#0#PHP" expanded="false" />
             <element signature="e#6722#7655#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/TimetableController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="845">
+          <caret line="36" column="37" lean-forward="true" selection-start-line="36" selection-start-column="37" selection-end-line="36" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_16_041446_create_timetable1_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="15" column="66" lean-forward="true" selection-start-line="15" selection-start-column="66" selection-end-line="15" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_16_041508_create_timetable2_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-479">
+          <caret line="20" column="41" lean-forward="true" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_16_041533_create_timetable3_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="925">
+          <caret line="51" column="40" lean-forward="false" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_16_041605_create_timetable4_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="601">
+          <caret line="51" column="40" lean-forward="false" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_16_092149_create_timetable6_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="51" column="40" lean-forward="false" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_16_041620_create_timetable5_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="51" column="40" lean-forward="false" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_16_092204_create_timetable7_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="655">
+          <caret line="51" column="40" lean-forward="false" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_16_092219_create_timetable8_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="736">
+          <caret line="51" column="40" lean-forward="false" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_16_092232_create_timetable9_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="574">
+          <caret line="51" column="40" lean-forward="false" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_16_092245_create_timetable10_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="530">
+          <caret line="51" column="40" lean-forward="false" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_16_092259_create_timetable11_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="51" column="40" lean-forward="false" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_16_092313_create_timetable12_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="655">
+          <caret line="51" column="40" lean-forward="false" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_16_092326_create_timetable13_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="655">
+          <caret line="51" column="40" lean-forward="false" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_16_092339_create_timetable14_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="51" column="40" lean-forward="false" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_16_092352_create_timetable15_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="574">
+          <caret line="51" column="40" lean-forward="false" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_16_092406_create_timetable16_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="655">
+          <caret line="51" column="40" lean-forward="false" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_16_092420_create_timetable17_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="51" column="40" lean-forward="false" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_16_092437_create_timetable18_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="51" column="40" lean-forward="false" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/Timetable1TableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="17" column="14" lean-forward="true" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/Timetable2TableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-54">
+          <caret line="8" column="30" lean-forward="true" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Model/Timetable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="122" column="0" lean-forward="true" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
+          <folding>
+            <element signature="e#227#2433#0#PHP" expanded="false" />
+            <element signature="e#2456#3848#0#PHP" expanded="false" />
+            <element signature="e#3868#4695#0#PHP" expanded="false" />
+            <element signature="e#4731#5885#0#PHP" expanded="false" />
+            <element signature="e#5910#6282#0#PHP" expanded="false" />
+            <element signature="e#6301#6817#0#PHP" expanded="false" />
+            <element signature="e#6842#7783#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>

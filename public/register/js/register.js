@@ -91,9 +91,12 @@ $(function(){//先检验数据是否符合格式,符合再发送请求
           }
       }
     }
-    if($("#password").val()!=$("#passwordSure").val()){
+    if($("#password").val()!=$("#passwordSure").val()){//如果密码一致就将passwordSame设为ture
       passwordSame=false;
       $("#registerHint").text("两次输入密码不一致");
+    }
+    else{
+      passwordSame=true;
     }
     if(detections==true&&passwordSame==true&&(!($("#password").val()==null||$("#password").val()==""))){
       $.ajax({
@@ -107,12 +110,12 @@ $(function(){//先检验数据是否符合格式,符合再发送请求
           confirmPassword:$("#passwordSure").val()
         },
         success:function(data){
-          $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
+          $("body").append("<div style='position:absolute; top:90vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+"注册成功"+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
           location="../index.html";
         },
         error:function(data){
-          $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
+          $("body").append("<div style='position:absolute; top:90vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+"注册失败"+"</div>");
 				  window.setTimeout(function(){$("#alert").remove();},2000);
         }
       })

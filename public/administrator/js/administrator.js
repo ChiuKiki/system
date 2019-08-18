@@ -114,24 +114,71 @@ $(function(){/*载入时获得人员的数据并添加修改,删除的逻辑*/
 });
 $(function(){//点击保存时保存数据
   $("#reserve").click(function(){
-    $.ajax({
-      url:"http://system.chiukiki.cn/api/updatePeople",
-      data:{
-        name:$("#userName").val(),
-				school:$("#userAcademy").val(),
-				department:$("#userDepartment").val(),
-				position:$("#userWork").val(),
-				birthday:$("#userBirthday").val(),
-				tel:$("#userTelephone").val(),
-				QQ:$("#userQQ").val(),
-				email:$("#userEmail").val(),
-				number:$("#userStudentNum").val(),
-				message:$("#userTextarea").val()
-      },
-      success:function(data){
-        $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+"修改成功"+"</div>");
-        window.setTimeout(function(){$("#alert").remove();},2000);
-        if(data.message=="修改成功"){
+    tests=new Array("/^[\u2E80-\u9FFF]{2,5}$/",
+								"/^[\u2E80-\u9FFF]+$/",
+								"/^[\u2E80-\u9FFF]+$/",
+								"/^[\u2E80-\u9FFF]+$/",
+								"/^(?:1[0-2]|[1-9]).(?:[1-9]|([1-2][0-9])?|3[0-1])$/",
+								"/^1(3|4|5|7|8|9)[0-9]{9}$/",
+								"/^[1-9][0-9]{4,9}$/",
+								"/^([a-z0-9_\.-]+)@([0-9a-z\.-]+)\.([a-z]{2,6})$/",
+								"/^[0-9]{12}$/"
+								);
+	    information=new Array("姓名","学院","部门","职位","生日","电话","QQ","邮箱","学号");
+      hint=new Array("姓名必须为2位到5位的汉字",
+                     "部门必须为两位以上的汉字",
+                     "职位必须为两位以上的汉字",
+                     "电话必须为12位电话号码",
+                     "QQ必须正确",
+                     "邮箱必须符合要求",
+                     "学院必须为两位以上的汉字",
+                     "学号必须为12位的数字",
+										 "生日必须是12.18这种格式",
+                )
+			for(var i=0;i<tests.length;i++){//依次检测数据是否正确
+
+				var j=$(".data").eq(i).attr("placeholder");console.log("j="+j);
+				var text=j[j.length-2]+j[j.length-1];console.log(text);
+				var reg=eval(tests[i]);console.log(i);
+				if(($(".data").eq(i).val()==null||$(".data").eq(i).val()=="")){
+          $("body").append("<div style='position:absolute; top:90vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+text+"不能为空!"+"</div>");
+          window.setTimeout(function(){$("#alert").remove();},2000);
+					detections=false;
+					break;
+				}
+				else{
+					  console.log(reg);
+					  console.log(reg.test($(".data").eq(i).val()));
+					  if( reg.test($(".data").eq(i).val()) ){
+							detections = true;
+					  }
+					  else{
+              $("body").append("<div style='position:absolute; top:90vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+text+"格式错误!"+hint[i]+"不能为空!"+"</div>");
+              window.setTimeout(function(){$("#alert").remove();},2000);
+							detections=false;
+							break;
+						}
+				}
+      }
+      if(detections = true){
+        $.ajax({
+          url:"http://system.chiukiki.cn/api/updatePeople",
+          data:{
+          name:$("#userName").val(),
+				  school:$("#userAcademy").val(),
+				  department:$("#userDepartment").val(),
+				  position:$("#userWork").val(),
+				  birthday:$("#userBirthday").val(),
+				  tel:$("#userTelephone").val(),
+				  QQ:$("#userQQ").val(),
+				  email:$("#userEmail").val(),
+				  number:$("#userStudentNum").val(),
+				  message:$("#userTextarea").val()
+        },
+        success:function(data){
+          $("body").append("<div style='position:absolute; top:140vw; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+"修改成功"+"</div>");
+          window.setTimeout(function(){$("#alert").remove();},2000);
+          if(data.message=="修改成功"){
           $.ajax({
             url:"http://system.chiukiki.cn/api/queryInfoAdmin",
             data:{
@@ -217,17 +264,19 @@ $(function(){//点击保存时保存数据
               })
               },
               error:function(){
-                $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+"重载入失败"+"</div>");
+                $("body").append("<div style='position:absolute; top:140vw;left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+"重载入失败"+"</div>");
                 window.setTimeout(function(){$("#alert").remove();},2000);
               }
           })
         }
       },
       error:function(data){
-        $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+"获取失败"+"</div>");
+        $("body").append("<div style='position:absolute; top:140vw; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+"获取失败"+"</div>");
         window.setTimeout(function(){$("#alert").remove();},2000);
       }
     })
+      }
+    
     $("#amendBox").toggle();
     $("#blackBox").toggle();  
   })
@@ -264,11 +313,11 @@ $(function(){//删除用户信息
         number:people
         },
         success:function(data){
-          $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
+          $("body").append("<div style='position:absolute; top:140vw; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
         },
         error:function(data){
-          $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
+          $("body").append("<div style='position:absolute; top:140vw; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
         }
       })

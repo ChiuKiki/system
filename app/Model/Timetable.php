@@ -22,9 +22,9 @@ class Timetable extends Model
                 switch($class){
                     case "1-2":$result="Monday12";break;
                     case "3-4":$result="Monday34";break;
-                    case "noon":$result="MondayNoon";break;
                     case "5-6":$result="Monday56";break;
                     case "7-8":$result="Monday78";break;
+                    case "9-11":$result="Monday911";break;
                 }
                 break;
 
@@ -32,9 +32,9 @@ class Timetable extends Model
                 switch($class){
                     case "1-2":$result="Tuesday12";break;
                     case "3-4":$result="Tuesday34";break;
-                    case "noon":$result="TuesdayNoon";break;
                     case "5-6":$result="Tuesday56";break;
                     case "7-8":$result="Tuesday78";break;
+                    case "9-11":$result="Tuesday911";break;
                 }
                 break;
 
@@ -42,9 +42,9 @@ class Timetable extends Model
                 switch($class){
                     case "1-2":$result="Wednesday12";break;
                     case "3-4":$result="Wednesday34";break;
-                    case "noon":$result="WednesdayNoon";break;
                     case "5-6":$result="Wednesday56";break;
                     case "7-8":$result="Wednesday78";break;
+                    case "9-11":$result="Wednesday911";break;
                 }
                 break;
 
@@ -52,9 +52,9 @@ class Timetable extends Model
                 switch($class){
                     case "1-2":$result="Thursday12";break;
                     case "3-4":$result="Thursday34";break;
-                    case "noon":$result="ThursdayNoon";break;
                     case "5-6":$result="Thursday56";break;
                     case "7-8":$result="Thursday78";break;
+                    case "9-11":$result="Thursday911";break;
                 }
                 break;
 
@@ -62,9 +62,9 @@ class Timetable extends Model
                 switch($class){
                     case "1-2":$result="Friday12";break;
                     case "3-4":$result="Friday34";break;
-                    case "noon":$result="FridayNoon";break;
                     case "5-6":$result="Friday56";break;
                     case "7-8":$result="Friday78";break;
+                    case "9-11":$result="Friday911";break;
                 }
                 break;
 
@@ -169,11 +169,11 @@ class Timetable extends Model
                         case "1":
                             $class = "3-4";break;
                         case "2":
-                            $class = "noon";break;
-                        case "3":
                             $class = "5-6";break;
-                        case "4":
+                        case "3":
                             $class = "7-8";break;
+                        case "4":
+                            $class = "9-11";break;
                         default:
                             $class = "0";
                     }
@@ -232,11 +232,11 @@ class Timetable extends Model
         for($i = 0; $i < $len ; $i++) {
             $result = DB::table($table[$i])
                 ->where('number', Session::get('number'))
-                ->update(['Monday12' => NULL, 'Monday34' => NULL, 'MondayNoon' => NULL, 'Monday56' => NULL, 'Monday78' => NULL,
-                    'Tuesday12' => NULL, 'Tuesday34' => NULL, 'TuesdayNoon' => NULL, 'Tuesday56' => NULL, 'Tuesday78' => NULL,
-                    'Wednesday12' => NULL, 'Wednesday34' => NULL, 'WednesdayNoon' => NULL, 'Wednesday56' => NULL, 'Wednesday78' => NULL,
-                    'Thursday12' => NULL, 'Thursday34' => NULL, 'ThursdayNoon' => NULL, 'Thursday56' => NULL, 'Thursday78' => NULL,
-                    'Friday12' => NULL, 'Friday34' => NULL, 'FridayNoon' => NULL, 'Friday56' => NULL, 'Friday78' => NULL,
+                ->update(['Monday12' => NULL, 'Monday34' => NULL, 'Monday56' => NULL, 'Monday78' => NULL, 'Monday911' => NULL,
+                    'Tuesday12' => NULL, 'Tuesday34' => NULL, 'Tuesday56' => NULL, 'Tuesday78' => NULL, 'Tuesday911' => NULL,
+                    'Wednesday12' => NULL, 'Wednesday34' => NULL, 'Wednesday56' => NULL, 'Wednesday78' => NULL, 'Wednesday911' => NULL,
+                    'Thursday12' => NULL, 'Thursday34' => NULL, 'Thursday56' => NULL, 'Thursday78' => NULL, 'Thursday911' => NULL,
+                    'Friday12' => NULL, 'Friday34' => NULL, 'Friday56' => NULL, 'Friday78' => NULL, 'Friday911' => NULL,
                 ]);
         }
         return $result;
