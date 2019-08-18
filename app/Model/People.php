@@ -258,6 +258,7 @@ class People extends Model
                     'position' => $position, 'message' => $message]
             );
             //更新身份
+            Session::forget('flag');
             $isAdministrator1 = People::where(['number' => Session::get('number'), 'position'=>'部长'])->first();
             $isAdministrator2 = People::where(['number' => Session::get('number'), 'position'=>'副部长'])->first();
             if($isAdministrator1||$isAdministrator2){
