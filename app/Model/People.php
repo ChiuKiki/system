@@ -277,8 +277,10 @@ class People extends Model
             if($result){
                 if($position == '部长'||$position == '副部长'){
                     Session::put('flag',1);
-                }else {
+                }elseif($position == '干事'){
                     Session::put('flag',2);
+                }else {
+                    Session::put('flag',0);
                 }
             }
             return $result;

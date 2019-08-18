@@ -40,8 +40,8 @@
       <file leaf-file-name="PeopleController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PeopleController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1399">
-              <caret line="238" column="60" lean-forward="false" selection-start-line="238" selection-start-column="60" selection-end-line="238" selection-end-column="60" />
+            <state relative-caret-position="286">
+              <caret line="127" column="10" lean-forward="true" selection-start-line="127" selection-start-column="10" selection-end-line="127" selection-end-column="10" />
               <folding>
                 <element signature="e#40#61#0#PHP" expanded="true" />
                 <element signature="e#281#960#0#PHP" expanded="false" />
@@ -54,6 +54,7 @@
                 <element signature="e#4852#5280#0#PHP" expanded="false" />
                 <element signature="e#5370#5770#0#PHP" expanded="false" />
                 <element signature="e#5871#6545#0#PHP" expanded="false" />
+                <element signature="e#6781#7714#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -62,8 +63,8 @@
       <file leaf-file-name="People.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Model/People.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="547">
-              <caret line="279" column="23" lean-forward="true" selection-start-line="279" selection-start-column="23" selection-end-line="279" selection-end-column="23" />
+            <state relative-caret-position="513">
+              <caret line="256" column="60" lean-forward="true" selection-start-line="256" selection-start-column="60" selection-end-line="257" selection-end-column="60" />
               <folding>
                 <element signature="e#29#43#0#PHP" expanded="true" />
                 <element signature="e#246#1066#0#PHP" expanded="false" />
@@ -76,8 +77,8 @@
                 <element signature="e#4908#5312#0#PHP" expanded="false" />
                 <element signature="e#5346#6254#0#PHP" expanded="false" />
                 <element signature="e#6291#8126#0#PHP" expanded="false" />
-                <element signature="e#10650#10939#0#PHP" expanded="false" />
-                <element signature="e#10965#11281#0#PHP" expanded="false" />
+                <element signature="e#10738#11027#0#PHP" expanded="false" />
+                <element signature="e#11053#11369#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -122,6 +123,7 @@
       <find>route</find>
       <find>identity</find>
       <find>laravel</find>
+      <find>flag</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -421,12 +423,12 @@
       <workItem from="1565928527829" duration="5982000" />
       <workItem from="1565938740887" duration="388000" />
       <workItem from="1565939810901" duration="269000" />
-      <workItem from="1565940892689" duration="19295000" />
+      <workItem from="1565940892689" duration="20122000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="350092000" />
+    <option name="totallyTimeSpent" value="350919000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -500,7 +502,7 @@
           <option name="timeStamp" value="79" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="80" />
+      <option name="time" value="86" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -900,8 +902,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PeopleController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1399">
-          <caret line="238" column="60" lean-forward="false" selection-start-line="238" selection-start-column="60" selection-end-line="238" selection-end-column="60" />
+        <state relative-caret-position="286">
+          <caret line="127" column="10" lean-forward="true" selection-start-line="127" selection-start-column="10" selection-end-line="127" selection-end-column="10" />
           <folding>
             <element signature="e#40#61#0#PHP" expanded="true" />
             <element signature="e#281#960#0#PHP" expanded="false" />
@@ -914,14 +916,15 @@
             <element signature="e#4852#5280#0#PHP" expanded="false" />
             <element signature="e#5370#5770#0#PHP" expanded="false" />
             <element signature="e#5871#6545#0#PHP" expanded="false" />
+            <element signature="e#6781#7714#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Model/People.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="547">
-          <caret line="279" column="23" lean-forward="true" selection-start-line="279" selection-start-column="23" selection-end-line="279" selection-end-column="23" />
+        <state relative-caret-position="513">
+          <caret line="256" column="60" lean-forward="true" selection-start-line="256" selection-start-column="60" selection-end-line="257" selection-end-column="60" />
           <folding>
             <element signature="e#29#43#0#PHP" expanded="true" />
             <element signature="e#246#1066#0#PHP" expanded="false" />
@@ -934,8 +937,8 @@
             <element signature="e#4908#5312#0#PHP" expanded="false" />
             <element signature="e#5346#6254#0#PHP" expanded="false" />
             <element signature="e#6291#8126#0#PHP" expanded="false" />
-            <element signature="e#10650#10939#0#PHP" expanded="false" />
-            <element signature="e#10965#11281#0#PHP" expanded="false" />
+            <element signature="e#10738#11027#0#PHP" expanded="false" />
+            <element signature="e#11053#11369#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
