@@ -258,15 +258,12 @@ class People extends Model
                     'position' => $position, 'message' => $message]
             );
             //更新身份
-            $isPeople = People::where(['number' => Session::get('number'), 'position'=>'干事'])->first();
             $isAdministrator1 = People::where(['number' => Session::get('number'), 'position'=>'部长'])->first();
             $isAdministrator2 = People::where(['number' => Session::get('number'), 'position'=>'副部长'])->first();
-            if($isPeople){
-                Session::put('flag',2);
-            }elseif ($isAdministrator1||$isAdministrator2){
+            if($isAdministrator1||$isAdministrator2){
                 Session::put('flag',1);
-            }else{
-                Session::put('flag',0);
+            }else {
+                Session::put('flag',2);
             }
             //在timetable表中修改
             for($i = 0; $i < 18; $i++){
