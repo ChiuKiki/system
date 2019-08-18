@@ -257,8 +257,8 @@ class People extends Model
                     'email' => $email, 'school' => $school, 'department' => $department,
                     'position' => $position, 'message' => $message]
             );
+            /*
             //更新身份
-            Session::forget('flag');
             $isAdministrator1 = People::where(['number' => Session::get('number'), 'position'=>'部长'])->first();
             $isAdministrator2 = People::where(['number' => Session::get('number'), 'position'=>'副部长'])->first();
             if($isAdministrator1||$isAdministrator2){
@@ -266,11 +266,20 @@ class People extends Model
             }else {
                 Session::put('flag',2);
             }
+            */
             //在timetable表中修改
             for($i = 0; $i < 18; $i++){
                 $result1 = DB::table($table[$i])
                     ->where('number',Session::get('number'))
                     ->update(['name'=>$name,'department'=>$department]);
+            }
+            //更新身份
+            if($result){
+                if($position == '部长'||$position == '副部长'){
+                    Session::put('flag',1);
+                }else {
+                    Session::put('flag',2);
+                }
             }
             return $result;
         }else{
