@@ -18,19 +18,16 @@ class PeopleController extends Controller
 
             case "administrator":
                 Session::put('flag',1);
-                Session::save();
                 return response(array(['message'=>'登陆成功','identity'=>'administrator']));
                 break;
 
             case "people":
                 Session::put('flag',2);
-                Session::save();
                 return response(array(['message'=>'登陆成功','identity'=>'people']));
                 break;
 
             default:
                 Session::put('flag',0);
-                Session::save();
                 return response(array('message' => '用户名或密码错误'), 401);
 
         }

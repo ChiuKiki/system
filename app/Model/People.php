@@ -17,9 +17,9 @@ class People extends Model
         $number = $request->get('number');
         $password = $request->get('password');
 
-        $isLogIn=People::where(['number'=>$number,'password'=>$password])->first();
-        $isAdministrator1=People::where(['number'=>$number,'password'=>$password,'position'=>'部长'])->first();
-        $isAdministrator2=People::where(['number'=>$number,'password'=>$password,'position'=>'副部长'])->first();
+        $isLogIn = People::where(['number'=>$number,'password'=>$password])->first();
+        $isAdministrator1 = People::where(['number'=>$number,'password'=>$password,'position'=>'部长'])->first();
+        $isAdministrator2 = People::where(['number'=>$number,'password'=>$password,'position'=>'副部长'])->first();
 
         //登陆
         if($isLogIn) {
@@ -27,12 +27,12 @@ class People extends Model
             Session::put('number',$number);
             //判断身份
             if($isAdministrator1||$isAdministrator2){
-                return $result="administrator";
+                return $result = "administrator";
             }else{
-                return $result="people";
+                return $result = "people";
             }
         }else{
-            return $result="fail";
+            return $result = "fail";
         }
     }
 
@@ -257,6 +257,17 @@ class People extends Model
                     'email' => $email, 'school' => $school, 'department' => $department,
                     'position' => $position, 'message' => $message]
             );
+            //更新身份
+            $isPeople = People::where(['number' => Session::get('number'), 'position'=>'干事'])->first();
+            $isAdministrator1 = People::where(['number' => Session::get('number'), 'position'=>'部长'])->first();
+            $isAdministrator2 = People::where(['number' => Session::get('number'), 'position'=>'副部长'])->first();
+            if($isPeople){
+                Session::put('flag',2);
+            }elseif ($isAdministrator1||$isAdministrator2){
+                Session::put('flag',1);
+            }else{
+                Session::put('flag',0);
+            }
             //在timetable表中修改
             for($i = 0; $i < 18; $i++){
                 $result1 = DB::table($table[$i])
