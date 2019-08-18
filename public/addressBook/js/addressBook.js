@@ -46,7 +46,7 @@ $(function(){//载入时输出所有人员
       })
   },
   error:function(data){
-    $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
+    $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+"载入失败"+"</div>");
     window.setTimeout(function(){$("#alert").remove();},2000);
   }
   })
@@ -60,7 +60,7 @@ $(function(){/*点击时获得人员的数据*/
 
         },
         success:function(data){
-          $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
+          $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+"获取成功"+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
           $("#addressBookTable").empty();
           $("#addressBookTable").append("<tr> <th>姓名</th> <th>部门</th> <th>职位</th> </tr>");
@@ -79,7 +79,7 @@ $(function(){/*点击时获得人员的数据*/
           })
         },
         error:function(data){
-          $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
+          $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+"获取失败"+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
         }
       })
@@ -91,7 +91,7 @@ $(function(){/*点击时获得人员的数据*/
           query:$("#addressBook").val()
         },
         success:function(data){
-          $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
+          $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+"获取成功"+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
           $("#addressBookTable").empty();
           $("#addressBookTable").append("<tr> <th>姓名</th> <th>部门</th> <th>职位</th> </tr>");
@@ -110,7 +110,7 @@ $(function(){/*点击时获得人员的数据*/
           })
         },
         error:function(data){
-          $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
+          $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+"获取失败"+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
         }
       })
