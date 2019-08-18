@@ -124,6 +124,8 @@ class PeopleController extends Controller
     //测试搜索框查询2——百步梯通讯录（修改状态）
     //http://system.chiukiki.cn/api/queryInfoAdmin?query=技术部
     public function queryInfoAdminModel(Request $request){
+        return Session::get('flag');
+        /*
         //要管理员权限
         if (Session::get('flag') != 1) {
             return response(array('message'=>'无权限'),403);
@@ -135,6 +137,7 @@ class PeopleController extends Controller
                 return response(array('message' => '查不到'), 403);
             }
         }
+        */
     }
 
 
