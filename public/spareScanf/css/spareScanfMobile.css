@@ -180,3 +180,11 @@ td {
 	color:rgb(48, 150, 7);
 	margin:0;
 }
+#alert{
+	position:absolute; 
+	bottom:10vw; 
+	left:40vw; 
+	font-size:3vw; 
+	color:gray; 
+	z-index:999;
+}

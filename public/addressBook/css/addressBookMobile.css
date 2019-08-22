@@ -126,3 +126,11 @@ td {
 	text-align: center;
 	display: none;
 }
+#alert{
+	position:absolute;
+	top:135vw; 
+	left:40vw; 
+	font-size:3vw; 
+	color:gray; 
+	z-index:999;
+}

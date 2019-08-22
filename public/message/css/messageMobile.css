@@ -192,3 +192,11 @@ textarea::placeholder {
 	height:8vw;
 	display: none;
 }
+#alert{
+	position:absolute; 
+	top:140vw; 
+	left:40vw; 
+	font-size:4vw; 
+	color:gray; 
+	z-index:999;
+}

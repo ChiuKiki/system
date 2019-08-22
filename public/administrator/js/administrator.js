@@ -114,6 +114,7 @@ $(function(){/*载入时获得人员的数据并添加修改,删除的逻辑*/
 });
 $(function(){//点击保存时保存数据
   $("#reserve").click(function(){
+    var detections=true;
     tests=new Array("/^[\u2E80-\u9FFF]{2,5}$/",
 								"/^[\u2E80-\u9FFF]+$/",
 								"/^[\u2E80-\u9FFF]+$/",
@@ -123,7 +124,7 @@ $(function(){//点击保存时保存数据
 								"/^[1-9][0-9]{4,9}$/",
 								"/^([a-z0-9_\.-]+)@([0-9a-z\.-]+)\.([a-z]{2,6})$/",
 								"/^[0-9]{12}$/"
-								);
+		);
 	    information=new Array("姓名","学院","部门","职位","生日","电话","QQ","邮箱","学号");
       hint=new Array("姓名必须为2位到5位的汉字",
                      "部门必须为两位以上的汉字",
@@ -134,34 +135,38 @@ $(function(){//点击保存时保存数据
                      "学院必须为两位以上的汉字",
                      "学号必须为12位的数字",
 										 "生日必须是12.18这种格式",
-                )
+      )
 			for(var i=0;i<tests.length;i++){//依次检测数据是否正确
 
 				var j=$(".data").eq(i).attr("placeholder");console.log("j="+j);
 				var text=j[j.length-2]+j[j.length-1];console.log(text);
 				var reg=eval(tests[i]);console.log(i);
 				if(($(".data").eq(i).val()==null||$(".data").eq(i).val()=="")){
-          $("body").append("<div style='position:absolute; top:90vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+text+"不能为空!"+"</div>");
+          $("body").append("<div id='alert'>"+text+"不为空"+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
-					detections=false;
+          detections=false;
+          console.log("为空");
 					break;
 				}
 				else{
 					  console.log(reg);
 					  console.log(reg.test($(".data").eq(i).val()));
 					  if( reg.test($(".data").eq(i).val()) ){
-							detections = true;
+              detections = true;
+              console.log("正确");
 					  }
 					  else{
-              $("body").append("<div style='position:absolute; top:90vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+text+"格式错误!"+hint[i]+"不能为空!"+"</div>");
+              $("body").append("<div id='alert'>"+text+"格式错误!"+"<br/>"+hint[i]+"</div>"
+              );
               window.setTimeout(function(){$("#alert").remove();},2000);
-							detections=false;
+              detections=false;
+              console.log("错误");
 							break;
 						}
 				}
       }
-      if(detections = true){
-        $.ajax({
+      if(detections === true){
+        $.ajax({  
           url:"http://system.chiukiki.cn/api/updatePeople",
           data:{
           name:$("#userName").val(),
@@ -176,109 +181,17 @@ $(function(){//点击保存时保存数据
 				  message:$("#userTextarea").val()
         },
         success:function(data){
-          $("body").append("<div style='position:absolute; top:140vw; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+"修改成功"+"</div>");
+          $("body").append("<div id='alert'>"+"修改成功"+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
-          if(data.message=="修改成功"){
-          $.ajax({
-            url:"http://system.chiukiki.cn/api/queryInfoAdmin",
-            data:{
-              query:reserveStatics
-            },
-            success:function(data){
-              $("#administratorTable").empty();
-              console.log(data[0][0]);
-              $("#administratorTable").append('<tr> <th><input type="checkbox" id="allSelect" class="selectPart" value=true/><p>全选</p></th>' 
-                                            +"<th>姓名</th>"
-                                            +"<th>部门</th>"
-                                            +"<th>职位</th>"
-                                            +"<th>电话</th>"
-                                            +"<th>QQ</th>"
-                                            +"<th>邮箱</th>"
-                                            +"<th>学院</th>"
-                                            +"<th>学号</th>"
-                                            +"<th>生日</th>"
-                                            +'<th>操作</th></tr>');
-              for(var i in data){
-                $("#administratorTable").append('<tr> <td><input type="checkbox" class="selectPart" value=true/><p>选中</p></td> <td>'
-                                          +data[i].name+'</td> <td>'
-                                          +data[i].department+'</td> <td>'
-                                          +data[i].position+'</td> <td>'
-                                          +data[i].tel+'</td> <td>'
-                                          +data[i].QQ+'</td> <td>'
-                                          +data[i].email+'</td> <td>'
-                                          +data[i].school+'</td> <td>'
-                                          +data[i].number+'</td> <td>'
-                                          +data[i].birthday+'</td> <td class="operate"><a class="operateChange">修改</a> <a class="operateDelete">删除</a></td></tr>');
-              }
-              $(".operateChange").on('click',function(){//如果点击姓名则跳转到个人页面
-    
-                console.log($(this).parent().parent().children().eq(8).text());
-                $("#amendBox").toggle();
-                $("#blackBox").toggle();
-                $.ajax({
-                  url:"http://system.chiukiki.cn/api/queryAdmin",
-                  data:{
-                    ueryNumber:$(this).parent().parent().children().eq(8).text()
-                  },
-                  success:function(data){
-                    $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
-                    window.setTimeout(function(){$("#alert").remove();},2000);
-                    inputValue=new Array();
-                    var j=0;
-                    for(var i in data[0]){
-      
-                      $(".fromPart input").eq(j).attr({ value: data[0][i] });console.log(data[0][i]);
-                      j++;
-                    }
-                  },
-                  error:function(data){
-                    $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
-                    window.setTimeout(function(){$("#alert").remove();},2000);
-                  }
-                })
-              })
-              $(".operateDelete").on('click',function() {//操作中的删除按钮
-                if(confirm("你确定要删除这些用户的信息?")){
-                  var people=new Array();
-                  people.push($(this).parent().parent().children().eq(8).text());
-                  $(this).parent().parent().remove();
-                  $.ajax({
-                    url:"http://system.chiukiki.cn/api/delete",
-                    data:{
-                    number: people
-                    },
-                    success:function (data) {
-                      $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
-                      window.setTimeout(function(){$("#alert").remove();},2000);
-                      if (data.message == "删除成功") {
-                        console.log(data.message);
-                      }
-                    },
-                    error:function(data){
-                      $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data.message+"</div>");
-                      window.setTimeout(function(){$("#alert").remove();},2000);
-                    }
-                  })
-                  $(this).parent().parent().remove();
-                }
-              })
-              },
-              error:function(){
-                $("body").append("<div style='position:absolute; top:140vw;left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+"重载入失败"+"</div>");
-                window.setTimeout(function(){$("#alert").remove();},2000);
-              }
-          })
+        },
+        error:function(data){
+          $("body").append("<div id='alert'>"+"获取失败"+"</div>");
+          window.setTimeout(function(){$("#alert").remove();},2000);
         }
-      },
-      error:function(data){
-        $("body").append("<div style='position:absolute; top:140vw; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+"获取失败"+"</div>");
-        window.setTimeout(function(){$("#alert").remove();},2000);
+        })
+        $("#amendBox").toggle();
+        $("#blackBox").toggle();  
       }
-    })
-      }
-    
-    $("#amendBox").toggle();
-    $("#blackBox").toggle();  
   })
 });
 $(function(){//点击关闭个人信息窗口

@@ -225,3 +225,11 @@ td {
 #spareMenu p{
 	color:rgb(48, 150, 7);
 }
+#alert{
+	position:absolute; 
+	top:144vw; 
+	left:40vw; 
+	font-size:3vw; 
+	color:gray; 
+	z-index:999;
+}

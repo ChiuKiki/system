@@ -61,7 +61,7 @@ $(function(){//点击搜索按钮开始搜索
         department:$(".department input").attr("data-value")
       },
       success:function(data){
-        $("body").append("<div style='position:absolute; top:144vw; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+"请求成功"+"</div>");
+        $("body").append("<div id='alert'>"+"请求成功"+"</div>");
         window.setTimeout(function(){$("#alert").remove();},2000);
         console.log(data.name[0]);
         $("#addressBookTable").empty();
@@ -81,7 +81,7 @@ $(function(){//点击搜索按钮开始搜索
         }
       },
       error:function(){
-        $("body").append("<div style='position:absolute; top:144vw; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+"请求失败"+"</div>");
+        $("body").append("<div id='alert'>"+"请求失败"+"</div>");
         window.setTimeout(function(){$("#alert").remove();},2000);
       }
     })

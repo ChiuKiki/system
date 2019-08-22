@@ -93,7 +93,7 @@ $(function(){//点击按钮保存
           weekNum:data
         },
         success:function(data){
-          $("body").append("<div style='position:absolute; bottom:10vw; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+"录入成功"+"</div>");
+          $("body").append("<div id='alert'>"+"录入成功"+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
           if(data.message=="录入成功"){
             if(!confirm("是否继续")){
@@ -106,7 +106,7 @@ $(function(){//点击按钮保存
           }
         },
         error:function(){
-          $("body").append("<div style='position:absolute; bottom:10vw; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+"录入失败"+"</div>");
+          $("body").append("<div id='alert'>"+"录入失败"+"</div>");
 				  window.setTimeout(function(){$("#alert").remove();},2000);
         }
       })
