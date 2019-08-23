@@ -1,0 +1,37 @@
+.heart{
+  width:5vw;
+  height:5vw;
+  transform: translate(-50%,-50%);
+	-o-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+}
+.round1{
+  width:2.5vw;
+  height:2.5vw;
+  border-radius:50%;
+  background-color:red;
+  float:left;
+  position:absolute;
+}
+.round2{
+  width:2.5vw;
+  height:2.5vw;
+  border-radius:50%;
+  background-color:red;
+  float:left;
+  position:absolute;
+  margin-left:2vw;
+}
+.rec{
+  width:2.5vw;
+  height:2.5vw;
+  background-color:red;
+  float:left;
+  position:absolute;
+  margin-top:1vw;
+  margin-left:1vw;
+  transform:rotateZ(45deg);
+}
+
+
