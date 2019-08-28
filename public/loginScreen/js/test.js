@@ -46,7 +46,7 @@ $(function(){//用于登录时跳转,前端向后端请求得到"登录成功"�
       },
       success:function(data){
         $("#registerHint").text("");
-        $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data[0].message+"</div>");
+        $("body").append("<div id='alert'>"+data[0].message+"</div>");
         window.setTimeout(function(){$("#alert").remove();},2000);
         if(data[0].identity="administrator"){
           dataUsed=1;
@@ -63,7 +63,7 @@ $(function(){//用于登录时跳转,前端向后端请求得到"登录成功"�
         }
       },
       error:function(data){
-        $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data[0].message+"</div>");
+        $("body").append("<div id='alert'>"+data[0].message+"</div>");
         window.setTimeout(function(){$("#alert").remove();},2000);
       }
     })
@@ -82,22 +82,56 @@ $(function(){//点击开始找回密码框
 })
 $(function(){//点击保存时保存数据
   $("#reserve").click(function(){
-    $.ajax({
-      url:"http://system.chiukiki.cn/api/forgetPassword",
-      data:{
-        number:$("#userStudentNum").val(),
-				tel:$("#userTelephone").val(),
-				setPassword:$("#setPassword").val()
-      },
-      success:function(data){
-        $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data[0].message+"</div>");
+    var detections=true;
+    tests=new Array("/^[a-z0-9_-]{3,16}$/","/^1(3|4|5|7|8|9)[0-9]{9}$/","/^[a-z0-9_-]{6,18}$/");
+    information=newArray("用户名","电话","密码");
+    hint=new Array("用户名必须为学号","电话必须为12位电话号码","密码为6到8位非特殊字符");
+    for(var i=0;i<tests.length;i++){//依次检测数据是否正确
+      var j=$(".data").eq(i).attr("placeholder");console.log("j="+j);
+      var text=j[j.length-2]+j[j.length-1];console.log(text);
+      var reg=eval(tests[i]);console.log(i);
+      if(($(".data").eq(i).val()==null||$(".data").eq(i).val()=="")){
+        $("body").append("<div id='alert'>"+text+"不为空"+"</div>");
         window.setTimeout(function(){$("#alert").remove();},2000);
-      },
-      error:function(data){
-        $("body").append("<div style='position:absolute; top:85vh; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+data[0].message+"</div>");
-        window.setTimeout(function(){$("#alert").remove();},2000);
-			}
-    })
+        detections=false;
+        console.log("为空");
+        break;
+      }
+      else{
+          console.log(reg);
+          console.log(reg.test($(".data").eq(i).val()));
+          if( reg.test($(".data").eq(i).val()) ){
+            detections = true;
+            console.log("正确");
+          }
+          else{
+            $("body").append("<div id='alert'>"+text+"格式错误!"+"<br/>"+hint[i]+"</div>"
+            );
+            window.setTimeout(function(){$("#alert").remove();},2000);
+            detections=false;
+            console.log("错误");
+            break;
+          }
+      }
+    }
+    if(detections==true){
+      $.ajax({
+        url:"http://system.chiukiki.cn/api/forgetPassword",
+        data:{
+          number:$("#userStudentNum").val(),
+				  tel:$("#userTelephone").val(),
+				  setPassword:$("#setPassword").val()
+        },
+        success:function(data){
+          $("body").append("<div id='alert'>"+data[0].message+"</div>");
+          window.setTimeout(function(){$("#alert").remove();},2000);
+        },
+        error:function(data){
+          $("body").append("<div id='alert'>"+data[0].message+"</div>");
+          window.setTimeout(function(){$("#alert").remove();},2000);
+			  }
+      })
+    }
   })
 });
 $(function(){//点击关闭个人信息窗口

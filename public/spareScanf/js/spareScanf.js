@@ -9,7 +9,6 @@ $(function(){//为选择框输入数据
     data:[{"name":"单周","value":-1},{"name":"双周","value":0},{"name":"所有周","value":"-2"},{"name":"","value":""}]
   });
 });
-
 $(function(){//点击改变颜色
   $("#menu").toggle();
   $("td").attr("spare","0");

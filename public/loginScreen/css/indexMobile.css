@@ -231,3 +231,11 @@ input[type="password"]:hover {
 	background-color: rgb(84, 165, 202);
 	border: 1px solid rgb(84, 165, 202);
 }
+#alert{
+	position:absolute; 
+	top:85vh; 
+	left:40vw; 
+	font-size:3vw; 
+	color:gray; 
+	z-index:999;
+}

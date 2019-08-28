@@ -206,11 +206,11 @@ $(function(){//点击修改,完成按钮根据值的不同来触发事件
 						message:$("#userTextarea").val()
 				 },
 					success:function(data){
-						$("body").append("<div id='alert'>"+data.message+"</div>");
+						$("body").append("<div id='alert'>"+"获取成功"+"</div>");
 						window.setTimeout(function(){$("#alert").remove();},2000);
 					},
 					error:function(data){
-            $("body").append("<div id='alert'>"+data.message+"</div>");
+            $("body").append("<div id='alert'>"+"获取失败"+"</div>");
             window.setTimeout(function(){$("#alert").remove();},2000);
 					}
 				})
