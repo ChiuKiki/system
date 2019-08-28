@@ -37,17 +37,19 @@ body {
 	outline: 0;
 }
 .wx-input {
+	-webkit-appearance:none; 
 	outline:none;
 	width: 40vw;
-	height: 5vw;
+	height: 5vw !important;
+	max-height: 5vw;
 	position: relative;
 	padding-left: 2vw;
 	border-radius: 0;
-	border: 3px solid gray;
+	border: 3px solid rgb(155, 223, 128);
 	text-align: left;
 	font-size: 3vw;
 	text-align:center;
-	border-radius:3vw;
+	border-radius:3vw; 
 }
 .wx-input:hover{
 	border: 3px solid rgb(48, 150, 7);
@@ -159,7 +161,7 @@ input[type="checkbox"]{
 /*主要内容部分*/
 #container {
 	width: 95vw;
-	height: 80vw;
+	height: 70vw;
 	margin: 0 auto;
 	overflow: auto;
 	border-top: 3px solid rgb(48, 150, 7);
@@ -226,12 +228,19 @@ td {
 	color:rgb(48, 150, 7);
 }
 #alert{
-	position:absolute; 
-	top:144vw; 
-	left:40vw; 
+	position:absolute;
+	bottom:20vw; 
+	left:50vw;
+	max-width:60vw;
+	transform: translate(-50%,-50%);
+	-o-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
 	font-size:3vw; 
-	color:gray; 
+	color:white; 
+	background-color:rgba(0,0,0,0.7);
+	border-radius:2vw;
+	padding-left:3vw;
+	padding-right:3vw;
 	z-index:999;
 }
-
-

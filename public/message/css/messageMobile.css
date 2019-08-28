@@ -93,19 +93,19 @@ body {
 
 }
 #containerLeft {
-	width: 95vw;
+	width: 99vw;
 	height: 18vw;
 	display: inline-block;
 	margin: 0 auto;
 }
 #containerRight {
-	width: 95vw;
+	width: 99vw;
 	height: 45vw;
 	display: inline-block;
 	margin: 0 auto;
 }
 label {
-	font-size: 4vw;
+	font-size: 3vw;
 }
 .fromPart {
 	width: 42vw;
@@ -121,6 +121,9 @@ label {
 	width: 84vw;
 }
 input {
+	-webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 	font-size: 4vw;
 	text-align: center;
 	width: 28vw;
@@ -193,10 +196,19 @@ textarea::placeholder {
 	display: none;
 }
 #alert{
-	position:absolute; 
-	top:140vw; 
-	left:40vw; 
-	font-size:4vw; 
-	color:gray; 
+	position:absolute;
+	bottom:20vw; 
+	left:50vw;
+	max-width:60vw;
+	transform: translate(-50%,-50%);
+	-o-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	font-size:3vw; 
+	color:white; 
+	background-color:rgba(0,0,0,0.7);
+	border-radius:2vw;
+	padding-left:3vw;
+	padding-right:3vw;
 	z-index:999;
 }
