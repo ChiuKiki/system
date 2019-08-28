@@ -168,22 +168,21 @@ $(function(){//点击保存时保存数据
           url:"http://system.chiukiki.cn/api/updatePeople",
           data:{
           name:$("#userName").val(),
+          birthday:$("#userBirthday").val(),
+          QQ:$("#userQQ").val(),
+          number:$("#userStudentNum").val(),
+          tel:$("#userTelephone").val(),
+          email:$("#userEmail").val(),
 				  school:$("#userAcademy").val(),
 				  department:$("#userDepartment").val(),
-				  position:$("#userWork").val(),
-				  birthday:$("#userBirthday").val(),
-				  tel:$("#userTelephone").val(),
-				  QQ:$("#userQQ").val(),
-				  email:$("#userEmail").val(),
-				  number:$("#userStudentNum").val(),
-				  message:$("#userTextarea").val()
+				  position:$("#userWork").val()
         },
         success:function(data){
           $("body").append("<div id='alert'>"+"修改成功"+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
         },
         error:function(data){
-          $("body").append("<div id='alert'>"+"获取失败"+"</div>");
+          $("body").append("<div id='alert'>"+"修改失败"+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
         }
         })

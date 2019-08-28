@@ -1,0 +1,18 @@
+input[type="button"], input[type="submit"], input[type="reset"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+input:focus, textarea:focus {
+  outline: none;
+}
+input:focus{
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+  -webkit-user-modify:read-write-plaintext-only;
+  }
+input::-ms-clear {
+  display: none;
+}
+textarea {
+resize: none;
+}

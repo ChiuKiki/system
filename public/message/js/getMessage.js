@@ -86,7 +86,7 @@ $(function(){//加载信息
 					}
 			  },
 			  error:function(data){
-				  $("body").append("<div style='position:absolute; top:140vw; left:40vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+"载入失败"+"</div>");
+				  $("body").append("<div id='alert'>"+"载入失败"+"</div>");
 				  window.setTimeout(function(){$("#alert").remove();},2000);
 			  }
 		  })
@@ -206,11 +206,11 @@ $(function(){//点击修改,完成按钮根据值的不同来触发事件
 						message:$("#userTextarea").val()
 				 },
 					success:function(data){
-						$("body").append("<div id='alert'>"+"获取成功"+"</div>");
+						$("body").append("<div id='alert'>"+"修改成功"+"</div>");
 						window.setTimeout(function(){$("#alert").remove();},2000);
 					},
 					error:function(data){
-            $("body").append("<div id='alert'>"+"获取失败"+"</div>");
+            $("body").append("<div id='alert'>"+"修改失败"+"</div>");
             window.setTimeout(function(){$("#alert").remove();},2000);
 					}
 				})
@@ -263,7 +263,7 @@ $(function(){//检测数据是否符合格式
 		  }
 	});
 });
-$(function(){//底部菜单的逻辑即返回键的逻辑
+$(function(){//底部菜单的逻辑和返回键的逻辑
   $("#addressMenu").click(function(){
     location="../addressBook/addressBook.html?queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
   })
