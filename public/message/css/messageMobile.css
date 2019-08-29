@@ -126,11 +126,13 @@ input {
   appearance: none;
 	font-size: 4vw;
 	text-align: center;
+	vertical-align:middle ;
 	width: 28vw;
 	height: 5vw;
 	border: 1px solid rgb(48, 150, 7);
 	border-radius:1vw;
 	border: none;
+	padding:0;
 }
 #containerRight input {
 	width: 60vw;
