@@ -71,9 +71,25 @@
 						position:'absolute',
 						zIndex:'999'
 					});
-					$(_this).find(".wxSelect_label,.wxSelect_bottom").on("click",function(event) {
-					$(_this).find(".dataBox").slideToggle(100);
-					});
+					$(function(){ 
+						console.log($(_this).find(".wx-input").prop("readonly"));
+						if($(_this).find(".wx-input").prop("readonly")=="readonly"||$(_this).find(".wx-input").prop("readonly")==true){
+						 
+						  $(_this).find(".wxSelect_label,.wxSelect_bottom,.wx-input").on("click",function(event) {
+							  $(_this).find(".dataBox").slideToggle(100);
+						  });
+					  }
+				    else{
+						  $(_this).find(".wxSelect_label,.wxSelect_bottom").on("click",function(event) {
+					      $(_this).find(".dataBox").slideToggle(100);
+					    });
+						}
+						$(_this).find(".wx-input").on("blur",function(){
+						  $(_this).find(".dataBox").slideToggle(100);
+					  }); 
+					})
+					
+					
 					function input(e){
 						var val = $(_this).find("input").val().trim()
 						,dataSelect = []

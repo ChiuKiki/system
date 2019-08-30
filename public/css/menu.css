@@ -1,0 +1,34 @@
+/*底部菜单的样式*/
+html{
+	background-image: url("../img/htmlBackground.gif");
+	background-size:30vw 30vw;
+	background-repeat: no-repeat;
+	background-position:center 0%;
+}
+#menu {
+	position: fixed;
+	left:0;
+	bottom: 0;
+	width: 100vw;
+	height: 17vw;
+	border-top: 1px solid black;
+	background-color:white;
+}
+.mainMenu {
+	width: 25vw;
+	height: 15vw;
+	float: left;
+	text-align: center;
+	margin-top: 2vw;
+}
+.mainMenu img {
+	width: 7vw;
+	height:7vw;
+	margin: 0;
+}
+.mainMenu p {
+	font-size: 3vw;
+	font-weight: bolder;
+	color: gray;
+	margin-top:1vw;
+}

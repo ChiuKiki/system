@@ -2,25 +2,28 @@
 <html>
   <head>
     <meta charset="UTF-8"/>
-    <meta http-equiv="Pragma" content="no-cache">  
-    <meta http-equiv="Cache-Control" content="no-cache">  
-    <meta http-equiv="Expires" content="Sat, 01 Dec 2001 00:00:00 GMT">  
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
     <title>管理员</title>
     <style>
-      input,button{
+      input[type='text'],[type='button'],button{
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
         box-sizing:border-box;
       }
     </style>
-    <link rel="stylesheet" href="../adapt.css"/>
     <link rel="stylesheet" href="css/administratorMobile.css"/>
     <link rel="stylesheet" href="../heart/heart.css"/>
-    <script src="js/changeCss.js"></script>
-    <script src="js/jquery.js"></script>
+    <link rel="stylesheet" href="../css/menu.css"/>
+    <script src="../js/jquery.js"></script>
     <script src="js/administrator.js"></script>
+    <script src="../js/menu.js" ></script>
     <script src="../heart/heart.js"></script>
+    <script>
+      document.addEventListener('touchmove', function (event) {//禁止手机body滑动
+        event.preventDefault();
+      });
+    </script>
   </head>
 </html>
 <body>
@@ -116,19 +119,19 @@
   </div>
   <div id="menu"><!--底部菜单-->
     <div id="addressMenu" class="mainMenu">
-      <img id="addressImg"  src="img/messgeMenu.png" /> 
+      <img id="addressImg"  src="../img/messgeMenu.png" /> 
       <p id="addressText">通讯录</p>
     </div>
     <div id="spareMenu" class="mainMenu">
-      <img id="spareMenuImg" src="img/spareMenu.png"/>
+      <img id="spareMenuImg" src="../img/spareMenu.png"/>
       <p id="spareMenuText">没课表</p>
     </div>
     <div id="presonMessageMenu" class="mainMenu">
-      <img id="personMessageImg" src="img/personMessage.png"/>
+      <img id="personMessageImg" src="../img/personMessage.png"/>
       <p id="personMessageText">个人信息</p>
     </div>
     <div id="administratorMenu" class="mainMenu">
-      <img id="administratorImg" src="img/administrator.png"/>
+      <img id="administratorImg" src="../img/administrator.png"/>
       <p id="administratorText">管理员</p>
     </div>
   </div>

@@ -1,4 +1,17 @@
- 
+var winHeight = $(window).height();  //当手机软键盘弹出时将底部菜单,藏在软键盘后面,软键盘关闭不变
+$(window).resize(function () {
+  var thisHeight = $(this).height();
+  if ( winHeight - thisHeight > 140 ) {
+      //键盘弹出
+      $('#menu').css('position','static');
+      $(body).css("overflow-y","scroll");
+  } else {
+      //键盘收起
+      $('#menu').css({'position':'fixed','bottom':'0'});
+      $(body).css("overflow-y","hidden");
+      
+  }
+})
 function getUrlParam(names) {//获取URL中的参数
     var reg = new RegExp("(^|&)" + names + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
     var r = window.location.search.substr(1).match(reg); //匹配目标参数
@@ -13,12 +26,12 @@ $(function(){//点击改变颜色
   $("#menu").toggle();
   $("td").attr("spare","0");
   $("td").click(function(){
-    if($(this).css("backgroundColor")=="rgb(214, 221, 119)"){
-      $(this).css({backgroundColor:"rgb(155, 223, 128)"});
+    if($(this).css("backgroundColor")=="rgb(154, 255, 154)"){
+      $(this).css({backgroundColor:"rgb(242,242,242)"});
       $(this).attr("spare","0");console.log($(this).attr("spare"));
     }
     else{
-      $(this).css({backgroundColor:"rgb(214, 221, 119)"});
+      $(this).css({backgroundColor:"rgb(154 ,255 ,154)"});
       $(this).attr("spare","1");console.log($(this).attr("spare"));
     }
   })
@@ -114,4 +127,9 @@ $(function(){//点击按钮保存
       $("#spareScanfHint").text("周数不能为空!");
     }
   })
+})
+$(function(){
+  $("#callback").click(function(){//返回到上一页
+	  history.go(-1);
+	})
 })

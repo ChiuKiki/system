@@ -1,14 +1,16 @@
 var winHeight = $(window).height();  //当手机软键盘弹出时将底部菜单,藏在软键盘后面,软键盘关闭不变
 $(window).resize(function () {
-    var thisHeight = $(this).height();
-    if ( winHeight - thisHeight > 140 ) {
-        //键盘弹出
-        $('#menu').css('position','static');
-    } else {
-        //键盘收起
-        $('#menu').css({'position':'fixed','bottom':'0'});
-        
-    }
+  var thisHeight = $(this).height();
+  if ( winHeight - thisHeight > 140 ) {
+      //键盘弹出
+      $('#menu').css('position','static');
+      $(body).css("overflow-y","scroll");
+  } else {
+      //键盘收起
+      $('#menu').css({'position':'fixed','bottom':'0'});
+      $(body).css("overflow-y","hidden");
+      
+  }
 })
 $(function(){//当非管理员时隐藏管理员按钮
   if(getUrlParam("dataUsed")==0){
@@ -87,23 +89,3 @@ $(function(){//点击搜索按钮开始搜索
     })
   })
 })
-$(function(){//底部菜单点击事件
-    $("#addressMenu").click(function(){
-        location="../addressBook/addressBook.html?queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
-    })
-    $("#spareMenu").click(function(){
-        location="../spare/spare.html?queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
-    })
-    $("#presonMessageMenu").click(function(){
-        location="../message/message.html?queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
-    })
-    if(getUrlParam("dataUsed")==1){
-      $("#administratorMenu").click(function(){
-        location="../administrator/administrator.html?queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
-      })
-    }
-    $("#callback").click(function(){
-        location="../addressBook/addressBook.html?queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
-    })
-})
-

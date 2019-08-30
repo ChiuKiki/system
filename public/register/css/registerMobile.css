@@ -1,5 +1,12 @@
+body,html{
+	margin:0;
+	padding:0;
+  outline:0;
+}
 body {
-	overflow: hidden;
+	overflow:hidden;
+	margin:0;
+	padding:0;
 }
 #register{
 	width:100vw;
@@ -84,6 +91,13 @@ input:hover{
 #registerHint {
 	color: red;
 	text-align: center;
+}
+#callback {
+	position: absolute;
+	left: 2vw;
+	top: 1vw;
+	width: 10vw;
+	height:8vw;
 }
 #alert{
 	position:absolute;

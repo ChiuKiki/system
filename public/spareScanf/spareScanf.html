@@ -6,25 +6,30 @@
     <meta http-equiv="Cache-Control" content="no-cache">  
     <meta http-equiv="Expires" content="Sat, 01 Dec 2001 00:00:00 GMT">  
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
     <title>没课表录入</title>
     <style>
-      input,button{
+      input[type='text'],[type='button'],button{
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
         box-sizing:border-box;
       }
     </style>
-    <link rel="stylesheet" href="../adapt.css"/>
     <link rel="stylesheet" href="css/spareScanfMobile.css"/>
     <link rel="stylesheet" href="../heart/heart.css"/>
-    <script src="js/jquery.js"></script>
-    <script src="js/changeCss.js"></script>
+    <script src="../js/jquery.js"></script>
     <script src="js/plumen.js"></script>
     <script src="js/spareScanf.js"></script>
     <script src="../heart/heart.js"></script>
     <script>
-      $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
+      document.addEventListener('touchmove', function (event) {//禁止手机body滑动
+        event.preventDefault();
+      });
+      $(function(){
+        $("body").not("#menu").animate({"right":"100vw"},0);
+        $("body").not("#menu").animate({"right":"0"});
+      })
     </script>
     <script>
         let Height = $('body').height();
@@ -46,7 +51,7 @@
       <p id="weekLabel">周数:</p>
       <div id="weekBox" class="spareScanfControlPart">
         <div class="input-Selector week">
-          <input type="text" class="wx-input" id="week" placeholder="单双所有周请选择"/>
+          <input type="text" class="wx-input" id="week" placeholder="选择单双周" readonly/>
         </div>
       </div>
     </div>  
@@ -168,6 +173,7 @@
       </tr>
     </table>
   </div>
-  <p id="help">注意事项:输入周数时,一周需直接输入数字,单双周根据下拉菜单选择,课表中黄色为有空,绿色为没空,若需调整只需点击对应的方框然后保存</p>
+  <p id="help">注意事项:输入周数时,一周需直接输入数字,单双周根据下拉菜单选择,课表中绿色为有空,白色为没空,若需调整只需点击对应的方框然后保存</p>
+  <img id="callback" src="../img/callback.png"/><!--返回键-->
 </body>
 </html>

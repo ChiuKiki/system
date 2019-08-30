@@ -1,6 +1,14 @@
+body,html{
+	margin:0;
+	padding:0;
+  outline:0;
+}
 body {
 	background-color: white;
-	overflow:scroll;
+	position:absolute;
+  overflow:hidden;
+	margin:0;
+	padding:0;
 }
 /*标题部分*/
 #titleBox {
@@ -34,13 +42,13 @@ body {
 	text-align: center;
 	width: 60vw;
 	height: 7vw;
-	border: 2px solid gray;
+	border: 1px solid gray;
 	float: left;
 	margin-top: 5.5vw;
 	border-radius:6vw;
 }
 #addressBook:hover {
-	border: 2px solid rgb(48, 150, 7);
+	border: 1px solid rgb(48, 150, 7);
 
 }
 #addressBookSearchImg {
@@ -51,7 +59,7 @@ body {
 }
 /*主要内容部分*/
 #container {
-	width: 95vw;
+	width: 80vw;
 	height: 100vw;
 	margin: 0 auto;
 	overflow: auto;
@@ -89,33 +97,6 @@ td {
 	border: 1px solid black;
 	padding: 0;
 	text-align: center;
-}
-/*底部菜单的样式*/
-#menu {
-	position: fixed;
-	bottom: 0;
-	width: 100vw;
-	height: 15vw;
-	border-top: 1px solid black;
-	background-color:white;
-}
-.mainMenu {
-	width: 25vw;
-	height: 15vw;
-	float: left;
-	text-align: center;
-	margin-top: 2vw;
-}
-.mainMenu img {
-	width: 7vw;
-	height:7vw;
-	margin: 0;
-}
-.mainMenu p {
-	font-size: 3vw;
-	font-weight: bolder;
-	color: gray;
-	margin-top:1vw;
 }
 #addressMenu p{
 	color:rgb(48, 150, 7);

@@ -1,6 +1,11 @@
+body,html{
+	margin:0;
+	padding:0;
+  outline:0;
+}
 body {
 	background-color: white;
-	overflow:scroll;
+	position:absolute;
 }
 #spareBox {
 	width:100vw;
@@ -45,14 +50,14 @@ body {
 	position: relative;
 	padding-left: 2vw;
 	border-radius: 0;
-	border: 3px solid rgb(155, 223, 128);
+	border: 1px solid rgb(155, 223, 128);
 	text-align: left;
 	font-size: 3vw;
 	text-align:center;
 	border-radius:3vw; 
 }
 .wx-input:hover{
-	border: 3px solid rgb(48, 150, 7);
+	border: 1px solid rgb(48, 150, 7);
 }
 input::-ms-clear { 
 display:none;
@@ -196,33 +201,6 @@ td {
 	height: 6vw;
 	border: 1px solid black;
 	padding: 0;
-}
-/*底部菜单的样式*/
-#menu {
-	position: fixed;
-	bottom: 0;
-	width: 100vw;
-	height: 15vw;
-	border-top: 1px solid black;
-	background-color:white;
-}
-.mainMenu {
-	width: 25vw;
-	height: 15vw;
-	float: left;
-	text-align: center;
-	margin-top: 2vw;
-}
-.mainMenu img {
-	width: 7vw;
-	height:7vw;
-	margin: 0;
-}
-.mainMenu p {
-	font-size: 3vw;
-	font-weight: bolder;
-	color: gray;
-	margin-top:1vw;
 }
 #spareMenu p{
 	color:rgb(48, 150, 7);

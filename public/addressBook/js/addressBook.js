@@ -4,12 +4,17 @@ $(window).resize(function () {
     if ( winHeight - thisHeight > 140 ) {
         //键盘弹出
         $('#menu').css('position','static');
+        $(body).css("overflow-y","scroll");
     } else {
         //键盘收起
         $('#menu').css({'position':'fixed','bottom':'0'});
+        $(body).css("overflow-y","hidden");
         
     }
 })
+document.addEventListener('touchmove', function (event) {//禁止手机body滑动
+  event.preventDefault();
+});
 $(function(){//当非管理员时隐藏管理员按钮
   if(getUrlParam("dataUsed")==0){
     $("#administratorMenu").hide();
@@ -116,19 +121,3 @@ $(function(){/*点击时获得人员的数据*/
     }
   });
 });
-$(function(){//底部菜单的逻辑
-  $("#addressMenu").click(function(){//跳转到通讯录
-    location="../addressBook/addressBook.html?queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
-  })
-  $("#spareMenu").click(function(){//跳转到没课表
-    location="../spare/spare.html?queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
-  })
-  $("#presonMessageMenu").click(function(){//跳转到个人信息
-    location="../message/message.html?queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
-  })
-  if(getUrlParam("dataUsed")==1){//若为管理员则添加跳转并显示按钮,非管理员隐藏按钮
-    $("#administratorMenu").click(function(){
-      location="../administrator/administrator.html?queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
-    })
-  }
-})

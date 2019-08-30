@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta http-equiv="Pragma" content="no-cache">  
-    <meta http-equiv="Cache-Control" content="no-cache">  
-    <meta http-equiv="Expires" content="Sat, 01 Dec 2001 00:00:00 GMT">  
+  <head> 
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
     <title>注册</title>
     <meta charset="UTF-8"/>
     <style>
@@ -14,53 +13,62 @@
         box-sizing:border-box;
       }
     </style>
-    <link rel="stylesheet" href="../adapt.css"/>
     <link rel="stylesheet" href="css/registerMobile.css"/>
     <link rel="stylesheet" href="../heart/heart.css"/>
-    <script src="js/jquery.js"></script>
-    <script src="js/changeCss.js"></script>
+    <script src="../js/jquery.js"></script>
     <script src="js/register.js"></script>
     <script src="../heart/heart.js"></script>
     <script>
-        let Height = $('body').height();
-        $(window).resize(function() {
-        $('body').height(Height);
-        });
-      </script>
+      document.addEventListener('touchmove', function (event) {//禁止手机body滑动
+        event.preventDefault();
+      });
+    </script>
   </head>
   <body>
+
     <div id="register">
       <h2 id="registerTitle">注册</h2>
     </div>
+
     <div id="registerBox"><!--信息填入框-->
+
       <div id="studentNumBox" class="registerPart">
         <img src="img/studentNum.png"/>
         <input id="studentNum" type="text" placeholder="请输入学号"/><br/>
       </div>
+
       <div id="nameBox" class="registerPart">
         <img src="img/name.png" />
         <input id="name" type="text" placeholder="请输入姓名"/><br/>
       </div>
+
       <div id="phoneBox" class="registerPart">
         <img src="img/phone.png"/>
         <input id="phone" type="text" placeholder="请输入电话"/><br/>
       </div>
+
       <div id="passwordBox" class="registerPart">
         <img src="img/password.png"/>
         <input id="password" type="password" placeholder="请输入密码"/><br/>
       </div>
+
       <div id="passwordSureBox" class="registerPart">
         <img src="img/password.png"/>
         <input id="passwordSure" type="password" placeholder="请再次输入密码"/><br/>
       </div>
+
       <div id="departmentBox" class="registerPart">
         <img src="img/department.png"/>
         <input id="department" type="text" placeholder="请输入部门"/>
-    </div>
-    <br/>
-    <p id="registerHint"></p><!--提示信息-->
-    <div id="registerSubmitBox">
-      <button id="registerSubmit" type="button">注册</button>
-    </div>
+      </div>
+
+      <br/>
+      <p id="registerHint"></p><!--提示信息-->
+
+      <div id="registerSubmitBox">
+        <button id="registerSubmit" type="button">注册</button>
+      </div>
+      </div>
+      <img id="callback" src="../img/callback.png"/><!--返回键-->
   </body>
 </html>
