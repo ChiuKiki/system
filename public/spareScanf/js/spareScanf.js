@@ -108,7 +108,7 @@ $(function(){//点击按钮保存
           $("body").append("<div id='alert'>"+"录入成功"+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
           if(data.message=="录入成功"){
-            if(!confirm("是否继续")){
+            if(!confirm("录入成功,是否继续?")){
               location="../addressBook/addressBook.html?queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
               $("#spareScanfHint").text("");
             }

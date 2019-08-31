@@ -123,11 +123,11 @@ $(function(){//点击保存时保存数据
 				  setPassword:$("#setPassword").val()
         },
         success:function(data){
-          $("body").append("<div id='alert'>"+"修改成功"+"</div>");
+          $("body").append("<div id='alert'>"+"修改成功"+data.message+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
         },
         error:function(data){
-          $("body").append("<div id='alert'>"+"修改失败"+"</div>");
+          $("body").append("<div id='alert'>"+"修改失败"+data.message+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
 			  }
       })

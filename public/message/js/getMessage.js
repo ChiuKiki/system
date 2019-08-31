@@ -121,6 +121,7 @@ $(function(){//点击修改,完成按钮根据值的不同来触发事件
       
 		}
 		else{//点击完成时个人信息发生的事件
+			$("#callback").hide();
 			for(var i=0;i<10;i++){
 				if(i!=9){
 					$("input").eq(i).attr("placeholder","");

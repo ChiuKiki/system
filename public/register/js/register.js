@@ -110,14 +110,14 @@ $(function(){//先检验数据是否符合格式,符合再发送请求
           confirmPassword:$("#passwordSure").val()
         },
         success:function(data){
-          $("body").append("<div id='alert'>"+"注册成功"+"</div>");
+          $("body").append("<div id='alert'>"+data.message+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
           $("body").not("#menu").animate({"left":"100vw"},function(){
             location="../index.html";
           }); 
         },
         error:function(data){
-          $("body").append("<div id='alert'>"+"注册失败"+"</div>");
+          $("body").append("<div id='alert'>"+data.message+"</div>");
 				  window.setTimeout(function(){$("#alert").remove();},2000);
         }
       })
