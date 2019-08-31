@@ -44,7 +44,7 @@ $(function(){/*载入时获得人员的数据并添加修改,删除的逻辑*/
                                             +"<th>生日</th>"
                                             +'</tr>');
         for(var i in data){
-          $("#administratorTable").append('<tr> <td><input type="checkbox" class="selectPart" value=true/><p>选中</p></td> <td>'
+          $("#administratorTable").append('<tr> <td><input type="checkbox" class="selectPart" value=true/><p>选中</p></td>'
                                           +'<td class="operate"><a class="operateChange">修改</a> <a class="operateDelete">删除</a></td>'
                                           +data[i].name+'</td> <td>'
                                           +data[i].department+'</td> <td>'
@@ -65,7 +65,7 @@ $(function(){/*载入时获得人员的数据并添加修改,删除的逻辑*/
           $.ajax({//发送请求获取个人信息
             url:"http://system.chiukiki.cn/api/queryAdmin",
             data:{
-              queryNumber:$(this).parent().parent().children().eq(8).text()
+              queryNumber:$(this).parent().parent().children().eq(9).text()
             },
             success:function(data){
               $("body").append("<div id='alert'>"+"获取信息成功"+"</div>");
@@ -85,7 +85,7 @@ $(function(){/*载入时获得人员的数据并添加修改,删除的逻辑*/
         $(".operateDelete").on('click',function() {//操作中的删除按钮
           if(confirm("你确定要删除这些用户的信息?")){
             var people=new Array();
-            people.push($(this).parent().parent().children().eq(8).text());
+            people.push($(this).parent().parent().children().eq(9).text());
             $(this).parent().parent().remove();
             $.ajax({
               url:"http://system.chiukiki.cn/api/delete",
@@ -220,8 +220,8 @@ $(function(){//删除用户信息
     if(confirm("你确定要删除这些用户的信息?")){
       var people=new Array();
       $(".selectPart:checked").each(function(){
-          if(!($(this).parent().parent().children().eq(8).text()==""||$(this).parent().parent().children().eq(8).text()==null)){
-            people.push($(this).parent().parent().children().eq(8).text());  
+          if(!($(this).parent().parent().children().eq(9).text()==""||$(this).parent().parent().children().eq(8).text()==null)){
+            people.push($(this).parent().parent().children().eq(9).text());  
           }
           $(this).parent().parent().remove();
       });
