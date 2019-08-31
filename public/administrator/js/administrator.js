@@ -5,11 +5,11 @@ $(window).resize(function () {
   if ( winHeight - thisHeight > 140 ) {
       //键盘弹出
       $('#menu').css('position','static');
-      $(body).css("overflow-y","scroll");
+      $("body").css("overflow-y","scroll");
   } else {
       //键盘收起
       $('#menu').css({'position':'fixed','bottom':'0'});
-      $(body).css("overflow-y","hidden");
+      $("body").css("overflow-y","hidden");
       
   }
 })
@@ -33,6 +33,7 @@ $(function(){/*载入时获得人员的数据并添加修改,删除的逻辑*/
         console.log(data[0][0]);
         $("#administratorTable").append('<tr> <th><input type="checkbox" id="allSelect" class="selectPart" value=true/><p>全选</p></th>' 
                                             +"<th>操作</th>"
+                                            +"<th>姓名</th>"
                                             +"<th>部门</th>"
                                             +"<th>职位</th>"
                                             +"<th>电话</th>"
@@ -41,7 +42,7 @@ $(function(){/*载入时获得人员的数据并添加修改,删除的逻辑*/
                                             +"<th>学院</th>"
                                             +"<th>学号</th>"
                                             +"<th>生日</th>"
-                                            +'<th>姓名</th></tr>');
+                                            +'</tr>');
         for(var i in data){
           $("#administratorTable").append('<tr> <td><input type="checkbox" class="selectPart" value=true/><p>选中</p></td> <td>'
                                           +'<td class="operate"><a class="operateChange">修改</a> <a class="operateDelete">删除</a></td>'
@@ -111,6 +112,9 @@ $(function(){/*载入时获得人员的数据并添加修改,删除的逻辑*/
           if($("#allSelect").prop("checked")){
             $(".selectPart").prop("checked",true);
           }  
+          else{
+            $(".selectPart").prop("checked",false);
+          }
         })
       },
       error:function(data){

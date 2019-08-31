@@ -4,11 +4,11 @@ $(window).resize(function () {
   if ( winHeight - thisHeight > 140 ) {
       //键盘弹出
       $('#menu').css('position','static');
-      $(body).css("overflow-y","scroll");
+      $('body').css("overflow-y","scroll");
   } else {
       //键盘收起
       $('#menu').css({'position':'fixed','bottom':'0'});
-      $(body).css("overflow-y","hidden");
+      $('body').css("overflow-y","hidden");
       
   }
 })
@@ -41,7 +41,6 @@ $(function(){//点击搜索按钮开始搜索
     console.log($(".weekDay input").attr("data-value"));
     console.log($(".class input").attr("data-value"));
     console.log($(".department input").attr("data-value"));
-    console.log(/^(?:1[0-8]|[0-9]$)/.test(data));
     console.log(/^[\u2E80-\u9FFF]+$/.test($(".department input").attr("data-value")));
     if(/^(?:1[0-8]|[0-9])$/.test($("#day").val())&&/^[\u2E80-\u9FFF]+$/.test($(".department input").attr("data-value"))){
       $.ajax({

@@ -127,7 +127,7 @@ $(function(){//先检验数据是否符合格式,符合再发送请求
 $(function(){
   $("#callback").click(function(){//返回到上一页
     $("body").not("#menu").animate({"left":"100vw"},function(){
-      history.go(-1);
+      location="../index.html";
     });
 	})
 })

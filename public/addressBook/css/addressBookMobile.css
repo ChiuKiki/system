@@ -1,15 +1,4 @@
-body,html{
-	margin:0;
-	padding:0;
-  outline:0;
-}
-body {
-	background-color: white;
-	position:absolute;
-  overflow:hidden;
-	margin:0;
-	padding:0;
-}
+
 /*标题部分*/
 #titleBox {
 	width:100vw;

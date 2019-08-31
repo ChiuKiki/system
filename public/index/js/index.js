@@ -4,11 +4,11 @@ $(window).resize(function () {
   if ( winHeight - thisHeight > 140 ) {
       //键盘弹出
       $('#menu').css('position','static');
-      $(body).css("overflow-y","scroll");
+      $("body").css("overflow-y","scroll");
   } else {
       //键盘收起
       $('#menu').css({'position':'fixed','bottom':'0'});
-      $(body).css("overflow-y","hidden");
+      $("body").css("overflow-y","hidden");
       
   }
 })

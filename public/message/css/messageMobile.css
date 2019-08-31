@@ -92,7 +92,7 @@ body {
 }
 /*主要内容部分*/
 #container {
-	width: 99vw;
+	width: 95vw;
 	height: 100vw;
 	margin: 0 auto;
 	overflow: auto;
@@ -102,13 +102,13 @@ body {
 
 }
 #containerLeft {
-	width: 99vw;
+	width: 95vw;
 	height: 18vw;
 	display: inline-block;
 	margin: 0 auto;
 }
 #containerRight {
-	width: 99vw;
+	width: 95vw;
 	height: 45vw;
 	display: inline-block;
 	margin: 0 auto;

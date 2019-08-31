@@ -4,11 +4,11 @@ $(window).resize(function () {
   if ( winHeight - thisHeight > 140 ) {
       //键盘弹出
       $('#menu').css('position','static');
-      $(body).css("overflow-y","scroll");
+      $('body').css("overflow-y","scroll");
   } else {
       //键盘收起
       $('#menu').css({'position':'fixed','bottom':'0'});
-      $(body).css("overflow-y","hidden");
+      $('body').css("overflow-y","hidden");
       
   }
 })
@@ -130,6 +130,8 @@ $(function(){//点击按钮保存
 })
 $(function(){
   $("#callback").click(function(){//返回到上一页
-	  history.go(-1);
+	  $("body").not("#menu").animate({"left":"100vw"},function(){
+			location="../message/message.html?queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
+		});
 	})
 })

@@ -5,11 +5,11 @@ $(window).resize(function () {
 	if ( winHeight - thisHeight > 140 ) {
 			//键盘弹出
 			$('#menu').css('position','static');
-			$(body).css("overflow-y","scroll");
+			$("body").css("overflow-y","scroll");
 	} else {
 			//键盘收起
 			$('#menu').css({'position':'fixed','bottom':'0'});
-			$(body).css("overflow-y","hidden");
+			$("body").css("overflow-y","hidden");
 			
 	}
 })
@@ -259,7 +259,7 @@ $(function(){//检测数据是否符合格式
 $(function(){
 	$("#callback").click(function(){//返回到上一页
 		$("body").not("#menu").animate({"left":"100vw"},function(){
-			history.go(-1);
+			location="../message/message.html?queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
 		});
 	})
 })
