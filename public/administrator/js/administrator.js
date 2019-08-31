@@ -45,7 +45,7 @@ $(function(){/*载入时获得人员的数据并添加修改,删除的逻辑*/
                                             +'</tr>');
         for(var i in data){
           $("#administratorTable").append('<tr> <td><input type="checkbox" class="selectPart" value=true/><p>选中</p></td>'
-                                          +'<td class="operate"><a class="operateChange">修改</a> <a class="operateDelete">删除</a></td>'
+                                          +'<td class="operate"><a class="operateChange">修改</a> <a class="operateDelete">删除</a></td> <td>'
                                           +data[i].name+'</td> <td>'
                                           +data[i].department+'</td> <td>'
                                           +data[i].position+'</td> <td>'
