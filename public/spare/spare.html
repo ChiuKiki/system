@@ -32,9 +32,9 @@
   </div>
   <div id="spareControl"><!--输入搜索框-->
     <div id="weekDayBox" class="spareControlPart">
-      <div class="input-Selector week">
-        <input type="text" class="wx-input" placeholder="一周请输入数字">
-      </div>
+      <label for="day" >第</label>
+      <input type="text" class="wx-input" placeholder="请输入数字" id="day">
+      <label for="day" >周</label>
     </div>
     <div id="weekBox" class="spareControlPart">
       <div class="input-Selector weekDay" >
@@ -48,7 +48,7 @@
     </div>
     <div id="departmentBox" class="spareControlPart">
       <div class="department input-Selector">
-        <input type="text" class="wx-input" placeholder="部门(可输入)" > 
+        <input type="text" class="wx-input" placeholder="部门" readonly="readonly"> 
       </div>
     </div> 
   </div>

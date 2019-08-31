@@ -24,10 +24,6 @@
       document.addEventListener('touchmove', function (event) {//禁止手机body滑动
         event.preventDefault();
       });
-      $(function(){
-        $("body").not("#menu").animate({"right":"100vw"},0);
-        $("body").not("#menu").animate({"right":"0"});
-      })
     </script>
   </head>
   <body>
@@ -73,15 +69,15 @@
       <div id="messageBox"><!--弹出框-->
         <div id="studentNum" class="fromPart">
           <label for="userStudentNum">学号:</label>
-          <input type="text" id="userStudentNum" class="data" name="userStudentNum" placeholder="学号"/><br/>
+          <input type="text" id="userStudentNum" class="data" name="userStudentNum" placeholder="学号" value="201866481204"/><br/>
         </div>
         <div id="telephone" class="fromPart">
           <label for="userTelephone">电话:</label>
-          <input type="text" id="userTelephone" class="data" name="userTelephone" placeholder="电话"/><br/>
+          <input type="text" id="userTelephone" class="data" name="userTelephone" placeholder="电话" value="19893311029"/><br/>
         </div>
         <div id="setPasswordBox" class="fromPart">
           <label for="setPassword" >密码:</label>
-          <input type="password" id="setPassword" name="password" placeholder="请输入密码" onblur="isPasswordCorrect()"/>
+          <input type="password" id="setPassword" class="data" name="password" placeholder="密码" value="zhaorong1218"/>
         </div>
         <button type="button" id="reserve">提交</button>
         <button type="button" id="closes">关闭</button>

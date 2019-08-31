@@ -4,11 +4,11 @@ $(window).resize(function () {
     if ( winHeight - thisHeight > 140 ) {
         //键盘弹出
         $('#menu').css('position','static');
-        $(body).css("overflow-y","scroll");
+        $("body").css("overflow-y","scroll");
     } else {
         //键盘收起
         $('#menu').css({'position':'fixed','bottom':'0'});
-        $(body).css("overflow-y","hidden");
+        $("body").css("overflow-y","hidden");
         
     }
 })
@@ -45,7 +45,9 @@ $(function(){//载入时输出所有人员
       }
       $("td").on("click",function(){
           if(!($(this).parent().children().eq(0).text()==""||$(this).parent().children().eq(0).text()==null)){
+            $("body").not("#menu").animate({"left":"100vw"},function(){
               location="../message/message.html?way=addressBook"+"&queryName="+encodeURI(encodeURI($(this).parent().children().eq(0).text()))+"&queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
+            }); 
           }
       })
   },

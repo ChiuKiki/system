@@ -32,7 +32,7 @@ $(function(){/*载入时获得人员的数据并添加修改,删除的逻辑*/
         $("#administratorTable").empty();
         console.log(data[0][0]);
         $("#administratorTable").append('<tr> <th><input type="checkbox" id="allSelect" class="selectPart" value=true/><p>全选</p></th>' 
-                                            +"<th>姓名</th>"
+                                            +"<th>操作</th>"
                                             +"<th>部门</th>"
                                             +"<th>职位</th>"
                                             +"<th>电话</th>"
@@ -41,9 +41,10 @@ $(function(){/*载入时获得人员的数据并添加修改,删除的逻辑*/
                                             +"<th>学院</th>"
                                             +"<th>学号</th>"
                                             +"<th>生日</th>"
-                                            +'<th>操作</th></tr>');
+                                            +'<th>姓名</th></tr>');
         for(var i in data){
           $("#administratorTable").append('<tr> <td><input type="checkbox" class="selectPart" value=true/><p>选中</p></td> <td>'
+                                          +'<td class="operate"><a class="operateChange">修改</a> <a class="operateDelete">删除</a></td>'
                                           +data[i].name+'</td> <td>'
                                           +data[i].department+'</td> <td>'
                                           +data[i].position+'</td> <td>'
@@ -52,13 +53,14 @@ $(function(){/*载入时获得人员的数据并添加修改,删除的逻辑*/
                                           +data[i].email+'</td> <td>'
                                           +data[i].school+'</td> <td>'
                                           +data[i].number+'</td> <td>'
-                                          +data[i].birthday+'</td> <td class="operate"><a class="operateChange">修改</a> <a class="operateDelete">删除</a></td></tr>');
+                                          +data[i].birthday+'</td>'+'</tr>');
         }
         $(".operateChange").on('click',function(){//如果点击姓名则跳转到个人页面
   
           console.log($(this).parent().parent().children().eq(8).text());
           $("#amendBox").toggle();
           $("#blackBox").toggle();
+          $("#amendBox").animate({"top":"65%"},500); 
           $.ajax({//发送请求获取个人信息
             url:"http://system.chiukiki.cn/api/queryAdmin",
             data:{
@@ -69,7 +71,6 @@ $(function(){/*载入时获得人员的数据并添加修改,删除的逻辑*/
               window.setTimeout(function(){$("#alert").remove();},2000);
               var j=0;
               for(var i in data[0]){
-
                 $(".fromPart input").eq(j).attr({ value: data[0][i] });console.log(data[0][i]);
                 j++;
               }
@@ -104,6 +105,12 @@ $(function(){/*载入时获得人员的数据并添加修改,删除的逻辑*/
             })
               $(this).parent().parent().remove();
           }
+        })
+        $("#allSelect").on("click",function(){//设置全选的逻辑
+          console.log($("#allSelect").attr("checked")); 
+          if($("#allSelect").prop("checked")){
+            $(".selectPart").prop("checked",true);
+          }  
         })
       },
       error:function(data){
@@ -182,33 +189,28 @@ $(function(){//点击保存时保存数据
         success:function(data){
           $("body").append("<div id='alert'>"+"修改成功"+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
+           
         },
         error:function(data){
           $("body").append("<div id='alert'>"+"修改失败"+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
         }
         })
-        $("#amendBox").toggle();
-        $("#blackBox").toggle();  
+        $("#amendBox").animate({"bottom":"100vw"},function(){
+          $("#amendBox").toggle();
+          $("#blackBox").toggle();
+        }); 
       }
   })
 });
 $(function(){//点击关闭个人信息窗口
   $("#close,#closes").click(function(){
-    $("#amendBox").toggle();
-    $("#blackBox").toggle();
+    $("#amendBox").animate({"top":"-100vw"},500,function(){
+      $("#amendBox").toggle();
+      $("#blackBox").toggle();
+    }); 
   })
 })
-$(function(){//设置全选的逻辑
-    
-    $("#allSelect").click(function(){
-      console.log($("#allSelect").attr("checked")); 
-      if($("#allSelect").prop("checked")){
-        $(".selectPart").prop("checked",true);
-      }  
-    })
-    
-});
 $(function(){//删除用户信息
   $("#deleteBox").click(function(){
     if(confirm("你确定要删除这些用户的信息?")){

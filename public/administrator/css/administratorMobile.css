@@ -6,9 +6,9 @@ body,html{
 body {
 	background-color: white;
 	overflow:hidden;
-	position:absolute;
-	margin:0;
-	padding:0;
+	position:relative;
+	top:0;
+	left:0;
 }
 /*标题部分*/
 #titleBox {
@@ -84,23 +84,24 @@ body {
 	width: 100%;
 	height: 65vw;
 	margin: 0 auto;
-	overflow: auto;
-	border-bottom:3px solid rgb(155, 223, 128);
+	overflow: scroll;
+	border-bottom:2px solid rgb(155, 223, 128);
 }
 #administratorTable {
 	width: 275vw;
-	border: 1px solid black;
+	border: 0.5px solid black;
 	font-size: 3vw;
 	border-collapse: collapse;
 	margin: 0 auto;
 	margin-top: 4vw;
+	overflow: scroll;
 	white-space: nowrap;
 }
 tr {
 	max-width: 75vw;
 	max-height: 6vw;
 	margin: 0;
-	border: 1px solid black;
+	border: 0.5px solid black;
 	background-color:whitesmoke;	
 }
 tr:hover{
@@ -109,14 +110,14 @@ tr:hover{
 th {
 	width: 25vw;
 	height: 6vw;
-	border: 1px solid black;
+	border: 0.5px solid black;
 	background-color:rgb(223,242,216);
 	font-weight:inherit;
 }
 td {
 	width: 25vw;
 	height: 6vw;
-	border: 1px solid black;
+	border: 0.5px solid black;
 	text-align: center;
 	padding: 0;
 }
@@ -145,19 +146,19 @@ td {
 	width:80vw;
 	height:120vw;
 	position:absolute;
-	top:50%;
+	top:-100vh;
 	left: 50%;
 	transform: translate(-50%,-50%);
 	-o-transform: translate(-50%,-50%);
 	-ms-transform: translate(-50%,-50%);
 	-webkit-transform: translate(-50%,-50%);
 	border-radius: 6vw;
-	background-color:rgb(11, 153, 219);
+	background-color:rgba(124, 212, 235, 0.945);
 	z-index:3;
-	display:none;
+	display: none;
 }
 #amendBox p{
-	font-size:35px;
+	font-size:4vw;
 	font-weight:bold;
 	margin-top:4vw;
 	margin-left:6vw;
@@ -196,33 +197,35 @@ td {
 	outline:none;
 }
 .fromPart input:hover {
-	border: 2px solid rgb(11, 153, 219);
+	border: 2px solid rgba(124, 212, 235, 0.945);
 }
 #reserve{
 	width:30vw;
 	height:7vw;
 	font-size:4vw;
-	background-color: rgb(11, 153, 219);
+	background-color: rgba(100, 191, 197, 0.945);
 	color:white;
 	margin-top:6vw;
 	margin-left:5vw;
 	border-radius:4vw;
+	box-shadow: none;
 }
 #reserve:hover{
-	background-color: rgb(101, 176, 211);
+	background-color: rgba(172, 214, 218, 0.945);
 }
 #closes{
 	width:20vw;
 	height:7vw;
 	font-size:4vw;
-	background-color: rgb(11, 153, 219);
+	background-color: rgba(100, 191, 197, 0.945);
 	color:white;
 	margin-top:6vw;
 	margin-left:5vw;
 	border-radius:4vw;
+	box-shadow:none;
 }
 #closes:hover{
-	background-color: rgb(101, 176, 211);
+	background-color: rgba(172, 214, 218, 0.945);
 }
 #administratorMenu p{
 	color:rgb(48, 150, 7);
@@ -232,21 +235,4 @@ td {
 	color: red;
 	text-align: center;
 	display: none;
-}
-#alert{
-	position:absolute;
-	bottom:20vw; 
-	left:50vw;
-	max-width:60vw;
-	transform: translate(-50%,-50%);
-	-o-transform: translate(-50%,-50%);
-	-ms-transform: translate(-50%,-50%);
-	-webkit-transform: translate(-50%,-50%);
-	font-size:3vw; 
-	color:white; 
-	background-color:rgba(0,0,0,0.7);
-	border-radius:2vw;
-	padding-left:3vw;
-	padding-right:3vw;
-	z-index:999;
 }

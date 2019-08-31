@@ -114,7 +114,6 @@ $(function(){//点击修改,完成按钮根据值的不同来触发事件
 			$(".fromPart").css({"margin-top":"6vw","margin-bottom":"0"});
 			$("input").css({"border":"1px solid rgb(48, 150, 7)"});
 			$("#callback").show();
-
 			$("#container").css("height","120vw");
 			$("#hint").show();
 			$("#spareEnter").hide();
@@ -259,6 +258,15 @@ $(function(){//检测数据是否符合格式
 });
 $(function(){
 	$("#callback").click(function(){//返回到上一页
-	  history.go(-1);
+		$("body").not("#menu").animate({"left":"100vw"},function(){
+			history.go(-1);
+		});
+	})
+})
+$(function(){
+	$("#spareEnter").click(function(){
+		$("body").not("#menu").animate({"left":"100vw"},function(){
+			location="../spareScanf/spareScanf.html?queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
+		}); 
 	})
 })
