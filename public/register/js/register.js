@@ -68,9 +68,9 @@ $(function(){//先检验数据是否符合格式,符合再发送请求
                 "部门必须为两位以上的汉字"
                 )
     for(var i=0;i<tests.length;i++){//依次检测数据是否正确
-      var j=$("input").eq(i).attr("placeholder");console.log("j="+j);
-      var text=j[j.length-2]+j[j.length-1];console.log(text);
-      if(($("input").eq(i).val()==null||$("input").eq(i).val()=="")){console.log($("input").eq(i).val());
+      var j=$("input").eq(i).attr("placeholder");   console.log("j="+j);
+      var text=j[j.length-2]+j[j.length-1];         console.log(text);
+      if(($("input").eq(i).val()==null||$("input").eq(i).val()=="")){      console.log($("input").eq(i).val());
           $("#registerHint").text(text+"不能为空!");
           detections=false;
           break;
@@ -110,14 +110,14 @@ $(function(){//先检验数据是否符合格式,符合再发送请求
           confirmPassword:$("#passwordSure").val()
         },
         success:function(data){
-          $("body").append("<div id='alert'>"+data.message+"</div>");
+          $("body").append("<div id='alert'>"+data[0].message+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
           $("body").not("#menu").animate({"left":"100vw"},function(){
             location="../index.html";
           }); 
         },
         error:function(data){
-          $("body").append("<div id='alert'>"+data.message+"</div>");
+          $("body").append("<div id='alert'>"+data[0].message+"</div>");
 				  window.setTimeout(function(){$("#alert").remove();},2000);
         }
       })

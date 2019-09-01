@@ -1,17 +1,4 @@
-﻿var winHeight = $(window).height();  //当手机软键盘弹出时将底部菜单,藏在软键盘后面,软键盘关闭不变
-$(window).resize(function () {
-    var thisHeight = $(this).height();
-    if ( winHeight - thisHeight > 140 ) {
-        //键盘弹出
-        $('#menu').css('position','static');
-        $("body").css("overflow-y","scroll");
-    } else {
-        //键盘收起
-        $('#menu').css({'position':'fixed','bottom':'0'});
-        $("body").css("overflow-y","hidden");
-        
-    }
-})
+﻿
 document.addEventListener('touchmove', function (event) {//禁止手机body滑动
   event.preventDefault();
 });
@@ -25,7 +12,7 @@ function getUrlParam(names) {//从URL中获取参数
   var r = window.location.search.substr(1).match(reg); //匹配目标参数
   if (r != null) return unescape(r[2]); return null; //返回参数值
 }
-$(function(){//载入时输出所有人员
+$(function(){//载入时输出所有人员a
   $.ajax({
     url:"http://system.chiukiki.cn/api/queryInitial",
     data:{
@@ -50,11 +37,11 @@ $(function(){//载入时输出所有人员
             }); 
           }
       })
-  },
-  error:function(data){
-    $("body").append("<div id='alert'>"+"载入失败"+"</div>");
-    window.setTimeout(function(){$("#alert").remove();},2000);
-  }
+    },
+    error:function(data){
+      $("body").append("<div id='alert'>"+"载入失败"+"</div>");
+      window.setTimeout(function(){$("#alert").remove();},2000);
+    }
   })
 })
 $(function(){/*点击时获得人员的数据*/
@@ -66,7 +53,7 @@ $(function(){/*点击时获得人员的数据*/
 
         },
         success:function(data){
-          $("body").append("<div style='position:absolute; top:140vw; bottom:25vw; font-size:3vw; color:gray; z-index:999;' id='alert'>"+"获取成功"+"</div>");
+          $("body").append("<div id='alert'>"+"获取成功"+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
           $("#addressBookTable").empty();
           $("#addressBookTable").append("<tr> <th>姓名</th> <th>部门</th> <th>职位</th> </tr>");

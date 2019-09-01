@@ -13,6 +13,9 @@ body {
 	height:100%;
   overflow:hidden;
 }
+input {
+	vertical-align: middle;
+}
 html{
 	background-image: url("../img/htmlBackground.gif");
 	background-size:30vw 30vw;

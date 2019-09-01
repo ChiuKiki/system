@@ -1,18 +1,4 @@
-var winHeight = $(window).height();  //当手机软键盘弹出时将底部菜单,藏在软键盘后面,软键盘关闭不变
-var reserveStatics;
-$(window).resize(function () {
-  var thisHeight = $(this).height();
-  if ( winHeight - thisHeight > 140 ) {
-      //键盘弹出
-      $('#menu').css('position','static');
-      $("body").css("overflow-y","scroll");
-  } else {
-      //键盘收起
-      $('#menu').css({'position':'fixed','bottom':'0'});
-      $("body").css("overflow-y","hidden");
-      
-  }
-})
+
 function getUrlParam(names) {//获取URL中的参数
     var reg = new RegExp("(^|&)" + names + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
     var r = window.location.search.substr(1).match(reg); //匹配目标参数
@@ -58,7 +44,7 @@ $(function(){/*载入时获得人员的数据并添加修改,删除的逻辑*/
         }
         $(".operateChange").on('click',function(){//如果点击修改则跳转到个人页面
   
-          console.log($(this).parent().parent().children().eq(8).text());
+          console.log($(this).parent().parent().children().eq(9).text());
           $("#amendBox").toggle();
           $("#blackBox").toggle();
           $("#amendBox").animate({"top":"65%"},500); 
@@ -149,9 +135,9 @@ $(function(){//点击保存时保存数据
 										 "生日必须是12.18这种格式",
       )
 			for(var i=0;i<tests.length;i++){//依次检测数据是否正确
-				var j=$(".data").eq(i).attr("placeholder");console.log("j="+j);
-				var text=j[j.length-2]+j[j.length-1];console.log(text);
-				var reg=eval(tests[i]);console.log(i);
+				var j=$(".data").eq(i).attr("placeholder");   console.log("j="+j);
+				var text=j[j.length-2]+j[j.length-1];         console.log(text);
+				var reg=eval(tests[i]);                       console.log(i);
 				if(($(".data").eq(i).val()==null||$(".data").eq(i).val()=="")){
           $("body").append("<div id='alert'>"+text+"不为空"+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
@@ -160,7 +146,7 @@ $(function(){//点击保存时保存数据
 					break;
 				}
 				else{
-					  console.log(reg);
+					console.log(reg);
 					  console.log(reg.test($(".data").eq(i).val()));
 					  if( reg.test($(".data").eq(i).val()) ){
               detections = true;

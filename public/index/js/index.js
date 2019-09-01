@@ -1,17 +1,4 @@
-var winHeight = $(window).height();  //当手机软键盘弹出时将底部菜单,藏在软键盘后面,软键盘关闭不变
-$(window).resize(function () {
-  var thisHeight = $(this).height();
-  if ( winHeight - thisHeight > 140 ) {
-      //键盘弹出
-      $('#menu').css('position','static');
-      $("body").css("overflow-y","scroll");
-  } else {
-      //键盘收起
-      $('#menu').css({'position':'fixed','bottom':'0'});
-      $("body").css("overflow-y","hidden");
-      
-  }
-})
+
 var dataUsed;
 function isUserCorrect(){//检测输入用户名的正确性
   var txt=document.getElementById("registerName").value;
@@ -87,9 +74,9 @@ $(function(){//点击保存时保存数据
     information=new Array("用户名","电话","密码");
     hint=new Array("用户名必须为学号","电话必须为12位电话号码","密码为6到8位非特殊字符");
     for(var i=0;i<tests.length;i++){//依次检测数据是否正确
-      var j=$(".data").eq(i).attr("placeholder");console.log("j="+j);
-      var text=j[j.length-2]+j[j.length-1];console.log(text);
-      var reg=eval(tests[i]);console.log(i);
+      var j=$(".data").eq(i).attr("placeholder");    console.log("j="+j);
+      var text=j[j.length-2]+j[j.length-1];          console.log(text);
+      var reg=eval(tests[i]);                        console.log(i);
       if(($(".data").eq(i).val()==null||$(".data").eq(i).val()=="")){
         $("body").append("<div id='alert'>"+text+"不能为空"+"</div>");
         window.setTimeout(function(){$("#alert").remove();},2000);
@@ -123,11 +110,11 @@ $(function(){//点击保存时保存数据
 				  setPassword:$("#setPassword").val()
         },
         success:function(data){
-          $("body").append("<div id='alert'>"+"修改成功"+data.message+"</div>");
+          $("body").append("<div id='alert'>"+"修改成功"+data[0].message+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
         },
         error:function(data){
-          $("body").append("<div id='alert'>"+"修改失败"+data.message+"</div>");
+          $("body").append("<div id='alert'>"+"修改失败"+data[0].message+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
 			  }
       })
