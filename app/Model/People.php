@@ -93,11 +93,18 @@ class People extends Model
         $isCorrect =  People::where(['number'=>$number,'tel'=>$tel])->first();
 
         if($isCorrect){
-            $result = People::where(['number'=>$number])
-                ->update(['password'=>$setPassword]);
-            return $result;
+
+            //判断新密码是否与旧密码一样
+            $samePassword = People::where(['password'=>$setPassword])->first();
+            if($samePassword){  //一样，不用update
+                return 1;
+            }else {     //不同，要update
+                $result = People::where(['number' => $number])
+                    ->update(['password' => $setPassword]);
+                return $result;
+            }
         }else{
-            return $result=0;
+            return 0;
         }
     }
 

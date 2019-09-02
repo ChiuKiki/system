@@ -35,9 +35,9 @@ $(function(){//用于登录时跳转,前端向后端请求得到"登录成功"�
       },
       success:function(data){
         $("#registerHint").text("");
-        $("body").append("<div id='alert'>"+data[0].message+"</div>");
+        $("body").append("<div id='alert'>"+data.message+"</div>");
         window.setTimeout(function(){$("#alert").remove();},2000);
-        if(data[0].identity="administrator"){
+        if(data[0].identity=="administrator"){
           dataUsed=1;
         }
         else{

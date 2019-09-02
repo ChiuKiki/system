@@ -12,7 +12,7 @@ function getUrlParam(names) {//从URL中获取参数
   var r = window.location.search.substr(1).match(reg); //匹配目标参数
   if (r != null) return unescape(r[2]); return null; //返回参数值
 }
-$(function(){//载入时输出所有人员a
+$(function(){//载入时输出所有人员
   $.ajax({
     url:"http://system.chiukiki.cn/api/queryInitial",
     data:{
@@ -39,14 +39,14 @@ $(function(){//载入时输出所有人员a
       })
     },
     error:function(data){
-      $("body").append("<div id='alert'>"+"载入失败"+"</div>");
+      $("body").append("<div id='alert'>"+data.message+"</div>");
       window.setTimeout(function(){$("#alert").remove();},2000);
     }
   })
 })
 $(function(){/*点击时获得人员的数据*/
   $("#addressBookSearchImg").click(function(){
-    if($("#addressBook").val()==null||$("#addressBook").val()==""){
+    if($("#addressBook").val()==null||$("#addressBook").val()==""){//如果输入为空,就返回所有人的数据
       $.ajax({
         url:"http://system.chiukiki.cn/api/queryInitial",
         data:{
@@ -72,7 +72,7 @@ $(function(){/*点击时获得人员的数据*/
           })
         },
         error:function(data){
-          $("body").append("<div style='top:140vw;' id='alert'>"+"获取失败"+"</div>");
+          $("body").append("<div style='top:140vw;' id='alert'>"+data.message+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
         }
       })
@@ -103,7 +103,7 @@ $(function(){/*点击时获得人员的数据*/
           })
         },
         error:function(data){
-          $("body").append("<div style='top:140vw;' id='alert'>"+"获取失败"+"</div>");
+          $("body").append("<div style='top:140vw;' id='alert'>"+data.message+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
         }
       })

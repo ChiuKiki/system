@@ -29,7 +29,7 @@ $(function(){//点击搜索按钮开始搜索
     console.log($(".class input").attr("data-value"));
     console.log($(".department input").attr("data-value"));
     console.log(/^[\u2E80-\u9FFF]+$/.test($(".department input").attr("data-value")));
-    if(/^(?:1[0-8]|[0-9])$/.test($("#day").val())&&/^[\u2E80-\u9FFF]+$/.test($(".department input").attr("data-value"))){
+    if(/^(?:1[0-8]|[0-9])$/.test($("#day").val())&&( /^[\u2E80-\u9FFF]+$/.test($(".department input").attr("data-value")) || $(".department input").attr("data-value")=="" || $(".department input").attr("data-value")==null)){
       $.ajax({
         url:"http://system.chiukiki.cn/api/free",
         data:{
@@ -48,7 +48,7 @@ $(function(){//点击搜索按钮开始搜索
             $("#addressBookTable").append("<tr> <td>"+departmentTitle+"</td> <td>"+data.name[0]+"</td> <td>"+data.name[1]+"</td> </tr>");
             for(var j=2;j<data.name.length;j=j+2){
               if(j==data.name.length-1){
-                $("#addressBookTable").append("<tr> <td></td> <td>"+data.name[j]+"</td> <td></td> </tr>");
+                $("#addressBookTable").append("<tr> <td></td> <td>"+data.name[j]+"</td> <td>"+""+"</td> </tr>");
   
               }
               else{
@@ -59,7 +59,7 @@ $(function(){//点击搜索按钮开始搜索
           }
         },
         error:function(){
-          $("body").append("<div id='alert'>"+"请求失败"+"</div>");
+          $("body").append("<div id='alert'>"+data.message+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
         }
       })
