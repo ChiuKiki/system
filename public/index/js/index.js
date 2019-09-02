@@ -46,9 +46,12 @@ $(function(){//用于登录时跳转,前端向后端请求得到"登录成功"�
         location="addressBook/addressBook.html?queryNumber="+$('#registerName')[0].value+"&dataUsed="+dataUsed;
       },
       error:function(data){
-        var datas=eval("("+data+")");
         $("#registerHint").text("用户名和密码错误!");
-        $("body").append("<div id='alert'>"+datas.message+"</div>");
+        $("body").append("<div id='alert'>"+data.message+"</div>");
+        console.log(data.message);
+        console.log(data[0].message);
+        console.log(data);
+        console.log(data[0]);
         window.setTimeout(function(){$("#alert").remove();},2000);
       }
     })
