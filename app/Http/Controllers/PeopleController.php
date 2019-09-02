@@ -16,6 +16,10 @@ class PeopleController extends Controller
         //0:未登录     1:已登录且为管理员   2:已登录且为普通人员
         switch($result){
 
+            case "notExist":
+                Session::put('flag',0);
+                return response(array(['message'=>'账号不存在']),401);
+                break;
             case "administrator":
                 Session::put('flag',1);
                 return response(array(['message'=>'登陆成功','identity'=>'administrator']));
@@ -67,10 +71,21 @@ class PeopleController extends Controller
     public static function forgetPasswordModel(Request $request)
     {
         $result = People::findPassword($request);
-        if ($result) {
-            return response(array('message'=>'找回密码成功'));
-        } else {
-            return response(array('message'=>'找回密码失败'),403);
+        switch ($result){
+            case "-2" :
+                return response(array('message'=>'学号不存在'),403);
+                break;
+            case "-1" :
+                return response(array('message'=>'手机号与学号不匹配'),403);
+                break;
+            case "0" :
+                return response(array('message'=>'找回密码失败'),403);
+                break;
+            case "1" :
+                return response(array('message'=>'找回密码成功'));
+                break;
+            default :
+                return response(array('message'=>'找回密码失败'),403);
         }
     }
 
@@ -85,130 +100,93 @@ class PeopleController extends Controller
     }
 
 
-    //测试首页显示信息——百步梯通讯录
+    //测试首页显示信息——百步梯通讯录（要登陆）
     //http://system.chiukiki.cn/api/queryInitial
     public function queryInitialModel(Request $request){
-        //要登陆
-        if (Session::get('flag') == 0) {
-            return response(array('message'=>'无权限'),403);
+        $result = People::queryInitial($request);
+        if ($result) {
+            return response($result);
         } else {
-            $result = People::queryInitial($request);
-            if ($result) {
-                return response($result);
-            } else {
-                return response(array('message' => '无法显示'), 403);
-            }
+            return response(array('message' => '无法显示'), 403);
         }
+
     }
 
 
-    //测试搜索框查询1——百步梯通讯录
+    //测试搜索框查询1——百步梯通讯录（要登陆）
     //http://system.chiukiki.cn/api/queryInfo?query=技术部
     public function queryInfoModel(Request $request){
-
-        //要登陆
-        if (Session::get('flag') == 0) {
-            return response(array('message'=>'无权限'),403);
+        $result = People::queryInfo($request);
+        if ($result) {
+            return response($result);
         } else {
-            $result = People::queryInfo($request);
-            if ($result) {
-                return response($result);
-            } else {
-                return response(array('message' => '查不到'), 403);
-            }
+            return response(array('message' => '查不到'), 403);
         }
-
     }
 
 
-    //测试搜索框查询2——百步梯通讯录（修改状态）
+    //测试搜索框查询2——百步梯通讯录（修改状态）（管理员）
     //http://system.chiukiki.cn/api/queryInfoAdmin?query=技术部
     public function queryInfoAdminModel(Request $request){
-        //要管理员权限
-        if (Session::get('flag') != 1) {
-            return response(array('message'=>'无权限'),403);
+        $result = People::queryInfoAdmin($request);
+        if ($result) {
+            return response($result);
         } else {
-            $result = People::queryInfoAdmin($request);
-            if ($result) {
-                return response($result);
-            } else {
-                return response(array('message' => '查不到'), 403);
-            }
+            return response(array('message' => '查不到'), 403);
         }
     }
 
 
-    //测试管理员获取他人信息——百步梯通讯录（修改状态）
+    //测试管理员获取他人信息——百步梯通讯录（修改状态）（管理员）
     //http://system.chiukiki.cn/api/queryAdmin?queryNumber=201830255555
     public function queryAdminModel(Request $request){
-        //要管理员权限
-        if (Session::get('flag') != 1) {
-            return response(array('message'=>'无权限'),403);
+        $result = People::queryAdmin($request);
+        if ($result) {
+            return response($result);
         } else {
-            $result = People::queryAdmin($request);
-            if ($result) {
-                return response($result);
-            } else {
-                return response(array('message' => '查不到'), 403);
-            }
+            return response(array('message' => '查不到'), 403);
         }
     }
 
 
-    //测试批量删除——百步梯通讯录（修改状态）
+    //测试批量删除——百步梯通讯录（修改状态）（管理员）
     //http://system.chiukiki.cn/api/delete?number[]=201830660000&number[]=201830770000&number[]=201830880000
-    public static function deleteModel(Request $request)
-    {
-        if (Session::get('flag') != 1) {
-            return response(array('message'=>'无权限'),403);
+    public static function deleteModel(Request $request){
+        $result = People::deletePeople($request);
+        if ($result) {
+            return response(array('message'=>'删除成功'));
         } else {
-            $result = People::deletePeople($request);
-            if ($result) {
-                return response(array('message'=>'删除成功'));
-            } else {
-                return response(array('message'=>'删除失败'),403);
-            }
+            return response(array('message'=>'删除失败'),403);
         }
     }
 
 
-    //测试通讯录点击某人名字查询其信息——详细信息
+    //测试通讯录点击某人名字查询其信息——详细信息（要登陆）
     //http://system.chiukiki.cn/api/query?queryName=b
-    public function queryModel(Request $request)
-    {
-        if (Session::get('flag') == 0) {
-            return response(array('message'=>'无权限'),403);
+    public function queryModel(Request $request){
+        $result = People::allInfo($request);
+        if ($result) {
+            return response($result);
         } else {
-            $result = People::allInfo($request);
-            if ($result) {
-                return response($result);
-            } else {
-                return response(array('message' => '查不到'), 403);
-            }
+            return response(array('message' => '查不到'), 403);
         }
     }
 
 
-    //测试获取自己信息——个人信息
+    //测试获取自己信息——个人信息（要登陆）
     //http://system.chiukiki.cn/api/queryNumber?queryNumber=201830250000
-    public function queryNumberModel(Request $request)
-    {
+    public function queryNumberModel(Request $request){
         $number = $request->get('queryNumber');
 
-        //要登陆
-        if (Session::get('flag') == 0) {
-            return response(array('message'=>'无权限'),403);
-        }else {
-            //只能获取自己信息
-            if (Session::get('number') != $number) {
-                return response(array('message' => '无权限'), 403);
+        //只能获取自己信息
+        if (Session::get('number') != $number) {
+            return response(array('message' => '无权限'), 403);
+        } else {
+            $result = People::allInfoNumber($request);
+            if ($result) {
+                return response($result);
             } else {
-                $result = People::allInfoNumber($request);
-                if ($result) {
-                    return response($result);
-                } else {
-                    return response(array('message' => '查不到'), 403);
-                }
+                return response(array('message' => '查不到'), 403);
             }
         }
     }
@@ -216,8 +194,7 @@ class PeopleController extends Controller
 
     //测试修改信息——个人信息&百步梯通讯录（修改状态）
     //http://system.chiukiki.cn/api/updatePeople?name=测试&birthday=10.17&QQ=1169849916&number=201830990000&tel=15800000000&email=123456@qq.com&school=电子与信息学院&department=技术部&position=干事&message=test
-    public function updatePeopleModel(Request $request)
-    {
+    public function updatePeopleModel(Request $request){
         $number = $request->get('number');
 
         switch (Session::get('flag')){

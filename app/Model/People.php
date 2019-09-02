@@ -21,18 +21,23 @@ class People extends Model
         $isAdministrator1 = People::where(['number'=>$number,'password'=>$password,'position'=>'部长'])->first();
         $isAdministrator2 = People::where(['number'=>$number,'password'=>$password,'position'=>'副部长'])->first();
 
-        //登陆
-        if($isLogIn) {
-            //设置session
-            Session::put('number',$number);
-            //判断身份
-            if($isAdministrator1||$isAdministrator2){
-                return $result = "administrator";
-            }else{
-                return $result = "people";
+        //账号是否存在
+        if(self::isNumberExist($number)) {
+            //登陆
+            if ($isLogIn) {
+                //设置session
+                Session::put('number', $number);
+                //判断身份
+                if ($isAdministrator1 || $isAdministrator2) {
+                    return $result = "administrator";
+                } else {
+                    return $result = "people";
+                }
+            } else {
+                return $result = "fail";
             }
         }else{
-            return $result = "fail";
+            return $result = "notExist";
         }
     }
 
@@ -92,19 +97,24 @@ class People extends Model
         //通过手机号找回密码
         $isCorrect =  People::where(['number'=>$number,'tel'=>$tel])->first();
 
-        if($isCorrect){
-
-            //判断新密码是否与旧密码一样
-            $samePassword = People::where(['password'=>$setPassword])->first();
-            if($samePassword){  //一样，不用update
-                return 1;
-            }else {     //不同，要update
-                $result = People::where(['number' => $number])
-                    ->update(['password' => $setPassword]);
-                return $result;
+        //判断学号是否存在
+        if(self::isNumberExist($number)) {
+            //判断手机号与学号是否匹配
+            if ($isCorrect) {
+                //判断新密码是否与旧密码一样
+                $samePassword = People::where(['password' => $setPassword])->first();
+                if ($samePassword) {  //一样，不用update
+                    return 1;
+                } else {     //不同，要update
+                    $result = People::where(['number' => $number])
+                        ->update(['password' => $setPassword]);
+                    return $result;
+                }
+            } else {
+                return -1;  //手机号与学号不匹配
             }
         }else{
-            return 0;
+            return -2;  //学号不存在
         }
     }
 

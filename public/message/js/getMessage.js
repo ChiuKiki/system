@@ -27,7 +27,6 @@ $(function(){//加载信息
 		$("#callback").show();
 
 		$(function(){/*载入时获得人员的数据*/
-			console.log(decodeURI(decodeURI(getUrlParam("queryName"))));
 			$.ajax({
 				url:"http://system.chiukiki.cn/api/query",
 				data:{

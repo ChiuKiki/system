@@ -63,7 +63,8 @@ $(function(){/*载入时获得人员的数据并添加修改,删除的逻辑*/
               }
             },
             error:function(data){
-              $("body").append("<div style=' color:white;' id='alert'>"+"获取信息失败"+"</div>");
+              data=eval("("+data+")");
+              $("body").append("<div style=' color:white;' id='alert'>"+data.message+"</div>");
               window.setTimeout(function(){$("#alert").remove();},2000);
             }
           })
@@ -79,6 +80,7 @@ $(function(){/*载入时获得人员的数据并添加修改,删除的逻辑*/
                 number: people
               },
               success:function(data) {
+                data=eval("("+data+")");
                 $("body").append("<div id='alert'>"+data.message+"</div>");
                 window.setTimeout(function(){$("#alert").remove();},2000);
                 if (data.message == "删除成功") {
@@ -86,6 +88,7 @@ $(function(){/*载入时获得人员的数据并添加修改,删除的逻辑*/
                 }
               },
               error:function(data){
+                data=eval("("+data+")");
                 $("body").append("<div id='alert'>"+data.message+"</div>");
                 window.setTimeout(function(){$("#alert").remove();},2000);
               }
@@ -104,6 +107,7 @@ $(function(){/*载入时获得人员的数据并添加修改,删除的逻辑*/
         })
       },
       error:function(data){
+        data=eval("("+data+")");
         $("body").append("<div id='alert'>"+data.message+"</div>");
         window.setTimeout(function(){$("#alert").remove();},2000);
       }
