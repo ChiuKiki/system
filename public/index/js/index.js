@@ -34,9 +34,8 @@ $(function(){//用于登录时跳转,前端向后端请求得到"登录成功"�
         password: $('#registerPassword')[0].value
       },
       success:function(data){
-        data=eval("("+data+")");
         $("#registerHint").text("");
-        $("body").append("<div id='alert'>"+data.message+"</div>");
+        $("body").append("<div id='alert'>"+data[0].message+"</div>");
         window.setTimeout(function(){$("#alert").remove();},2000);
         if(data[0].identity=="administrator"){
           dataUsed=1;
@@ -47,9 +46,9 @@ $(function(){//用于登录时跳转,前端向后端请求得到"登录成功"�
         location="addressBook/addressBook.html?queryNumber="+$('#registerName')[0].value+"&dataUsed="+dataUsed;
       },
       error:function(data){
-        data=eval("("+data+")");
+        var datas=eval("("+data+")");
         $("#registerHint").text("用户名和密码错误!");
-        $("body").append("<div id='alert'>"+data.message+"</div>");
+        $("body").append("<div id='alert'>"+datas.message+"</div>");
         window.setTimeout(function(){$("#alert").remove();},2000);
       }
     })
@@ -112,13 +111,13 @@ $(function(){//点击保存时保存数据
 				  setPassword:$("#setPassword").val()
         },
         success:function(data){
-          data=eval("("+data+")");
-          $("body").append("<div id='alert'>"+data.message+"</div>");
+          var datas=eval("("+data+")");
+          $("body").append("<div id='alert'>"+datas.message+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
         },
         error:function(data){
-          data=eval("("+data+")");
-          $("body").append("<div id='alert'>"+data.message+"</div>");
+          var datas=eval("("+data+")");
+          $("body").append("<div id='alert'>"+datas.message+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
 			  }
       })

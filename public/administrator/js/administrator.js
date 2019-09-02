@@ -54,7 +54,8 @@ $(function(){/*载入时获得人员的数据并添加修改,删除的逻辑*/
               queryNumber:$(this).parent().parent().children().eq(9).text()
             },
             success:function(data){
-              $("body").append("<div id='alert'>"+data.message+"</div>");
+               var datas=eval("("+data+")");
+              $("body").append("<div id='alert'>"+datas.message+"</div>");
               window.setTimeout(function(){$("#alert").remove();},2000);
               var j=0;
               for(var i in data[0]){
@@ -63,8 +64,8 @@ $(function(){/*载入时获得人员的数据并添加修改,删除的逻辑*/
               }
             },
             error:function(data){
-              data=eval("("+data+")");
-              $("body").append("<div style=' color:white;' id='alert'>"+data.message+"</div>");
+              var datas=eval("("+data+")");
+              $("body").append("<div style=' color:white;' id='alert'>"+datas.message+"</div>");
               window.setTimeout(function(){$("#alert").remove();},2000);
             }
           })
@@ -80,16 +81,16 @@ $(function(){/*载入时获得人员的数据并添加修改,删除的逻辑*/
                 number: people
               },
               success:function(data) {
-                data=eval("("+data+")");
-                $("body").append("<div id='alert'>"+data.message+"</div>");
+                var datas=eval("("+data+")");
+                $("body").append("<div id='alert'>"+datas.message+"</div>");
                 window.setTimeout(function(){$("#alert").remove();},2000);
-                if (data.message == "删除成功") {
-                  console.log(data.message);
+                if (datas.message == "删除成功") {
+                  console.log(datas.message);
                 }
               },
               error:function(data){
-                data=eval("("+data+")");
-                $("body").append("<div id='alert'>"+data.message+"</div>");
+                var datas=eval("("+data+")");
+                $("body").append("<div id='alert'>"+datas.message+"</div>");
                 window.setTimeout(function(){$("#alert").remove();},2000);
               }
             })
@@ -107,8 +108,8 @@ $(function(){/*载入时获得人员的数据并添加修改,删除的逻辑*/
         })
       },
       error:function(data){
-        data=eval("("+data+")");
-        $("body").append("<div id='alert'>"+data.message+"</div>");
+        var datas=eval("("+data+")");
+        $("body").append("<div id='alert'>"+datas.message+"</div>");
         window.setTimeout(function(){$("#alert").remove();},2000);
       }
     })

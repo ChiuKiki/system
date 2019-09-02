@@ -39,8 +39,8 @@ $(function(){//载入时输出所有人员
       })
     },
     error:function(data){
-      data=eval("("+data+")");
-      $("body").append("<div id='alert'>"+data.message+"</div>");
+       var datas=eval("("+data+")");
+      $("body").append("<div id='alert'>"+datas.message+"</div>");
       window.setTimeout(function(){$("#alert").remove();},2000);
     }
   })
@@ -73,8 +73,8 @@ $(function(){/*点击时获得人员的数据*/
           })
         },
         error:function(data){
-          data=eval("("+data+")");
-          $("body").append("<div style='top:140vw;' id='alert'>"+data.message+"</div>");
+           var datas=eval("("+data+")");
+          $("body").append("<div style='top:140vw;' id='alert'>"+datas.message+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
         }
       })
@@ -105,8 +105,8 @@ $(function(){/*点击时获得人员的数据*/
           })
         },
         error:function(data){
-          data=eval("("+data+")");
-          $("body").append("<div style='top:140vw;' id='alert'>"+data.message+"</div>");
+          var datas=eval("("+data+")");
+          $("body").append("<div style='top:140vw;' id='alert'>"+datas.message+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
         }
       })
