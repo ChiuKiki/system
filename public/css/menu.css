@@ -50,7 +50,7 @@ html{
 	margin-top:1vw;
 }
 #alert{
-	position:absolute;
+	position:fixed;
 	bottom:20vw; 
 	left:50vw;
 	max-width:60vw;
