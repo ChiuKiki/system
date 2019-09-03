@@ -34,7 +34,7 @@ $(function(){//载入时输出所有人员
       $("td").on("click",function(){
           if(!($(this).parent().children().eq(0).text()==""||$(this).parent().children().eq(0).text()==null)){
             $("body").not("#menu").animate({"left":"100vw"},function(){
-              location="../message/message.html?way=addressBook"+"&queryName="+encodeURI(encodeURI($(this).parent().children().eq(0).text()))+"&queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
+              location="../message/message.html?way=addressBook"+"&queryName="+encodeURI($(this).parent().children().eq(0).text())+"&queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
             }); 
           }
       })
@@ -70,7 +70,7 @@ $(function(){/*点击时获得人员的数据*/
           }
           $("td").on("click",function(){
             if(!($(this).parent().children().eq(0).text()==""||$(this).parent().children().eq(0).text()==null)){
-              location="../message/message.html?way=addressBook"+"&queryName="+encodeURI(encodeURI($(this).parent().children().eq(0).text()))+"&queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
+              location="../message/message.html?way=addressBook"+"&queryName="+encodeURI($(this).parent().children().eq(0).text()+"&queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
             }
           })
         },
