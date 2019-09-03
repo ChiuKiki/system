@@ -18,6 +18,7 @@ $(function(){//载入时输出所有人员
     data:{
 
     },
+    dataType:"json",
     success:function(data){
       $("#addressBookTable").empty();
       $("#addressBookTable").append("<tr> <th>姓名</th> <th>部门</th> <th>职位</th> </tr>");
@@ -38,10 +39,10 @@ $(function(){//载入时输出所有人员
           }
       })
     },
-    error:function(data){
-       var datas=eval("("+data+")");
-      $("body").append("<div id='alert'>"+datas.message+"</div>");
+    error:function(e){
+      $("body").append("<div id='alert'>"+e.responseText+"</div>");
       window.setTimeout(function(){$("#alert").remove();},2000);
+      console.log(e);
     }
   })
 })
@@ -53,6 +54,7 @@ $(function(){/*点击时获得人员的数据*/
         data:{
 
         },
+        dataType:"json",
         success:function(data){
           $("body").append("<div id='alert'>"+"获取成功"+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
@@ -72,10 +74,10 @@ $(function(){/*点击时获得人员的数据*/
             }
           })
         },
-        error:function(data){
-           var datas=eval("("+data+")");
-          $("body").append("<div style='top:140vw;' id='alert'>"+datas.message+"</div>");
+        error:function(e){
+          $("body").append("<div style='top:140vw;' id='alert'>"+e.responseText+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
+          console.log(e);
         }
       })
     }
@@ -85,6 +87,7 @@ $(function(){/*点击时获得人员的数据*/
         data:{
           query:$("#addressBook").val()
         },
+        dataType:"json",
         success:function(data){
           $("body").append("<div style='top:140vw;' id='alert'>"+"获取成功"+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
@@ -104,10 +107,10 @@ $(function(){/*点击时获得人员的数据*/
             }
           })
         },
-        error:function(data){
-          var datas=eval("("+data+")");
-          $("body").append("<div style='top:140vw;' id='alert'>"+datas.message+"</div>");
+        error:function(e){
+          $("body").append("<div style='top:140vw;' id='alert'>"+e.responseText+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
+          console.log(e);
         }
       })
     }

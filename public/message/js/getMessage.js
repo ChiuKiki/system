@@ -45,7 +45,8 @@ $(function(){//加载信息
 						j++;						
 					}					
 				},
-				error:function(data){
+				error:function(e){
+					console.log(e);
 				}
 			})
 		});			
@@ -72,9 +73,10 @@ $(function(){//加载信息
 						j++;
 					}
 			  },
-			  error:function(data){
+			  error:function(e){
 				  $("body").append("<div id='alert'>"+"载入失败"+"</div>");
-				  window.setTimeout(function(){$("#alert").remove();},2000);
+					window.setTimeout(function(){$("#alert").remove();},2000);
+					console.log(e);
 			  }
 		  })
     });
@@ -188,9 +190,10 @@ $(function(){//点击修改,完成按钮根据值的不同来触发事件
 						$("body").append("<div id='alert'>"+"修改成功"+"</div>");
 						window.setTimeout(function(){$("#alert").remove();},2000);
 					},
-					error:function(data){
+					error:function(e){
             $("body").append("<div id='alert'>"+"修改失败"+"</div>");
-            window.setTimeout(function(){$("#alert").remove();},2000);
+						window.setTimeout(function(){$("#alert").remove();},2000);
+						console.log(e);
 					}
 				})
 			}			
@@ -245,7 +248,12 @@ $(function(){//检测数据是否符合格式
 $(function(){
 	$("#callback").click(function(){//返回到上一页
 		$("body").not("#menu").animate({"left":"100vw"},function(){
-			location="../message/message.html?queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
+			if(getUrlParam("way")=="addressBook"){
+				location="../addressBook/addressBook.html?queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
+			}
+			else{
+				location="../message/message.html?queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
+			}
 		});
 	})
 })

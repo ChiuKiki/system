@@ -12,6 +12,7 @@ $(function(){/*载入时获得人员的数据并添加修改,删除的逻辑*/
       data:{
         query:$("#addressBook").val()
       },
+      dataType:"json",
       success:function(data){
         $("body").append("<div id='alert'>"+"查询成功"+"</div>");
         window.setTimeout(function(){$("#alert").remove();},2000);
@@ -53,9 +54,9 @@ $(function(){/*载入时获得人员的数据并添加修改,删除的逻辑*/
             data:{
               queryNumber:$(this).parent().parent().children().eq(9).text()
             },
+            dataType:"json",
             success:function(data){
-               var datas=eval("("+data+")");
-              $("body").append("<div id='alert'>"+datas.message+"</div>");
+              $("body").append("<div id='alert'>"+data.message+"</div>");
               window.setTimeout(function(){$("#alert").remove();},2000);
               var j=0;
               for(var i in data[0]){
@@ -63,10 +64,10 @@ $(function(){/*载入时获得人员的数据并添加修改,删除的逻辑*/
                 j++;
               }
             },
-            error:function(data){
-              var datas=eval("("+data+")");
-              $("body").append("<div style=' color:white;' id='alert'>"+datas.message+"</div>");
+            error:function(e){
+              $("body").append("<div style=' color:white;' id='alert'>"+e.responseText+"</div>");
               window.setTimeout(function(){$("#alert").remove();},2000);
+              console.log(e);
             }
           })
         })
@@ -80,18 +81,18 @@ $(function(){/*载入时获得人员的数据并添加修改,删除的逻辑*/
               data:{
                 number: people
               },
+              dataType:"json",
               success:function(data) {
-                var datas=eval("("+data+")");
-                $("body").append("<div id='alert'>"+datas.message+"</div>");
+                $("body").append("<div id='alert'>"+data.message+"</div>");
                 window.setTimeout(function(){$("#alert").remove();},2000);
-                if (datas.message == "删除成功") {
-                  console.log(datas.message);
+                if (data.message == "删除成功") {
+                  console.log(data.message);
                 }
               },
-              error:function(data){
-                var datas=eval("("+data+")");
-                $("body").append("<div id='alert'>"+datas.message+"</div>");
+              error:function(e){
+                $("body").append("<div id='alert'>"+e.responseText+"</div>");
                 window.setTimeout(function(){$("#alert").remove();},2000);
+                console.log(e);
               }
             })
               $(this).parent().parent().remove();
@@ -107,10 +108,10 @@ $(function(){/*载入时获得人员的数据并添加修改,删除的逻辑*/
           }
         })
       },
-      error:function(data){
-        var datas=eval("("+data+")");
-        $("body").append("<div id='alert'>"+datas.message+"</div>");
+      error:function(e){
+        $("body").append("<div id='alert'>"+e.responseText+"</div>");
         window.setTimeout(function(){$("#alert").remove();},2000);
+        console.log(e);
       }
     })
   })	
@@ -181,14 +182,16 @@ $(function(){//点击保存时保存数据
 				  department:$("#userDepartment").val(),
 				  position:$("#userWork").val()
         },
+        dataType:"json",
         success:function(data){
           $("body").append("<div id='alert'>"+"修改成功"+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
            
         },
-        error:function(data){
+        error:function(e){
           $("body").append("<div id='alert'>"+"修改失败"+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
+          console.log(e);
         }
         })
         $("#amendBox").animate({"bottom":"100vw"},function(){
@@ -221,13 +224,15 @@ $(function(){//删除用户信息
         data:{
         number:people
         },
+        dataType:"json",
         success:function(data){
           $("body").append("<div id='alert'>"+"删除成功"+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
         },
-        error:function(data){
+        error:function(e){
           $("body").append("<div id='alert'>"+"删除失败"+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
+          console.log(e);
         }
       })
     }

@@ -117,9 +117,10 @@ $(function(){//点击按钮保存
             $("#spareScanfHint").text("录入失败");
           }
         },
-        error:function(){
+        error:function(e){
           $("body").append("<div id='alert'>"+"录入失败"+"</div>");
-				  window.setTimeout(function(){$("#alert").remove();},2000);
+          window.setTimeout(function(){$("#alert").remove();},2000);
+          console.log(e);
         }
       })
     }
