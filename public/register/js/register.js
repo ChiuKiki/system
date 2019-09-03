@@ -117,7 +117,7 @@ $(function(){//先检验数据是否符合格式,符合再发送请求
           }); 
         },
         error:function(e){
-          $("body").append("<div id='alert'>"+"请求失败"+e.responseText+"</div>");
+          $("body").append("<div id='alert'>"+"请求失败"+e.responseText.message+"</div>");
 				  window.setTimeout(function(){$("#alert").remove();},2000);
         }
       })

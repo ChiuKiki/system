@@ -65,7 +65,7 @@ $(function(){/*载入时获得人员的数据并添加修改,删除的逻辑*/
               }
             },
             error:function(e){
-              $("body").append("<div style=' color:white;' id='alert'>"+e.responseText+"</div>");
+              $("body").append("<div style=' color:white;' id='alert'>"+e.responseText.message+"</div>");
               window.setTimeout(function(){$("#alert").remove();},2000);
               console.log(e);
             }
@@ -90,7 +90,7 @@ $(function(){/*载入时获得人员的数据并添加修改,删除的逻辑*/
                 }
               },
               error:function(e){
-                $("body").append("<div id='alert'>"+e.responseText+"</div>");
+                $("body").append("<div id='alert'>"+e.responseText.message+"</div>");
                 window.setTimeout(function(){$("#alert").remove();},2000);
                 console.log(e);
               }
@@ -109,7 +109,7 @@ $(function(){/*载入时获得人员的数据并添加修改,删除的逻辑*/
         })
       },
       error:function(e){
-        $("body").append("<div id='alert'>"+e.responseText+"</div>");
+        $("body").append("<div id='alert'>"+e.responseText.message+"</div>");
         window.setTimeout(function(){$("#alert").remove();},2000);
         console.log(e);
       }

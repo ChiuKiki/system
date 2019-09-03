@@ -40,7 +40,7 @@ $(function(){//载入时输出所有人员
       })
     },
     error:function(e){
-      $("body").append("<div id='alert'>"+e.responseText+"</div>");
+      $("body").append("<div id='alert'>"+e.responseText.message+"</div>");
       window.setTimeout(function(){$("#alert").remove();},2000);
       console.log(e);
     }
@@ -75,7 +75,7 @@ $(function(){/*点击时获得人员的数据*/
           })
         },
         error:function(e){
-          $("body").append("<div style='top:140vw;' id='alert'>"+e.responseText+"</div>");
+          $("body").append("<div style='top:140vw;' id='alert'>"+e.responseText.message+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
           console.log(e);
         }
@@ -108,7 +108,7 @@ $(function(){/*点击时获得人员的数据*/
           })
         },
         error:function(e){
-          $("body").append("<div style='top:140vw;' id='alert'>"+e.responseText+"</div>");
+          $("body").append("<div style='top:140vw;' id='alert'>"+e.responseText.message+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
           console.log(e);
         }
