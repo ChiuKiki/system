@@ -6,7 +6,17 @@ $(function(){//当非管理员时隐藏管理员按钮
   if(getUrlParam("dataUsed")==0){
     $("#administratorMenu").hide();
   }
+  $("td").on("click",function(){
+    console.log($(this).text());
+    console.log($(this).parent().children().eq(0).text());
+    if(!($(this).parent().children().eq(0).text()==""||$(this).parent().children().eq(0).text()==null)){
+      console.log($(this).parent().children().eq(0).text());
+      location="../message/message.html?way=addressBook"+"&queryName="+encodeURI($(this).parent().children().eq(0).text()).replace(/%/g, '%25')+"&queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
+      
+    }
+  })
 })
+
 function getUrlParam(names) {//从URL中获取参数
   var reg = new RegExp("(^|&)" + names + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
   var r = window.location.search.substr(1).match(reg); //匹配目标参数
@@ -32,10 +42,11 @@ $(function(){//载入时输出所有人员
           }
       }
       $("td").on("click",function(){
+        console.log($(this).text());
           console.log(encodeURI($(this).parent().children().eq(0).text()));
-          if(($(this).parent().children().eq(0).text()==""||$(this).parent().children().eq(0).text()==null)){
+          if(!($(this).parent().children().eq(0).text()==""||$(this).parent().children().eq(0).text()==null)){
             $("body").not("#menu").animate({"left":"100vw"},function(){
-              location="../message/message.html?way=addressBook"+"&queryName="+encodeURI($(this).parent().children().eq(0).text())+"&queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
+              location="../message/message.html?way=addressBook"+"&queryName="+encodeURI($(this).parent().children().eq(0).text()).replace(/%/g, '%25')+"&queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
             }); 
           }
       })

@@ -2,7 +2,8 @@
 $(function(){//当非管理员时隐藏管理员按钮
   if(getUrlParam("dataUsed")==0){
     $("#administratorMenu").hide();
-  }
+	}
+console.log(decodeURI(getUrlParam("queryName")));
 }) 
 function getUrlParam(names) {//从URL中获取参数
 	var reg = new RegExp("(^|&)" + names + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
