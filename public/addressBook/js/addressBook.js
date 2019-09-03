@@ -11,7 +11,7 @@ $(function(){//当非管理员时隐藏管理员按钮
     console.log($(this).parent().children().eq(0).text());
     if(!($(this).parent().children().eq(0).text()==""||$(this).parent().children().eq(0).text()==null)){
       console.log($(this).parent().children().eq(0).text());
-      location="../message/message.html?way=addressBook"+"&queryName="+encodeURI($(this).parent().children().eq(0).text()).replace(/%/g, '%25')+"&queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
+      location="../message/message.html?way=addressBook"+"&queryName="+encodeURI($(this).parent().children().eq(0).text())+"&queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
       
     }
   })

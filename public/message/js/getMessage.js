@@ -4,6 +4,8 @@ $(function(){//当非管理员时隐藏管理员按钮
     $("#administratorMenu").hide();
 	}
 console.log(decodeURI(getUrlParam("queryName")));
+console.log(decodeURI("%E6%B5%8B%E8%AF%95%E4%BA%8C"));
+
 }) 
 function getUrlParam(names) {//从URL中获取参数
 	var reg = new RegExp("(^|&)" + names + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
