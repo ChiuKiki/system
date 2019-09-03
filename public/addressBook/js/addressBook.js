@@ -32,7 +32,8 @@ $(function(){//载入时输出所有人员
           }
       }
       $("td").on("click",function(){
-          if(!($(this).parent().children().eq(0).text()==""||$(this).parent().children().eq(0).text()==null)){
+          console.log(encodeURI($(this).parent().children().eq(0).text()));
+          if(($(this).parent().children().eq(0).text()==""||$(this).parent().children().eq(0).text()==null)){
             $("body").not("#menu").animate({"left":"100vw"},function(){
               location="../message/message.html?way=addressBook"+"&queryName="+encodeURI($(this).parent().children().eq(0).text())+"&queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
             }); 
@@ -69,7 +70,9 @@ $(function(){/*点击时获得人员的数据*/
             }
           }
           $("td").on("click",function(){
-            if(!($(this).parent().children().eq(0).text()==""||$(this).parent().children().eq(0).text()==null)){
+            console.log($(this).text());
+            console.log($(this).parent().children().eq(0).text());
+            if(($(this).parent().children().eq(0).text()==""||$(this).parent().children().eq(0).text()==null)){
               console.log($(this).parent().children().eq(0).text());
               location="../message/message.html?way=addressBook"+"&queryName="+encodeURI($(this).parent().children().eq(0).text()).replace(/%/g, '%25')+"&queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
               
