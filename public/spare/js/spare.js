@@ -59,7 +59,7 @@ $(function(){//点击搜索按钮开始搜索
           }
         },
         error:function(e){
-          $("body").append("<div id='alert'>"+e.responseText.message+"</div>");
+          $("body").append("<div id='alert'>"+e.responseJSON.message+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
         }
       })

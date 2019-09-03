@@ -30,7 +30,7 @@ $(function(){//加载信息
 			$.ajax({
 				url:"http://system.chiukiki.cn/api/query",
 				data:{
-          queryName:decodeURI(decodeURI(getUrlParam("queryName")))
+          queryName:encodeURI(encodeURI(getUrlParam("queryName")))
 				},
 				success:function(data){
 					var j=0;

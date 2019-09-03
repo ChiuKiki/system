@@ -48,7 +48,7 @@ $(function(){//用于登录时跳转,前端向后端请求得到"登录成功"�
       },
       error:function(e){
         $("#registerHint").text("用户名和密码错误!");
-        $("body").append("<div id='alert'>"+e.responseText.message+"</div>");
+        $("body").append("<div id='alert'>"+e.responseJSON.message+"</div>");
         window.setTimeout(function(){$("#alert").remove();},2000);
         console.log(e);
       }
@@ -117,7 +117,7 @@ $(function(){//点击保存时保存数据
           window.setTimeout(function(){$("#alert").remove();},2000);
         },
         error:function(e){
-          $("body").append("<div id='alert'>"+e.responseText.message+"</div>");
+          $("body").append("<div id='alert'>"+e.responseJSON.message+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
           console.log(e);
 			  }
