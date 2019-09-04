@@ -17,7 +17,7 @@ $(function(){//为选择框输入数据
     data:[{"name":"1-2节","value":"1-2"},{"name":"3-4节","value":"3-4"},{"name":"5-6节","value":"5-6"},{"name":"7-8节","value":"7-8"},{"name":"9-11节","value":"9-11"}]
   });
   $(".department").wxSelect({
-    data:[{"name":"技术部","value":"技术部"}]
+    data:[{"name":"所有部门","value":""},{"name":"技术部","value":"技术部"}]
   })
 });
 
@@ -45,8 +45,22 @@ $(function(){//点击搜索按钮开始搜索
           $("#addressBookTable").empty();
           if(data.message!=""){ 
             var departmentTitle=$(".department input").attr("data-value");
-            $("#addressBookTable").append("<tr> <td>"+departmentTitle+"</td> <td>"+data.name[0]+"</td> <td>"+data.name[1]+"</td> </tr>");
-            for(var j=2;j<data.name.length;j=j+2){
+            if(data.name.length<2){
+              if(!(departmentTitle==""||departmentTitle==null)){
+                $("#addressBookTable").append("<tr> <td>"+departmentTitle+"</td> <td>"+data.name[0]+"</td> <td>"+"</td> </tr>");
+              }
+              else{
+                $("#addressBookTable").append("<tr> <td>"+"所有部门"+"</td> <td>"+data.name[0]+"</td> <td>"+"</td> </tr>");
+              }
+            }
+            else{
+              if(!(departmentTitle==""||departmentTitle==null)){
+                $("#addressBookTable").append("<tr> <td>"+departmentTitle+"</td> <td>"+data.name[0]+"</td> <td>"+data.name[1]+"</td> </tr>");
+              }
+              else{
+                $("#addressBookTable").append("<tr> <td>"+"所有部门"+"</td> <td>"+data.name[0]+"</td> <td>"+data.name[1]+"</td> </tr>");
+             }
+             for(var j=2;j<data.name.length;j=j+2){
               if(j==data.name.length-1){
                 $("#addressBookTable").append("<tr> <td></td> <td>"+data.name[j]+"</td> <td>"+" "+"</td> </tr>");
   
@@ -56,6 +70,9 @@ $(function(){//点击搜索按钮开始搜索
   
               }
             }
+            }
+            
+            
           }
         },
         error:function(e){

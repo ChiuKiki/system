@@ -56,7 +56,7 @@ $(function(){/*载入时获得人员的数据并添加修改,删除的逻辑*/
             },
             dataType:"json",
             success:function(data){
-              $("body").append("<div id='alert'>"+data.message+"</div>");
+              $("body").append("<div id='alert'>"+"获取信息成功"+"</div>");
               window.setTimeout(function(){$("#alert").remove();},2000);
               var j=0;
               for(var i in data[0]){
@@ -83,11 +83,8 @@ $(function(){/*载入时获得人员的数据并添加修改,删除的逻辑*/
               },
               dataType:"json",
               success:function(data) {
-                $("body").append("<div id='alert'>"+data.message+"</div>");
+                $("body").append("<div id='alert'>"+"删除成功"+"</div>");
                 window.setTimeout(function(){$("#alert").remove();},2000);
-                if (data.message == "删除成功") {
-                  console.log(data.message);
-                }
               },
               error:function(e){
                 $("body").append("<div id='alert'>"+e.responseJSON.message+"</div>");
