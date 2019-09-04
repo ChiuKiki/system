@@ -83,7 +83,7 @@ $(function(){/*点击时获得人员的数据*/
           })
         },
         error:function(e){
-          $("body").append("<div style='top:140vw;' id='alert'>"+e.responseJSON.message+"</div>");
+          $("body").append("<div id='alert'>"+e.responseJSON.message+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
           console.log(e);
         }
@@ -97,7 +97,7 @@ $(function(){/*点击时获得人员的数据*/
         },
         dataType:"json",
         success:function(data){
-          $("body").append("<div style='top:140vw;' id='alert'>"+"获取成功"+"</div>");
+          $("body").append("<div id='alert'>"+"获取成功"+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
           $("#addressBookTable").empty();
           $("#addressBookTable").append("<tr> <th>姓名</th> <th>部门</th> <th>职位</th> </tr>");
@@ -116,7 +116,7 @@ $(function(){/*点击时获得人员的数据*/
           })
         },
         error:function(e){
-          $("body").append("<div style='top:140vw;' id='alert'>"+e.responseJSON.message+"</div>");
+          $("body").append("<div id='alert'>"+e.responseJSON.message+"</div>");
           window.setTimeout(function(){$("#alert").remove();},2000);
           console.log(e);
         }

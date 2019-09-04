@@ -58,7 +58,8 @@ html{
 	-o-transform: translate(-50%,-50%);
 	-ms-transform: translate(-50%,-50%);
 	-webkit-transform: translate(-50%,-50%);
-	font-size:3vw; 
+	font-size:3vw;
+	padding:0; 
 	color:white; 
 	background-color:rgba(0,0,0,0.7);
 	border-radius:2vw;
