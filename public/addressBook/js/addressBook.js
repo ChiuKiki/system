@@ -6,15 +6,6 @@ $(function(){//当非管理员时隐藏管理员按钮
   if(getUrlParam("dataUsed")==0){
     $("#administratorMenu").hide();
   }
-  $("td").on("click",function(){
-    console.log($(this).text());
-    console.log($(this).parent().children().eq(0).text());
-    if(!($(this).parent().children().eq(0).text()==""||$(this).parent().children().eq(0).text()==null)){
-      console.log($(this).parent().children().eq(0).text());
-      location="../message/message.html?way=addressBook"+"&queryName="+encodeURI($(this).parent().children().eq(0).text())+"&queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
-      
-    }
-  })
 })
 
 function getUrlParam(names) {//从URL中获取参数
@@ -43,12 +34,13 @@ $(function(){//载入时输出所有人员
       }
       $("td").on("click",function(){
         console.log($(this).text());
-          console.log(encodeURI($(this).parent().children().eq(0).text()));
-          if(!($(this).parent().children().eq(0).text()==""||$(this).parent().children().eq(0).text()==null)){
-            $("body").not("#menu").animate({"left":"100vw"},function(){
-              location="../message/message.html?way=addressBook"+"&queryName="+encodeURI($(this).parent().children().eq(0).text()).replace(/%/g, '%25')+"&queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
-            }); 
-          }
+        console.log(encodeURI($(this).parent().children().eq(0).text()));
+        var url="../message/message.html?way=addressBook"+"&queryName="+encodeURI(encodeURI($(this).parent().children().eq(0).text()))+"&queryNumber="+getUrlParam("queryNumber")+"&dataUsed="+getUrlParam("dataUsed");
+        if(!($(this).parent().children().eq(0).text()==""||$(this).parent().children().eq(0).text()==null)){
+          $("body").not("#menu").animate({"left":"100vw"},function(){
+            location=url;
+          }); 
+        }
       })
     },
     error:function(e){
