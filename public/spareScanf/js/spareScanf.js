@@ -26,12 +26,12 @@ $(function(){//点击改变颜色
   $("#menu").toggle();
   $("td").attr("spare","0");
   $("td").click(function(){
-    if($(this).css("backgroundColor")=="rgb(154, 255, 154)"){
+    if($(this).css("backgroundColor")=="rgb(196, 237, 221)"){
       $(this).css({backgroundColor:"rgb(242,242,242)"});
       $(this).attr("spare","0");console.log($(this).attr("spare"));
     }
     else{
-      $(this).css({backgroundColor:"rgb(154 ,255 ,154)"});
+      $(this).css({backgroundColor:"rgb(196, 237, 221)"});
       $(this).attr("spare","1");console.log($(this).attr("spare"));
     }
   })

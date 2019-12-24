@@ -21,7 +21,7 @@ body {
 }
 #headTitle {
 	font-size: 8vw;
-	color: rgb(48, 150, 7);
+	color: rgb(3 ,22 ,52);
 	font-weight: 900;
 	font-family: "宋体";
 	text-align: center;
@@ -54,13 +54,13 @@ body {
 input[type="text"] {
 	width: 45vw;
 	height: 4vh;
-	border: 1px solid rgb(48, 150, 7);
+	border: 1px solid rgb(3 ,22 ,52);
 	font-size: 4vw;
 }/*设置输入框的格式*/
 input[type="password"] {
 	width: 45vw;
 	height: 4vh;
-	border: 1px solid rgb(48, 150, 7);
+	border: 1px solid rgb(3 ,22 ,52);
 	font-size: 4vw;
 }/*设置输入框的格式*/
 #findbackPassword {
@@ -74,9 +74,9 @@ input[type="password"] {
 	font-family: "微软雅黑";
 	font-size: 5vw;
 	word-spacing: 20px;
-	background-color: rgb(48, 150, 7);
+	background-color: rgb(3 ,22 ,52);
 	color: white;
-	border: 1px solid rgb(48, 150, 7);
+	border: 1px solid rgb(3 ,22 ,52);
 	cursor: pointer;
 }
 #registerSubmit:hover {
@@ -90,9 +90,9 @@ input[type="password"] {
 	font-family: "微软雅黑";
 	font-size: 5vw;
 	word-spacing: 20px;
-	background-color: rgb(48, 150, 7);
+	background-color: rgb(3 ,22 ,52);
 	color: white;
-	border: 1px solid rgb(48, 150, 7);
+	border: 1px solid rgb(3 ,22 ,52);
 	cursor: pointer;
 	margin-left: 50px;
 }

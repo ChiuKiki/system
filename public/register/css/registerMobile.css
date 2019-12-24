@@ -12,9 +12,9 @@ body {
 }
 #register{
 	width:100vw;
-	height: 10vw;
+	height: 11.5vw;
 	text-align: center;
-	background-color: rgb(155, 223, 128);
+	background-color: rgb(3 ,101 ,100);
 	color: white;
 	letter-spacing: 1vw;
 	border-radius:2vw 2vw 0 0 ;
@@ -54,7 +54,7 @@ input {
 	float:right;
 }
 input:hover{
-	border: 1px solid rgb(48, 150, 7);
+	border: 1px solid rgb(3 ,22 ,52);
 }
 #selectBox {
 	margin-left: 0;
@@ -79,15 +79,15 @@ input:hover{
 	font-family: "微软雅黑";
 	font-size: 5vw;
 	word-spacing: 5vw;
-	background-color: rgb(155, 223, 128);
+	background-color: rgb(3 ,101 ,100);
 	color: white;
-	border: 1px solid rgb(56, 190, 79);
+	border: 1px solid rgb(3 ,22 ,52);
 	cursor: pointer;
 	border-radius: 6vw;
 	margin: 0 auto;
 }
 #registerSubmit:hover {
-	background-color: rgb(155, 223, 128);
+	background-color: rgb(3 ,101 ,100);
 	border: 1px solid black;
 }/*提交框的整体样式*/
 #registerHint {

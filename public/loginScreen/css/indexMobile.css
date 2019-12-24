@@ -22,7 +22,7 @@ body {
 }
 #headTitle {
 	font-size: 8vw;
-	color: rgb(48, 150, 7);
+	color: rgb(3 ,22 ,52);
 	font-weight: 900;
 	font-family: "宋体";
 	text-align: center;
@@ -62,7 +62,7 @@ input[type="text"] {
 	text-align:center;
 }/*设置输入框的格式*/
 input[type="text"]:hover {
-	border: 1px solid rgb(48, 150, 7);
+	border: 1px solid rgb(3 ,22 ,52);
 }
 input[type="password"] {
 	outline:none;
@@ -74,7 +74,7 @@ input[type="password"] {
 	text-align:center;
 }/*设置输入框的格式*/
 input[type="password"]:hover {
-	border: 1px solid rgb(48, 150, 7);
+	border: 1px solid rgb(3 ,22 ,52);
 
 }
 #findbackPassword {
@@ -88,15 +88,15 @@ input[type="password"]:hover {
 	font-family: "微软雅黑";
 	font-size: 4vw;
 	word-spacing: 20px;
-	background-color: rgb(48, 150, 7);
+	background-color: rgb(3 ,22 ,52);
 	color: white;
-	border: 1px solid rgb(48, 150, 7);
+	border: 1px solid rgb(3 ,22 ,52);
 	cursor: pointer;
 	border-radius:4vw;
 }
 #registerSubmit:hover {
-	background-color: rgb(131, 194, 106);
-	border: 1px solid rgb(131, 194, 106);
+	background-color: rgb(3 ,101 ,100);
+	border: 1px solid rgb(3 ,101 ,100);
 }/*提交框的整体样式*/
 #registerMessage {
 	width: 25vw;
@@ -105,16 +105,16 @@ input[type="password"]:hover {
 	font-family: "微软雅黑";
 	font-size: 4vw;
 	word-spacing: 20px;
-	background-color: rgb(48, 150, 7);
+	background-color: rgb(3 ,22 ,52);
 	color: white;
-	border: 1px solid rgb(48, 150, 7);
+	border: 1px solid rgb(3 ,22 ,52);
 	cursor: pointer;
 	margin-left: 6vw;
 	border-radius: 4vw;
 }
 #registerMessage:hover {
-	background-color: rgb(131, 194, 106);
-	border: 1px solid rgb(131, 194, 106);
+	background-color: rgb(3 ,101 ,100);
+	border: 1px solid rgb(3 ,101 ,100);
 }
 #registerHint {
 	margin: 0;

@@ -4,7 +4,7 @@
 	width:100vw;
 	height: 10vw;
 	text-align: center;
-	background-color: rgb(155, 223, 128);
+	background-color: rgb(3 ,101 ,100);
 	color: white;
 	letter-spacing: 1vw;
 	border-radius:2vw 2vw 0 0 ;
@@ -46,7 +46,7 @@ input {
 	font-size: 2.5vw;
 	width: 28vw;
 	height: 5.2vw;
-	border: 1px solid rgb(155, 223, 128);
+	border: 1px solid rgb(3 ,101 ,100);
 	border-radius:2vw;
 }
 select {
@@ -54,7 +54,7 @@ select {
 	text-align: center;
 	width: 28vw;
 	height: 5vw;
-	border: 2px solid rgb(155, 223, 128);
+	border: 2px solid rgb(3 ,101 ,100);
 }
 #spareScanfSearch {
 	width: 20vw;
@@ -72,7 +72,7 @@ select {
 }
 #spareScanfSearchText {
 	font-size: 3vw;
-	color: rgb(48, 150, 7);
+	color: rgb(3 ,22 ,52);
 	margin-top:2vw;
 	margin-left:11vw;
 }
@@ -100,13 +100,18 @@ select {
 	margin-right:2.3vw;
 }
 #SelfWeekSelectButton{
-	width:75.2vw;
+	width:50vw;
 	height:5vw;
 	font-size:3vw;
+	padding-top:0.5vw;
 	text-align:center;
-	background-color:rgb(155, 223, 128);
+	background-color:lightgrey;
 	margin-top:1vw;
 	margin:0 auto;
+	border-radius: 2vw;
+	border-right: 0.1vw solid grey;
+	border-bottom: 0.1vw solid grey;
+	
 }
 #selfWeekSelectBox{
 	width:75.1vw;
@@ -161,7 +166,7 @@ input[type="checkbox"]{
 	margin: 0 auto;
 	margin-top: 4vw;
 	white-space: nowrap;
-	background-color: rgb(113,227,142);
+	background-color: rgb(2, 136, 134);
 	border:1px solid black;
 }
 tr {
@@ -173,7 +178,8 @@ tr {
 th {
 	width: 25vw;
 	height: 10vw;
-	background-color: rgb(155, 223, 128);
+	background-color: rgb(2, 136, 134);
+	color:whitesmoke;
 	border:	1px solid black;
 }
 td {
@@ -184,8 +190,8 @@ td {
 }
 #help{
 	font-size:4vw;
-	color:rgb(128, 168, 112);
-	margin:0;
+	color:rgb(3 ,22 ,52);
+	margin:3vw;
 }
 #callback {
 	position: absolute;

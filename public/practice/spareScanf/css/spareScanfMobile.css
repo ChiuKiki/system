@@ -2,7 +2,7 @@
 #spareScanfBox {
 	height: 12vh;
 	text-align: center;
-	background-color: rgb(48, 150, 7);
+	background-color: rgb(3 ,22 ,52);
 	color: whitesmoke;
 	margin: 0;
 }/*标题框的样式*/
@@ -45,14 +45,14 @@ input {
 	text-align: center;
 	width: 28vw;
 	height: 4vh;
-	border: 2px solid rgb(48, 150, 7);
+	border: 2px solid rgb(3 ,22 ,52);
 }
 select {
 	font-size: 3vh;
 	text-align: center;
 	width: 28vw;
 	height: 4vh;
-	border: 2px solid rgb(48, 150, 7);
+	border: 2px solid rgb(3 ,22 ,52);
 }
 #spareScanfSearch {
 	width: 35vw;
@@ -67,7 +67,7 @@ select {
 #spareScanfSearchText {
 	height: 6vw;
 	font-size: 6vw;
-	color: rgb(48, 150, 7);
+	color: rgb(3 ,22 ,52);
 	margin-top:0;
 	margin-left:2vw;
 	font-weight:bolder;
@@ -108,11 +108,11 @@ td {
 	height: 4vh;
 	border: 1px solid black;
 	padding: 0;
-	background-color:rgb(48, 150, 7);
+	background-color:rgb(3 ,22 ,52);
 }
 #help{
 	font-size:4vmin;
-	color:rgb(48, 150, 7);
+	color:rgb(3 ,22 ,52);
 	margin:0;
 }
 /*底部菜单的样式*/
@@ -152,7 +152,7 @@ td {
 .wx-input {
 	width: 25vw;
 	height: 3vh;
-	border: 3px solid rgb(48, 150, 7);
+	border: 3px solid rgb(3 ,22 ,52);
 	text-align: left;
 	font-size: 2.5vh;
 	margin-top:0;
@@ -161,7 +161,7 @@ input::-ms-clear {
 display:none;
 }
 .dataBox {
-	border: 1px solid rgb(48, 150, 7);
+	border: 1px solid rgb(3 ,22 ,52);
 }
 .dataList {
 	width: 20vw;

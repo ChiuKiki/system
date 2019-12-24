@@ -16,7 +16,7 @@ body {
 	width:100vw;
 	height: 10vw;
 	text-align: center;
-	background-color: rgb(155, 223, 128);
+	background-color: rgb(3 ,101 ,100);
 	color: white;
 	letter-spacing: 1vw;
 	border-radius:2vw 2vw 0 0 ;
@@ -37,7 +37,7 @@ body {
 	height: 14vw;
 	padding-top:3vw;
 	padding-bottom:1vw;
-	border-bottom: 4px solid rgb(48, 150, 7);
+	border-bottom: 4px solid rgb(3 ,22 ,52);
 }
 
 #spareEnter {
@@ -60,7 +60,7 @@ body {
 }
 #spareText {
 	font-size: 3vw;
-	color: rgb(48, 150, 7);
+	color: rgb(3 ,22 ,52);
 	float: left;
   margin-left:2vw;
 	margin-top:3.6vw;
@@ -85,7 +85,7 @@ body {
 }
 #alterText {
 	font-size: 3vw;
-	color: rgb(48, 150, 7);
+	color: rgb(3 ,22 ,52);
 	float: left;
 	margin-left:2vw;
 	margin-top:3.7vw;
@@ -98,7 +98,7 @@ body {
 	overflow: auto;
 	padding-top:3vw;
 	background-color:white;
-	border-bottom:3px solid rgb(155, 223, 128);
+	border-bottom:3px solid rgb(3 ,101 ,100);
 
 }
 #containerLeft {
@@ -138,7 +138,7 @@ input {
 	vertical-align:middle ;
 	width: 28vw;
 	height: 5vw;
-	border: 1px solid rgb(48, 150, 7);
+	border: 1px solid rgb(3 ,22 ,52);
 	border-radius:1vw;
 	border: none;
 	padding:0;
@@ -152,7 +152,7 @@ textarea {
 	height: 20vw;
 	padding: 2vw;
 	font-size: 3vw;
-	color: rgb(48, 150, 7);
+	color: rgb(3 ,22 ,52);
 	font-family: "微软雅黑";
 	margin-top: 1vw;
 	border-radius:4vw;
@@ -160,10 +160,10 @@ textarea {
 }
 textarea::placeholder {
  font-size:3vw;
- color:rgb(48, 150, 7);
+ color:rgb(3 ,22 ,52);
 }
 #presonMessageMenu p{
-	color:rgb(48, 150, 7);
+	color:rgb(3 ,22 ,52);
 }
 #hint {
 	font-size: 2vw;

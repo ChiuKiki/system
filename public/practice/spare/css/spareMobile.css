@@ -1,7 +1,7 @@
 #spareBox {
 	height: 12vh;
 	text-align: center;
-	background-color: rgb(48, 150, 7);
+	background-color: rgb(3 ,22 ,52);
 	color: whitesmoke;
 	margin: 0;
 }/*标题框的样式*/
@@ -32,14 +32,14 @@ input {
 	text-align: center;
 	width: 28vw;
 	height: 4vh;
-	border: 2px solid rgb(48, 150, 7);
+	border: 2px solid rgb(3 ,22 ,52);
 }
 select {
 	font-size: 3vh;
 	text-align: center;
 	width: 28vw;
 	height: 4vh;
-	border: 2px solid rgb(48, 150, 7);
+	border: 2px solid rgb(3 ,22 ,52);
 }
 #spareSearch {
 	width: 35vw;
@@ -54,7 +54,7 @@ select {
 #spareSearchText {
 	height: 6vw;
 	font-size: 6vw;
-	color: rgb(48, 150, 7);
+	color: rgb(3 ,22 ,52);
 	position: relative;
 	top: -4vw;
 	left: 2vw;
@@ -70,7 +70,7 @@ select {
 	height: 40vh;
 	margin: 0 auto;
 	overflow: auto;
-	border-top: 3px solid rgb(48, 150, 7);
+	border-top: 3px solid rgb(3 ,22 ,52);
 	padding-top: 4vh;
 }
 #container::-webkit-scrollbar {
@@ -81,7 +81,7 @@ select {
 }
 #container::-webkit-scrollbar-thumb {
  width:2vw;
- background-color:rgb(48, 150, 7);
+ background-color:rgb(3 ,22 ,52);
 }
 #addressBookTable {
 	border: 1px solid black;
@@ -134,7 +134,7 @@ td {
 	margin: 0;
 }
 #spareMenu p{
-	color:rgb(48, 150, 7);
+	color:rgb(3 ,22 ,52);
 }addressMenu
 /*选择框样式*/
 .week, .weekDay, .class, .department {
@@ -148,7 +148,7 @@ td {
 	position: relative;
 	padding-left: 2vw;
 	border-radius: 0;
-	border: 3px solid rgb(48, 150, 7);
+	border: 3px solid rgb(3 ,22 ,52);
 	text-align: left;
 	font-size: 2.5vh;
 }
@@ -156,7 +156,7 @@ input::-ms-clear {
 display:none;
 }
 .dataBox {
-	border: 1px solid rgb(48, 150, 7);
+	border: 1px solid rgb(3 ,22 ,52);
 }
 .dataList {
 	width: 30vw;

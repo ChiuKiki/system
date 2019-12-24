@@ -5,7 +5,7 @@ body {
 #titleBox {
 	height: 12vh;
 	text-align: center;
-	background-color: rgb(48, 150, 7);
+	background-color: rgb(3 ,22 ,52);
 	color: white;
 }/*标题框的样式*/
 #title {
@@ -27,7 +27,7 @@ body {
 	text-align: center;
 	width: 60vw;
 	height: 4vh;
-	border: 2px solid rgb(48, 150, 7);
+	border: 2px solid rgb(3 ,22 ,52);
 	float: left;
 	margin-top: 3vh;
 }
@@ -50,7 +50,7 @@ body {
 }
 #deleteText {
 	font-size: 50px;
-	color: rgb(48, 150, 7);
+	color: rgb(3 ,22 ,52);
 	float: left;
 	margin-right: 10vw;
 	font-weight: bolder;
@@ -96,7 +96,7 @@ td {
 	float: left;
 }
 .operate {
-	color: rgb(48, 150, 7);
+	color: rgb(3 ,22 ,52);
 }
 #blackBox{
 	width:100vw;
@@ -204,7 +204,7 @@ td {
 	margin: 0;
 }
 #administratorMenu p{
-color:rgb(48, 150, 7);
+color:rgb(3 ,22 ,52);
 }
 #hint {
 	font-size: 2vw;

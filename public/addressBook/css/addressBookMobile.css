@@ -4,7 +4,7 @@
 	width:100vw;
 	height: 10vw;
 	text-align: center;
-	background-color: rgb(155, 223, 128);
+	background-color: rgb(3 ,101 ,100);
 	color: white;
 	letter-spacing: 1vw;
 	border-radius:2vw 2vw 0 0 ;
@@ -37,7 +37,7 @@
 	border-radius:6vw;
 }
 #addressBook:hover {
-	border: 1px solid rgb(48, 150, 7);
+	border: 1px solid rgb(3 ,22 ,52);
 
 }
 #addressBookSearchImg {
@@ -88,7 +88,7 @@ td {
 	text-align: center;
 }
 #addressMenu p{
-	color:rgb(48, 150, 7);
+	color:rgb(3 ,22 ,52);
 }
 #hint {
 	font-size: 2vw;

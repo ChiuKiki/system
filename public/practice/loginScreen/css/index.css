@@ -9,7 +9,7 @@ body{
 
   margin-top:10px;
   font-size:40px;
-  color:rgb(48, 150, 7);
+  color:rgb(3 ,22 ,52);
   text-align:center;
 
 }/*设置标题的样式*/
@@ -27,7 +27,7 @@ body{
   font-family: "微软雅黑";
   font-size: 15px;
   background-color:rgba(255,255,255,0.5);
-  color:rgb(48, 150, 7);
+  color:rgb(3 ,22 ,52);
   text-align:center;
 
 }/*设置表单主题的格式*/
@@ -52,7 +52,7 @@ input[type="text"]{
 
   width:200px;
   height:30px;
-  border:1px solid rgb(48, 150, 7);
+  border:1px solid rgb(3 ,22 ,52);
 
 }/*设置输入框的格式*/
 
@@ -66,7 +66,7 @@ input[type="password"]{
 
   width:200px;
   height:30px;
-  border:1px solid rgb(48, 150, 7);
+  border:1px solid rgb(3 ,22 ,52);
 
 }/*设置输入框的格式*/
 
@@ -97,9 +97,9 @@ input[type="password"]{
   font-family: "微软雅黑";
   font-size: 20px;
   word-spacing: 20px;
-  background-color:rgb(48, 150, 7);
+  background-color:rgb(3 ,22 ,52);
   color:white;
-  border: 1px solid rgb(48, 150, 7);
+  border: 1px solid rgb(3 ,22 ,52);
   cursor: pointer;
 
 }
@@ -116,9 +116,9 @@ input[type="password"]{
   font-family: "微软雅黑";
   font-size: 20px;
   word-spacing: 20px;
-  background-color:rgb(48, 150, 7);
+  background-color:rgb(3 ,22 ,52);
   color:white;
-  border: 1px solid rgb(48, 150, 7);
+  border: 1px solid rgb(3 ,22 ,52);
   cursor: pointer;
   margin-left:50px;
 }

@@ -4,7 +4,7 @@ body {
 	overflow: hidden;
 }
 #registerTitle {
-	background-color: rgb(48, 150, 7);
+	background-color: rgb(3 ,22 ,52);
 	color: white;
 	width: 100vw;
 	padding-top: 3vh;
@@ -31,7 +31,7 @@ input {
 	width: 40vw;
 	height: 5vw;
 	font-size: 4vw;
-	border: 1px solid rgb(48, 150, 7);
+	border: 1px solid rgb(3 ,22 ,52);
 	outline: none;
 	background-color: rgba(0,0,0,0);
 }
@@ -59,9 +59,9 @@ input {
 	font-family: "微软雅黑";
 	font-size: 5vw;
 	word-spacing: 5vw;
-	background-color: rgb(48, 150, 7);
+	background-color: rgb(3 ,22 ,52);
 	color: white;
-	border: 1px solid rgb(48, 150, 7);
+	border: 1px solid rgb(3 ,22 ,52);
 	cursor: pointer;
 	border-radius: 1vw;
 	margin: 0 auto;
