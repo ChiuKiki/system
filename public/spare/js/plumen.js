@@ -27,12 +27,12 @@
             "-moz-appearance": "none",
             appearance: "none",
 						width:"8vw",
-						height:"5vw",
-						background:"rgb(155, 223, 128)",
+						height:"5.3vw",
+						background:"rgba(172, 214, 218, 0.945)",
 						display:"inline-block",
 						position:"absolute",
-						right:"-0.5vw",
-						top:"0vw",
+						right:"-0.2vw",
+						top:"-0.1vw",
 						borderRadius:" 0 45% 45% 0 ",
 						zIndex:2
 					})

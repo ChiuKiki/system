@@ -18,96 +18,92 @@ $(function(){/*载入时获得人员的数据并添加修改,删除的逻辑*/
         window.setTimeout(function(){$("#alert").remove();},2000);
         $("#administratorTable").empty();
         console.log(data[0][0]);
-        if (data) {
-          $("#administratorTable").append('<tr> <th><input type="checkbox" id="allSelect" class="selectPart" value=true/><p>全选</p></th>' 
-                                              +"<th>操作</th>"
-                                              +"<th>姓名</th>"
-                                              +"<th>部门</th>"
-                                              +"<th>职位</th>"
-                                              +"<th>电话</th>"
-                                              +"<th>QQ</th>"
-                                              +"<th>邮箱</th>"
-                                              +"<th>学院</th>"
-                                              +"<th>学号</th>"
-                                              +"<th>生日</th>"
-                                              +'</tr>');
-          for(var i in data){
-            $("#administratorTable").append('<tr> <td><input type="checkbox" class="selectPart" value=true/><p>选中</p></td>'
-                                            +'<td class="operate"><a class="operateChange">修改</a> <a class="operateDelete">删除</a></td> <td>'
-                                            +data[i].name+'</td> <td>'
-                                            +data[i].department+'</td> <td>'
-                                            +data[i].position+'</td> <td>'
-                                            +data[i].tel+'</td> <td>'
-                                            +data[i].QQ+'</td> <td>'
-                                            +data[i].email+'</td> <td>'
-                                            +data[i].school+'</td> <td>'
-                                            +data[i].number+'</td> <td>'
-                                            +data[i].birthday+'</td>'+'</tr>');
-          }
-          $(".operateChange").on('click',function(){//如果点击修改则跳转到个人页面
-    
-            console.log($(this).parent().parent().children().eq(9).text());
-            $("#amendBox").toggle();
-            $("#blackBox").toggle();
-            $("#amendBox").animate({"top":"65%"},500); 
-            $.ajax({//发送请求获取个人信息
-              url:"http://system.chiukiki.cn/api/queryAdmin",
+        $("#administratorTable").append('<tr> <th><input type="checkbox" id="allSelect" class="selectPart" value=true/><p>全选</p></th>' 
+                                            +"<th>操作</th>"
+                                            +"<th>姓名</th>"
+                                            +"<th>部门</th>"
+                                            +"<th>职位</th>"
+                                            +"<th>电话</th>"
+                                            +"<th>QQ</th>"
+                                            +"<th>邮箱</th>"
+                                            +"<th>学院</th>"
+                                            +"<th>学号</th>"
+                                            +"<th>生日</th>"
+                                            +'</tr>');
+        for(var i in data){
+          $("#administratorTable").append('<tr> <td><input type="checkbox" class="selectPart" value=true/><p>选中</p></td>'
+                                          +'<td class="operate"><a class="operateChange">修改</a> <a class="operateDelete">删除</a></td> <td>'
+                                          +data[i].name+'</td> <td>'
+                                          +data[i].department+'</td> <td>'
+                                          +data[i].position+'</td> <td>'
+                                          +data[i].tel+'</td> <td>'
+                                          +data[i].QQ+'</td> <td>'
+                                          +data[i].email+'</td> <td>'
+                                          +data[i].school+'</td> <td>'
+                                          +data[i].number+'</td> <td>'
+                                          +data[i].birthday+'</td>'+'</tr>');
+        }
+        $(".operateChange").on('click',function(){//如果点击修改则跳转到个人页面
+  
+          console.log($(this).parent().parent().children().eq(9).text());
+          $("#amendBox").toggle();
+          $("#blackBox").toggle();
+          $("#amendBox").animate({"top":"65%"},500); 
+          $.ajax({//发送请求获取个人信息
+            url:"http://system.chiukiki.cn/api/queryAdmin",
+            data:{
+              queryNumber:$(this).parent().parent().children().eq(9).text()
+            },
+            dataType:"json",
+            success:function(data){
+              $("body").append("<div id='alert'>"+"获取信息成功"+"</div>");
+              window.setTimeout(function(){$("#alert").remove();},2000);
+              var j=0;
+              for(var i in data[0]){
+                $(".fromPart input").eq(j).attr({ value: data[0][i] });console.log(data[0][i]);
+                j++;
+              }
+            },
+            error:function(e){
+              $("body").append("<div style=' color:white;' id='alert'>"+e.responseJSON.message+"</div>");
+              window.setTimeout(function(){$("#alert").remove();},2000);
+              console.log(e);
+            }
+          })
+        })
+        $(".operateDelete").on('click',function() {//操作中的删除按钮
+          if(confirm("你确定要删除这些用户的信息?")){
+            var people=new Array();
+            people.push($(this).parent().parent().children().eq(9).text());
+            $(this).parent().parent().remove();
+            $.ajax({
+              url:"http://system.chiukiki.cn/api/delete",
               data:{
-                queryNumber:$(this).parent().parent().children().eq(9).text()
+                number: people
               },
               dataType:"json",
-              success:function(data){
-                $("body").append("<div id='alert'>"+"获取信息成功"+"</div>");
+              success:function(data) {
+                $("body").append("<div id='alert'>"+"删除成功"+"</div>");
                 window.setTimeout(function(){$("#alert").remove();},2000);
-                var j=0;
-                for(var i in data[0]){
-                  $(".fromPart input").eq(j).attr({ value: data[0][i] });console.log(data[0][i]);
-                  j++;
-                }
               },
               error:function(e){
-                $("body").append("<div style=' color:white;' id='alert'>"+e.responseJSON.message+"</div>");
+                $("body").append("<div id='alert'>"+e.responseJSON.message+"</div>");
                 window.setTimeout(function(){$("#alert").remove();},2000);
                 console.log(e);
               }
             })
-          })
-          $(".operateDelete").on('click',function() {//操作中的删除按钮
-            if(confirm("你确定要删除这些用户的信息?")){
-              var people=new Array();
-              people.push($(this).parent().parent().children().eq(9).text());
               $(this).parent().parent().remove();
-              $.ajax({
-                url:"http://system.chiukiki.cn/api/delete",
-                data:{
-                  number: people
-                },
-                dataType:"json",
-                success:function(data) {
-                  $("body").append("<div id='alert'>"+"删除成功"+"</div>");
-                  window.setTimeout(function(){$("#alert").remove();},2000);
-                },
-                error:function(e){
-                  $("body").append("<div id='alert'>"+e.responseJSON.message+"</div>");
-                  window.setTimeout(function(){$("#alert").remove();},2000);
-                  console.log(e);
-                }
-              })
-                $(this).parent().parent().remove();
-            }
-          })
-          $("#allSelect").on("click",function(){//设置全选的逻辑
-            console.log($("#allSelect").attr("checked")); 
-            if($("#allSelect").prop("checked")){
-              $(".selectPart").prop("checked",true);
-            }  
-            else{
-              $(".selectPart").prop("checked",false);
-            }
-          })
-        } else {
-          $("#administratorTable").append('<div>尚未增添人员信息</div>');
-        }
+          }
+        })
+        $("#allSelect").on("click",function(){//设置全选的逻辑
+          console.log($("#allSelect").attr("checked")); 
+          if($("#allSelect").prop("checked")){
+            $(".selectPart").prop("checked",true);
+          }  
+          else{
+            $(".selectPart").prop("checked",false);
+          }
+        })
       },
       error:function(e){
         $("body").append("<div id='alert'>"+e.responseJSON.message+"</div>");

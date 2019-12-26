@@ -226,3 +226,8 @@ td {
 	text-align: center;
 	display: none;
 }
+.noInfo {
+	text-align: center;
+	letter-spacing: .7vw;
+	padding-top: 20vw;
+}
