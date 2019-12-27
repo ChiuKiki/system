@@ -90,16 +90,16 @@ $(function(){//点击修改,完成按钮根据值的不同来触发事件
 	$("#spareButton").click(function(){
 		if($("#alterText").text()=="修改"){/*返回之后再请求后端,获得个人信息*/
         
-			$("#alterImg").attr("src","img/right.png");
+			$("#alterImg").attr("src","img/right.svg");
 			$("#alterText").text("保存");
 			$("input").prop("readonly",false);
 			$("textarea").prop("readonly",false);
-			$("textarea").css("border","1px solid rgb(48, 150, 7)");
+			$("textarea").css("border","1px solid rgb(3 ,22 ,52)");
 			$("#userStudentNum").prop("readonly",true);
 			$("#containerLeft").css("height","22vw");
 			$("#containerRight").css("height","60vw");
 			$(".fromPart").css({"margin-top":"6vw","margin-bottom":"0"});
-			$("input").css({"border":"1px solid rgb(48, 150, 7)"});
+			$("input").css({"border":"1px solid rgb(3 ,22 ,52)"});
 			$("#callback").show();
 			$("#container").css("height","120vw");
 			$("#hint").show();
@@ -164,7 +164,7 @@ $(function(){//点击修改,完成按钮根据值的不同来触发事件
 	    }
 			if(detections==true){//如果数据没问题则发送请求
 
-				$("#alterImg").attr("src","img/alter.png");
+				$("#alterImg").attr("src","img/alter.svg");
 			  $("#alterText").text("修改");
 				$("input").prop("readonly",true);
 	      $("textarea").prop("readonly",true);	
