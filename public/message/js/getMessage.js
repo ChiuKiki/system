@@ -14,7 +14,7 @@ $(function(){//加载信息
 		for(var i=1;i<10;i++){//将label标签的内容换成图片
 			
 		  $("label").eq(i-1).empty();
-			$("label").eq(i-1).append("<img src='img/project"+i+".png' style='width:10vw;height:10vw;float:left;'/>");
+			$("label").eq(i-1).append("<img src='img/project"+i+".svg' style='width:10vw;height:10vw;float:left;'/>");
 			
 		}
 		$("#spareBox").hide();
