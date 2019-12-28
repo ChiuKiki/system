@@ -204,3 +204,11 @@ td {
 #spareMenu p{
 	color:rgb(3 ,22 ,52);
 }
+#no-number {
+	width:95vw;
+	height:10vw;
+	margin:0 auto;
+	margin-top:10vw;
+	text-align:center;
+	font-size:5vw;
+   }
