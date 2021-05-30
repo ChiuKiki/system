@@ -42,7 +42,6 @@ class Check extends Model
         }
     }
 
-    /*
 //  检查姓别：男或女
     public static function checkGender($gender){
         $pattern='/^[\x{7537}|\x{5973}]{1}$/u';
@@ -52,7 +51,6 @@ class Check extends Model
             return false;
         }
     }
-    */
 
 
 //  检查学号：
@@ -113,19 +111,6 @@ class Check extends Model
     public static function checkDepartment($department){
         $pattern='/^([\x{4E00}-\x{9FA5}\x{F900}-\x{FA2D}])+部$/u';
         if(preg_match($pattern,$department)){
-            return true;
-        }else{
-            return false;
-        }
-    }
-
-
-//  检查职位：
-//    1.英文或汉字
-//    2.1-5个字
-    public static function checkPosition($position){
-        $pattern='/^[\x{4e00}-\x{9fa5}]|[a-zA-Z]{1,10}$/u';
-        if(preg_match($pattern,$position)){
             return true;
         }else{
             return false;
