@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Session;
 
 class User extends Model
 {
@@ -22,10 +21,8 @@ class User extends Model
         if(!$isTelExist) return $result = 0;
 
         $match = User::where(['tel'=>$tel,'password'=>$password])->first();
-        if($match) {
-            Session::put('tel', $tel);  // 保持session
-            return $result = 1;
-        }else return $result = -1;
+        if($match) return $result = 1;
+        else return $result = -1;
     }
 
     /**
@@ -44,24 +41,20 @@ class User extends Model
         $password = $request->get('password');
 
         $isTelExist = User::where(['tel'=>$tel])->first();
-        if($isTelExist) return $result = -1;
-
-        $checkResult=Check::checkName($name)&&Check::checkGender($gender)
-                        &&Check::checkTel($tel)&&Check::checkPassword($password);
-        if($checkResult){
-            User::insert(['name'=>$name, 'gender'=>$gender, 'tel'=>$tel,'password'=>$password]);
-            return $result = 1;
-        }else return $result = 0;
+        if($isTelExist) return $result = 0;
+        $res = User::insert(['name'=>$name, 'gender'=>$gender, 'tel'=>$tel,'password'=>$password]);
+        if($res) return $result = 1;
+        else return $result = -1;
     }
 
     /**
      * 获取个人信息
      *
-     * @param $userTel
+     * @param $tel
      * @return $result
      */
-    public static function userModel($userTel){
-        $result=User::where('tel',$userTel)
+    public static function userModel($tel){
+        $result=User::where('tel',$tel)
             ->select('name','gender','birthday','tel', 'QQ','email')
             ->get();
         return $result;
@@ -70,6 +63,7 @@ class User extends Model
     /**
      * 修改个人信息
      *
+     * @param $request->tel
      * @param $request->name
      * @param $request->gender
      * @param $request->birthday
@@ -78,20 +72,16 @@ class User extends Model
      * @return $result
      */
     public static function updateModel($request){
+        $tel = $request->get('tel');
         $name = $request->get('name');
         $gender = $request->get('gender');
         $birthday = $request->get('birthday');
         $QQ = $request->get('QQ');
         $email = $request->get('email');
-        // 不改密码、手机号
-        $checkResult=Check::checkName($name) && Check::checkGender($gender) && Check::checkBirthday($birthday)
-            && Check::checkQQ($QQ) && Check::checkEmail($email);
-        if($checkResult) {
-            $result = User::where('tel', Session::get('tel'))->update(
+        $result = User::where('tel', $tel)->update(
                 ['name' => $name, 'gender' => $gender, 'birthday' => $birthday, 'QQ' => $QQ, 'email' => $email]
-            );
-            return $result;
-        }else return $result = 0;
+        );
+        return $result;
     }
 
 }

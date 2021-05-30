@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller{
 
@@ -14,21 +13,20 @@ class UserController extends Controller{
      * @param Request $request->tel
      * @param Request $request->password
      * @return 'message'
+     *
+     * test：
+     * http://system.chiukiki.cn/api/login?tel=15800280827&password=aaaaaa
      */
     public function login(Request $request){
         $result = User::loginModel($request);
         switch($result){
             case "0":
-                Session::put('flag',0); // flag = 0 未登录
                 return response(array('message'=>'账号不存在'),401);
                 break;
             case "1":
-                Session::put('flag',1); // flag = 1 已登录
-                Session::put('tel',$request->tel);
                 return response(array('message'=>'登录成功'));
                 break;
             default:
-                Session::put('flag',0);
                 return response(array('message' => '用户名或密码错误'), 401);
 
         }
@@ -46,7 +44,7 @@ class UserController extends Controller{
      * @return 'message'
      *
      * test:
-     * http://system.chiukiki.cn/ecg/api/register?name=测试&gender=女&tel=15800000000&password=abc123&confirmPassword=abc123
+     * http://system.chiukiki.cn/api/register?name=小赵&gender=女&tel=15800280827&password=aaaaaa&confirmPassword=aaaaaa
      */
     public function register(Request $request){
         $password = $request->get('password');
@@ -54,7 +52,7 @@ class UserController extends Controller{
         if($password == $confirmPassword) {
             $result = User::registerModel($request);
             switch($result){
-                case "-1":
+                case "0":
                     return response(array('message' => '该手机号已被注册'), 403);
                     break;
                 case "1":
@@ -70,21 +68,24 @@ class UserController extends Controller{
     /**
      * 获取个人信息
      *
+     * @param Request $request->tel
      * @return $result
      *
      * test:
-     * http://system.chiukiki.cn/ecg/api/user
+     * http://system.chiukiki.cn/api/user?tel=15800280827
      */
-    public function user(){
-        $userTel = Session::get('tel');
-        $result = User::userModel($userTel);
+    public function user(Request $request){
+        $tel = $request->get('tel');
+        $result = User::userModel($tel);
         if ($result) return response($result);
         else return response(array('message' => '无用户信息'), 403);
     }
 
     /**
      * 修改个人信息
+     * 以手机号为索引
      *
+     * @param Request $request->tel
      * @param Request $request->name
      * @param Request $request->gender
      * @param Request $request->birthday
@@ -93,7 +94,7 @@ class UserController extends Controller{
      * @return 'message'
      *
      * test：
-     * http://system.chiukiki.cn/ecg/api/update?name=测试&gender=男&birthday=10.17&QQ=1169849916&email=123456@qq.com
+     * http://system.chiukiki.cn/api/update?tel=15800280827&name=小赵&gender=女&birthday=10.17&QQ=840084384&email=840084384@qq.com
      */
     public function update(Request $request){
         $result = User::updateModel($request);
@@ -104,16 +105,4 @@ class UserController extends Controller{
         }
     }
 
-    /**
-     * 注销
-     *
-     * @return 'message'
-     *
-     * test:
-     * http://system.chiukiki.cn/ecg/api/logout
-     */
-    public function logout(){
-        Session::flush();
-        return response(array('message'=>'注销成功'));
-    }
 }
