@@ -22,7 +22,7 @@ Route::any('forgetPassword','PeopleController@forgetPasswordModel');
 
 
 // 登录
-Route::get('login','UserController@login');
+Route::post('login','UserController@login');
 // 注册
 Route::post('register','UserController@register');
 // 修改信息
