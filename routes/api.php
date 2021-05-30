@@ -26,7 +26,7 @@ Route::post('login','UserController@login');
 // 注册
 Route::post('register','UserController@register');
 // 修改信息
-Route::put('update','UserController@update');
+Route::post('update','UserController@update');
 // 获取个人信息
-Route::get('user','UserController@user');
+Route::post('user','UserController@user');
 
