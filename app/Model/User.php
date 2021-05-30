@@ -56,7 +56,7 @@ class User extends Model
     public static function userModel($tel){
         $result=User::where('tel',$tel)
             ->select('name','gender','birthday','tel', 'QQ','email')
-            ->get();
+            ->first();
         return $result;
     }
 
