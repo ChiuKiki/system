@@ -83,8 +83,9 @@ class UserController extends Controller{
 
     /**
      * 修改个人信息
-     * 以手机号为索引
+     * 手机号不能重复
      *
+     * @param Request $request->old_tel
      * @param Request $request->tel
      * @param Request $request->name
      * @param Request $request->gender
@@ -94,13 +95,16 @@ class UserController extends Controller{
      * @return 'message'
      *
      * test：
-     * http://system.chiukiki.cn/api/update?tel=15800280827&name=小赵&gender=女&birthday=10.17&QQ=840084384&email=840084384@qq.com
+     * http://system.chiukiki.cn/api/update?old_tel=15800280827&tel=15800280827&name=小赵&gender=女&birthday=10.17&QQ=840084384&email=840084384@qq.com
      */
     public function update(Request $request){
         $result = User::updateModel($request);
-        if ($result) {
+        if ($result == -1) {
+            return response(array('message'=>'手机号已被使用'),403);
+        }elseif ($result){
             return response(array('message'=>'修改成功'));
-        } else {
+        }
+        else {
             return response(array('message'=>'修改失败'),403);
         }
     }

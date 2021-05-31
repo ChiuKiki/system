@@ -72,14 +72,21 @@ class User extends Model
      * @return $result
      */
     public static function updateModel($request){
+        $old_tel = $request->get('old_tel');
         $tel = $request->get('tel');
         $name = $request->get('name');
         $gender = $request->get('gender');
         $birthday = $request->get('birthday');
         $QQ = $request->get('QQ');
         $email = $request->get('email');
-        $result = User::where('tel', $tel)->update(
-                ['name' => $name, 'gender' => $gender, 'birthday' => $birthday, 'QQ' => $QQ, 'email' => $email]
+
+        // 检查能否修改手机号
+        $isTelExist = User::where(['tel'=>$tel])->get()->count();
+        if($old_tel != $tel && $isTelExist) return $result = -1;
+        // 能修改
+        $id = User::where('tel', $old_tel)->value('id');    // 主键约束
+        $result = User::where('id', $id)->update(
+                ['tel' => $tel, 'name' => $name, 'gender' => $gender, 'birthday' => $birthday, 'QQ' => $QQ, 'email' => $email]
         );
         return $result;
     }
